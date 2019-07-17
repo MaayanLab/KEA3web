@@ -1,0 +1,64 @@
+Akt1_biogrid_mouse		Mapk14	Arrb2	Hsp90aa1	Btbd10	Hist2h2bb	Kctd20	Mapkapk2	Ppp2ca	Ccdc88a	Gsk3a	Ttc3	Arrb1	Insr	Src	Akt1s1	Akt2	Map4k4	Ppargc1a	Traf6	Hdac6	Ctnnd1	Stub1	Parvb	Hspb1	Hist1h2bc	Pik3r1	Gsk3b	Vhl	Sox2	Ppp2r2b	Akt1	Clip3	Ilk	Hsp90ab1	Hspb2
+Akt2_biogrid_mouse		Gsk3b	Gsk3a	Akt1	Btbd10	Kctd20	Map4k4	Akt1s1	Clip3	Ccdc88a
+Rock2_biogrid_mouse		Raf1	Npm1	Dlg4	Ppp1r9b	Pfn2	Shank3	Tubg1	Vim
+Stk38_biogrid_mouse		Myd88	Eed	Traf3	Jarid2	Ezh1	Ezh2	Mtf2	Kat5	Fancd2
+Dapk1_biogrid_mouse		Chaf1a	Mycbp2	Creb3l4	Trp53	Unc5b	Mib1	Eed
+Dapk3_biogrid_mouse		Ube2d1	Dapk3	Wdtc1	Ube2d2a	Ube2d3	Atf4	Fmr1
+Dclk1_biogrid_mouse		Mycbp2	Tnik	Ppp1r9b	Dcx	Wdtc1	Agap2	Ywhae	Shank3	Dclk1	Cyfip1
+Kalrn_biogrid_mouse		Tnik	Lzts3	Trio	Myo5a	Akap11	Pkp4	Camk2d	Sorbs1	Specc1l	Synpo	Nefm	Dlgap1	Homer1	Gja1	Shisa7	Chchd6	Nefl	Syngap1	Rapgef4	Gria3	Iqsec2	Ank2	Gprin1	Camk2a	Ctnnd2	Macf1	Ctnna2	Sestd1	Dab2ip	Cnksr2	Gria2	Dlg2	Grin2b	Cit	Dlg4	skt	Sipa1l1	Camk2b	Sptan1	Pde4dip	Pde4d	Agap2	Camk2g	Adam22	Epb4.1l3	Camsap3	Cdh10	Dzank1	Git1	Sptbn1	Map3k9	Ppp1r9a	Iqsec1	Sptbn2	Shank3	Ina	Sncaip
+Mapk3_biogrid_mouse		Pea15b	Sqstm1	Atf2	Grin2b	Nanog	Syngap1	Mapk1	Mbp	Metap2	Rps6ka3	Agap2	Grin1	Shank3	Elk1	Pea15a	Dlgap1
+Mark2_biogrid_mouse		Ywhah	Foxp3	Ywhag	Ywhae	Ywhab	Eed
+Mark3_biogrid_mouse		Ywhah	Ywhag	Ksr1	Ywhae	Ywhab	Ywhaz
+Trio_biogrid_mouse		Tnik	Fam92a	Eed	Nav1	Agap2	1600002H07Rik	Ttc23	Kalrn	Dlgap1
+Cdk1_biogrid_mouse		Myod1	Hist1h1a	Hspa2	Pou5f1	Esrrb	Ppp1cc	Impact	Braf	H1f0	Zfp281	Eed	Uba1	Cdkn1a	Ccnb1	Ccna2	Hist1h1c	Cebpa	Nasp	H1	Uchl1	Pura	Hist1h3f	Fancd2
+Cdk2_biogrid_mouse		Cdkn1b	Trp53	Smn1	Hist1h1a	Brca2	Pcna	Npm1	Ccna1	Ppp1cc	Ccnd2	Braf	Ltb	Ccne1	H1f0	Cdc6	Pla2g4a	Rb1	Cdkn1a	Ccna2	Hist1h1c	Cebpa	H1	Pura	Bcl2	Hist1h1b
+Cdk4_biogrid_mouse		Cdkn1b	Cdc37	Hspa8	Hist1h1a	Set	Hsp90aa1	Wdtc1	Cep57	Pcna	Psmd10	Ppp1cc	Ccnd3	Ccnd1	Ccnd2	Rb1	Cdkn1a	Hist1h1c	Cebpa	Pura	Hist1h1b
+Cdk5_biogrid_mouse		Nefh	Stub1	Dlg4	Wdtc1	Tsc1	Agap2	Pura	Cdk5r1	H1f0	Dlgap1
+Cdk6_biogrid_mouse		Cdkn1b	Foxp3	Runx1	Rb1	Hist1h1a	Ccnd3	Ccnd1	Ccnd2
+Gsk3a_biogrid_mouse		Arrb2	Ctnnd1	Ppp1cc	Ror2	Akt2	Akt1
+Gsk3b_biogrid_mouse		Map3k4	Tnik	Arrb2	Mcl1	Nfe2l2	Axin1	Cops2	Ror2	Wdtc1	Tlr3	Smad3	Ikbkg	Eed	Gps1	Apc	Foxp3	Tab1	Ctnnb1	Psen1	Syngap1	Axin2	Akt2	Ctnnd2	Traf6	Snai1	Ctnnd1	Trp53	Plekho1	Cops8	E2f1	Prkcz	Hcn1	Agap2	Mdm2	Lrrk2	Ticam2	Fxr1	Nckap1	Akt1	Fmr1	Map3k7	Shank3	Tab2	Cyfip1
+Hipk2_biogrid_mouse		Lmo2	Trp53	Axin1	Pou4f1	Ctbp2
+Mink1_biogrid_mouse		Cnksr2	Pde4dip	Tsc1	Agap2	Dlgap1
+Pak1_biogrid_mouse		Fxr1	Cdc42	Rac2	Rac1	Mbp	Musk	Nf2	Dvl1	Cyfip1	Hcn1	Pxn	Tgfbr1	Rhoq	Esr1	Agrn
+Tnik_biogrid_mouse		Taf5	Strn3	Herc2	Myo5a	Calcoco1	Cep170b	Strn	Dync1h1	Kif5c	Trim28	Ap2a1	Tnr	Dlgap1	Homer1	Apc	Ctbp2	Zfp219	Shisa7	Syngap1	Nbea	Dock11	Bcr	Mtss1l	Lmnb1	Cacnb4	Wiz	Nedd4	Sh3gl2	Dclk1	Dock7	Prkaca	Baiap2	Dlg2	Cit	Kif2a	Brd7	Ppp2r5d	Camk2b	Ctbp1	Grin2a	Ehmt2	Cacnb1	Msantd2	Ptprd	Soga3	Cabin1	Git1	Fxr2	Dnm1	Chd8	Cttnbp2	Sart1	Nos1	Prkar2a	Thrap3	Grm5	Sept3	Dchs1	Iqsec1	Epm2aip1	Kctd9	Syne1	Ina	Ranbp9	Gtpbp4	Lzts1	Kif5a	Zc3h4	Ddx3x	Actr1a	Homer3	Matr3	Plekha5	Ppp1cc	Arhgef2	Snap91	Gria3	Cep170	Iqsec2	Kdm1a	Ank2	Clasp1	Grin1	Kcnma1	Nop56	Tpr	Prkcg	Ctnnd2	Ctnna2	Huwe1	Gsn	Caprin1	Pcdh8	Sptan1	Grin2b	Ngef	Dlg4	Sh3kbp1	Mob4	Strn4	Ap2b1	Adnp	Carm1	Neurl4	Cdh2	Hcn1	Camk2g	Trim46	Maged2	Kalrn	Cenpf	Dcx	Fxr1	Mycbp2	Cdh10	Kif5b	Nckap1	Dzank1	Nlgn2	Kif2c	Tanc2	Rimbp2	Pura	Nedd4l	Ccar2	Prkar1b	Cyfip1	G3bp1	Cyfip2	Dgki	Sec24c	Arhgap39	Rims1	Clu	Cacna1a	Tsc1	Dlg3	Zic2	Shank2	Cask	Prkacb	Abi1	Dpysl2	Glul	Rapgef4	Cacna1e	Rac1	Bcl11b	Tlk2	Fkbp15	Zeb2	Dstn	Tjp1	Map4k4	Cnksr2	Gria2	Arhgap21	Zscan18	Rcor1	Smarcc2	Strip1	Zmym2	Mapk1	Pde4dip	Nsf	Iqsec3	Sec23a	Agap2	Camkv	Cad	Ehmt1	Grik2	Cdc73	Ewsr1	Pak7	Wasf1	Sptbn1	Fmr1	Bin1	Tdrd3	Ank3	Arhgap32	Sptbn2	Pcm1	Mpp5	Supt16	Lzts3	Trio	Prkar2b	Gatad2b	Sorbs2	Ppp2r1a	Ap2a2	Ubn2	Tbl1xr1	Edc4	Camk2d	Trim3	Dst	Nes	Paf1	Foxp2	Prkcb	Shank1	Lmnb2	Magi2	Ctnnb1	Dlg1	Nat10	Rcor2	Cap2	Arc	Kif7	Camk2a	Unc13a	Akap9	Ptprs	Etl4	Macf1	Ncor2	Syne2	Zfp462	Lsg1	Ctnnd1	Hira	Fbxo45	Ppp2cb	Sipa1l1	Taok2	Cdc5l	Erc2	Usp9x	Ppp1ca	Mga	Trp53bp1	Hdac2	Agrn	Gria1	Lrrc7	Gsk3b	Prrc2b	Srgap3	Abi2	Usp10	Ablim1	Cacna2d1	Eftud2	Cnp	Shank3	Ppp3cb	Pex5l
+Braf_biogrid_mouse		Cdc37	Mcm3	Mc1r	Hsp90aa1	Cdk2	Hsd11b2	Vim	Eed	Wdr6	Ywhaz	Ywhab	G3bp2	Rap1b	Gnai3	Dnajb11	Dnaja1	Fancd2	Dock7	Dock1	Anxa2	Hspa8	Cdk1	Csnk2b	Phb	Npm1	Pip4k2c	Araf	Iqgap3	Eif5	Akap8	Usp7	Phb2	Pten	Anxa5	AI314180	Gramd4	Pgam1	Ywhag	Map2k1	Hras	Gnas	Pld2	Ywhah	Sgpl1	Rptor	Dnajb12	Ywhaq	Iqgap1	Pi4ka	Rad50	Copa	Ran	Fmnl3	Ppp1r10	Atad3a	Dnajc13	Hsp90b1	Snx9	Myof	Cpne3	Ppp2cb	Gnai2	Map2k2	Ppp1ca	Myo9b	Ublcp1	Kidins220	Nras	Gpi1	Hspa5	Raf1	Wdr26	Ywhae	Sfn	Hspa9
+Ilk_biogrid_mouse		Parva	Nos3	Stub1	Parvb	Akt1	Lims1	Tmsb4x	Mbp	Pou5f1	Pxn	Fancd2
+Irak1_biogrid_mouse		Traf6	Stat3	Rnf41	Btrc	Nr0b2	Bcl10	Rsad2	Pin1	Prkce	Il1rap	Myd88	Irak1	Map3k7	Peli2	Reg1	Irak4	Ecsit	Tollip	Tlr4	Irf5	Nr3c1	Tnfrsf1a	Il1r1
+Irak4_biogrid_mouse		Myd88	Irak1	Tlr4	Tirap	Il1r1	Wdtc1
+Ksr1_biogrid_mouse		Map2k1	Mapk1	Ksr1	Brap	Raf1	Mbp	Map2k2	Pla2g4a	Ywhae	Mark3
+Lrrk2_biogrid_mouse		Ywhag	Fis1	Herc2	Ripk2	Cdc37	Stub1	Neurl4	Hsp90aa1	Axin1	Taok1	Ywhah	Lrrk2	Ripk1	Ywhaq	Arhgef7	Gsk3b	Arfgap1	Ctnnb1	Cdc42	Bag5	Ywhab	Ywhaz	Mbp	Rab5b	Dnm1l	Tubb4a	Dvl3	Wsb1	Ywhae
+Raf1_biogrid_mouse		Map2k1	Hras	Grin2b	Brap	Rock2	Nek10	Pxn	Rfxank	Sorbs3	Braf	Pebp1	Nras	Ksr1	Grin1	Kndc1	Rabgef1
+Ripk1_biogrid_mouse		Traf6	Nek1	Tlr3	Itch	Khdrbs1	Traf2	Lrrk2	Cyld	Map3k8	Ikbkg	Il1b	Tnf	Sqstm1	Tax1bp1	Tnfaip3	Rnf11	Tnfrsf1a	Atg5	Casp8	Fadd	Ripk3
+Ripk2_biogrid_mouse		Traf6	Fmr1	Irf4	Lrrk2	Cyld
+Abl1_biogrid_mouse		Pparg	Crkl	Nck1	Rapgef1	Abl1	Pxn	Rin1	Crk	Dok1	Ptpn11	Enah	Cish	Fmn1	Dok3	Rasa1	Park2	Cbl	Asrgl1	Inpp5d
+Btk_biogrid_mouse		Gnb1	Gng2	Mllt1	Blnk	Inpp5d	Arid3a
+Csf1r_biogrid_mouse		Pik3r1	Stat3	Socs1	Ptpn6	Src	Thoc5	Csf1r	Dok1	Fyn	Grb2	Cbl	Tyk2	Stap1	Shc1	Plcg2
+Csk_biogrid_mouse		D8Ertd82e	Csk	Pag1	Crebbp	Cdh5	Dok1	Itgb3	Cdh2
+Egfr_biogrid_mouse		Mapk14	Fam92a	Itgb4	Vav1	Sos1	Wdtc1	Ap2a1	Pla2g2a	Erbb2	Grb2	Ppp1cc	Tyk2	Shc1	Cbl	Arhgef7	Ap1b1	Socs5	Btc	Jak2	Osmr	Ptpn11	Egfr	1600002H07Rik	Src	Ttc23	Ppp1r13b	Eps15	Fancd2
+Erbb2_biogrid_mouse		Pik3r1	Egfr	Lnx1	Itgb4	Nphs2	Cbl	Shc1
+Fgfr1_biogrid_mouse		Dock1	Fgf2	Frs2	Klb	Crkl	Fgf23	Flrt2	Kl	Frs3	Flrt1	Flrt3
+Fyn_biogrid_mouse		Pik3r1	Diap1	Kdr	Csf1r	Fmn1	Enah	Nck1	Ptprf	Khdrbs1	Sh2d1b2	Ptpn5	Was	Eno1	Cbl	Zfp106
+Hck_biogrid_mouse		Dvl2	Sh2d1b2	Fcgr1	Cbl	Fancd2
+Igf1r_biogrid_mouse		Grb10	Nphs2	Irs1	Mdm2	Snx9
+Insr_biogrid_mouse		Sh2b2	Grb10	Cav3	Jup	Arrb2	Irs1	Socs3	Flot1	Akt1	Dok1	Sorbs1	Cav1	Dok3	Src	Socs1	Snx9
+Jak1_biogrid_mouse		Il3ra	Fert2	Socs5	Zbtb7b	Csf2rb2	Ptpn2	Socs3	Jak1	Prkcz	Cabyr	Stat5a	Socs1	Fancd2
+Jak2_biogrid_mouse		Cdkn1b	Stat3	Prlr	Ptpn6	Csf2rb2	Ifngr1	Ubash3b	Pkd1	Cav1	Lmo4	Stat5a	Pik3r1	Il3ra	S1pr1	Socs5	Il6st	Stat5b	Socs3	Il12rb2	Jak2	Ptpn1	Egfr	Yes1	Mpl	Src	Socs1	Crlf2	Kit
+Kit_biogrid_mouse		Vav1	Pik3r2	Socs6	Kitl	Pik3ca	Matk	Grb2	Grap2	Fiz1	Pik3r1	Plk1	Fes	Jak2	Sh2b1	Cbl	Socs1	Stap1
+Lck_biogrid_mouse		Pik3r1	Cblb	Socs6	Dlg1	Zap70	Cd4	Stap1	Cd38	Was	Cbl	Cyld	Fancd2
+Lyn_biogrid_mouse		Ms4a2	Pag1	Crebbp	Dok1	Hdac3	Khdrbs1	Sh2d1b2	Itga2	Cbl	Fancd2
+Met_biogrid_mouse		Muc20	Kdr	Grb2	Gab1	Itgb1
+Ntrk1_biogrid_mouse		Traf6	Sqstm1	Ulk1	Shc3	Plcg1	Trim30a	Coq10a	Shc1	Ndn	Ngfr
+Ntrk2_biogrid_mouse		Sqstm1	Gab1	Slitrk5	Uchl1	Ppp2r4	Plcg1	Dlg4	Cyfip1
+Ryk_biogrid_mouse		Ephb2	Cdc37	Wnt3a	Epha7	Fzd8	Wnt5a	Dvl1	Wnt1	Mllt4	Ephb3
+Src_biogrid_mouse		Sh3bp2	Arrb2	Dvl2	Skp2	Nfatc1	Khdrbs1	Efs	Ptk2b	Cav3	Kdr	Shc3	Jak2	Csf1r	Bcar1	Grin1	Arrb1	Src	Eno1	Insr	Gab1	Dab1	Inpp5d	Diap1	Map1lc3b	Prkaca	Grin2b	Shc2	Agap2	Pxn	Itga2	Shc1	Prkce	Esr1	Ep300	S1pr1	Pik3c2a	Akt1	Enah	Egfr	Atxn2	Cbl	Shank3	Csn2	Ptk2
+Tyk2_biogrid_mouse		Socs5	Csf1r	Il12rb1	Egfr	Fancd2
+Zap70_biogrid_mouse		Vav1	Slc4a1	Crkl	Dlg1	Lck	Sla2	Was	Cbl	Cd247	Sla
+Aurka_biogrid_mouse		H3f3a	Chfr	Nedd9	Ccnd3	Fbxl7	Sirt2	Cttn
+Aurkb_biogrid_mouse		Cbx7	H3f3a	Rnf2	Bmi1	Usp16	Parp1
+Bub1b_biogrid_mouse		Hdac11	Apc	Lmo2	Cdc20	Hist1h1c	Bub1b	Cenpe
+Plk1_biogrid_mouse		Foxp3	Wdtc1	Ddx39b	Pou5f1	Kit
+Tbk1_biogrid_mouse		Traf3	Optn	Usp1	Mib1	Rnf41	Tbk1	Traip	Azi2	Ikbkg	Eed	Syk	Fxr1	Irf3	Ddx58	Tank	Traf3ip2	Rnf128	Irf1	Wdr48
+Ulk1_biogrid_mouse		Wdfy4	Chaf1a	Sqstm1	Cabyr	Ntrk1	Sesn2
+Atm_biogrid_mouse		Uhrf1	Foxp3	Polq	H2afx	Hdac4	Dnmt1	Ppp2r1a	Trp53	Telo2	Ppp1ca	Terc	Kat5
+Mtor_biogrid_mouse		Traf6	Rps6kb1	Rictor	Mapkap1	Mlxip	Rptor	Chuk	Arhgef7	Mlst8	Mycbp2	Git1	Htr6	Syngap1	Pml	Yy1	Telo2	Akt1s1
+Prkdc_biogrid_mouse		Vcp	Mre11a	Tfcp2l1	Uvrag	Trp53	Nphp4	Eed
