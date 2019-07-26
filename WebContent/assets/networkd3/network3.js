@@ -289,7 +289,7 @@ var div = d3.select("body").append("div")
 
 
 function drawNetwork() {
-	d3.json("assets/networkd3/wgcna_gtex_annotated5.json", function(net_json) {
+	d3.json("assets/networkd3/wgcna_gtex_annotated4.json", function(net_json) {
 
 		var networkDiv = document.getElementById("tfnet");
 		// net_width = 1000;
