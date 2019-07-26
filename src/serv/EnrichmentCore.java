@@ -148,7 +148,7 @@ public class EnrichmentCore extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setHeader("Access-Control-Allow-Origin", "*");
-		
+		System.out.println("Post successful.");
 		String query_name = "user_query";
 
 		String pathInfo = request.getPathInfo();
