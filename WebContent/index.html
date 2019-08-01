@@ -169,17 +169,22 @@
 							<option data-subtext="Average integrated ranks across libraries" value="Integrated--meanRank">Mean Rank</option>
 							<option data-subtext="Top integrated rank across libraries" value="Integrated--topRank">Top Rank</option>
 						</optgroup>
-						<optgroup label="ChIP-Seq">
-							<option data-subtext="Interactions mined from the ENCODE project" value="ENCODE--ChIP-seq">ENCODE</option>
-							<option data-subtext="Interactions mined from the ReMap project" value="ReMap--ChIP-seq">ReMap</option>
-							<option data-subtext="Interactions mined from the literature" value="Literature--ChIP-seq">Literature</option>
+						<optgroup label="Kinase-Substrate Interaction (Experimental)">
+							<option data-subtext="KSI curated from literature" value="phosphonetworks-comKSI">PhosphoNetworks</option>
+							<option data-subtext="Modification site-specific info from literature" value="ptmsigdb">PTMsigDB</option>
 						</optgroup>
-						<optgroup label="Coexpression">
-							<option data-subtext="TF-target coexpression in the ARCHS4 dataset" value="ARCHS4--Coexpression">ARCHS4</option>
-							<option data-subtext="TF-target coexpression in the GTEx dataset" value="GTEx--Coexpression">GTEx</option>
+						<optgroup label="Combined KSI and PPI (Experimental)">
+							<option data-subtext="KSI from four databases, PPI from six databases" value="cheng">Cheng et. al.</option>
 						</optgroup>
-						<optgroup label="Co-occurrence">
-							<option data-subtext="TF-target co-occurrence in Enrichr queries" value="Enrichr--Queries">Enrichr</option>
+						<optgroup label="Protein-Protein Interaction (Experimental)">
+							<option data-subtext="PPI from publications" value="biogrid">BioGRID</option>
+							<option data-subtext="Manually curated PPI" value="mentha">Mentha</option>
+							<option data-subtext="User-submitted data" value="mint">MINT</option>
+							<option data-subtext="Scored PPI" value="hippie">HIPPIE</option>
+							<option data-subtext="Machine Learning to predict PPI (evaluation set)" value="psopia">PSOPIA</option>
+						</optgroup>
+						<optgroup label="Protein-Protein Interaction (Predicted)">
+							<option data-subtext="Known and predicted PPI" value="string">String</option>
 						</optgroup>
 					</select>
 					</select>
