@@ -485,7 +485,7 @@ function generateDatatable(library, library_results, default_library, filter_top
 			pagingType: "simple",
 			columns: [
 				{ "mData": "Rank", "sTitle": "Rank" , "className": "dt-head-center"},
-				{ "mData": "TF", "sTitle": "TF", "mRender": function (x) { return `<a href="https://amp.pharm.mssm.edu/Harmonizome/gene/${x}" target="_blank">${x}</a>` } , "className": "dt-head-center"},
+				{ "mData": "TF", "sTitle": "Protein", "mRender": function (x) { return `<a href="https://amp.pharm.mssm.edu/Harmonizome/gene/${x}" target="_blank">${x}</a>` } , "className": "dt-head-center"},
 				// { "mData": "TF", "sTitle": "Protein", "mRender": function (x) { return `<a href="https://amp.pharm.mssm.edu/Harmonizome/gene/${x}" target="_blank">${x}</a>` } , "className": "dt-head-center"},
 				//          ^ same issue here
 				{ "mData": "Set_name", "sTitle": "Set name" , "className": "dt-head-center"},

@@ -136,7 +136,7 @@
 									<br>
 									<span class="display-7" id="genecheck" style="font-size:70%">0 symbols entered, 0
 										duplicates, 0 valid symbols</span>
-										<span class="mbri-question ml-2" data-container="body" data-toggle="popover" data-placement="right" data-trigger="click" data-title="<div class='px-1 py-2'>What gene symbols are accepted?</div>" data-content="<div style = 'max-width:400px' class='px-3 py-2'>CHEA3 supports <a target='_blank' href ='https://www.genenames.org/'>HGNC-approved</a> gene symbols. Symbols that are not included in this set are not analyzed.</div>" data-html="true"></span>
+										<span class="mbri-question ml-2" data-container="body" data-toggle="popover" data-placement="right" data-trigger="click" data-title="<div class='px-1 py-2'>What gene symbols are accepted?</div>" data-content="<div style = 'max-width:400px' class='px-3 py-2'>KEA3 supports <a target='_blank' href ='https://www.genenames.org/'>HGNC-approved</a> gene symbols. Symbols that are not included in this set are not analyzed.</div>" data-html="true"></span>
 	
 								</form>
 					
@@ -192,14 +192,14 @@
 
 				<!-- Slider -->
 				<div class="col-4 tf-selector d-none">
-					<div>Select TFs to visualize:<span class="mbri-question ml-2" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-title="<div class='px-1 py-2'>Where are the TFs visualized?</div>" data-content="<div style = 'max-width:400px' class='px-3 py-2'> The top TFs from the selected library are visualized in the Global Network, Local Network, and Bar Chart tabs.</div>" data-html="true"></span></div>
-					<div class="font-italic mt-1" style="font-size: small">Top <span id="nr-selected-tfs">10</span> TFs selected</div>
-					<input id="tf-slider" class="slider w-100" type="range" min="1" max="50" value="10">
+					<div>Select kinases to visualize:<span class="mbri-question ml-2" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-title="<div class='px-1 py-2'>Where are the kinases visualized?</div>" data-content="<div style = 'max-width:400px' class='px-3 py-2'> The top kinases from the selected library are visualized in the Global Network, Local Network, and Bar Chart tabs.</div>" data-html="true"></span></div>
+					<div class="font-italic mt-1" style="font-size: small">Top <span id="nr-selected-tfs">10</span> kinases selected</div>
+					<input id="tf-slider" class="slider w-100" type="range" min="1" max="50" value="10" style="color:#7A1920">
 				</div>
 				
 				<!-- Colorpicker -->
 				<div id="colorpicker-col" class="col-3 tf-selector d-none">
-					<div>Select a color:<span class="mbri-question ml-2" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-title="<div class='px-1 py-2'>Where are the TFs visualized?</div>" data-content="<div style = 'max-width:400px' class='px-3 py-2'>The top TFs from the selected library are visualized in the Global Network, Local Network, and Bar Chart tabs.</div>" data-html="true"></span></div>
+					<div>Select a color:<span class="mbri-question ml-2" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-title="<div class='px-1 py-2'>Where are the kinases visualized?</div>" data-content="<div style = 'max-width:400px' class='px-3 py-2'>The top kinases from the selected library are visualized in the Global Network, Local Network, and Bar Chart tabs.</div>" data-html="true"></span></div>
 					<input type='text' id="colorpicker"/>
 				</div>
 			</div>
@@ -370,33 +370,24 @@
 					kinase-substrate interactions. The list of <a href = "https://www.uniprot.org/docs/pkinfam" target = "_blank">human and mouse kinases</a> from Uniprot was used to 
 					filter for kinases in protein-protein interaction datasets. 
 					<br><br>
-					<i>Experimentally determined protein-protein interactions </i>
-					<br>BioGRID is a database of interactions compiled from publications. Gene set libraries were generated for human and mouse.
-					Phospho.ELM is a database of experimentally verified phosphorylation sites in eukaryotic proteins. A gene set library was generated for human.
-					Mentha collects data from manually curated protein-protein interaction databases (that have adhered to the IMEx consortium). Gene set libraries were generated for human and mouse.
-					MINT includes user-submitted data that adheres to the IMEx consortium. A gene set library was generated for human.
-					HIPPIE is a database of experimentally determined human protein-protein interactions which are scored based on experimental technique. Since the protein-protein interactions are all experimentally validated, all scores were used to generate the gene set library.
-					The “Protein-protein interaction network (PPIN)” dataset from Cheng incorporates human protein-protein interactions from the following manually-curated databases: IntAct, MINT, BioGRID, DIP, HPRD, and MIPS MPact.
-					PSOPIA uses machine learning to predict protein-protein interactions. The evaluation dataset of interacting pairs of human proteins, which does not involve machine learning, was used to generate the PSOPIA gene set library.
-					<br><br>
-					<i>Predicted protein-protein interactions</i>
-					<br>
-					Reactome is a pathway database that is verified by publications. The “Human protein-protein interactions” dataset contains the UniProt IDs of proteins in complexes with four or less protein components. UniProt IDs were converted to gene IDs using HUGO Gene Nomenclature Committee (HGNC) on July 12, 2019. 
-					String is a database of both known and predicted protein-protein interactions, mostly from the following the following sources: genomic context predictions, high-throughput experiments, co-expression, automated text mining, and information from other databases. Ensembl protein IDs were converted to gene IDs using an info file from the String database. Ensembl protein IDs that had no gene IDs in the String info file were checked against HGNC on July 12, 2019. The String gene set library was generated using “Scored links between proteins” for humans (9606). 
-					<br><br>
 					<i>Experimentally determined kinase-substrate interactions</i>
 					<br>
-					“PhosphoSitePlus Substrates of Kinases” dataset from Harmonizome includes kinase-substrate interactions curated from high- and low-throughput phosphoproteomics studies. The “Gene-attribute edge list” dataset was used to generate the Harmonizome gene set library for human.
-					The “Kinase-substrate interaction network (KSIN)” dataset from Cheng incorporates human kinase-substrate interactions from the Phospho.ELM, HPRD, PhosphoNetworks, and PhosphoSitePlus databases.
-					The “comKSI” dataset from PhosphoNetworks consists of (experimentally determined?) kinase-substrate interactions curated from literature. The “rawKSI” dataset from PhosphoNetworks consists of experimentally-determined human kinase-substrate interactions performed by the authors. Gene set libraries for human were generated for both raw and com KSI separately.
-					PhosphoSitePlus contains manually curated low- and high-throughput data from both published literature and data in the process of getting published. Gene set libraries were generated for human, mouse, and rat.
-					PTMsigDB is a database of modification site-specific signatures of perturbations, kinase activities, and signaling pathways curated from literature. Gene set libraries were generated for human, mouse, and rat.
+					<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4116514/#SD5" target="_blank">Cheng et. al.</a>“Kinase-substrate interaction network (KSIN)” dataset incorporates human kinase-substrate interactions from the Phospho.ELM, HPRD, PhosphoNetworks, and PhosphoSitePlus databases.
+					<a href="http://prot-shiny-vm.broadinstitute.org:3838/ptmsigdb-app/" target="_blank">PTMsigDB</a> is a database of modification site-specific signatures of perturbations, kinase activities, and signaling pathways curated from literature. Gene set libraries were generated for human, mouse, and rat.
 					<br><br>
-					<i>Predicted kinase-substrate interactions</i>					
+					<i>Experimentally determined protein-protein interactions </i>
+					<br><a href="https://thebiogrid.org/" target="_blank">BioGRID</a> is a database of interactions compiled from publications. Gene set libraries were generated for human and mouse.
+					<a href="http://mentha.uniroma2.it/" target="_blank">Mentha</a> collects data from manually curated protein-protein interaction databases (that have adhered to the IMEx consortium). Gene set libraries were generated for human and mouse.
+					<a href="https://mint.bio.uniroma2.it/" target="_blank">MINT</a> includes user-submitted data that adheres to the IMEx consortium. A gene set library was generated for human.
+					<a href="http://cbdm-01.zdv.uni-mainz.de/~mschaefer/hippie/" target="_blank">HIPPIE</a> is a database of experimentally determined human protein-protein interactions which are scored based on experimental technique. Since the protein-protein interactions are all experimentally validated, all scores were used to generate the gene set library.
+					<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4116514/#SD5" target="_blank">Cheng et. al.</a> “Protein-protein interaction network (PPIN)” incorporates human protein-protein interactions from the following manually-curated databases: IntAct, MINT, BioGRID, DIP, HPRD, and MIPS MPact.
+					<a href="http://mizuguchilab.org/PSOPIA/theory.html" target="_blank">PSOPIA</a> uses machine learning to predict protein-protein interactions. The evaluation dataset of interacting pairs of human proteins, which does not involve machine learning, was used to generate the PSOPIA gene set library.
+					<br><br>
+					<i>Experimentally determined and predicted protein-protein interactions</i>
 					<br>
-					PhosD is a probabilistic model that predicts human kinase-substrate interactions using information about protein domains and protein-protein interactions. The PhosD gene set library contains predictions from “Supplementary Table S1” with scores of greater than or equal to .5.
-					PIPS is a database of human protein-protein interactions that have been predicted and scored using a naive Bayesian classifier. Interactions with scores greater than or equal to .5 were used in the generation of this gene set library.
-					
+					<a href="https://string-db.org" target="_blank">String</a> is a database of both known and predicted protein-protein interactions, mostly from the following the following sources: genomic context predictions, high-throughput experiments, co-expression, automated text mining, and information from other databases. Ensembl protein IDs were converted to gene IDs using an info file from the String database. Ensembl protein IDs that had no gene IDs in the String info file were checked against HGNC on July 12, 2019. The String gene set library was generated using “Scored links between proteins” for humans (9606). 
+					<br><br>
+										
 					
 					<br><br>
 				</div>
@@ -492,7 +483,7 @@
 	<section class="mbr-section content4 cid-r0K4Mm8LAA" style="padding-bottom:0" id="content4-13">
 
 
-		<div class="container">
+		<div class="container align-center">
 			<div class="media-container-row">
 				<div class="title col-12 col-md-8">
 					<h2 class="align-center pb-3 mbr-fonts-style display-2">
@@ -502,8 +493,9 @@
 				</div>
 				
 			</div>
-			library description info
+			The following libraries used in KEA3 were generated by filtering for kinases with four or more interactions.
 		</div>
+		<br>
 	</section>
 	
 	<div class="container">
@@ -545,26 +537,6 @@
       <td>No</td>
 	  <td><a href="assets/tflibs/output_cheng_fourplusinteractions_human.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
     </tr>
-
-    <tr>
-      <td><a style="text-decoration:none" href="http://dbptm.mbc.nctu.edu.tw/" target="_blank">dbPTM</a></td>
-      <td>Human</td>
-      <td>24</td>
-      <td>3188</td>
-      <td>1942</td>
-      <td>No</td>
-      <td><a href="assets/tflibs/output_dbPTM_fourplusinteractions_human.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
-    </tr>
-    
-    <tr>
-      <td><a style="text-decoration:none" href="https://amp.pharm.mssm.edu/Harmonizome/dataset/PhosphoSitePlus+Substrates+of+Kinases" target="_blank">Harmonizome</a></td>
-      <td>Human</td>
-      <td>130</td>
-      <td>3412</td>
-      <td>1638</td>
-      <td>No</td>
-      <td><a href="assets/tflibs/output_harmonizome_fourplusinteractions_human.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
-    </tr>
     
      <tr>
       <td><a style="text-decoration:none" href="http://cbdm-01.zdv.uni-mainz.de/~mschaefer/hippie/" target="_blank">HIPPIE</a></td>
@@ -597,26 +569,6 @@
     </tr>
     
      <tr>
-      <td><a style="text-decoration:none" href="https://academic.oup.com/bioinformatics/article/33/8/1197/2748214" target="_blank">PhosD</a></td>
-      <td>Human</td>
-      <td>117</td>
-      <td>1781</td>
-      <td>540</td>
-      <td>No</td>
-      <td><a href="assets/tflibs/output_phosd_fourplusinteractions_human.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
-    </tr>
-    
-     <tr>
-      <td><a style="text-decoration:none" href="http://phospho.elm.eu.org/" target="_blank">Phospho.ELM</a></td>
-      <td>Human</td>
-      <td>27</td>
-      <td>416</td>
-      <td>295</td>
-      <td>No</td>
-      <td><a href="assets/tflibs/output_phosphoelm_fourplusinteractions_human.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
-    </tr>
-    
-     <tr>
       <td><a style="text-decoration:none" href="http://www.phosphonetworks.org/index.html" target="_blank">PhosphoNetworks (literature)</a></td>
       <td>Human</td>
       <td>198</td>
@@ -624,36 +576,6 @@
       <td>1109</td>
       <td>No</td>
       <td><a href="assets/tflibs/output_phosphonetworks-comKSI_fourplusinteractions_human.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
-    </tr>
-    
-     <tr>
-      <td><a style="text-decoration:none" href="http://www.phosphonetworks.org/index.html" target="_blank">PhosphoNetworks (microarray)</a></td>
-      <td>Human</td>
-      <td>289</td>
-      <td>24047</td>
-      <td>1959</td>
-      <td>No</td>
-      <td><a href="assets/tflibs/output_phosphonetworks-rawKSI_fourplusinteractions_human.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
-    </tr>
-    
-     <tr>
-      <td><a style="text-decoration:none" href="https://www.phosphosite.org/homeAction" target="_blank">PhosphoSitePlus</a></td>
-      <td>Human</td>
-      <td>190</td>
-      <td>5379</td>
-      <td>2253</td>
-      <td>No</td>
-      <td><a href="assets/tflibs/output_phosphositeplus_fourplusinteractions_human.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
-    </tr>
-    
-     <tr>
-      <td><a style="text-decoration:none" href="http://www.compbio.dundee.ac.uk/www-pips/index.jsp" target="_blank">PIPS</a></td>
-      <td>Human</td>
-      <td>162</td>
-      <td>8351</td>
-      <td>1719</td>
-      <td>No</td>
-      <td><a href="assets/tflibs/output_pips_fourplusinteractions_human.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
     </tr>
     
      <tr>
@@ -677,16 +599,6 @@
     </tr>
     
      <tr>
-      <td><a style="text-decoration:none" href="https://reactome.org/" target="_blank">Reactome</a></td>
-      <td>Human</td>
-      <td>108</td>
-      <td>2659</td>
-      <td>1019</td>
-      <td>No</td>
-      <td><a href="assets/tflibs/output_reactome_fourplusinteractions_human.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
-    </tr>
-    
-     <tr>
       <td><a style="text-decoration:none" href="https://string-db.org/cgi/input.pl?sessionId=cOMzocvk3ztX&input_page_show_search=on" target="_blank">String</a></td>
       <td>Human</td>
       <td>323</td>
@@ -695,6 +607,7 @@
       <td>No</td>
       <td><a href="assets/tflibs/output_string_fourplusinteractions_human.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
     </tr>
+    
     
   </tbody>
 </table>

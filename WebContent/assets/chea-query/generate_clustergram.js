@@ -26,7 +26,7 @@ function buildClustergrammerMatrix(chea_results, top_tfs = 5) {
                 })
 
                 // Column labels
-                tfs.push('TF: ' + library + '-' + chea_result['Rank'].padStart(2, '0') + '-' + chea_result['TF']);
+                tfs.push('Kinase: ' + library + '-' + chea_result['Rank'].padStart(2, '0') + '-' + chea_result['TF']);
                 libraries.push('Library: ' + library);
                 ranks.push('Rank: ' + chea_result['Rank']);
             }
