@@ -52,12 +52,12 @@ function parseLibrary(library, nr_tfs) {
 		title, xlab;
 	if (library === 'Integrated--topRank') {
 		process_score = function (x) { return x['Score'] };
-		title = 'Top Scaled TF Ranks from Integrated topRank';
+		title = 'Top Scaled Kinase Ranks from Integrated topRank';
 		label = 'Integrated Scaled Rank';
 		xlab = 'Integrated Scaled Rank';
 	} else {
 		process_score = function (x) { return -Math.log10(x['FET p-value']).toFixed(3) };
-		title = 'Top TF Scores from the '+library.replace('--', ' ')+' library';
+		title = 'Top Kinase Scores from the '+library.replace('--', ' ')+' library';
 		label = library.replace('--', ' ') + '-log10 (FET P-Value)'
 		xlab = '-log10 (FET P-Value)';
 	}
@@ -92,14 +92,14 @@ function generateBarChart(){
 			options: {
 				title: {
 					display: true,
-					text: "Weighted Library Contribution to Integrated MeanRank TF Ranks",
+					text: "Weighted Library Contribution to Integrated MeanRank Kinase Ranks",
 				},
 				scales: {
 					xAxes: [{
 						stacked: true,
 						scaleLabel: {
 							display: true,
-							labelString: 'Cumulative Weighted Mean TF Rank'
+							labelString: 'Cumulative Weighted Mean Kinase Rank'
 						}
 					}],
 					yAxes: [{
