@@ -181,7 +181,6 @@
 							<option data-subtext="Manually curated PPI" value="mentha">Mentha</option>
 							<option data-subtext="User-submitted data" value="mint">MINT</option>
 							<option data-subtext="Scored PPI" value="hippie">HIPPIE</option>
-							<option data-subtext="Machine Learning to predict PPI (evaluation set)" value="psopia">PSOPIA</option>
 						</optgroup>
 						<optgroup label="Protein-Protein Interaction (Experimental and Predicted)">
 							<option data-subtext="Known and predicted PPI" value="string">String</option>
@@ -360,25 +359,29 @@
 					
 					<br><br>
 					
-					<strong> Libraries: </strong> KEA3 utilizes the following classes of data: experimentally determined protein-protein interactions, predicted protein-protein interactions, experimentally determined kinase-substrate interactions, and predicted kinase-substrate interactions. The list of <a href = "https://www.uniprot.org/docs/pkinfam" target = "_blank">human and mouse kinases from Uniprot</a> was used to filter for kinases in protein-protein interaction datasets. All gene and/or protein symbols were mapped to HGNC-approved gene symbols using a dictionary of previous symbols, synonyms, aliases, Uniprot IDs, and Ensembl IDs that was generated from genenames.org on July 12, 2019.
+					<strong> Libraries: </strong> KEA3 utilizes kinase-substrate interactions and protein-protein interactions that are either experimentally determined or predicted. To filter for kinases in protein-protein interaction data, the following list of <a href = "https://www.uniprot.org/docs/pkinfam" target = "_blank">human and mouse kinases from Uniprot</a> was used. All gene and/or protein symbols were then mapped to HGNC-approved gene symbols using a dictionary of previous symbols, synonyms, aliases, Uniprot IDs, and Ensembl IDs that was generated from genenames.org on July 12, 2019.
  
 					<br><br>
 					<i>Experimentally determined kinase-substrate interactions</i>
 					<br>
-					<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4116514/#SD5" target="_blank">Cheng et. al.</a>“Kinase-substrate interaction network (KSIN)” dataset incorporates human kinase-substrate interactions from the Phospho.ELM, HPRD, PhosphoNetworks, and PhosphoSitePlus databases.
 					<a href="http://prot-shiny-vm.broadinstitute.org:3838/ptmsigdb-app/" target="_blank">PTMsigDB</a> is a database of modification site-specific signatures of perturbations, kinase activities, and signaling pathways curated from literature. Gene set libraries were generated for human, mouse, and rat.
 					<br><br>
 					<i>Experimentally determined protein-protein interactions </i>
 					<br><a href="https://thebiogrid.org/" target="_blank">BioGRID</a> is a database of interactions compiled from publications. The BioGRID gene set library consists of sets of protein interactors for each Uniprot kinase.
-					<a href="http://mentha.uniroma2.it/" target="_blank">Mentha</a> collects data from manually curated protein-protein interaction databases (that have adhered to the IMEx consortium). Gene set libraries were generated for human and mouse.
-					<a href="https://mint.bio.uniroma2.it/" target="_blank">MINT</a> includes user-submitted data that adheres to the IMEx consortium. A gene set library was generated for human.
-					<a href="http://cbdm-01.zdv.uni-mainz.de/~mschaefer/hippie/" target="_blank">HIPPIE</a> is a database of experimentally determined human protein-protein interactions which are scored based on experimental technique. Since the protein-protein interactions are all experimentally validated, all scores were used to generate the gene set library.
+					<a href="http://mentha.uniroma2.it/" target="_blank">Mentha</a> collects data from manually curated protein-protein interaction databases that have adhered to the <a href="http://www.imexconsortium.org/about/" IMEx consortium></a>. Gene set libraries were generated for human and mouse.
+					<a href="https://mint.bio.uniroma2.it/" target="_blank">MINT</a> includes user-submitted data that adheres to the IMEx consortium.
+					The BioGRID, Mentha, and MINT gene set libraries consists of sets of protein interactors for each Uniprot kinase.
+					<a href="http://cbdm-01.zdv.uni-mainz.de/~mschaefer/hippie/" target="_blank">HIPPIE</a> is a scored database of experimentally determined human protein-protein interactions from 10 databases and 11 studies. Since the protein-protein interactions are all experimentally validated, all scores were used to generate the gene set library.
+					<br><br>
+					<i>Experimentally determined kinase-substrate and protein-protein interactions</i>
+					<br>
+					<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4116514/#SD5" target="_blank">Cheng et. al.</a>“Kinase-substrate interaction network (KSIN)” dataset incorporates human kinase-substrate interactions from the Phospho.ELM, HPRD, PhosphoNetworks, and PhosphoSitePlus databases.
 					<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4116514/#SD5" target="_blank">Cheng et. al.</a> “Protein-protein interaction network (PPIN)” incorporates human protein-protein interactions from the following manually-curated databases: IntAct, MINT, BioGRID, DIP, HPRD, and MIPS MPact.
-					<a href="http://mizuguchilab.org/PSOPIA/theory.html" target="_blank">PSOPIA</a> uses machine learning to predict protein-protein interactions. The evaluation dataset of interacting pairs of human proteins, which does not involve machine learning, was used to generate the PSOPIA gene set library.
+					The datasets were combined to form the Cheng library.
 					<br><br>
 					<i>Experimentally determined and predicted protein-protein interactions</i>
 					<br>
-					<a href="https://string-db.org" target="_blank">String</a> is a database of both known and predicted protein-protein interactions, mostly from the following the following sources: genomic context predictions, high-throughput experiments, co-expression, automated text mining, and information from other databases. Ensembl protein IDs were converted to gene IDs using an info file from the String database. Ensembl protein IDs that had no gene IDs in the String info file were checked against HGNC on July 12, 2019. The String gene set library was generated using “Scored links between proteins” for humans (9606). 
+					<a href="https://string-db.org" target="_blank">String</a> is a database of both known and predicted protein-protein interactions, primarily from  genomic context predictions, high-throughput experiments, co-expression, automated text mining, and information from other databases. Ensembl protein IDs were converted to gene IDs using a mapping available from the String database. The String gene set library was generated from known and predicted human protein-protein interactions.
 					<br><br>
 										
 					
@@ -581,17 +584,6 @@
     </tr>
     
      <tr>
-      <td><a style="text-decoration:none" href="http://mizuguchilab.org/PSOPIA/theory.html" target="_blank">Psopia</a></td>
-      <td>Primary</td>
-      <td>Human</td>
-      <td>38</td>
-      <td>522</td>
-      <td>397</td>
-      <td>No</td>
-      <td><a href="assets/tflibs/output_psopia_fourplusinteractions_human_mapped.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
-    </tr>
-    
-     <tr>
       <td><a style="text-decoration:none" href="http://prot-shiny-vm.broadinstitute.org:3838/ptmsigdb-app/" target="_blank">PTMsigDB</a></td>
       <td>Primary</td>
       <td>Human</td>
@@ -629,14 +621,14 @@
     <!-- Additional Libraries -->
     
     <tr>
-      <td><a style="text-decoration:none" href="https://downloads.thebiogrid.org/" target="_blank">BioGRID</a></td>
+      <td><a style="text-decoration:none" href="http://mizuguchilab.org/PSOPIA/theory.html" target="_blank">Psopia</a></td>
       <td>Additional</td>
-      <td>Mouse</td>
-      <td>368</td>
-      <td>15225</td>
-      <td>4402</td>
+      <td>Human</td>
+      <td>38</td>
+      <td>522</td>
+      <td>397</td>
       <td>No</td>
-	  <td><a href="assets/tflibs/output_biogrid_fourplusinteractions_mouse_mapped.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
+      <td><a href="assets/tflibs/output_psopia_fourplusinteractions_human_mapped.gmt" download><img src="assets/images/download_icon.png" height="17" width="17"></a></td>
     </tr>
     
     <tr>
