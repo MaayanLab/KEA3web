@@ -1,7 +1,7 @@
 FROM tomcat:9
 
 
-COPY KEA3web.war /usr/local/tomcat/webapps/KEA3web.war
+COPY kea3.war /usr/local/tomcat/webapps/kea3.war
 
 ENV JAVA_OPTS="-Xmx3G"
 
