@@ -106,10 +106,10 @@ function parseLibrary(library, nr_tfs) {
 		process_score,
 		title, xlab;
 	if (library === 'Integrated--topRank') {
-		process_score = function (x) { return x['Score'] };
+		process_score = function (x) { return 1/x['Score'] };
 		title = 'Top Scaled Kinase Ranks from Integrated topRank';
-		label = 'Integrated Scaled Rank';
-		xlab = 'Integrated Scaled Rank';
+		label = '1/Integrated Scaled Rank';
+		xlab = '1/Integrated Scaled Rank';
 	} else {
 		process_score = function (x) { return -Math.log10(x['FET p-value']).toFixed(3) };
 		title = 'Top Kinase Scores from the '+library.replace('--', ' ')+' library';
