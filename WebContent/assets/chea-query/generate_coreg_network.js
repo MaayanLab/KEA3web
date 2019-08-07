@@ -5,15 +5,15 @@ createNetwork = function(coreg_network, tfs) {
     var network = {"nodes": [], "links": []};
     // Loop through top TFs
     $.each(coreg_network, function(index, edge) {
-        if (tfs.includes(edge['TFA']) && tfs.includes(edge['TFB'])) {
-            edge['source'] = edge['TFA'];
-            edge['target'] = edge['TFB'];
+        if (tfs.includes(edge['KINA']) && tfs.includes(edge['KINB'])) {
+            edge['source'] = edge['KINA'];
+            edge['target'] = edge['KINB'];
             network['links'].push(edge);
         }
     })
     
     // Add nodes
-    $.each(tfs, function (index, tf) { network["nodes"].push({ "id": tf, "name": tf, "label": tf, "degree": network['links'].filter(function (d) { return d.TFA === tf || d.TFB === tf }).length }) })
+    $.each(tfs, function (index, tf) { network["nodes"].push({ "id": tf, "name": tf, "label": tf, "degree": network['links'].filter(function (d) { return d.KINA === tf || d.KINB === tf }).length }) })
     
     // Return
     return network
@@ -100,7 +100,7 @@ displayNetwork = function(network) {
             .attrs({
                 "class":"link",
                 "stroke": "#999",
-                "opacity": function(d) { return d.edge_score/5 },
+                "opacity": function(d) { return d.edge_score/8 },
                 "stroke-width": function(d) { return d.edge_score }
                 // "stroke-width": 5
             })
@@ -117,26 +117,22 @@ displayNetwork = function(network) {
                     .attrs({'dy': dy, 'x': 10, 'font-weight': 'bold'})
                     .style('z-index', 1000)
                     .text('Interaction evidence sources:');
-                if (d["ABchipseq_evidence"] != "none") {
+                if (d["ABkinsub"] != "none") {
                     txt.append('tspan')
                         .attrs({'dy': dy, 'x': 15})
-                        .text('   •  ChIP-Seq ('+d['TFA'] +'→'+d['TFB']+'): '+d["ABchipseq_evidence"]);
+                        .text('   •  Kinase-substrate ('+d['KINA'] +'→'+d['KINB']+'): '+d["ABkinsub"]);
                 }
-                if (d["BAchipseq_evidence"] != "none") {
+                if (d["BAkinsub"] != "none") {
                     txt.append('tspan')
                         .attrs({'dy': dy, 'x': 15})
-                        .text('   •  ChIP-Seq (' +d['TFB'] +'→'+d['TFA']+'): '+d["BAchipseq_evidence"]);
+                        .text('   •  Kinase-substrate (' +d['KINB'] +'→'+d['KINA']+'): '+d["BAkinsub"]);
                 }
-                if (d["coexpression_evidence"] != "none") {
+                if (d["ppi_evidence"] != "none") {
                     txt.append('tspan')
                         .attrs({'dy': dy, 'x': 15})
-                        .text('   • ' +'Co-expression: ' + d["coexpression_evidence"]);
+                        .text('   • ' +'PPI: ' + d["ppi_evidence"]);
                 }
-                if (d["cooccurrence_evidence"] != "none") {
-                    txt.append('tspan')
-                        .attrs({'dy': dy, 'x': 15})
-                        .text('   • ' +'Co-occurrence: ' + d["cooccurrence_evidence"]);
-                }
+                
 
                 // Nr lines
                 nr_lines = txt.selectAll('tspan')._groups[0].length;
@@ -277,7 +273,7 @@ generateNetwork = function() {
     var tfs = getTFs2();
 
     // Get JSON
-    $.getJSON('assets/chea-query/chea3_coreg_sub_network.json', function (coreg_network) {
+    $.getJSON('assets/chea-query/KEA3_coreg_sub_network.json', function (coreg_network) {
 
         // Create network
         var network = createNetwork(coreg_network, tfs = tfs);

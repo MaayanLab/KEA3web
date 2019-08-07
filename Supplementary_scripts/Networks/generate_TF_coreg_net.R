@@ -1,21 +1,26 @@
-#ChEA3 co-regulatory network
+#KEA3 co-regulatory network
 #gmts to dataframes
 rm(list = ls())
 library(foreach)
 library(doMC)
 registerDoMC(4) 
 
-libs_dfs = lapply(chea3::libs,genesetr::toLongDF)
-libs_dfs = plyr::adply(setdiff(names(chea3::libs),"Perturbations"),1,
+lib_dir = "/users/alexandrakeenan/eclipse-workspace/KEA3web/WebContent/WEB-INF/tflibs/"
+lib_files = list.files(lib_dir)
+KEA3libs = lapply(paste0(lib_dir,lib_files),genesetr::loadGMT)
+names(KEA3libs) = unlist(lapply(strsplit(lib_files,"_"),"[[",2))
+
+libs_dfs = lapply(KEA3libs,genesetr::toLongDF)
+libs_dfs = plyr::adply(setdiff(names(KEA3libs),"Perturbations"),1,
   function(name){
-  lib = chea3::libs[[name]]
+  lib = KEA3libs[[name]]
   lib_df = genesetr::toLongDF(lib)
   lib_df$TF = unlist(sapply(strsplit(lib_df$set_name,"_"),head,1))
   lib_df = lib_df[lib_df$TF != lib_df$gene,]
-  lib_df = lib_df[lib_df$gene %in% chea3::tfs,]
-  edges = as.data.frame(table(lib_df[,c("TF","gene")]))
+  edges = as.data.frame(table(lib_df[,c("TF","gene")]), stringsAsFactors = F)
   edges = edges[edges$Freq>0,]
-  total_tf_sets = as.data.frame(table(lib_df[!duplicated(lib_df$set_name),"TF"]))
+  total_tf_sets = as.data.frame(table(lib_df[!duplicated(lib_df$set_name),"TF"]),
+    stringsAsFactors = F)
   colnames(total_tf_sets) = c("TF","total_tf_sets")
   edges = merge(edges,total_tf_sets,by = "TF",all.x = T)
   edges$lib = name
@@ -23,17 +28,19 @@ libs_dfs = plyr::adply(setdiff(names(chea3::libs),"Perturbations"),1,
   
 })
 
+
+
 libs_dfs$temp = paste(libs_dfs$TF,libs_dfs$gene)
 
-all_edges = as.data.frame(t(combn(chea3::tfs,2)))
-all_edges$TFA = as.character(all_edges$V1)
-all_edges$TFB = as.character(all_edges$V2)
-all_edges$V1 = NULL
-all_edges$V2 = NULL
+all_edges = as.data.frame(t(combn(unique(as.character(libs_dfs$TF)),2)))
+all_edges$KINA = as.character(all_edges[,1])
+all_edges$KINB = as.character(all_edges[,2])
+
+all_edges[,c(1,2)] = NULL
 
 #subset all edges
-all_edges$temp = paste(all_edges$TFA,all_edges$TFB)
-all_edges$temp2 = paste(all_edges$TFB,all_edges$TFA)
+all_edges$temp = paste(all_edges$KINA,all_edges$KINB)
+all_edges$temp2 = paste(all_edges$KINB,all_edges$KINA)
 
 all_edges = all_edges[all_edges$temp %in% libs_dfs$temp | all_edges$temp2 %in% libs_dfs$temp,]
 all_edges$temp = NULL
@@ -41,23 +48,21 @@ all_edges$temp2 = NULL
 
 all_edges$edge_type = ""
 all_edges$edge_score = ""
-all_edges$ABchipseq_evidence = "none"
-all_edges$coexpression_evidence = "none"
-all_edges$cooccurrence_evidence = "none"
-all_edges$BAchipseq_evidence = "none"
+all_edges$ppi_evidence = "none"
+all_edges$ABkinsub = "none"
+all_edges$BAkinsub = "none"
 
+undir = c("biogrid","string", "mentha", "mint", "cheng", "hippie")
+dir = c("ptmsigdb", "phosphonetworks-comKSI")
+ppi = c("biogrid","string", "mentha", "mint", "cheng", "hippie")
+kinsub = c("ptmsigdb", "phosphonetworks-comKSI")
 
-undir = c("GTEx","ARCHS4","Enrichr")
-dir = c("ReMap", "ENCODE", "ChEA")
-coexp = c("GTEx","ARCHS4")
-cooccur = c("Enrichr")
-chip = c("ReMap","ENCODE","ChEA")
-
+annot_edges = data.frame()
 #A>B edges
-edges = foreach(i=1:nrow(all_edges)) %dopar% {
+for(i in 1:nrow(all_edges)){
   
-  AB_edges = libs_dfs[libs_dfs$TF == all_edges$TFA[i] & libs_dfs$gene == all_edges$TFB[i],]
-  BA_edges = libs_dfs[libs_dfs$gene == all_edges$TFA[i] & libs_dfs$TF == all_edges$TFB[i],]
+  AB_edges = libs_dfs[libs_dfs$TF == all_edges$KINA[i] & libs_dfs$gene == all_edges$KINB[i],]
+  BA_edges = libs_dfs[libs_dfs$gene == all_edges$KINA[i] & libs_dfs$TF == all_edges$KINB[i],]
   edges = all_edges[i,]
   #determine edge direction
   if(any(AB_edges$lib %in% dir) && any(BA_edges$lib %in% dir)){
@@ -75,28 +80,21 @@ edges = foreach(i=1:nrow(all_edges)) %dopar% {
   edges$edge_score = sum(unique(c(BA_edges$lib,AB_edges$lib)) %in% c(dir,undir))
   
   #set evidence
-  if(any(AB_edges$lib %in% chip)){
-    edges$ABchipseq_evidence = paste(unique(AB_edges$lib[AB_edges$lib %in% chip]),collapse = ",")
+  if(any(AB_edges$lib %in% kinsub)){
+    edges$ABkinsub = paste(unique(AB_edges$lib[AB_edges$lib %in% kinsub]),collapse = ",")
   }
   
-  if(any(BA_edges$lib %in% chip)){
-    edges$BAchipseq_evidence = paste(unique(BA_edges$lib[BA_edges$lib %in% chip]),collapse = ",")
+  if(any(BA_edges$lib %in% kinsub)){
+    edges$BAkinsub = paste(unique(BA_edges$lib[BA_edges$lib %in% kinsub]),collapse = ",")
   }
   
-  if(any(AB_edges$lib %in% cooccur) || any(BA_edges$lib %in% cooccur)){
-    edges$cooccurrence_evidence = paste(unique(c(BA_edges$lib[BA_edges$lib %in% cooccur],
-      AB_edges$lib[AB_edges$lib %in% cooccur])),collapse = ",")
+  if(any(AB_edges$lib %in% ppi) || any(BA_edges$lib %in% ppi)){
+    edges$ppi_evidence = paste(unique(c(BA_edges$lib[BA_edges$lib %in% ppi],
+      AB_edges$lib[AB_edges$lib %in% ppi])),collapse = ",")
   }
-  
-  if(any(AB_edges$lib %in% coexp) || any(BA_edges$lib %in% coexp)){
-    edges$coexpression_evidence = paste(unique(c(BA_edges$lib[BA_edges$lib %in% coexp],
-      AB_edges$lib[AB_edges$lib %in% coexp])),collapse = ",")
-  }
-  
-  edges
+  annot_edges = rbind(annot_edges,edges)
 }
-edges_df = do.call(rbind,edges)
 
-jsonlite::write_json(edges_df,'/volumes/backup2/chea3_coreg_network.json')
-edges_sub = edges_df[edges_df$edge_score>1,]
-jsonlite::write_json(edges_sub,"/volumes/backup2/chea3_coreg_sub_network.json")
+jsonlite::write_json(annot_edges,'/users/alexandrakeenan/eclipse-workspace/KEA3web/WebContent/assets/chea-query/KEA3_coreg_network.json')
+edges_sub = annot_edges[annot_edges$edge_score>1,]
+jsonlite::write_json(edges_sub,"/users/alexandrakeenan/eclipse-workspace/KEA3web/WebContent/assets/chea-query/KEA3_coreg_sub_network.json")
