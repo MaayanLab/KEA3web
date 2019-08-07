@@ -23,7 +23,7 @@ exp = gse@assayData$exprs
 #quantile normalize expression matrix
 norm_exp = normalize.quantiles(exp)
 colnames(norm_exp) = colnames(exp)
-rownames(norm_exp) = rownames(norm_exp)
+rownames(norm_exp) = rownames(exp)
 
 #parse metadata dataframe
 meta = gse@phenoData@data
@@ -70,9 +70,10 @@ Generate Signatures
 ```{r}
 library(GeoDE)
 library(matrixStats)
+library(limma)
 #map Illumina probes to gene ids
 library(illuminaHumanv4.db)
-gene_names = data.frame(Gene=unlist(mget(x = rownames(exp),envir = illuminaHumanv4SYMBOL)))
+gene_names = data.frame(Gene=unlist(mget(x = rownames(norm_exp),envir = illuminaHumanv4SYMBOL)))
 
 #remove probes without mapped genes
 norm_exp_df=as.data.frame(norm_exp)
@@ -80,30 +81,34 @@ norm_exp_df$gene_names = as.character(gene_names[,1])
 norm_exp_df = norm_exp_df[!is.na(norm_exp_df$gene_names),]
 rm(gene_names,norm_exp)
 #where probes map to same genes, chose probes with greater variance
-norm_exp_df = plyr::ddply(norm_exp_df,plyr::.(gene_names),function(exp_sub){
-  if(nrow(exp_sub)>1){
-    exp_sub_mat = exp_sub
-    exp_sub_mat$gene_names = NULL
-    exp_sub_mat = as.matrix(exp_sub_mat)
-    return(exp_sub[which.max(rowVars(exp_sub_mat)),])
-  }else{
-    return(exp_sub)
-  }
-})
+norm_exp_df = norm_exp_df[order(rowVars(as.matrix(norm_exp_df[,setdiff(colnames(norm_exp_df),"gene_names")])), decreasing = T),]
+norm_exp_df = norm_exp_df[!duplicated(norm_exp_df$gene_names),]
+
+
+# norm_exp_df = plyr::ddply(norm_exp_df,plyr::.(gene_names),function(exp_sub){
+#   if(nrow(exp_sub)>1){
+#     exp_sub_mat = exp_sub
+#     exp_sub_mat$gene_names = NULL
+#     exp_sub_mat = as.matrix(exp_sub_mat)
+#     return(exp_sub[which.max(rowVars(exp_sub_mat)),])
+#   }else{
+#     return(exp_sub)
+#   }
+# })
 
 rownames(norm_exp_df) = norm_exp_df$gene_names
 norm_exp_df$gene_names = NULL
 
 ##write metadata and normalized expression to file
-write.table(meta,"/Volumes/External/Cusanovich/meta.tsv",row.names = T, col.names = T, sep = "\t", quote = T)
-write.table(norm_exp_df, "/Volumes/External/Cusanovich/norm_exp.tsv", row.names = T, col.names = T, sep = "\t", quote = F)
+write.table(meta,"/Volumes/My Passport/ChromNet/Cusanovich/meta.tsv",row.names = T, col.names = T, sep = "\t", quote = T)
+write.table(norm_exp_df, "/Volumes/My Passport/ChromNet/Cusanovich/norm_exp.tsv", row.names = T, col.names = T, sep = "\t", quote = F)
 
 #pull out control expression
 ctl_accessions = meta[meta$`target gene:ch1`=="NS",]$geo_accession
 norm_ctl_exp = norm_exp_df[,colnames(norm_exp_df) %in% ctl_accessions]
 ctl_class = rep(1,ncol(norm_ctl_exp))
 
-#generate signature for each TF knockdown
+#generate chardir signature for each TF knockdown
 chardir_sigs = plyr::dlply(meta[meta$`target gene:ch1`!="NS",],
   plyr::.(`target gene:ch1`), function(tf){
     pert_accessions = tf$geo_accession
@@ -120,6 +125,47 @@ chardir_sigs = plyr::dlply(meta[meta$`target gene:ch1`!="NS",],
   
 })
 
+limma_sigs =  plyr::dlply(meta[meta$`target gene:ch1`!="NS",],
+  plyr::.(`target gene:ch1`), function(tf){
+    pert_accessions = tf$geo_accession
+    norm_pert_exp = norm_exp_df[,colnames(norm_exp_df) %in% pert_accessions]
+    pert_class = rep("pert",ncol(norm_pert_exp))
+    norm_instance_exp = cbind(norm_ctl_exp,norm_pert_exp)
+    design = data.frame(Control = c(rep(1,ncol(norm_ctl_exp)),rep(0,ncol(norm_pert_exp))), 
+       Perturbation = c(rep(0, ncol(norm_ctl_exp)), rep(1, ncol(norm_pert_exp)))) 
+     rownames(design) = colnames(norm_instance_exp) 
+     fit = lmFit(norm_instance_exp, design=design) 
+     cont.matrix = makeContrasts(PerturbationvsControl=Perturbation-Control, levels=design) 
+     fit2 <- contrasts.fit(fit, cont.matrix) 
+     fit = eBayes(fit2)
+     return(topTable(fit, n = Inf))
+})
+
+limma_FC = plyr::ldply(limma_sigs,function(sig){
+  df = data.frame(t(sig$logFC))
+  colnames(df) = rownames(sig)
+  return(df)
+  
+})
+
+rownames(limma_FC) = limma_FC$`target gene:ch1`
+limma_FC$`target gene:ch1` = NULL
+limma_FC = as.data.frame(t(limma_FC))
+
+limma_adj_pvals = plyr::ldply(limma_sigs,function(sig){
+  df = data.frame(t(sig$P.Value))
+  colnames(df) = rownames(sig)
+  return(df)
+})
+
+rownames(limma_adj_pvals) = limma_adj_pvals$`target gene:ch1`
+limma_adj_pvals$`target gene:ch1` = NULL
+limma_adj_pvals = as.data.frame(t(limma_adj_pvals))
+
+#write limma signature matrices to file
+write.table(limma_FC,"/volumes/My Passport/ChromNet/Cusanovich/limma_sigs_FC.tsv", sep = "\t", quote = F, col.names = T, row.names = T)
+
+write.table(limma_adj_pvals,"/volumes/My Passport/ChromNet/Cusanovich/limma_sigs_adj_pval.tsv", sep = "\t", quote = F, col.names = T, row.names = T)
 
 
 ```
@@ -133,40 +179,7 @@ ordered_chardir_sigs = lapply(chardir_sigs,function(sig){
 })
 chardir_sigs_mat = do.call("rbind",ordered_chardir_sigs)
 
-write.table(chardir_sigs_mat,"/Volumes/External/Cusanovich/chardir_sigs_mat.tsv",sep = "\t", quote = F, row.names = T, col.names = T)
-
-```
-
-
-Write 3 GMTS: 300 up, 300 down, 300 up + 300 down
-```{r}
-n = 300
-outdir = '/Volumes/External/Cusanovich/'
-
-outfile_up = 'Cusanovich_chardir_up.gmt'
-outfile_dn = 'Cusanovich_chardir_dn.gmt'
-outfile_all = 'Cusanovich_chardir_all.gmt'
-
-cusanovich_up = lapply(chardir_sigs,function(sig){
-  return(names(sig[order(-sig)])[1:n])
-})
-names(cusanovich_up) = names(chardir_sigs)
-
-cusanovich_dn = lapply(chardir_sigs,function(sig){
-  return(names(sig[order(sig)])[1:n])
-})
-names(cusanovich_dn) = names(chardir_sigs)
-
-
-cusanovich_all = lapply(chardir_sigs,function(sig){
-  return(c(names(sig[order(sig)])[1:n],names(sig[order(-sig)])[1:n]))
-})
-names(cusanovich_all) = names(chardir_sigs)
-
-genesetr::writeGMT(cusanovich_up, paste(outdir,outfile_up, sep = ""))
-genesetr::writeGMT(cusanovich_dn, paste(outdir,outfile_dn, sep = ""))
-genesetr::writeGMT(cusanovich_all, paste(outdir,outfile_all, sep = ""))
-
+write.table(chardir_sigs_mat,"/Volumes/My Passport/ChromNet/Cusanovich/chardir_sigs_mat.tsv",sep = "\t", quote = F, row.names = T, col.names = T)
 
 ```
 
