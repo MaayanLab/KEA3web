@@ -606,7 +606,7 @@ $(document).ready(function () {
 		var geneset = geneset.map(function(x){return x.toUpperCase()})
 		var uniq_genes = [...new Set(geneset)];
 		var intersect = uniq_genes.filter(value => hgnc.includes(value));
-		var enrich_url = host + "KEA3/api/enrich/";
+		var enrich_url = host + "kea3/api/enrich/";
 		var payload = {
 				"query_name" : "gene_set_query",
 				"gene_set" : intersect
