@@ -82,8 +82,8 @@ public class GenesetLibrary {
 		for(String set_name: lib.keySet()) {
 			HashSet<String> mappable = new HashSet<String>();
 			for(String gene:lib.get(set_name)) {
-				if(dict.encode.containsKey(gene)) {
-					mappable.add(gene);
+				if(dict.encode.containsKey(gene.toUpperCase())) {
+					mappable.add(gene.toUpperCase());
 					//System.out.println(gene);
 				}
 			}
@@ -98,8 +98,8 @@ public class GenesetLibrary {
 		HashSet<String> unmappable = new HashSet<String>();
 		for(String set_name: lib.keySet()) {
 			for(String gene:lib.get(set_name)) {
-				if(!dict.encode.containsKey(gene)) {
-					unmappable.add(gene);
+				if(!dict.encode.containsKey(gene.toUpperCase())) {
+					unmappable.add(gene.toUpperCase());
 					//System.out.println(gene);
 
 				}

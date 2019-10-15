@@ -36,7 +36,7 @@ public class GeneDict{
 		
 		short value = Short.MIN_VALUE;
 		while ((st = br.readLine()) != null) {
-			this.encode.put(st, value);
+			this.encode.put(st.toUpperCase(), value);
 			value++;	
 		}
 		System.out.println(value);

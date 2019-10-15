@@ -98,7 +98,7 @@ public class EnrichmentCore extends HttpServlet {
 		
 		HashSet<String> libpaths = new HashSet<String>();
 		for(String f: filenames) {
-			//			System.out.println(f);
+				System.out.println(f);
 			if(!f.equals(".DS_Store")) {
 				libpaths.add(libdir + f);
 			}
@@ -539,7 +539,7 @@ public class EnrichmentCore extends HttpServlet {
 	}
 
 	private static String[] toUpper(String[] genes) {
-		for(int i=1; i<genes.length; i++) { //why doesn't i start at 0? come back to this.
+		for(int i=0; i<genes.length; i++) { //why doesn't i start at 0? come back to this.
 			genes[i] = genes[i].toUpperCase();
 		}
 		return(genes);
