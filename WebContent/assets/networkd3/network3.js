@@ -83,7 +83,6 @@ function setGTExColorByOptions(){
 						<option>none</option>
 						<option>Tissue (general)</option>
 						<option>Tissue (specific)</option>
-						<option>GO Enrichment</option>
 						<option>WGCNA modules</option>
 					</select>`)
 }
