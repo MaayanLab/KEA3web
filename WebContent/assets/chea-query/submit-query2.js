@@ -417,6 +417,21 @@ function intersectionPopover(row, library) {
 </div>`
 }
 
+function libraryPopover(row, library) {
+	var libs = row.Library.substr(0,5) + '...';
+	
+	return `
+<div class="w-100 text-center">
+	<button class="libspopover" tabindex="0" type="button" class="btn-link display-7 nodecoration cursor-pointer" style="border:none; color:#28a0c9" data-popover-content="#${library}-${row.Rank}-library" data-toggle="popover" data-placement="right">${libs}</button>
+	<div id="${library}-${row.Rank}-library" style="display:none;">
+		<div class="popover-body">
+			<button type="button" class="nodecoration cursor-pointer popover-close close pr-2" onclick="$(this).parents('.popover').popover('hide');">&times</button>
+			<div>${row.Library}</div>
+		</div>
+	</div>
+</div>`
+}
+
 function uploadFileListener() {
 	$('#file-input').on('change', function (evt) {
 		var f = evt.target.files[0],
@@ -473,7 +488,7 @@ function generateDatatable(library, library_results, default_library, filter_top
 				//          ^ when that "TF" is changed to Protein, all protein names are replaced with "undefined" in the web display
 				{ "mData": "Score", "sTitle": score_th , "className": "dt-head-center score-col"},
 				{ "mData": "Overlapping_Genes", "sTitle": "Overlapping Genes", "mRender": function (data, type, row, meta) { return intersectionPopover(row, library) } , "className": "dt-head-center"},
-				{ "mData": "Library", "sTitle": "Library", "mRender": library_render, "className": "dt-head-left" }
+				{ "mData": "Library", "sTitle": "Library", "mRender": function (data, type, row, meta) { return libraryPopover(row, library) } , "className": "dt-head-left" }
 			]
 		})
 
@@ -569,6 +584,15 @@ function displayResults(results) {
 	// Popovers
 	// Ovrerlapping genes
 	$("[id=overlappinggenespopover]").popover({
+		html: true,
+		trigger: 'click',
+		content: function () {
+			var content = $(this).attr("data-popover-content");
+			return $(content).children(".popover-body").html();
+		}
+	});
+	
+	$(".libspopover").popover({
 		html: true,
 		trigger: 'click',
 		content: function () {

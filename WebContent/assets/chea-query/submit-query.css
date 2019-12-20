@@ -9,9 +9,9 @@
          -o-animation: c_spinner infinite 2.5s linear;
             animation: c_spinner infinite 2.5s linear;
     border: 40px solid rgba(125, 125, 125, 0.9);
-    border-top-color: #4286f4;
-    border-right-color: #4286f4;
-    border-bottom-color: #4286f4;
+    border-top-color: #520106;
+    border-right-color: #520106;
+    border-bottom-color: #520106;
     border-radius: 100%;
     z-index: 0;
     
