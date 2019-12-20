@@ -17,7 +17,7 @@ public class GenesetLibrary {
 	 * @throws IOException 
 	 */
 	public GenesetLibrary(String gmtfilename, GeneDict dict, boolean removeGeneWeights, EnrichmentCore ec) throws IOException {
-		System.out.println("This is the constructor for GenesetLibrary.");
+		
 		this.allSymbols = LoadGenesetLib(gmtfilename,removeGeneWeights, ec);
 		this.name = gmtfilename.replaceAll(".*/tflibs/", "").split(".gmt")[0];	// modify library name
 		this.mappableSymbols = getMappableSymbols(this.allSymbols, dict);
