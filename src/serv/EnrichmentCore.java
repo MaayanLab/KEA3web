@@ -72,7 +72,7 @@ public class EnrichmentCore extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		
-		System.out.println("hi");
+		
 		super.init(config);
 		
 
@@ -99,7 +99,7 @@ public class EnrichmentCore extends HttpServlet {
 		String[] filenames = new File(getServletContext().getRealPath(libdir)).list(); 
 		
 		HashSet<String> libpaths = new HashSet<String>();
-		System.out.println(libpaths);
+		
 		for(String f: filenames) {
 
 			if(!f.equals(".DS_Store")) {
@@ -291,7 +291,7 @@ public class EnrichmentCore extends HttpServlet {
 
 		}
 		else if(pathInfo.matches("^/submissions/.*")){
-			System.out.println(Integer.toString(this.hitCount));
+			
 			response.setContentType("text/plain");
 			response.getWriter().write(Integer.toString(this.hitCount));
 
@@ -373,7 +373,7 @@ public class EnrichmentCore extends HttpServlet {
 
 				for(Integer dupe: duplicated_tf_idx) {
 					int duplicated = dupe;
-					System.out.println(dupe);
+					
 					enrichResult.remove(duplicated);
 				}
 
