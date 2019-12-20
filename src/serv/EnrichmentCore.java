@@ -60,6 +60,7 @@ public class EnrichmentCore extends HttpServlet {
 	 */
 	public EnrichmentCore() {
 		super();
+		
 	}
 
 	/**
@@ -70,8 +71,10 @@ public class EnrichmentCore extends HttpServlet {
 	 */
 
 	public void init(ServletConfig config) throws ServletException {
+		
+		System.out.println("hi");
 		super.init(config);
-		//		System.out.println("hi");
+		
 
 		//initialize dictionary object
 		try {
@@ -94,11 +97,11 @@ public class EnrichmentCore extends HttpServlet {
 		//get gmt file paths
 		String libdir = "WEB-INF/tflibs/";
 		String[] filenames = new File(getServletContext().getRealPath(libdir)).list(); 
-		System.out.println(filenames);
 		
 		HashSet<String> libpaths = new HashSet<String>();
+		System.out.println(libpaths);
 		for(String f: filenames) {
-				System.out.println(f);
+
 			if(!f.equals(".DS_Store")) {
 				libpaths.add(libdir + f);
 			}
@@ -108,6 +111,7 @@ public class EnrichmentCore extends HttpServlet {
 
 		//generate gene set library objects
 		for(String l: libpaths) {
+
 			try {
 				EnrichmentCore.libraries.add(new GenesetLibrary(l,dict,true,this));
 			} catch (IOException e) {
