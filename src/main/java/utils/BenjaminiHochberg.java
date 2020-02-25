@@ -1,7 +1,5 @@
 package utils;
 
-
-
 /*
  * Copyright (c) 2015 Memorial Sloan-Kettering Cancer Center.
  *
@@ -32,10 +30,7 @@ package utils;
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-
-
+ */
 
 import java.util.Arrays;
 
@@ -51,17 +46,17 @@ public final class BenjaminiHochberg {
     /**
      * the raw p-values that were given as input for the constructor.
      */
-    private double[] pvalues;
+    private final double[] pvalues;
 
     /**
      * the adjusted p-values ordened in ascending order.
      */
-    private double[] adjustedPvalues;
+    private final double[] adjustedPvalues;
 
     /**
      * the number of tests.
      */
-    private int m;
+    private final int m;
 
     /**
      * Constructor.
@@ -114,5 +109,5 @@ public final class BenjaminiHochberg {
     public double[] getAdjustedPvalues() {
         return adjustedPvalues;
     }
-    
+
 }
