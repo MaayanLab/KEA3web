@@ -262,10 +262,10 @@ public class EnrichmentCore extends HttpServlet {
         String pathInfo = request.getPathInfo();
         //System.out.println(pathInfo);
 
-        if (pathInfo == null || pathInfo.equals("/index.html") || pathInfo.equals("/")) {
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.html");
+        if (pathInfo == null || pathInfo.equals("/index.jsp") || pathInfo.equals("/")) {
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
             PrintWriter out = response.getWriter();
-            out.write("index.html URL");
+            out.write("index.jsp URL");
             rd.include(request, response);
 
         } else if (pathInfo.matches("^/submissions/.*")) {
