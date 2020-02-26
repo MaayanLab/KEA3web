@@ -1,71 +1,113 @@
 <div class="mbr-section d-none" id="results" style="background:white;">
     <div class="container">
-        <a class="btn btn-primary float-left position-absolute" id="newquerybutton" href="/kea3" style="padding: .5rem 1.5rem">New Query</a>
+        <a class="btn btn-primary float-left position-absolute" href="/kea3" id="newquerybutton"
+           style="padding: .5rem 1.5rem">New Query</a>
         <div class="h1 text-center">Browse KEA3 Results</div>
-        <hr width="100%" class="my-4">
+        <hr class="my-4" width="100%">
 
         <!-- Selection -->
-        <div id="options-row" class="row">
+        <div class="row" id="options-row">
 
             <!-- Library Selectpicker -->
             <div class="col-3">
-                <div>Select a library:<span class="mbri-question ml-2" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-title="<div class='px-1 py-2'>What are libraries?</div>" data-content="<div style = 'max-width:400px' class='px-3 py-2'>Each library is a collection of putative kinase-substrate interactions that your gene set is queried against. The Integrated Results aggregate kinase predictions from the nine other KEA3 libraries.</div>" data-html="true"></span></div>
-                <select id="library-selectpicker" class="cursor-pointer" data-header="Select a library:">
+                <div>Select a library:<span class="mbri-question ml-2" data-container="body"
+                                            data-content="<div style = 'max-width:400px' class='px-3 py-2'>Each library is a collection of putative kinase-substrate interactions that your gene set is queried against. The Integrated Results aggregate kinase predictions from the nine other KEA3 libraries.</div>"
+                                            data-html="true" data-placement="right"
+                                            data-title="<div class='px-1 py-2'>What are libraries?</div>"
+                                            data-toggle="popover"
+                                            data-trigger="hover"></span></div>
+                <select class="cursor-pointer" data-header="Select a library:" id="library-selectpicker">
                     <optgroup label="Integrated Results">
-                        <option data-subtext="Average integrated ranks across libraries" value="Integrated--meanRank">Mean Rank</option>
-                        <option data-subtext="Top integrated rank across libraries" value="Integrated--topRank">Top Rank</option>
+                        <option data-subtext="Average integrated ranks across libraries" value="Integrated--meanRank">
+                            Mean Rank
+                        </option>
+                        <option data-subtext="Top integrated rank across libraries" value="Integrated--topRank">Top
+                            Rank
+                        </option>
                     </optgroup>
                     <optgroup label="Kinase-Substrate Interaction">
-                        <option data-subtext="Aggregation of KSIs from public databases" value="ChengKSIN">Cheng KSIN</option>
-                        <option data-subtext="Experimentally determined KSIs curated from literature" value="PTMsigDB">PTMsigDB</option>
-                        <option data-subtext="KSI predictions based on protein domain" value="PhosDAll">PhosD All</option>
+                        <option data-subtext="Aggregation of KSIs from public databases" value="ChengKSIN">Cheng KSIN
+                        </option>
+                        <option data-subtext="Experimentally determined KSIs curated from literature" value="PTMsigDB">
+                            PTMsigDB
+                        </option>
+                        <option data-subtext="KSI predictions based on protein domain" value="PhosDAll">PhosD All
+                        </option>
                     </optgroup>
                     <optgroup label="Protein-Protein Interaction">
-                        <option data-subtext="PPI predictions based on structure/evolution/expression" value="prePPI">prePPI</option>
-                        <option data-subtext="Experimentally determined PPIs curated from literature" value="BioGRID">BioGRID</option>
+                        <option data-subtext="PPI predictions based on structure/evolution/expression" value="prePPI">
+                            prePPI
+                        </option>
+                        <option data-subtext="Experimentally determined PPIs curated from literature" value="BioGRID">
+                            BioGRID
+                        </option>
                         <option data-subtext="Aggregation of PPIs from public databases" value="mentha">mentha</option>
-                        <option data-subtext="Experimentally determined PPIs curated from literature" value="MINT">MINT</option>
+                        <option data-subtext="Experimentally determined PPIs curated from literature" value="MINT">
+                            MINT
+                        </option>
                         <option data-subtext="Aggregation of PPIs from public databases" value="HIPPIE">HIPPIE</option>
-                        <option data-subtext="Aggregation of PPIs from public databases" value="STRINGbind">STRING bind</option>
-                        <option data-subtext="Aggregation of PPIs from public databases" value="ChengPPI">Cheng PPI</option>
+                        <option data-subtext="Aggregation of PPIs from public databases" value="STRINGbind">STRING
+                            bind
+                        </option>
+                        <option data-subtext="Aggregation of PPIs from public databases" value="ChengPPI">Cheng PPI
+                        </option>
                     </optgroup>
                     <optgroup label="All Associations">
-                        <option data-subtext="Direct and indirect PPI interactions and associations" value="STRING">STRING</option>
+                        <option data-subtext="Direct and indirect PPI interactions and associations" value="STRING">
+                            STRING
+                        </option>
                     </optgroup>
-                </select>
                 </select>
             </div>
 
             <!-- Slider -->
             <div class="col-4 tf-selector d-none">
-                <div>Select kinases to visualize:<span class="mbri-question ml-2" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-title="<div class='px-1 py-2'>Where are the kinases visualized?</div>" data-content="<div style = 'max-width:400px' class='px-3 py-2'> The top kinases from the selected library are visualized in the Global Network, Local Network, and Bar Chart tabs.</div>" data-html="true"></span></div>
-                <div class="font-italic mt-1" style="font-size: small">Top <span id="nr-selected-tfs">10</span> kinases selected</div>
-                <input id="tf-slider" class="slider w-100" type="range" min="1" max="50" value="10" style="color:#7A1920">
+                <div>Select kinases to visualize:<span class="mbri-question ml-2" data-container="body"
+                                                       data-content="<div style = 'max-width:400px' class='px-3 py-2'> The top kinases from the selected library are visualized in the Global Network, Local Network, and Bar Chart tabs.</div>"
+                                                       data-html="true" data-placement="right"
+                                                       data-title="<div class='px-1 py-2'>Where are the kinases visualized?</div>"
+                                                       data-toggle="popover"
+                                                       data-trigger="hover"></span></div>
+                <div class="font-italic mt-1" style="font-size: small">Top <span id="nr-selected-tfs">10</span> kinases
+                    selected
+                </div>
+                <input class="slider w-100" id="tf-slider" max="50" min="1" style="color:#7A1920" type="range"
+                       value="10">
             </div>
 
             <!-- Colorpicker -->
-            <div id="colorpicker-col" class="col-3 tf-selector d-none">
-                <div>Select a color:<span class="mbri-question ml-2" data-container="body" data-toggle="popover" data-placement="right" data-trigger="hover" data-title="<div class='px-1 py-2'>Where are the kinases visualized?</div>" data-content="<div style = 'max-width:400px' class='px-3 py-2'>The top kinases from the selected library are visualized in the Global Network, Local Network, and Bar Chart tabs.</div>" data-html="true"></span></div>
-                <input type='text' id="colorpicker"/>
+            <div class="col-3 tf-selector d-none" id="colorpicker-col">
+                <div>Select a color:<span class="mbri-question ml-2" data-container="body"
+                                          data-content="<div style = 'max-width:400px' class='px-3 py-2'>The top kinases from the selected library are visualized in the Global Network, Local Network, and Bar Chart tabs.</div>"
+                                          data-html="true" data-placement="right"
+                                          data-title="<div class='px-1 py-2'>Where are the kinases visualized?</div>"
+                                          data-toggle="popover"
+                                          data-trigger="hover"></span></div>
+                <input id="colorpicker" type='text'/>
             </div>
         </div>
-
-
 
 
         <!-- Nav -->
         <nav class="pt-3">
             <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link rounded-0 active" id="nav-tables-tab" data-toggle="tab" href="#nav-tables" role="tab"
-                   aria-controls="nav-tables" aria-selected="true">Tables</a>
-                <a class="nav-item nav-link rounded-0" id="nav-global-network-tab" data-toggle="tab" href="#nav-global-network" role="tab"
-                   aria-controls="nav-global-network" aria-selected="false">Global Network</a>
-                <a class="nav-item nav-link rounded-0" id="nav-local-network-tab" data-toggle="tab" href="#nav-local-network" role="tab"
-                   aria-controls="nav-local-network" aria-selected="false">Local Network</a>
-                <a class="nav-item nav-link rounded-0" id="nav-barchart-tab" data-toggle="tab" href="#nav-barchart" role="tab"
-                   aria-controls="nav-barchart" aria-selected="false">Bar Chart</a>
-                <a class="nav-item nav-link rounded-0" id="nav-clustergram-tab" data-toggle="tab" href="#nav-clustergram" role="tab"
-                   aria-controls="nav-clustergram" aria-selected="false">Clustergram</a>
+                <a aria-controls="nav-tables" aria-selected="true" class="nav-item nav-link rounded-0 active"
+                   data-toggle="tab"
+                   href="#nav-tables"
+                   id="nav-tables-tab" role="tab">Tables</a>
+                <a aria-controls="nav-global-network" aria-selected="false" class="nav-item nav-link rounded-0"
+                   data-toggle="tab" href="#nav-global-network"
+                   id="nav-global-network-tab" role="tab">Global Network</a>
+                <a aria-controls="nav-local-network" aria-selected="false" class="nav-item nav-link rounded-0"
+                   data-toggle="tab" href="#nav-local-network"
+                   id="nav-local-network-tab" role="tab">Local Network</a>
+                <a aria-controls="nav-barchart" aria-selected="false" class="nav-item nav-link rounded-0"
+                   data-toggle="tab"
+                   href="#nav-barchart"
+                   id="nav-barchart-tab" role="tab">Bar Chart</a>
+                <a aria-controls="nav-clustergram" aria-selected="false" class="nav-item nav-link rounded-0"
+                   data-toggle="tab" href="#nav-clustergram"
+                   id="nav-clustergram-tab" role="tab">Clustergram</a>
             </div>
         </nav>
 
@@ -73,28 +115,35 @@
         <div class="tab-content" id="nav-tabContent">
 
             <!-- Tables Tab -->
-            <div class="tab-pane border-top-0 rounded-bottom px-4 py-3 fade show active" id="nav-tables" role="tabpanel" aria-labelledby="nav-tables-tab">
+            <div aria-labelledby="nav-tables-tab"
+                 class="tab-pane border-top-0 rounded-bottom px-4 py-3 fade show active" id="nav-tables"
+                 role="tabpanel">
                 <div id="tables-wrapper"></div>
                 <div id="results-tables" style="background-color: #333333; min-height: 500px; display: none;"></div>
             </div>
 
 
             <!-- Global Network Tab -->
-            <div class="tab-pane border-top-0 rounded-bottom px-4 py-3 fade" id="nav-global-network" role="tabpanel" aria-labelledby="nav-global-network-tab">
+            <div aria-labelledby="nav-global-network-tab" class="tab-pane border-top-0 rounded-bottom px-4 py-3 fade"
+                 id="nav-global-network"
+                 role="tabpanel">
 
                 <!-- Ali Code -->
                 <div class="tab-content networkcol" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-coexpression" role="tabpanel" aria-labelledby="pills-coexpression-tab">
-                        <div style="background: white" class="networkcol" id="tfnet">
+                    <div aria-labelledby="pills-coexpression-tab" class="tab-pane fade show active"
+                         id="pills-coexpression"
+                         role="tabpanel">
+                        <div class="networkcol" id="tfnet" style="background: white">
                             <!-- Side network navigation menu -->
-                            <div id="netoptsidenav" class="sidenav" style="float: top">
-                                <a href="javascript:void(0)" class="closebtn" onclick="closeNav('netoptsidenav')">&times;</a>
+                            <div class="sidenav" id="netoptsidenav" style="float: top">
+                                <a class="closebtn" href="javascript:void(0)" onclick="closeNav('netoptsidenav')">&times;</a>
                                 <a class="nav-link link text-white display-4">
                                     <span class="mbri-change-style mbr-iconfont"></span>
                                     Color by:
                                 </a>
-                                <div class="form-group" style="width: 80%; padding-left: 20px" id="colorbyoptions">
-                                    <select class="form-control" id="colorby" onchange="recolorAllNodes();setGTExLegendView()">
+                                <div class="form-group" id="colorbyoptions" style="width: 80%; padding-left: 20px">
+                                    <select class="form-control" id="colorby"
+                                            onchange="recolorAllNodes();setGTExLegendView()">
                                         <option>Tissue (general)</option>
                                         <option>Tissue (specific)</option>
                                         <option>GO Enrichment</option>
@@ -102,15 +151,18 @@
                                         <option>none</option>
                                     </select>
                                 </div>
-                                <a class="nav-link link text-white display-4" id="gtextablelink" href="#gtextable">GTEx tissue table</a>
-                                <a class="nav-link link text-white display-4" onclick="deleteNetwork();zm=1;drawNetwork();">
+                                <a class="nav-link link text-white display-4" href="#gtextable" id="gtextablelink">GTEx
+                                    tissue table</a>
+                                <a class="nav-link link text-white display-4"
+                                   onclick="deleteNetwork();zm=1;drawNetwork();">
                                     <span class="mbri-drag-n-drop2 mbr-iconfont"> </span>Zoom to fit
                                 </a>
                                 <a class="nav-link link text-white display-4" onclick="requestFullScreen('tfnet')">
                                     <span class="mbri-drag-n-drop mbr-iconfont"></span>
                                     Fullscreen
                                 </a>
-                                <a class="nav-link link text-white display-4" onclick="saveSvg('net_svg','network.svg')">
+                                <a class="nav-link link text-white display-4"
+                                   onclick="saveSvg('net_svg','network.svg')">
                                     <span class="mbri-camera mbr-iconfont"> </span>
                                     Save SVG
                                 </a>
@@ -130,13 +182,16 @@
                                 </div>
                                 <a class="nav-link link text-white display-4">
 										<span class="mbr-iconfont">
-											<input type="checkbox" id="legend_checkbox" class="checkbox-inline" checked="checked" value="1">
+											<input checked="checked" class="checkbox-inline" id="legend_checkbox"
+                                                   type="checkbox" value="1">
 										</span>
                                     Show Legend
                                 </a>
                             </div>
                             <div style="width:100%;float:right;display:inline;">
-									<span class="mbr-iconfont display-5" style="cursor: pointer;float:right;font-size:1rem" onclick="openNav('netoptsidenav','250px')">&#9776;
+									<span class="mbr-iconfont display-5"
+                                          onclick="openNav('netoptsidenav','250px')"
+                                          style="cursor: pointer;float:right;font-size:1rem">&#9776;
 										<h6 class="mbr-iconfont display-5" style="font-size: 1rem; display: inline">Network Options</h6>
 									</span>
                                 <div class="form-group" style="width: 175px; float: right; padding-right: 10px">
@@ -149,30 +204,39 @@
                             </div>
                         </div>
                     </div> <!-- end coexpression tab -->
-                    <div class="tab-pane fade" id="pills-coreg" role="tabpanel" aria-labelledby="pills-coreg-tab">
-                        <svg id="coregsvg" width="960" height="600"></svg>
+                    <div aria-labelledby="pills-coreg-tab" class="tab-pane fade" id="pills-coreg" role="tabpanel">
+                        <svg height="600" id="coregsvg" width="960"></svg>
                     </div>
                 </div> <!-- end tab-contents div -->
 
             </div>
 
             <!-- Local Network Tab -->
-            <div class="tab-pane border-top-0 rounded-bottom px-4 py-3 fade text-center" id="nav-local-network" role="tabpanel" aria-labelledby="nav-tables-tab">
-                <svg id="coreg-network" height="500" width="1000"></svg>
+            <div aria-labelledby="nav-tables-tab"
+                 class="tab-pane border-top-0 rounded-bottom px-4 py-3 fade text-center"
+                 id="nav-local-network" role="tabpanel">
+                <svg height="500" id="coreg-network" width="1000"></svg>
             </div>
 
             <!-- Barchart Tab -->
-            <div class="tab-pane border-top-0 rounded-bottom px-4 py-3 fade" id="nav-barchart" role="tabpanel" aria-labelledby="nav-tables-tab">
+            <div aria-labelledby="nav-tables-tab" class="tab-pane border-top-0 rounded-bottom px-4 py-3 fade"
+                 id="nav-barchart"
+                 role="tabpanel">
             </div>
 
             <!-- Clustergrammer Tab -->
-            <div class="tab-pane border-top-0 rounded-bottom px-4 py-3 fade" id="nav-clustergram" role="tabpanel" aria-labelledby="nav-clustergram-tab">
+            <div aria-labelledby="nav-clustergram-tab" class="tab-pane border-top-0 rounded-bottom px-4 py-3 fade"
+                 id="nav-clustergram"
+                 role="tabpanel">
                 <!-- <img src="clustergrammer.png" class="w-100"> -->
-                <iframe id="clustergram-iframe" class="w-100" frameborder="0" height="1000"></iframe>
-                <div id="clustergram-error" class="text-center py-5 display-5 d-none">
+                <iframe class="w-100" frameborder="0" height="1000" id="clustergram-iframe"></iframe>
+                <div class="text-center py-5 display-5 d-none" id="clustergram-error">
                     Sorry, there has been an error generating the clustergrammer visualization.
                     <br>
-                    Please <button type="button" class="btn btn-primary mx-0" onclick="generateClustergram();">click here</button> to try again.
+                    Please
+                    <button class="btn btn-primary mx-0" onclick="generateClustergram();" type="button">click here
+                    </button>
+                    to try again.
                 </div>
             </div>
         </div>
