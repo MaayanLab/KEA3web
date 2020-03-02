@@ -52,7 +52,6 @@ public class Overlap implements Comparable<Overlap> {
     @Override
     public int compareTo(Overlap o) {
         double comparep = o.getPval() - this.pval;
-
         if (comparep < 0) {
             return 1;
         } else if (comparep > 0) {

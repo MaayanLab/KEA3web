@@ -55,24 +55,13 @@ public class EnrichmentCore extends HttpServlet {
      */
 
     public void init(ServletConfig config) throws ServletException {
-
-
         super.init(config);
-
-
         //initialize dictionary object
         try {
             EnrichmentCore.dict = new GeneDict("WEB-INF/dict/hgnc_symbols.txt", this);
-            //System.out.println(EnrichmentCore.dict.encode.get("FOXO1"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        //		//read hit counter file
-        //		this.hitCount = readHits("WEB-INF/hits.txt", this);
-        //		//initialize hitIncr
-        //		this.hitIncr = 0;
-
 
         //initialize enrichment object
         EnrichmentCore.enrich = new Enrichment();
@@ -85,17 +74,13 @@ public class EnrichmentCore extends HttpServlet {
         HashSet<String> libpaths = new HashSet<String>();
 
         for (String f : filenames) {
-
             if (!f.equals(".DS_Store")) {
                 libpaths.add(libdir + f);
             }
-
         }
-
 
         //generate gene set library objects
         for (String l : libpaths) {
-
             try {
                 EnrichmentCore.libraries.add(new GenesetLibrary(l, dict, true, this));
             } catch (IOException e) {
@@ -106,7 +91,7 @@ public class EnrichmentCore extends HttpServlet {
         //get library description paths
         String libdesc = "WEB-INF/lib_descriptions/";
         String[] fnames = new File(getServletContext().getRealPath(libdesc)).list();
-        HashSet<String> descpaths = new HashSet<String>();
+        HashSet<String> descpaths = new HashSet<>();
         for (String f : fnames) {
             if (!f.equals(".DS_Store")) {
                 descpaths.add(libdesc + f);
@@ -127,12 +112,67 @@ public class EnrichmentCore extends HttpServlet {
         }
     }
 
-    public void destroy() {
-        //System.out.println("destroying server instance");
-        //		try {
-        //			this.writeHits("WEB-INF/hits.txt", this);
-        //		} catch (IOEtackTrace();
-        //		}
+    private void enrichmentResults(String[] genes, String query_name, HttpServletResponse response) throws IOException {
+        genes = toUpper(genes);
+
+        Query q = new Query(genes, EnrichmentCore.dict);
+
+        //compute enrichment for each library
+        HashMap<String, ArrayList<Overlap>> results = new HashMap<>();
+        double size;
+        double r;
+        int d;
+
+        for (GenesetLibrary lib : EnrichmentCore.libraries) {
+            ArrayList<Overlap> enrichResult = enrich.calculateEnrichment(q.dictMatch, lib.mappableSymbols, lib.name, query_name);
+            Collections.shuffle(enrichResult, new Random(4));
+            Collections.sort(enrichResult);
+            computeFDR(enrichResult);
+
+            //where multiple library gene sets correspond to the same TF, take only the best
+            //performing gene set and remove the rest from the list
+            HashSet<String> lib_tfs = new HashSet<>();
+            ArrayList<Integer> duplicated_tf_idx = new ArrayList<>();
+            d = 0;
+
+            for (Overlap o : enrichResult) {
+                if (lib_tfs.contains(o.getLibTF())) {
+                    duplicated_tf_idx.add(d);
+                } else {
+                    lib_tfs.add(o.getLibTF());
+                }
+                d++;
+            }
+            duplicated_tf_idx.sort(Collections.reverseOrder());
+
+            for (Integer dupe : duplicated_tf_idx) {
+                int duplicated = dupe;
+                enrichResult.remove(duplicated);
+            }
+
+            //set ranks of remaining results
+            r = 1;
+            size = enrichResult.size();
+            for (Overlap o : enrichResult) {
+                o.setRank((int) r);
+                o.setScaledRank(r / size);
+                r++;
+            }
+            results.put(lib.name, enrichResult);
+        }
+
+        ArrayList<IntegratedRank> top_rank = aggregate.topRank(results, query_name);
+        ArrayList<IntegratedRank> borda = aggregate.bordaCount(results, query_name);
+
+        HashMap<String, ArrayList<IntegratedRank>> integrated_results = new HashMap<>();
+        integrated_results.put("topRank", top_rank);
+        integrated_results.put("meanRank", borda);
+
+        String json = resultsToJSON(results, integrated_results);
+
+        //respond to request
+        response.setContentType("text/plain");
+        response.getWriter().write(json);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -141,113 +181,28 @@ public class EnrichmentCore extends HttpServlet {
 
         String pathInfo = request.getPathInfo();
         if (pathInfo.matches("^/enrich/.*")) {
-            StringBuffer jb = new StringBuffer();
+            StringBuilder jb = new StringBuilder();
             String line = null;
             try {
                 BufferedReader reader = request.getReader();
                 while ((line = reader.readLine()) != null)
                     jb.append(line);
             } catch (Exception e) { /*report an error*/ }
-            //System.out.println(jb.toString());
-
-
             try {
-
                 JSONObject jsonObject = new JSONObject(jb.toString());
-//				JSONObject jsonObject = HTTP.toJSONObject(jb.toString());
-
                 if (jsonObject.has("query_name")) {
                     query_name = jsonObject.getString("query_name");
                 }
-
 
                 JSONArray genesJson = jsonObject.getJSONArray("gene_set");
                 String[] genes = new String[genesJson.length()];
                 for (int i = 0; i < genesJson.length(); i++)
                     genes[i] = genesJson.getString(i);
 
-                genes = toUpper(genes);
-
-                Query q = new Query(genes, EnrichmentCore.dict);
-
-                //compute enrichment for each library
-
-                HashMap<String, ArrayList<Overlap>> results = new HashMap<String, ArrayList<Overlap>>();
-
-                double size = 0;
-                double r = 1;
-                int d = 0;
-
-
-                for (GenesetLibrary lib : EnrichmentCore.libraries) {
-                    ArrayList<Overlap> enrichResult = enrich.calculateEnrichment(q.dictMatch, lib.mappableSymbols, lib.name, query_name);
-                    Collections.shuffle(enrichResult, new Random(4));
-                    Collections.sort(enrichResult);
-                    computeFDR(enrichResult);
-
-
-                    //where multiple library gene sets correspond to the same TF, take only the best
-                    //performing gene set and remove the rest from the list
-                    HashSet<String> lib_tfs = new HashSet<String>();
-                    ArrayList<Integer> duplicated_tf_idx = new ArrayList<>();
-                    d = 0;
-
-                    for (Overlap o : enrichResult) {
-                        if (lib_tfs.contains(new String(o.getLibTF()))) {
-                            duplicated_tf_idx.add(d);
-                            //System.out.println(o.lib_name);
-
-                        } else {
-                            lib_tfs.add(new String(o.getLibTF()));
-                        }
-                        d++;
-                    }
-
-                    Collections.sort(duplicated_tf_idx, Collections.reverseOrder());
-
-                    for (Integer dupe : duplicated_tf_idx) {
-                        int duplicated = dupe;
-                        //System.out.println(dupe);
-                        enrichResult.remove(duplicated);
-                    }
-
-                    //set ranks of remaining results
-                    r = 1;
-                    size = enrichResult.size();
-                    for (Overlap o : enrichResult) {
-                        o.setRank((int) r);
-                        o.setScaledRank(r / size);
-                        //System.out.println(Integer.toString(size));
-                        r++;
-                    }
-                    results.put(lib.name, enrichResult);
-
-                    //integrate results
-
-                }
-
-                ArrayList<IntegratedRank> top_rank = aggregate.topRank(results, query_name);
-                ArrayList<IntegratedRank> borda = aggregate.bordaCount(results, query_name);
-                //					ArrayList<IntegratedRank> kemen = aggregate.localKemenization(results, query_name);
-
-                HashMap<String, ArrayList<IntegratedRank>> integrated_results = new HashMap<String, ArrayList<IntegratedRank>>();
-                integrated_results.put("topRank", top_rank);
-                integrated_results.put("meanRank", borda);
-                //					integrated_results.put("localKemenization",kemen);
-
-                String json = resultsToJSON(results, integrated_results);
-
-                //respond to request
-                response.setContentType("text/plain");
-                response.getWriter().write(json);
-
-
+                enrichmentResults(genes, query_name, response);
             } catch (JSONException e) {
-                // crash and burn
                 throw new IOException("Error parsing JSON request string");
             }
-
-
         }
     }
 
@@ -255,147 +210,46 @@ public class EnrichmentCore extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //response.getWriter().append("My servlet served at: "+fish.getFish()+" : ").append(request.getContextPath());
-
         response.setHeader("Access-Control-Allow-Origin", "*");
-
         String pathInfo = request.getPathInfo();
-        //System.out.println(pathInfo);
-
         if (pathInfo == null || pathInfo.equals("/index.jsp") || pathInfo.equals("/")) {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
             PrintWriter out = response.getWriter();
             out.write("index.jsp URL");
             rd.include(request, response);
-
         } else if (pathInfo.matches("^/submissions/.*")) {
-
             response.setContentType("text/plain");
             response.getWriter().write(Integer.toString(this.hitCount));
-
         } else if (pathInfo.matches("^/enrich/.*")) {
-
             String query_name = "user query";
-
-            //			//if hitCount is legitimate
-            //			if(this.hitCount >0) {
-            //				this.hitIncr++;
-            //				this.hitCount++;
-            //			}
-            //
-            //			if(this.hitIncr > this.write_hits) {
-            //				this.writeHits("WEB-INF/hits.txt", this);
-            //				this.hitIncr = 0;
-            //			}
-
-            //http://localhost:8080/chea3-dev/api/enrich/KIAA0907,KDM5A,CDC25A,EGR1,GADD45B,RELB,TERF2IP,SMNDC1,TICAM1,NFKB2,RGS2,NCOA3,ICAM1,TEX10,CNOT4,ARID4B,CLPX,CHIC2,CXCL2,FBXO11,MTF2,CDK2,DNTTIP2,GADD45A,GOLT1B,POLR2K,NFKBIE,GABPB1,ECD,PHKG2,RAD9A,NET1,KIAA0753,EZH2,NRAS,ATP6V0B,CDK7,CCNH,SENP6,TIPARP,FOS,ARPP19,TFAP2A,KDM5B,NPC1,TP53BP2,NUSAP1,SCCPDH,KIF20A,FZD7,USP22,PIP4K2B,CRYZ,GNB5,EIF4EBP1,PHGDH,RRAGA,SLC25A46,RPA1,HADH,DAG1,RPIA,P4HA2,MACF1,TMEM97,MPZL1,PSMG1,PLK1,SLC37A4,GLRX,CBR3,PRSS23,NUDCD3,CDC20,KIAA0528,NIPSNAP1,TRAM2,STUB1,DERA,MTHFD2,BLVRA,IARS2,LIPA,PGM1,CNDP2,BNIP3,CTSL1,CDC25B,HSPA8,EPRS,PAX8,SACM1L,HOXA5,TLE1,PYGL,TUBB6,LOXL1
-
             String truncPathInfo = pathInfo.replace("/enrich/", "");
-
-            String[] genes = new String[0];
-
+            String[] genes;
             Pattern p = Pattern.compile("(.*)/qid/(.*)");
             Matcher m = p.matcher(truncPathInfo);
 
             // if our pattern matches the URL extract groups
             if (m.find()) {
-                //System.out.println("HI");
                 String gene_identifiers = m.group(1);
                 genes = gene_identifiers.split(",");
                 query_name = m.group(2);
             } else {    // enrichment over all geneset libraries
                 genes = truncPathInfo.split(",");
             }
-
-            genes = toUpper(genes);
-
-            Query q = new Query(genes, EnrichmentCore.dict);
-
-            //compute enrichment for each library
-
-            HashMap<String, ArrayList<Overlap>> results = new HashMap<String, ArrayList<Overlap>>();
-
-            double size = 0;
-            double r = 1;
-            int d = 0;
-
-
-            for (GenesetLibrary lib : EnrichmentCore.libraries) {
-                ArrayList<Overlap> enrichResult = enrich.calculateEnrichment(q.dictMatch, lib.mappableSymbols, lib.name, query_name);
-                Collections.shuffle(enrichResult, new Random(4));
-                Collections.sort(enrichResult);
-                computeFDR(enrichResult);
-
-
-                //where multiple library gene sets correspond to the same TF, take only the best
-                //performing gene set and remove the rest from the list
-                HashSet<String> lib_tfs = new HashSet<String>();
-                ArrayList<Integer> duplicated_tf_idx = new ArrayList<>();
-                d = 0;
-
-                for (Overlap o : enrichResult) {
-                    if (lib_tfs.contains(new String(o.getLibTF()))) {
-                        duplicated_tf_idx.add(d);
-                        //System.out.println(o.lib_name);
-
-                    } else {
-                        lib_tfs.add(new String(o.getLibTF()));
-                    }
-                    d++;
-                }
-
-                Collections.sort(duplicated_tf_idx, Collections.reverseOrder());
-
-                for (Integer dupe : duplicated_tf_idx) {
-                    int duplicated = dupe;
-
-                    enrichResult.remove(duplicated);
-                }
-
-                //set ranks of remaining results
-                r = 1;
-                size = enrichResult.size();
-                for (Overlap o : enrichResult) {
-                    o.setRank((int) r);
-                    o.setScaledRank(r / size);
-                    //System.out.println(Integer.toString(size));
-                    r++;
-                }
-                results.put(lib.name, enrichResult);
-
-                //integrate results
-
-            }
-
-            ArrayList<IntegratedRank> top_rank = aggregate.topRank(results, query_name);
-            ArrayList<IntegratedRank> borda = aggregate.bordaCount(results, query_name);
-            //			ArrayList<IntegratedRank> kemen = aggregate.localKemenization(results, query_name);
-
-            HashMap<String, ArrayList<IntegratedRank>> integrated_results = new HashMap<String, ArrayList<IntegratedRank>>();
-            integrated_results.put("topRank", top_rank);
-            integrated_results.put("meanRank", borda);
-            //			integrated_results.put("localKemenization",kemen);
-
-            String json = resultsToJSON(results, integrated_results);
-
-            //respond to request
-            response.setContentType("text/plain");
-            response.getWriter().write(json);
-
+            enrichmentResults(genes, query_name, response);
         } else if (pathInfo.matches("^/main/.*")) {
             PrintWriter out = response.getWriter();
             out.write(Integer.toString(this.hitCount));
         } else if (pathInfo.matches("^/libdescriptions/.*")) {
-            String json = "{";
+            StringBuilder json = new StringBuilder("{");
             for (String l : lib_descriptions.keySet()) {
-                json = json + "\"" + l + "\":[";
-                json = json + "\"" + lib_descriptions.get(l) + "\"],";
+                json.append("\"").append(l).append("\":[");
+                json.append("\"").append(lib_descriptions.get(l)).append("\"],");
             }
-            json = json + "}";
+            json.append("}");
 
             //remove trailing comma
-            json = json.replaceAll("],}", "]}");
-            response.getWriter().write(json);
+            json = new StringBuilder(json.toString().replaceAll("],}", "]}"));
+            response.getWriter().write(json.toString());
         } else {
             PrintWriter out = response.getWriter();
             response.setHeader("Content-Type", "application/json");
@@ -405,99 +259,46 @@ public class EnrichmentCore extends HttpServlet {
     }
 
     public String resultsToJSON(HashMap<String, ArrayList<Overlap>> results, HashMap<String, ArrayList<IntegratedRank>> integ) {
-        String json = "{";
-
+        StringBuilder json = new StringBuilder("{");
         for (String key : integ.keySet()) {
-            json = json + "\"" + "Integrated--" + key + "\":[";
+            json.append("\"").append("Integrated--").append(key).append("\":[");
             ArrayList<IntegratedRank> integ_results = integ.get(key);
             for (IntegratedRank i : integ_results) {
                 String entry = "{\"Query Name\":" + "\"" + i.query_name + "\"" + ",";
-                entry = entry + "\"Rank\":" + "\"" + Integer.toString(i.rank) + "\"" + ",";
+                entry = entry + "\"Rank\":" + "\"" + i.rank + "\"" + ",";
                 entry = entry + "\"TF\":" + "\"" + i.tf + "\"" + ",";
-                entry = entry + "\"Score\":" + "\"" + Double.toString(sigDig(i.score, 4)) + "\"" + ",";
+                entry = entry + "\"Score\":" + "\"" + sigDig(i.score, 4) + "\"" + ",";
                 entry = entry + "\"Library\":" + "\"" + i.lib.replace("--", " ") + "\"" + ",";
                 entry = entry + "\"Overlapping_Genes\":" + "\"" + set2String(i.genes) + "\"},";
-                json = json + entry;
-
+                json.append(entry);
             }
-
-            //remove trailing comma
-            json = json.replaceAll(",$", "");
-            json = json + "],";
-
+            json = new StringBuilder(json.toString().replaceAll(",$", ""));
+            json.append("],");
         }
-
         for (String key : results.keySet()) {
-            json = json + "\"" + key + "\":[";
+            json.append("\"").append(key).append("\":[");
             ArrayList<Overlap> libresults = results.get(key);
-
             for (Overlap o : libresults) {
                 String entry = "{\"Query Name\":" + "\"" + o.query_name + "\"" + ",";
-                entry = entry + "\"Rank\":" + "\"" + Integer.toString(o.rank) + "\"" + ",";
-                entry = entry + "\"Scaled Rank\":" + "\"" + Double.toString(sigDig(o.scaledRank, 4)) + "\"" + ",";
+                entry = entry + "\"Rank\":" + "\"" + o.rank + "\"" + ",";
+                entry = entry + "\"Scaled Rank\":" + "\"" + sigDig(o.scaledRank, 4) + "\"" + ",";
                 entry = entry + "\"Set_name\":" + "\"" + o.libset_name + "\"" + ",";
                 entry = entry + "\"TF\":" + "\"" + o.lib_tf + "\"" + ",";
-                entry = entry + "\"Intersect\":" + "\"" + Integer.toString(o.overlap) + "\"" + ",";
-                entry = entry + "\"Set length\":" + "\"" + Integer.toString(o.setsize) + "\"" + ",";
-                entry = entry + "\"FET p-value\":" + "\"" + Double.toString(sigDig(o.pval, 4)) + "\"" + ",";
-                entry = entry + "\"FDR\":" + "\"" + Double.toString(sigDig(o.fdr, 3)) + "\"" + ",";
-                entry = entry + "\"Odds Ratio\":" + "\"" + Double.toString(sigDig(o.oddsratio, 4)) + "\"" + ",";
+                entry = entry + "\"Intersect\":" + "\"" + o.overlap + "\"" + ",";
+                entry = entry + "\"Set length\":" + "\"" + o.setsize + "\"" + ",";
+                entry = entry + "\"FET p-value\":" + "\"" + sigDig(o.pval, 4) + "\"" + ",";
+                entry = entry + "\"FDR\":" + "\"" + sigDig(o.fdr, 3) + "\"" + ",";
+                entry = entry + "\"Odds Ratio\":" + "\"" + sigDig(o.oddsratio, 4) + "\"" + ",";
                 entry = entry + "\"Library\":" + "\"" + o.lib_name + "\"" + ",";
                 entry = entry + "\"Overlapping_Genes\":" + "\"" + set2String(o.genes) + "\"},";
-                json = json + entry;
+                json.append(entry);
             }
-
-            //remove trailing comma
-            json = json.replaceAll(",$", "");
-            json = json + "],";
-
+            json = new StringBuilder(json.toString().replaceAll(",$", ""));
+            json.append("],");
         }
-
-        //remove trailing comma
-        json = json.replaceAll(",$", "");
-        json = json + "}";
-
-        return json;
-    }
-
-
-    public int readHits(String hit_filename, EnrichmentCore c) {
-        InputStream file = c.getServletContext().getResourceAsStream(hit_filename);
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(file));
-        int h = -1;
-        try {
-            h = Integer.parseInt(br.readLine());
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-        }
-        return (h);
-    }
-
-    private void writeHits(String hit_filename, EnrichmentCore c) throws IOException {
-
-        //only write to file if hitCount is valid
-        if (this.hitCount > 0) {
-            FileWriter f;
-
-
-            String contextPath = c.getServletContext().getRealPath("/");
-
-            String hits_filepath = contextPath + hit_filename;
-
-            //System.out.println(hits_filepath);
-
-            File myfile = new File(hits_filepath);
-
-            f = new FileWriter(myfile, false);
-            f.write(Integer.toString(this.hitCount));
-            f.flush();
-            f.close();
-
-        }
-
+        json = new StringBuilder(json.toString().replaceAll(",$", ""));
+        json.append("}");
+        return json.toString();
     }
 
     private static double sigDig(double d, int n) {
@@ -506,9 +307,7 @@ public class EnrichmentCore extends HttpServlet {
         }
         BigDecimal bd = new BigDecimal(d);
         bd = bd.round(new MathContext(n));
-        double rounded = bd.doubleValue();
-        return (rounded);
-
+        return (bd.doubleValue());
     }
 
     private static String[] toUpper(String[] genes) {
@@ -523,11 +322,8 @@ public class EnrichmentCore extends HttpServlet {
     }
 
     private void computeFDR(ArrayList<Overlap> over) {
-        //sort Overlap object
         Collections.sort(over);
-
-        //get pvals from overlap object
-        double pvals[] = new double[over.size()];
+        double[] pvals = new double[over.size()];
         int i = 0;
         for (Overlap o : over) {
             pvals[i] = o.getPval();
@@ -540,16 +336,9 @@ public class EnrichmentCore extends HttpServlet {
         int j = 0;
         for (Overlap o : over) {
             o.setFDR(adj_pvals[j]);
-            //System.out.println(pvals[j]);
-            //System.out.println(adj_pvals[j]);
             j++;
-
         }
-
-
     }
-
-
 }
 
 

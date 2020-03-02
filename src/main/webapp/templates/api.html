@@ -1,24 +1,13 @@
 <div class="mbr-section content4 cid-r0K2ViwrYH" id="api" style="padding-bottom:0">
-
-
     <div class="container">
-        <div class="media-container-row">
-            <div class="title col-12 col-md-8">
+        <div class="mbr-section article content1 cid-r0K4JJbbUf" id="content1-11" style="padding-bottom:0">
+            <div class="title col-12">
                 <h2 class="align-center pb-3 mbr-fonts-style display-2">API</h2>
                 <h3 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style display-5">
                     KEA3 has an API to enable programmatic access for querying the KEA3 database</h3>
-
             </div>
-        </div>
-    </div>
-
-
-    <div class="mbr-section article content1 cid-r0K4JJbbUf" id="content1-11" style="padding-bottom:0">
-
-
-        <div class="container">
             <div class="media-container-row">
-                <div class="mbr-text col-12 col-md-8 mbr-fonts-style display-7">
+                <div class="mbr-text col-12 mbr-fonts-style display-7">
                     The KEA3 REST API uses POST to transport user submitted JSON-formatted gene sets and JSON-formatted
                     query results between the KEA3 server and the user’s script. The user gene set and optional
                     additional information are encoded in JSON format.
@@ -45,51 +34,34 @@
                             </td>
                         </tr>
                     </table>
-                    <br><br>
-
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="mbr-section article content11 cid-r0K4Kn3FRS" id="content11-12" style="padding-bottom:0px">
-
-
-        <div class="container">
+        <div class="mbr-section article content11 cid-r0K4Kn3FRS" id="content11-12" style="padding-bottom:0px">
             <div class="media-container-row">
-                <div class="mbr-text counter-container col-12 col-md-8 mbr-fonts-style display-7">
+                <div class="mbr-text counter-container col-12 mbr-fonts-style display-7">
                     <ol>
                         <li><strong>Command-line Example</strong> - The following returns results from all KEA3
                             libraries in JSON format:
-                            <pre
-                                    style="width: 100%; overflow-x: scroll; white-space: nowrap">$ curl -d '{"query_name":"myQuery", "gene_set":["FOXM1","SMAD9","MYC","SMAD3","STAT1","STAT3"]}' -H 'Content-Type: application/json' https://amp.pharm.mssm.edu/kea3/api/enrich/</pre>
+                            <pre style="width: 100%; overflow-x: scroll; white-space: nowrap">$ curl -d '{"query_name":"myQuery", "gene_set":["FOXM1","SMAD9","MYC","SMAD3","STAT1","STAT3"]}' -H 'Content-Type: application/json' https://amp.pharm.mssm.edu/kea3/api/enrich/</pre>
                             Redirect the JSON-formatted results to a file:
-                            <pre
-                                    style="width: 100%; overflow-x: scroll; white-space: nowrap">$ curl -d '{"query_name":"myQuery", "gene_set":["FOXM1","SMAD9","MYC","SMAD3","STAT1","STAT3"]}' -H 'Content-Type: application/json' https://amp.pharm.mssm.edu/kea3/api/enrich/ > results.json</pre>
-                            </a></li>
-                        <!-- <li><strong>Python Example</strong> -
-                            <pre
-                            style="width: 100%; overflow-x: scroll; white-space: nowrap"></pre></li> -->
-                        <li><strong>R Example</strong> -
-                            <pre style="width: 100%; overflow-x: scroll">
-									rm(list = ls())
-									library(httr)
-									library(jsonlite)
-									
-									genes = c("SMAD9","FOXO1","MYC","STAT1",'STAT3',"SMAD3")
-									
-									url = "https://amp.pharm.mssm.edu/kea3/api/enrich/"
-									encode = "json"
-									payload = list(query_name = "myQuery", gene_set = genes)
-									
-									#POST to KEA3 server
-									response = POST(url = url, body = payload, encode = encode)
-									json = content(response, "text")
-									
-									#results as list of R dataframes
-									results = fromJSON(json)
-								
-								</pre>
+                            <pre style="width: 100%; overflow-x: scroll; white-space: nowrap">$ curl -d '{"query_name":"myQuery", "gene_set":["FOXM1","SMAD9","MYC","SMAD3","STAT1","STAT3"]}' -H 'Content-Type: application/json' https://amp.pharm.mssm.edu/kea3/api/enrich/ > results.json</pre>
+                        </li>
+                        <li><strong>R Example</strong>
+                            <pre>
+library(httr)
+library(jsonlite)
+
+genes = c("SMAD9","FOXO1","MYC","STAT1",'STAT3',"SMAD3")
+url = "https://amp.pharm.mssm.edu/kea3/api/enrich/"
+encode = "json"
+payload = list(query_name = "myQuery", gene_set = genes)
+
+response = POST(url = url, body = payload, encode = encode)
+json = content(response, "text")
+
+results = fromJSON(json)
+                            </pre>
                         </li>
                     </ol>
                 </div>

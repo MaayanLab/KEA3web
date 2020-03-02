@@ -534,17 +534,6 @@
 
 
     if (!isBuilder) {
-        // .mbr-social-likes
-        if ($.fn.socialLikes) {
-            $(document).on('add.cards', function(event) {
-                $(event.target).outerFind('.mbr-social-likes').on('counter.social-likes', function(event, service, counter) {
-                    if (counter > 999) $('.social-likes__counter', event.target).html(Math.floor(counter / 1000) + 'k');
-                }).socialLikes({
-                    initHtml: false
-                });
-            });
-        }
-
         $(document).on('add.cards', function(event) {
             if ($(event.target).hasClass('mbr-reveal')) {
                 $(event.target).footerReveal();

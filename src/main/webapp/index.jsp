@@ -11,23 +11,18 @@
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="assets/theme/css/style.css">
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
 	<link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css">
 	<link rel="stylesheet" href="assets/styles.css">
 	<link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
 
-	<script src="assets/web/assets/jquery/jquery-3.3.1.min.js" type="text/javascript"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" type="text/javascript"></script>
-	<script src="assets/touchswipe/jquery.touch-swipe.min.js" type="text/javascript"></script>
-	<script src="assets/mbr-switch-arrow/mbr-switch-arrow.js" type="text/javascript"></script>
-	<script src="assets/theme/js/script.js" type="text/javascript"></script>
-	<script src="assets/popper/popper.min.js" type="text/javascript"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="assets/mobirise/mbr-switch-arrow.js"></script>
+	<script src="assets/theme/js/script.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 </head>
 
@@ -79,14 +74,13 @@
 	<%--Query Submissions--%>
 	<div class="container" style="background: white">
 		<div class="row" style="background: white">
-			<div class="col-8 offset-2" style="background:white">
+			<div class="col-12 offset-2" style="background:white">
 				<div id="tfea-submission">
 					<h1 class="mbr-section-title mbr-bold mbr-fonts-style display-5 mt-5 mb-0 pt-5 pb-0">
 						Submit Your Gene Set for Analysis with KEA3
 					</h1>
 					<div class="form-container" style="padding: 0; border: ''">
-						<div class="media-container-column" data-form-type="formoid">
-
+						<div class="media-container-column">
 							<form class="mbr-form" action="">
 								<div class="form-group" data-for="message">
 									<button type="button" class="btn btn-link display-7 px-0 py-2"
@@ -144,44 +138,40 @@
 <link rel="stylesheet" href="assets/chea-query/submit-query.css">
 <link rel="stylesheet" href="assets/chea3home/df_style.css">
 <link rel="stylesheet" href="assets/chea3home/homepage.css">
-<link rel="stylesheet" href="assets/datatables/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"/>
 <link rel="stylesheet" href="assets/dropdown/css/style.css">
 <link rel="stylesheet" href="assets/networkd3/netprogressbar.css">
 <link rel="stylesheet" href="assets/networkd3/network_options.css">
 <link rel="stylesheet" href="assets/networkd3/network_style.css">
 <link rel="stylesheet" href="assets/socicon/css/styles.css">
 <link rel="stylesheet" href="assets/spectrum/spectrum.css">
-<link rel="stylesheet" href="assets/tether/tether.min.css">
 <link rel="stylesheet" href="assets/tooltips/css_tooltips.css">
 
-<script src="assets/d3/d3.v4.min.js" type="text/javascript"></script>
-<script src="https://d3js.org/d3-array.v1.min.js" type="text/javascript"></script>
-<script src="https://d3js.org/d3-selection-multi.v1.js"></script>
-<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-<script src="assets/chea-query/color-array.js" type="text/javascript"></script>
-<script src="assets/chea-query/download_results.js" type="text/javascript"></script>
+<script src="assets/chea-query/submit-query2.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="assets/chea-query/color-array.js"></script>
+<script src="assets/chea-query/download_results.js"></script>
 <script src="assets/chea-query/generateCoregNetwork.js" type="text/javascipt"></script>
-<script src="assets/chea-query/generateCoregNetwork.js" type="text/javascript"></script>
-<script src="assets/chea-query/generate_clustergram.js" type="text/javascript"></script>
-<script src="assets/chea-query/generate_coreg_network.js" type="text/javascript"></script>
-<script src="assets/chea-query/plot_results.js" type="text/javascript"></script>
-<script src="assets/chea-query/submit-query2.js" type="text/javascript"></script>
-<script src="assets/chea3home/chea3homepage.js" type="text/javascript"></script>
-<script src="assets/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
-<script src="assets/datatables/dataTables.bootstrap4.min.js" type="text/javascript"></script>
-<script src="assets/datatables/buttons.html5.min.js" type="text/javascript"></script>
-<script src="assets/datatables/buttons.colVis.min.js" type="text/javascript"></script>
-<script src="assets/datatables/dataTables.buttons.min.js" type="text/javascript"></script>
-<script src="assets/datatables/jszip.min.js" type="text/javascript"></script>
-<script src="assets/datatables/pdfmake.min.js" type="text/javascript"></script>
-<script src="assets/datatables/vfs_fonts.js" type="text/javascript"></script>
-<script src="assets/dropdown/js/script.min.js" type="text/javascript"></script>
-<script src="assets/networkd3/network3.js" type="text/javascript"></script>
-<script src="assets/networkd3/tissue_legends.js" type="text/javascript"></script>
-<script src="assets/smoothscroll/smooth-scroll.js" type="text/javascript"></script>
-<script src="assets/sociallikes/social-likes.js" type="text/javascript"></script>
-<script src="assets/spectrum/spectrum.js" type="text/javascript"></script>
-<script src="assets/tether/tether.min.js" type="text/javascript"></script>
+<script src="assets/chea-query/generateCoregNetwork.js"></script>
+<script src="assets/chea-query/generate_clustergram.js"></script>
+<script src="assets/chea-query/generate_coreg_network.js"></script>
+<script src="assets/chea-query/plot_results.js"></script>
+<script src="assets/chea3home/chea3homepage.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<%--<script src="assets/datatables/jquery.dataTables.min.js"></script>--%>
+<%--<script src="assets/datatables/dataTables.bootstrap4.min.js"></script>--%>
+<%--<script src="assets/datatables/buttons.html5.min.js"></script>--%>
+<%--<script src="assets/datatables/buttons.colVis.min.js"></script>--%>
+<%--<script src="assets/datatables/dataTables.buttons.min.js"></script>--%>
+<%--<script src="assets/datatables/jszip.min.js"></script>--%>
+<%--<script src="assets/datatables/pdfmake.min.js"></script>--%>
+<%--<script src="assets/datatables/vfs_fonts.js"></script>--%>
+<script src="assets/dropdown/js/script.min.js"></script>
+<script src="assets/networkd3/network3.js"></script>
+<script src="assets/networkd3/tissue_legends.js"></script>
+<%--<script src="assets/smoothscroll/smooth-scroll.js"></script>--%>
+<script src="assets/spectrum/spectrum.js"></script>
 
 <script>
 	var host = "http://localhost:8080/";
