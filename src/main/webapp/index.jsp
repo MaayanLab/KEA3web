@@ -72,9 +72,9 @@
     </nav>
 
 	<%--Query Submissions--%>
-	<div class="container" style="background: white">
-		<div class="row" style="background: white">
-			<div class="col-12 offset-2" style="background:white">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
 				<div id="tfea-submission">
 					<h1 class="mbr-section-title mbr-bold mbr-fonts-style display-5 mt-5 mb-0 pt-5 pb-0">
 						Submit Your Gene Set for Analysis with KEA3
@@ -159,14 +159,6 @@
 <script src="assets/chea3home/chea3homepage.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-<%--<script src="assets/datatables/jquery.dataTables.min.js"></script>--%>
-<%--<script src="assets/datatables/dataTables.bootstrap4.min.js"></script>--%>
-<%--<script src="assets/datatables/buttons.html5.min.js"></script>--%>
-<%--<script src="assets/datatables/buttons.colVis.min.js"></script>--%>
-<%--<script src="assets/datatables/dataTables.buttons.min.js"></script>--%>
-<%--<script src="assets/datatables/jszip.min.js"></script>--%>
-<%--<script src="assets/datatables/pdfmake.min.js"></script>--%>
-<%--<script src="assets/datatables/vfs_fonts.js"></script>--%>
 <script src="assets/dropdown/js/script.min.js"></script>
 <script src="assets/networkd3/network3.js"></script>
 <script src="assets/networkd3/tissue_legends.js"></script>
