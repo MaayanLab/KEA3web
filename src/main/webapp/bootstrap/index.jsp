@@ -13,9 +13,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <style>
-        #landing, #about, #tutorial, #api, #download {
-            margin-top: -70px;
+        <%-- Fixing scrollspy for fixed navbar --%>
+        #landing {
+            margin-top: -50px;
             padding-top: 110px;
+        }
+
+        #about, #tutorial, #api, #download {
+            margin-top: -70px;
+            padding-top: 70px;
         }
     </style>
 </head>
@@ -26,7 +32,7 @@
 <div id="index" class="container">
     <div class="row justyfy-content-center">
         <div class="col-sm col-md-10">
-            <nav id="index__navbar" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <nav id="index__navbar" class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
                 <a class="navbar-brand" href="#top">
                     <img src="../static/images/KEA3_logo_transparent.png" width="30" height="30"
                          class="d-inline-block align-top" alt="">

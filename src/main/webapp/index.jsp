@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="scroll-behavior: smooth;">
 <head>
 	<title>KEA3</title>
 	<meta name="description" content="KEA3 Web Tool">
@@ -149,10 +149,7 @@
 
 <script src="assets/chea-query/submit-query2.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="assets/chea-query/color-array.js"></script>
 <script src="assets/chea-query/download_results.js"></script>
-<script src="assets/chea-query/generateCoregNetwork.js" type="text/javascipt"></script>
-<script src="assets/chea-query/generateCoregNetwork.js"></script>
 <script src="assets/chea-query/generate_clustergram.js"></script>
 <script src="assets/chea-query/generate_coreg_network.js"></script>
 <script src="assets/chea-query/plot_results.js"></script>
@@ -162,7 +159,6 @@
 <script src="assets/dropdown/js/script.min.js"></script>
 <script src="assets/networkd3/network3.js"></script>
 <script src="assets/networkd3/tissue_legends.js"></script>
-<%--<script src="assets/smoothscroll/smooth-scroll.js"></script>--%>
 <script src="assets/spectrum/spectrum.js"></script>
 
 <script>

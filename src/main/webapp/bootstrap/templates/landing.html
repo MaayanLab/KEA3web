@@ -1,9 +1,24 @@
 <div class="col-12">
     <form style="">
-        <div class="form-group"><label>Submit Your Gene Set for Analysis with KEA3</label><input
-                type="text"
-                class="form-control">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-6">
+                    <textarea class="form-control form-control-sm" id="genelist" rows="12" name="text-genes" placeholder="Input gene list"></textarea>
+                    <p><span id="gene-count" style="color: darkgrey; font-size: 0.9rem;"></span></p>
+                    <p><span id="warning" style="color: coral; font-size: 0.8rem;"></span></p>
+                    <p><a class="btn btn-sm btn-success" href="#" role="button">Submit</a></p>
+                </div>
+                <div class="col-6">
+                    <p>Submit a query with one gene or protein symbol per row in
+                        the text box, or upload a text file with one gene or protein symbol per line. KEA3 accepts
+                        HGNC-approved gene symbols (but is not case-sensitive) and will discard probe names, transcript
+                        IDs, and other unrecognizable IDs that have not been converted to gene symbols. You can use the
+                        example gene set available as a link above the submission box to gain familiarity with the
+                        expected format. After submitting your query, you will be presented with the results page. Most
+                        queries are processed in less than 30 seconds.
+                    </p>
+                </div>
+            </div>
         </div>
     </form>
-    <p><a class="btn btn-sm btn-success" href="#" role="button">Submit</a></p>
 </div>

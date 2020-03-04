@@ -1,23 +1,7 @@
-
-var sliderClassName = 'slider';
 var defaultNodeColor = '#d3d3d3';
 var chea3Results;
 var json;
-var descriptions;
-var aucs = {"Integrated--meanRank":"0.786", "Integrated--topRank":"0.783", "Enrichr--Queries":"0.725", "ARCHS4--Coexpression":"0.711", "GTEx--Coexpression":"0.703", "ReMap--ChIP-seq": "0.629", "Literature--ChIP-seq": "0.613", "ENCODE--ChIP-seq": "0.606"};
-
-//function downloadResults(filename, text) {
-//	  var element = document.createElement('a');
-//	  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-//	  element.setAttribute('download', filename);
-//
-//	  element.style.display = 'none';
-//	  document.body.appendChild(element);
-//
-//	  element.click();
-//
-//	  document.body.removeChild(element);
-//}
+const colorArray = ['#e6194B', '#3cb44b', '#ffe119', '#4363d8', '#cf5c0a', '#911eb4', '#42d4f4', '#f032e6', '#bfef45', '#fabebe', '#469990', '#e6beff', '#9A6324', '#fffac8', '#800000', '#aaffc3'];
 
 function downloadResults(filename, text){
 	var blob = new Blob([text], { type: 'text/csv;charset=utf-8;' });
@@ -38,12 +22,7 @@ function downloadResults(filename, text){
     
 }
 
-function sliderChange(event) {
-	// change slider output text
-	
-	// var outputId = `${event.target.id}_output`;
-	// document.getElementById(outputId).innerHTML = renderSliderValueString(event.target.value);
-	// document.getElementById("colorby").value = "none";
+function sliderChange() {
 	recolorAllNodes();
 	setLegendView();
 	generateNetwork();
@@ -101,36 +80,14 @@ function defaultNodeColorAll(){
 
 function getTFs2(){
 	var library = $('#library-selectpicker').val(),
-			nr_tfs = parseInt($('#tf-slider').val()),
-			tfs = typeof chea3Results !== "undefined" ? chea3Results[library].slice(0, nr_tfs).map(function(x) { return x['TF'] }) : [];
-	return tfs		
+			nr_tfs = parseInt($('#tf-slider').val());
+	return typeof chea3Results !== "undefined" ? chea3Results[library].slice(0, nr_tfs).map(function (x) {
+		return x['TF']
+	}) : []
 }
-
-// function highlightNodes(sliders){
-// 	// if sliders are defined
-	
-// 	if(sliders.length>0){
-// 		for (var s of sliders) {
-// 			set1ValuesSliderSubset = getTFs(s);
-// 			var colorpicker_id = s.id.replace('_slider', '') + "_colorpicker";
-
-// 			for (var tf of set1ValuesSliderSubset) {
-// 				node = document.getElementById(tf);
-// 				if (node) {
-// 					node.setAttribute("stroke", getColor(colorpicker_id));
-// 					node.setAttribute("stroke-width", radius*2.5)
-// 					node.setAttribute("stroke-opacity", .5)
-// 				}
-// 			}
-
-// 		}
-// 	}
-	
-// }
 
 function highlightNodes2() {
 	set1ValuesSliderSubset = getTFs2();
-	// var colorpicker_id = s.id.replace('_slider', '') + "_colorpicker";
 
 	for (var tf of set1ValuesSliderSubset) {
 		node = document.getElementById(tf);
@@ -144,65 +101,12 @@ function highlightNodes2() {
 
 function recolorAllNodes() {
 	defaultNodeColorAll();
-	// var sliders = document.querySelectorAll(".slider");
 	highlightNodes2();
 }
-
-// function addSliderEventListeners() {
-// 	var sliders = document.querySelectorAll(`.${sliderClassName}`);
-// 	Array.from(sliders).forEach(function (slider) {
-// 		slider.addEventListener('change', sliderChange);
-// 	});
-// }
 
 function addSliderEventListener() {
 	document.getElementById('tf-slider').addEventListener('change', sliderChange);
 }
-
-function renderSliderValueString(value) {
-	return `Top ${value} TFs highlighted in network`;
-}
-
-// function renderCaption(libraryName) {
-// 	var captionId = `${libraryName}_${sliderClassName}`;
-// 	var value = 0;
-// 	// var caption = `
-// 	// <caption>
-// 	// </span>
-// 	// <input id="${captionId}" class="${sliderClassName}" type="range" min="0" max="50" value="${value}">
-// 	// <span id="${captionId}_output" style="color:white;font-size:14px;font-color:white">
-// 	// ${renderSliderValueString(value)}
-// 	// </span>	
-// 	// <input type='text' id="${libraryName}_colorpicker" />
-// 	// </caption>`;
-	
-// 	if (libraryName == "Integrated--meanRank"){
-// 		return `
-// 		<caption>
-// 		</span>
-// 		<input id="${captionId}" class="${sliderClassName}" type="range" min="0" max="50" value="${value}">
-// 		<span id="${captionId}_output" style="color:white;font-size:14px;font-color:white">
-// 		${renderSliderValueString(value)}
-// 		</span>
-// 		<input type='text' id="${libraryName}_colorpicker" />${renderBarChartPopoverButton()}
-// 		<button type="button" class="btn btn-link tf-tf-network display-7 p-0">TF-TF Network</button>
-// 		</caption>`;
-		
-		
-// 	}else{
-// 		return `
-// 		<caption>
-// 		</span>
-// 		<input id="${captionId}" class="${sliderClassName}" type="range" min="0" max="50" value="${value}">
-// 		<span id="${captionId}_output" style="color:white;font-size:14px;font-color:white">
-// 		${renderSliderValueString(value)}
-// 		</span>	
-// 		<input type='text' id="${libraryName}_colorpicker" />
-// 		</caption>`;
-// 	}
-	
-	
-// }
 
 function renderColorPicker() {
 	// New colorpicker
@@ -217,34 +121,6 @@ function renderColorPicker() {
 		})
 }
 
-// function renderTable(libraryName) {
-// 	return `
-// 	<table class="display" style="width:500px" id="table_${libraryName}"></table>
-// 	`
-// }
-
-// function renderCardHeader(libraryName){
-// 	var libraryTitle = libraryName.replace("--"," ");
-// 	var libraryTitle = libraryTitle.replace("--"," ");
-// 	var rocauc = aucs[libraryName];
-// 	return `    <div class="card-header" style="padding:0" role="tab" id="${libraryName}_header">
-// 	<a role="button" id="${libraryName}_headerbutton" class="lablab collapsed panel-title text-white"
-// 	data-toggle="collapse" data-parent="#accordion" data-core=""
-// 	href="#${libraryName}_body" aria-expanded="false"
-// 	aria-controls="collapse2">
-// 	<h4 class="mbr-fonts-style display-7 px-3 py-2" style="margin-bottom:0">
-// 	<span class="sign mbr-iconfont mbri-down inactive"></span>
-// 	<span class="color-emphasis-1" style = "font-size:100%">${libraryTitle}</span>
-// 	<span class="lib_description" id="${libraryName}_tooltip" data-tooltip="Loading library information..." data-tooltip_position="right">
-// 	<span class="mbri-info mbr-iconfont mbr-iconfont-btn"></span>
-// 	<span style="font-size:70%",font-color:red">ROC AUC: ${rocauc}</span>
-// 	</h4>
-// 	</a>
-
-// 	</div>
-// 	`
-// }
-
 function renderDownloadLibraryButton(libraryName, display){
 	var libraryTitle = libraryName.replace("--","_");
 	var libraryTitle = libraryTitle.replace("--","_");
@@ -254,63 +130,6 @@ function renderDownloadLibraryButton(libraryName, display){
 	Download All ${libraryTitle.replace('_', ' ')} Results as TSV</a>`
 
 }
-
-// function renderCardBody(libraryName) {
-// 	return `<div id="${libraryName}_body" class="funfun panel-collapse noScroll collapse" style="width:100%;padding:7px"
-// 	role="tabpanel" aria-labelledby="${libraryName}_header">
-// 	<div class="panel-body">`
-// 	+ renderCaption(libraryName) + renderTable(libraryName) + renderDownloadLibraryButton(libraryName) +
-
-// 	`</div>
-// 	</div>`
-// }
-
-// function renderDownloadResultsBtn(){
-// 	return `<a id = "downloadJSON" class="btn btn-sm btn-primary display-4" style="padding:0" 
-// 	onclick="downloadResults('results.json',json);"><span
-// 	class="mbri-save mbr-iconfont mbr-iconfont-btn"></span>Download All Results as JSON</a>`
-// }
-
-
-// function addCardHeaderEventListeners(){
-// 	$(".lablab").click(function() {
-// 		var classes = this.classList;
-// 		var card_id = this.id;
-// 		var slider_id = card_id.replace("headerbutton","slider");
-// 		var output_id = card_id.replace("headerbutton","slider_output")
-// 		var slider = document.getElementById(slider_id)
-// 		var table_id = '#table_' + card_id.replace("_headerbutton","");	
-// 		var body_id = card_id.replace("headerbutton","body");
-		
-// 		//if object is being collapsed
-// 		if(!(Object.values(classes).indexOf('collapsed') > -1)){
-// 			//reset slider
-// 			slider.value = 0;
-// 			document.getElementById(output_id).innerHTML = renderSliderValueString(0);
-// 			recolorAllNodes();
-			
-// 		}else{ //object is being expanded
-// 			var card_id = this.id;
-			
-			
-// 			$(table_id).css('width', '100%');
-// 			slider.value = 10;
-// 			document.getElementById(output_id).innerHTML = renderSliderValueString(10);
-			
-// 			//collapse all other open nodes and set their sliders to 0
-// 			$(".lablab:not(#"+card_id+")").addClass("collapsed");
-// 			$(".lablab:not(#"+card_id+")").attr("aria-expanded",false);
-// 			$(".funfun:not(#"+body_id+")").removeClass("show");
-// 			$(".slider:not(#"+slider_id+")").val(0);
-			
-// 			document.getElementById("colorby").value = "none";
-// 			recolorAllNodes();
-// 			setLegendView();
-
-// 		}   
-// 	});
-
-// }
 
 function validateGeneSet(geneset) {
 	var x = false;
@@ -325,80 +144,6 @@ function validateGeneSet(geneset) {
 	}
 	return x;
 }
-
-// function getLibraryDescriptions(){
-// 	var url =  host + "chea3/api/libdescriptions/";
-// 	$.ajax({
-// 		url : url,
-// 		success : function(results) {
-// 			descriptions = JSON.parse(results);
-// 			var lib_names = Object.keys(descriptions);
-// 			for(l in lib_names){
-// 				lib = lib_names[l];
-// 				$("#"+lib.replace(".txt","")+"_tooltip").attr("data-tooltip",descriptions[lib][0])
-// 			}
-// 		}
-// 	});
-		
-// }
-
-// function downloadText(element_id, filename) {
-// 	  var element = document.getElementById(element_id);
-// 	  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(json));
-// 	  element.setAttribute('download', filename);
-
-// 	  element.style.display = 'none';
-// 	  document.body.appendChild(element);
-
-// 	  element.click();
-
-// 	  document.body.removeChild(element);
-// }
-
-// function newQuery(){
-// 	$("#results").addClass("d-none");
-// 	$("#pills-tab").addClass("d-none");
-	
-// 	$('#pills-tab a[href="#pills-coexpression"]').tab('show');
-	
-// 	$("#results").html(`
-// 				<div id="resultssidenav" class="sidenavR"
-// 					style="top: 60px; height: 90%; padding-top: 20px; padding-bottom: 20px">
-// 					<a href="javascript:void(0)" class="closebtn"
-// 						onclick="closeNav('resultssidenav')">&times;</a>
-// 					<h1
-// 						class="mbr-section-title mbr-bold mbr-fonts-style display-7 text-white"
-// 						align="left" style='padding-left: 2em'>Results by Library</h1>
-// 				</div>
-
-// 				<div id="expandresults"
-// 					style="float:left; padding-top: 30px">
-// 					<span style="font-size: 15px; cursor: pointer; padding-top: 30px"
-// 						onclick="openNav('resultssidenav','40%')">&#9776;
-						
-// 					</span> <h6 class="mbr-iconfont display-5"
-// 							style="font-size: 1rem; display: inline">Back to Results</h6> <button type="button" class="btn btn-primary"
-// 								id="newquerybutton" type="submit" onclick="newQuery()" style="padding: .5rem 1.5rem">New Query</button>
-
-
-// 				</div>`);
-	
-	
-// 	$('#translucent-net').removeClass("d-none");
-// 	$('#tfea-submission').removeClass("d-none");
-// 	$('#tfea-title').removeClass("d-none");
-// 	var gl = document.getElementById("genelist");
-// 	gl.value = "";
-// 	gl.placeholder = "Submit gene list with one gene per line."
-// 	chea3Results = null;
-	
-// 	document.getElementById("colorby").value = "Tissue (general)";
-// 	defaultNodeColorAll();
-// 	setLegendView();
-	
-// 	// reset text box
-	
-// }
 
 function intersectionPopover(row, library) {
 	var genes = row.Overlapping_Genes.split(','),
