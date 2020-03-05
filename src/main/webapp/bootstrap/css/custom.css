@@ -1,0 +1,23 @@
+/* Fixing scrollspy for fixed navbar >*/
+#landing {
+    margin-top: -50px;
+    padding-top: 110px;
+}
+
+#about, #tutorial, #api, #libraries {
+    margin-top: -70px;
+    padding-top: 70px;
+}
+
+/* Recoloring bottstrap elements to KEA colors */
+.index__navbar {
+    min-height: 25px;
+    padding: 0;
+    background: #7A1920 !important;
+}
+
+.btn-primary {
+    background-color: #7A1920 !important;
+    border-color: #7A1920 !important;
+    color: #ffffff !important;
+}

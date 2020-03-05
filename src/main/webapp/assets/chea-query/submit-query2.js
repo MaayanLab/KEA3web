@@ -112,7 +112,7 @@ function renderColorPicker() {
 	// New colorpicker
 	$('#colorpicker')
 		.spectrum({
-			color: colorArray[i],
+			color: colorArray[1],
 			change: function() {
 				recolorAllNodes();
 				generateBarChart();

@@ -8,7 +8,7 @@ public class IntegratedRank implements Comparable<IntegratedRank> {
     int rank;
     String lib = "";
     String query_name = "";
-    HashSet<String> genes = new HashSet<String>();
+    HashSet<String> genes;
 
     public IntegratedRank(String tf, double score, String lib, String query_name, HashSet<String> genes) {
         this.tf = tf;

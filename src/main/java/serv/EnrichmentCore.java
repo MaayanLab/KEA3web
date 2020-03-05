@@ -27,16 +27,9 @@ import java.util.regex.Pattern;
 public class EnrichmentCore extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private int hitCount;
-    //	private int write_hits = 10;
-    //	private int hitIncr;
-
-
-    public boolean initialized = false;
-
     static GeneDict dict = null;
-    static HashSet<GenesetLibrary> libraries = new HashSet<GenesetLibrary>();
-    static HashMap<String, String> lib_descriptions = new HashMap<String, String>();
-
+    static HashSet<GenesetLibrary> libraries = new HashSet<>();
+    static HashMap<String, String> lib_descriptions = new HashMap<>();
     static Enrichment enrich = null;
     static RankAggregate aggregate = null;
 
@@ -45,7 +38,6 @@ public class EnrichmentCore extends HttpServlet {
      */
     public EnrichmentCore() {
         super();
-
     }
 
     /**
@@ -69,45 +61,33 @@ public class EnrichmentCore extends HttpServlet {
 
         //get gmt file paths
         String libdir = "WEB-INF/tflibs/";
-        String[] filenames = new File(getServletContext().getRealPath(libdir)).list();
+        String[] lib_files = new File(getServletContext().getRealPath(libdir)).list();
 
-        HashSet<String> libpaths = new HashSet<String>();
-
-        for (String f : filenames) {
-            if (!f.equals(".DS_Store")) {
-                libpaths.add(libdir + f);
-            }
-        }
-
-        //generate gene set library objects
-        for (String l : libpaths) {
-            try {
-                EnrichmentCore.libraries.add(new GenesetLibrary(l, dict, true, this));
-            } catch (IOException e) {
-                e.printStackTrace();
+        assert lib_files != null;
+        for (String lib : lib_files) {
+            if (!lib.equals(".DS_Store")) {
+                try {
+                    EnrichmentCore.libraries.add(new GenesetLibrary(libdir + lib, dict, true, this));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
         //get library description paths
         String libdesc = "WEB-INF/lib_descriptions/";
-        String[] fnames = new File(getServletContext().getRealPath(libdesc)).list();
-        HashSet<String> descpaths = new HashSet<>();
-        for (String f : fnames) {
-            if (!f.equals(".DS_Store")) {
-                descpaths.add(libdesc + f);
-            }
-        }
-
-        //set library descriptions
-        for (String path : descpaths) {
-            String desc_name = path.replaceAll(".*/lib_descriptions/", "").split("_")[0];
-            // load gmt file
-            InputStream file = this.getServletContext().getResourceAsStream(path);
-            BufferedReader br = new BufferedReader(new InputStreamReader(file));
-            try {
-                EnrichmentCore.lib_descriptions.put(desc_name, br.readLine());
-            } catch (IOException e) {
-                e.printStackTrace();
+        String[] lib_desc_files = new File(getServletContext().getRealPath(libdesc)).list();
+        assert lib_desc_files != null;
+        for (String lib_desc : lib_desc_files) {
+            if (!lib_desc.equals(".DS_Store")) {
+                String desc_name = (libdesc + lib_desc).replaceAll(".*/lib_descriptions/", "").split("_")[0];
+                InputStream file = this.getServletContext().getResourceAsStream(libdesc + lib_desc);
+                BufferedReader br = new BufferedReader(new InputStreamReader(file));
+                try {
+                    EnrichmentCore.lib_descriptions.put(desc_name, br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -212,6 +192,7 @@ public class EnrichmentCore extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin", "*");
         String pathInfo = request.getPathInfo();
+
         if (pathInfo == null || pathInfo.equals("/index.jsp") || pathInfo.equals("/")) {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
             PrintWriter out = response.getWriter();

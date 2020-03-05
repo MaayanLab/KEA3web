@@ -133,13 +133,13 @@
 </html>
 
 <link rel="stylesheet" href="assets/chea-query/d3barchart.css">
-<link rel="stylesheet" href="assets/chea-query/pretty-headers.css">
+<%--<link rel="stylesheet" href="assets/chea-query/pretty-headers.css">--%>
 <link rel="stylesheet" href="assets/chea-query/result_scroll.css">
 <link rel="stylesheet" href="assets/chea-query/submit-query.css">
-<link rel="stylesheet" href="assets/chea3home/df_style.css">
-<link rel="stylesheet" href="assets/chea3home/homepage.css">
+<%--<link rel="stylesheet" href="assets/chea3home/df_style.css">--%>
+<%--<link rel="stylesheet" href="assets/chea3home/homepage.css">--%>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"/>
-<link rel="stylesheet" href="assets/dropdown/css/style.css">
+<%--<link rel="stylesheet" href="assets/dropdown/css/style.css">--%>
 <link rel="stylesheet" href="assets/networkd3/netprogressbar.css">
 <link rel="stylesheet" href="assets/networkd3/network_options.css">
 <link rel="stylesheet" href="assets/networkd3/network_style.css">
