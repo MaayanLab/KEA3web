@@ -155,7 +155,7 @@
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 <script src="assets/dropdown/js/script.min.js"></script>
 <script src="assets/networkd3/network3.js"></script>
-<script src="assets/networkd3/tissue_legends.js"></script>
+<script src="assets/js/tissue_legends.js"></script>
 <script src="assets/spectrum/spectrum.js"></script>
 
 <script>
