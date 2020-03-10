@@ -133,11 +133,8 @@
 </html>
 
 <link rel="stylesheet" href="assets/chea-query/d3barchart.css">
-<%--<link rel="stylesheet" href="assets/chea-query/pretty-headers.css">--%>
 <link rel="stylesheet" href="assets/chea-query/result_scroll.css">
 <link rel="stylesheet" href="assets/chea-query/submit-query.css">
-<%--<link rel="stylesheet" href="assets/chea3home/df_style.css">--%>
-<%--<link rel="stylesheet" href="assets/chea3home/homepage.css">--%>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"/>
 <%--<link rel="stylesheet" href="assets/dropdown/css/style.css">--%>
 <link rel="stylesheet" href="assets/networkd3/netprogressbar.css">
@@ -153,7 +150,6 @@
 <script src="assets/chea-query/generate_clustergram.js"></script>
 <script src="assets/chea-query/generate_coreg_network.js"></script>
 <script src="assets/chea-query/plot_results.js"></script>
-<script src="assets/chea3home/chea3homepage.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 <script src="assets/dropdown/js/script.min.js"></script>
