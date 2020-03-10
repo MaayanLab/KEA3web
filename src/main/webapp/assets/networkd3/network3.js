@@ -1,12 +1,10 @@
-var radius = 6;
-var net_width;
-var net_height;
-var g;
-var max = 100;
-var zm;
-var global_nodes;
-var global_labels;
-var net_width = 1000,
+const radius = 6;
+let g;
+let max = 100;
+let zm;
+let global_nodes;
+let global_labels;
+let net_width = 1000,
 	net_height = 500;
 
 
@@ -289,38 +287,24 @@ var div = d3.select("body").append("div")
 
 function drawNetwork() {
 	d3.json("assets/networkd3/wgcna_gtex_annotated4.json", function(net_json) {
-
-		var networkDiv = document.getElementById("tfnet");
-		// net_width = 1000;
-		// net_height = 500;
-		//console.log(net_width)
-		//console.log(net_height)
-		//console.log($('#tfnet').width())
-		//console.log($('#tfnet').css('padding'))
-
-
 		var network_svg = d3.select("#tfnet").append("svg");
-		// network_svg.attr("viewBox","0,0,${net_width},${net_height}");
-		// network_svg.attr("preserveAspectRatio", "xMidYMid slice");
-		network_svg.attr("id", "net_svg");
-
-		network_svg.attr("width", net_width).attr("height", net_height);
+		network_svg.attr("id", "net_svg")
+			.attr("width", net_width)
+			.attr("height", net_height);
 
 		var nodes = net_json;
 		var max_x = Math.max.apply(Math, nodes.map(function(o) {
 			return o.x;
-		}))
+		}));
 		var max_y = Math.max.apply(Math, nodes.map(function(o) {
 			return o.y;
-		}))
+		}));
 		var min_x = Math.min.apply(Math, nodes.map(function(o) {
 			return o.x;
-		}))
+		}));
 		var min_y = Math.min.apply(Math, nodes.map(function(o) {
 			return o.y;
-		}))
-
-//		nodes = adjustCoordinates(nodes);
+		}));
 
 		// add encompassing group for the zoom
 		g = network_svg.append("g").attr("class", "everything");
@@ -341,11 +325,12 @@ function drawNetwork() {
 				[ net_height * 0.05, net_width * 0.95 ]).range(
 						[ min_y, max_y ]);
 
+		let circle_fill;
 		var colorby_val = document.getElementById("colorby").value;
 		if(colorby_val == null){
-			var circle_fill = "General_tissue_color"
+			circle_fill = "General_tissue_color"
 		}else{
-			var circle_fill = translateNodeColor(colorby_val);
+			circle_fill = translateNodeColor(colorby_val);
 		}
 		
 		// draw circles for the nodes
@@ -368,17 +353,17 @@ function drawNetwork() {
 		.attr(
 				"fill",
 				function(d) {
-					if (circle_fill == "General_tissue_color") {
-						return d.General_tissue_color;
-					} else if (circle_fill == "Specific_tissue_color") {
-						return d.Specific_tissue_color;
-					} else if (circle_fill == "WGCNA_hex") {
-						return d.WGCNA_hex;
-					} else if (circle_fill == "GO_enrichment_color"){
-						return d.GO_enrichment_color
-					}
-					else {
-						return defaultNodeColor;
+					switch (circle_fill) {
+						case "General_tissue_color":
+							return d.General_tissue_color;
+						case "Specific_tissue_color":
+							return d.Specific_tissue_color;
+						case "WGCNA_hex":
+							return d.WGCNA_hex;
+						case "GO_enrichment_color":
+							return d.GO_enrichment_colordefault;
+						default:
+							return defaultNodeColor;
 					}
 				}).attr("stroke", 0).attr(
 						"stroke-opacity", 0).attr(
@@ -1128,22 +1113,15 @@ function drawARCHS4Network() {
 			.style("font-size","10pt")
 			.text(function(d){return d.Tissue});
 		});
-	
 
-		// var sliders = document.querySelectorAll(".slider");
-		// if (sliders != null) {
-		// 	highlightNodes(sliders);
-		// }
 		highlightNodes2();
-
 		global_nodes = node;
 		global_labels = label;
-		
 		setLabelView();
 		setARCHS4LegendView();
 
-	});// end d3.json
-}//end function drawARCHS4Network()
+	});
+}
 
 
 function deleteNetwork() {
@@ -1154,13 +1132,16 @@ $(document).ready(function() {
 	drawNetwork();
 	$('#legend_checkbox').change(function(){
 		var netview = whichNetwork()
-		if(netview == "gtex"){
-			setGTExLegendView();
-		}else if(netview == "archs4"){
-			setARCHS4LegendView();
-			
-		}else if(netview== "tcga"){
-			setTCGALegendView();
+		switch (netview) {
+			case "gtex":
+				setGTExLegendView();
+				break;
+			case "archs4":
+				setARCHS4LegendView();
+				break;
+			case "tcga":
+				setTCGALegendView();
+				break;
 		}
 	});
 	
@@ -1170,13 +1151,16 @@ $(document).ready(function() {
 			deleteNetwork(net_svg);
 			zm = 1;
 			var netview = whichNetwork()
-			if(netview == "gtex"){
-				drawNetwork();
-			}else if(netview == "archs4"){
-				drawARCHS4Network();
-				
-			}else if(netview== "tcga"){
-				drawTCGANetwork();
+			switch (netview) {
+				case "gtex":
+					drawNetwork();
+					break;
+				case "archs4":
+					drawARCHS4Network();
+					break;
+				case "tcga":
+					drawTCGANetwork();
+					break;
 			}
 		}
 

@@ -136,7 +136,6 @@
 <link rel="stylesheet" href="assets/chea-query/result_scroll.css">
 <link rel="stylesheet" href="assets/chea-query/submit-query.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"/>
-<%--<link rel="stylesheet" href="assets/dropdown/css/style.css">--%>
 <link rel="stylesheet" href="assets/networkd3/netprogressbar.css">
 <link rel="stylesheet" href="assets/networkd3/network_options.css">
 <link rel="stylesheet" href="assets/networkd3/network_style.css">
@@ -144,14 +143,16 @@
 <link rel="stylesheet" href="assets/spectrum/spectrum.css">
 <link rel="stylesheet" href="assets/tooltips/css_tooltips.css">
 
-<script src="assets/chea-query/submit-query2.js"></script>
+<script src="assets/js/hgnc_symbols.js"></script>
+<script src="assets/js/palette.js"></script>
+<script src="assets/chea-query/submit-query.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="assets/chea-query/download_results.js"></script>
 <script src="assets/chea-query/generate_clustergram.js"></script>
 <script src="assets/chea-query/generate_coreg_network.js"></script>
 <script src="assets/chea-query/plot_results.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 <script src="assets/dropdown/js/script.min.js"></script>
 <script src="assets/networkd3/network3.js"></script>
 <script src="assets/networkd3/tissue_legends.js"></script>
