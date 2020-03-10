@@ -9,12 +9,12 @@ let net_width = 1000,
 
 
 function whichNetwork() {
-    var net = document.getElementById("whichnetwork").value;
-    if (net == "GTEx TF Network") {
+    const net = document.getElementById("whichnetwork").value;
+    if (net === "GTEx TF Network") {
         return "gtex";
-    } else if (net == "TCGA TF Network") {
+    } else if (net === "TCGA TF Network") {
         return ("tcga");
-    } else if (net == "ARCHS4 TF Network") {
+    } else if (net === "ARCHS4 TF Network") {
         return ("archs4");
     } else {
         return null;
@@ -22,34 +22,34 @@ function whichNetwork() {
 }
 
 function changeNetwork() {
-    var net_svg = document.getElementById("net_svg");
+    const net_svg = document.getElementById("net_svg");
     if (net_svg != null) {
         deleteNetwork(net_svg);
     }
     zm = 1;
-    var netview = whichNetwork()
-    if (netview == "gtex") {
-        setGTExColorByOptions();
-        drawNetwork();
-        setGTExLegendView();
-        recolorAllNodes();
-        $("#gtextablelink").removeClass("d-none")
-
-
-    } else if (netview == "archs4") {
-        setARCHS4ColorByOptions();
-        drawARCHS4Network();
-        setARCHS4LegendView();
-        recolorAllNodes();
-        $("#gtextablelink").addClass("d-none")
-
-
-    } else if (netview == "tcga") {
-        setTCGAColorByOptions();
-        drawTCGANetwork();
-        setTCGALegendView();
-        $("#gtextablelink").addClass("d-none")
-        recolorAllNodes();
+    const netview = whichNetwork();
+    switch (netview) {
+        case "gtex":
+            setGTExColorByOptions();
+            drawNetwork();
+            setGTExLegendView();
+            recolorAllNodes();
+            $("#gtextablelink").removeClass("d-none")
+            break;
+        case "archs4":
+            setARCHS4ColorByOptions();
+            drawARCHS4Network();
+            setARCHS4LegendView();
+            recolorAllNodes();
+            $("#gtextablelink").addClass("d-none")
+            break;
+        case "tcga":
+            setTCGAColorByOptions();
+            drawTCGANetwork();
+            setTCGALegendView();
+            $("#gtextablelink").addClass("d-none");
+            recolorAllNodes();
+            break;
     }
 
 }
@@ -79,7 +79,7 @@ function zoom_actions() {
 
 	zm = d3.event.transform.k;
 
-	if (getLabelView() == "auto") {
+	if (getLabelView() === "auto") {
 		if (zm >= 2) {
 			label.style("opacity", "1");
 
@@ -147,13 +147,13 @@ function saveSvg(svg_id, name) {
 
 function setLabelView() {
     var labelview = getLabelView();
-    if (labelview == "auto") {
+    if (labelview === "auto") {
         if (zm >= 2) {
             global_labels.style("opacity", 1);
         } else {
             global_labels.style("opacity", 0);
         }
-    } else if (labelview == "always") {
+    } else if (labelview === "always") {
         global_labels.style("opacity", 1);
     } else {
         global_labels.style("opacity", 0);
@@ -161,19 +161,12 @@ function setLabelView() {
 
 }
 
-function circleColour() {
-    return ("#d3d3d3");
-
-}
-
-function openNav(nav, width) {
-    $('#' + nav).removeClass('closeNav')
-    $('#' + nav).addClass('openNav')
+function openNav(nav) {
+    $('#' + nav).removeClass('closeNav').addClass('openNav')
 }
 
 function closeNav(nav) {
-    $('#' + nav).removeClass('openNav')
-    $('#' + nav).addClass('closeNav')
+    $('#' + nav).removeClass('openNav').addClass('closeNav')
 }
 
 function getLabelView() {
@@ -192,7 +185,7 @@ function setGTExLegendView() {
     var go_hidden = $("#GO_legend").hasClass("hidden");
 
     if (isLegendChecked()) {
-        if (colby == "Tissue (general)") {
+        if (colby === "Tissue (general)") {
             if (gen_hidden) {
                 $("#general_tissue_legend").removeClass("hidden");
             }
@@ -205,7 +198,7 @@ function setGTExLegendView() {
             }
 
 
-        } else if (colby == "Tissue (specific)") {
+        } else if (colby === "Tissue (specific)") {
             if (spec_hidden) {
                 $("#specific_tissue_legend").removeClass("hidden");
 
@@ -216,8 +209,8 @@ function setGTExLegendView() {
             if (!go_hidden) {
                 $("#GO_legend").addClass("hidden");
             }
-        } else if (colby == "GO Enrichment") {
-            console.log("GO")
+        } else if (colby === "GO Enrichment") {
+            console.log("GO");
             if (go_hidden) {
                 $("#GO_legend").removeClass("hidden");
             }
@@ -261,7 +254,7 @@ function setTCGALegendView() {
     let tumor_hidden = $("#Tumor_legend").hasClass("hidden");
 
     if (isLegendChecked()) {
-        if (color_by == "Tumor") {
+        if (color_by === "Tumor") {
             if (tumor_hidden) {
                 $("#Tumor_legend").removeClass("hidden");
             }
@@ -672,16 +665,16 @@ function drawTCGANetwork() {
         var nodes = net_json;
         var max_x = Math.max.apply(Math, nodes.map(function (o) {
             return o.x;
-        }))
+        }));
         var max_y = Math.max.apply(Math, nodes.map(function (o) {
             return o.y;
-        }))
+        }));
         var min_x = Math.min.apply(Math, nodes.map(function (o) {
             return o.x;
-        }))
+        }));
         var min_y = Math.min.apply(Math, nodes.map(function (o) {
             return o.y;
-        }))
+        }));
 
 //		nodes = adjustCoordinates(nodes);
 
@@ -735,9 +728,9 @@ function drawTCGANetwork() {
             .attr(
                 "fill",
                 function (d) {
-                    if (circle_fill == "Tumor_color") {
+                    if (circle_fill === "Tumor_color") {
                         return d.Tumor_color;
-                    } else if (circle_fill == "WGCNA_hex") {
+                    } else if (circle_fill === "WGCNA_hex") {
                         return d.WGCNA_hex;
                     } else {
                         return defaultNodeColor;
@@ -905,16 +898,16 @@ function drawARCHS4Network() {
         var nodes = net_json;
         var max_x = Math.max.apply(Math, nodes.map(function (o) {
             return o.x;
-        }))
+        }));
         var max_y = Math.max.apply(Math, nodes.map(function (o) {
             return o.y;
-        }))
+        }));
         var min_x = Math.min.apply(Math, nodes.map(function (o) {
             return o.x;
-        }))
+        }));
         var min_y = Math.min.apply(Math, nodes.map(function (o) {
             return o.y;
-        }))
+        }));
 
 //		nodes = adjustCoordinates(nodes);
 
@@ -938,7 +931,7 @@ function drawARCHS4Network() {
             [min_y, max_y]);
 
         var colorby_val = document.getElementById("colorby").value;
-        console.log(colorby_val)
+        console.log(colorby_val);
         var circle_fill = translateNodeColor(colorby_val);
 
 
@@ -962,9 +955,9 @@ function drawARCHS4Network() {
             .attr(
                 "fill",
                 function (d) {
-                    if (circle_fill == "Tissue_color") {
+                    if (circle_fill === "Tissue_color") {
                         return d.Tissue_color;
-                    } else if (circle_fill == "WGCNA_hex") {
+                    } else if (circle_fill === "WGCNA_hex") {
                         return d.WGCNA_hex;
                     } else {
                         return defaultNodeColor;
@@ -1112,7 +1105,7 @@ function deleteNetwork() {
 $(document).ready(function () {
     drawNetwork();
     $('#legend_checkbox').change(function () {
-        var netview = whichNetwork()
+        var netview = whichNetwork();
         switch (netview) {
             case "gtex":
                 setGTExLegendView();
@@ -1131,7 +1124,7 @@ $(document).ready(function () {
         if (net_svg != null) {
             deleteNetwork(net_svg);
             zm = 1;
-            var netview = whichNetwork()
+            var netview = whichNetwork();
             switch (netview) {
                 case "gtex":
                     drawNetwork();
