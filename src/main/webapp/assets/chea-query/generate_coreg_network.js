@@ -163,7 +163,7 @@ function displayNetwork(network) {
             .on("mousemove", function (d) {
                 var mousePos = d3.mouse(this);
                 txt.attr("transform", "translate(" + (mousePos[0] + xpos) + "," + (mousePos[1] + ypos - nr_lines * pad) + ")");
-                bg.attrs("transform", "translate(" + (mousePos[0] + xpos) + "," + (mousePos[1] + ypos - nr_lines * pad) + ")");
+                bg.attr("transform", "translate(" + (mousePos[0] + xpos) + "," + (mousePos[1] + ypos - nr_lines * pad) + ")");
             })
             .on("mouseout", function (d) {
                 txt.attr("opacity", 0);
@@ -171,8 +171,8 @@ function displayNetwork(network) {
                     .attr("stroke", "transparent");
 
             });
-
-        let edgepaths = zoom_wrapper.selectAll(".edgepath")
+        // TODO WTF??? It should be local under LET, not global
+        edgepaths = zoom_wrapper.selectAll(".edgepath")
             .data(links)
             .enter()
             .append('path')
