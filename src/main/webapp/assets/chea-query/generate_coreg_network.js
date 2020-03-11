@@ -20,9 +20,6 @@ function createNetwork(coreg_network, tfs) {
 
 function displayNetwork(network) {
     console.log("displayNetwork(network)");
-    var colorScale = d3.scaleSequential(d3.interpolateBlues).domain([0, Math.max.apply(null, network['nodes'].map(function (d) {
-        return d['degree']
-    }))]);
     let svg = d3.select("#coreg-network"),
         width = +svg.attr("width"),
         height = +svg.attr("height"),
@@ -102,18 +99,14 @@ function displayNetwork(network) {
             .attr("stroke-width", function (d) {
                 return d.edge_score
             })
-            .attr('marker-start', function (d, i) {
+            .attr('marker-start', function (d) {
                 return ['BA', 'bidir'].indexOf(d.edge_type) > -1 ? 'url(#markerStart)' : null
             })
-            .attr('marker-end', function (d, i) {
+            .attr('marker-end', function (d) {
                 return ['AB', 'bidir'].indexOf(d.edge_type) > -1 ? 'url(#markerEnd)' : null
             })
             .on("mouseover", function (d) {
-
-                // Create tooltip
-                var mousePos = d3.mouse(this);
-
-                // Text
+                let mousePos = d3.mouse(this);
                 txt.selectAll('*').remove();
                 txt.append('tspan')
                     .attr('dy', dy)
@@ -141,18 +134,14 @@ function displayNetwork(network) {
                         .text('   • ' + 'PPI: ' + d["ppi_evidence"]);
                 }
 
-
-                // Nr lines
                 nr_lines = txt.selectAll('tspan')._groups[0].length;
-                var max_length = Math.max.apply(null, Array.from(txt.selectAll('tspan')._groups[0]).map(function (x) {
+                let max_length = Math.max.apply(null, Array.from(txt.selectAll('tspan')._groups[0]).map(function (x) {
                     return x.innerHTML.length
                 }));
 
-                // Text attributes
                 txt.attr("transform", "translate(" + (mousePos[0] + xpos) + "," + (mousePos[1] + ypos - nr_lines * pad) + ")")
                     .attr("opacity", 1);
 
-                // Background attributes
                 bg.attr('fill', '#fcfcfc')
                     .attr('width', max_length * 8.8)
                     .attr('height', pad * nr_lines + 10)
@@ -160,16 +149,15 @@ function displayNetwork(network) {
                     .attr('stroke', 'lightgrey')
 
             })
-            .on("mousemove", function (d) {
-                var mousePos = d3.mouse(this);
+            .on("mousemove", function () {
+                let mousePos = d3.mouse(this);
                 txt.attr("transform", "translate(" + (mousePos[0] + xpos) + "," + (mousePos[1] + ypos - nr_lines * pad) + ")");
                 bg.attr("transform", "translate(" + (mousePos[0] + xpos) + "," + (mousePos[1] + ypos - nr_lines * pad) + ")");
             })
-            .on("mouseout", function (d) {
+            .on("mouseout", function () {
                 txt.attr("opacity", 0);
                 bg.attr("fill", "transparent")
                     .attr("stroke", "transparent");
-
             });
         // TODO WTF??? It should be local under LET, not global
         edgepaths = zoom_wrapper.selectAll(".edgepath")
@@ -197,14 +185,9 @@ function displayNetwork(network) {
 
         node.append("circle")
             .attr("r", 7)
-            .style("stroke", function (d, i) {
-                return "lightgrey"
-            })
+            .style("stroke",  "lightgrey")
             .style("stroke-width", 1)
-            // .style("fill", function (d, i) { return colorScale(d.degree); })
-            .style("fill", function (d, i) {
-                return getColor('colorpicker')
-            });
+            .style("fill", getColor('colorpicker'));
 
         node.append("title")
             .text(function (d) {
@@ -267,37 +250,12 @@ function displayNetwork(network) {
         d.fx = undefined;
         d.fy = undefined;
     }
-
-    //add zoom capabilities 
-    var zoom_handler = d3.zoom()
-        .on("zoom", zoom_actions);
-
-    // zoom_handler(svg);
-
-    //Zoom functions 
-    function zoom_actions() {
-        zoom_wrapper.attr("transform", d3.event.transform)
-    }
-
-    // Create network
     update(network.links, network.nodes);
-
 }
 
 function generateNetwork() {
     console.log("generateNetwork()");
-
-    // Get TFs
-    var tfs = getTFs2();
-
-    // Get JSON
     $.getJSON('assets/chea-query/KEA3_coreg_sub_network.json', function (coreg_network) {
-
-        // Create network
-        var network = createNetwork(coreg_network, tfs);
-
-        // Display network
-        displayNetwork(network);
-
+        displayNetwork(createNetwork(coreg_network, getTFs2()));
     })
 }
