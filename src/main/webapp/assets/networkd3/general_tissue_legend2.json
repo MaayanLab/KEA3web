@@ -1,1 +1,41 @@
-[{"tissue":"Blood","color":"#458B74"},{"tissue":"Blood Vessel","color":"#8B4513"},{"tissue":"Brain","color":"#8B008B"},{"tissue":"Colon","color":"#B22222"},{"tissue":"Heart","color":"#7FFF00"},{"tissue":"Lung","color":"#FF1493"},{"tissue":"Muscle","color":"#BF3EFF"},{"tissue":"Skin","color":"#458B00"},{"tissue":"Testis","color":"#00CED1"},{"color":"#CD950C"}]
+[
+  {
+    "tissue": "Blood",
+    "color": "#458B74"
+  },
+  {
+    "tissue": "Blood Vessel",
+    "color": "#8B4513"
+  },
+  {
+    "tissue": "Brain",
+    "color": "#8B008B"
+  },
+  {
+    "tissue": "Colon",
+    "color": "#B22222"
+  },
+  {
+    "tissue": "Heart",
+    "color": "#7FFF00"
+  },
+  {
+    "tissue": "Lung",
+    "color": "#FF1493"
+  },
+  {
+    "tissue": "Muscle",
+    "color": "#BF3EFF"
+  },
+  {
+    "tissue": "Skin",
+    "color": "#458B00"
+  },
+  {
+    "tissue": "Testis",
+    "color": "#00CED1"
+  },
+  {
+    "color": "#CD950C"
+  }
+]

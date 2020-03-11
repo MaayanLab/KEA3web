@@ -7,8 +7,8 @@ let global_labels;
 let net_width = 1000,
     net_height = 500;
 
-
 function whichNetwork() {
+    console.log("function whichNetwork() {")
     const net = document.getElementById("whichnetwork").value;
     if (net === "GTEx TF Network") {
         return "gtex";
@@ -22,6 +22,7 @@ function whichNetwork() {
 }
 
 function changeNetwork() {
+    console.log("function changeNetwork() {")
     const net_svg = document.getElementById("net_svg");
     if (net_svg != null) {
         deleteNetwork(net_svg);
@@ -55,6 +56,7 @@ function changeNetwork() {
 }
 
 function zoom_actions() {
+    console.log("function zoom_actions() {")
 	// create new scale objects based on event
 	var new_xScale = d3.event.transform
 		.rescaleX(xScale);
@@ -90,6 +92,7 @@ function zoom_actions() {
 }
 
 function requestFullScreen(element_id) {
+    console.log("function requestFullScreen(element_id) {")
     var element = document.getElementById(element_id);
     // Supports most browsers and their versions.
     if (element.requestFullScreen) {
@@ -102,6 +105,7 @@ function requestFullScreen(element_id) {
 }
 
 function setTCGAColorByOptions() {
+    console.log("function setTCGAColorByOptions() {")
     $("#colorby").html(`<select class="form-control" id="colorby"
 						onchange="recolorAllNodes();setTCGALegendView()">
 						<option>none</option>
@@ -112,6 +116,7 @@ function setTCGAColorByOptions() {
 }
 
 function setGTExColorByOptions() {
+    console.log("function setGTExColorByOptions() {")
     $("#colorby").html(`<select class="form-control" id="colorby"
 						onchange="recolorAllNodes();setGTExLegendView()">
 						<option>none</option>
@@ -122,6 +127,7 @@ function setGTExColorByOptions() {
 }
 
 function setARCHS4ColorByOptions() {
+    console.log("function setARCHS4ColorByOptions() {")
     $("#colorby").html(`<select class="form-control" id="colorby"
 					onchange="recolorAllNodes();setARCHS4LegendView()">
 					<option>none</option>
@@ -131,6 +137,7 @@ function setARCHS4ColorByOptions() {
 }
 
 function saveSvg(svg_id, name) {
+    console.log("function saveSvg(svg_id, name) {")
     var svgEl = document.getElementById(svg_id);
     svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     var svgData = svgEl.outerHTML;
@@ -146,6 +153,7 @@ function saveSvg(svg_id, name) {
 }
 
 function setLabelView() {
+    console.log("function setLabelView() {")
     var labelview = getLabelView();
     if (labelview === "auto") {
         if (zm >= 2) {
@@ -162,23 +170,28 @@ function setLabelView() {
 }
 
 function openNav(nav) {
+    console.log("function openNav(nav) {")
     $('#' + nav).removeClass('closeNav').addClass('openNav')
 }
 
 function closeNav(nav) {
+    console.log("function closeNav(nav) {")
     $('#' + nav).removeClass('openNav').addClass('closeNav')
 }
 
 function getLabelView() {
+    console.log("function getLabelView() {")
     return (document.getElementById("labelview").value)
 }
 
 function isLegendChecked() {
+    console.log("function isLegendChecked() {")
     var chk = document.getElementById("legend_checkbox").checked;
     return (chk);
 }
 
 function setGTExLegendView() {
+    console.log("function setGTExLegendView() {")
     var colby = document.getElementById("colorby").value;
     var gen_hidden = $("#general_tissue_legend").hasClass("hidden");
     var spec_hidden = $("#specific_tissue_legend").hasClass("hidden");
@@ -250,6 +263,7 @@ function setGTExLegendView() {
 }
 
 function setTCGALegendView() {
+    console.log("function setTCGALegendView() {")
     let color_by = document.getElementById("colorby").value;
     let tumor_hidden = $("#Tumor_legend").hasClass("hidden");
 
@@ -271,6 +285,7 @@ function setTCGALegendView() {
 }
 
 function setARCHS4LegendView() {
+    console.log("function setARCHS4LegendView() {")
     const color_by = document.getElementById("colorby").value;
     const tumor_hidden = $("#Tissue_legend").hasClass("hidden");
 
@@ -292,6 +307,7 @@ function setARCHS4LegendView() {
 }
 
 function setLegendView() {
+    console.log("function setLegendView() {")
     let net = whichNetwork();
     switch (net) {
         case "gtex":
@@ -312,8 +328,8 @@ var div = d3.select("body").append("div")
     .attr("id", "tf_tooltip")
     .style("opacity", 0);
 
-
 function drawNetwork() {
+    console.log("function drawNetwork() {")
     d3.json("assets/networkd3/wgcna_gtex_annotated4.json", function (net_json) {
         var network_svg = d3.select("#tfnet").append("svg");
         network_svg.attr("id", "net_svg")
@@ -638,9 +654,10 @@ function drawNetwork() {
         setGTExLegendView();
 
     });// end d3.json
-}//end function drawNetwork()
+}
 
 function drawTCGANetwork() {
+    console.log("function drawTCGANetwork() {")
     d3.json("assets/networkd3/wgcna_tcga_annotated.json", function (net_json) {
         console.log('tcga');
 
@@ -875,10 +892,10 @@ function drawTCGANetwork() {
         setTCGALegendView();
 
     });// end d3.json
-}//end function drawTCGANetwork()
-
+}
 
 function drawARCHS4Network() {
+    console.log("function drawARCHS4Network() {")
     d3.json("assets/networkd3/wgcna_archs4_annotated.json", function (net_json) {
 
         var networkDiv = document.getElementById("tfnet");
@@ -1097,8 +1114,8 @@ function drawARCHS4Network() {
     });
 }
 
-
 function deleteNetwork() {
+    console.log("function deleteNetwork() {")
     document.getElementById("net_svg").remove();
 }
 
