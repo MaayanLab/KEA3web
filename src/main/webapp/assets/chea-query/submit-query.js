@@ -13,9 +13,9 @@ function downloadResults(filename, text) {
     if (navigator.msSaveBlob) { // IE 10+
         navigator.msSaveBlob(blob, filename);
     } else {
-        var link = document.createElement("a");
+        let link = document.createElement("a");
         if (link.download !== undefined) { // feature detection
-            var url = URL.createObjectURL(blob);
+            const url = URL.createObjectURL(blob);
             link.setAttribute("href", url);
             link.setAttribute("download", filename);
             link.style.visibility = 'hidden';
@@ -62,7 +62,7 @@ function defaultNodeColorAll() {
     const colorby_val = document.getElementById("colorby").value;
     const fill = translateNodeColor(colorby_val);
     let nodes = document.querySelectorAll("circle");
-    for (var n of nodes) {
+    for (let n of nodes) {
         if (fill === defaultNodeColor) {
             n.setAttribute("fill", fill);
         } else {
@@ -73,8 +73,8 @@ function defaultNodeColorAll() {
 }
 
 function getTFs2() {
-    const library = $('#library-selectpicker').val(),
-        nr_tfs = parseInt($('#tf-slider').val());
+    const library = $('#library-selectpicker').val();
+    const nr_tfs = parseInt($('#tf-slider').val());
     return typeof chea3Results !== "undefined" ? chea3Results[library].slice(0, nr_tfs).map(function (x) {
         return x['TF']
     }) : []
@@ -82,7 +82,7 @@ function getTFs2() {
 
 function highlightNodes2() {
     for (let tf of getTFs2()) {
-        node = document.getElementById(tf);
+        let node = document.getElementById(tf);
         if (node) {
             node.setAttribute("stroke", getColor('colorpicker'));
             node.setAttribute("stroke-width", radius * 2.5);
@@ -123,7 +123,6 @@ function renderDownloadLibraryButton(libraryName, display) {
 
 function validateGeneSet(geneset) {
     let x = false;
-    console.log($('#num-valid-genes').html());
     if (geneset.length > 1 && $('#num-valid-genes').html() === "0") {
         alert("No valid gene symbols have were recognized. Please note that CHEA3 currently only supports HGNC gene symbols (https://www.genenames.org/). If the submitted genes are identified using other systems, such as Ensembl IDs or Entrez IDs, please converting them to HGNC to proceed.");
     } else if (geneset.length > 1 && geneset.length < 8000) {
@@ -185,7 +184,7 @@ function uploadFileListener() {
 }
 
 function generateDatatable(library, library_results, default_library, filter_top_results = false) {
-    var $table = $('<table>', {
+    let table = $('<table>', {
         'id': library + '-table',
         'class': 'w-100 text-black'
     })
@@ -193,7 +192,8 @@ function generateDatatable(library, library_results, default_library, filter_top
         .append($('<tbody>', {'class': 'text-black'}))
         .append($('<tfoot>', {'class': 'text-black'}));
 
-    $('#tables-wrapper').append($table);
+    const tables_wrapper = $('#tables-wrapper');
+    tables_wrapper.append(table);
 
     if (filter_top_results) {
         library_results = library_results.slice(0, filter_top_results);
@@ -237,7 +237,7 @@ function generateDatatable(library, library_results, default_library, filter_top
         })
 
     } else {
-        $table.DataTable({
+        table.DataTable({
             data: library_results,
             pagingType: "simple",
             columns: [
@@ -264,7 +264,7 @@ function generateDatatable(library, library_results, default_library, filter_top
         })
     }
 
-    $('#tables-wrapper').append(renderDownloadLibraryButton(library, library === default_library));
+    tables_wrapper.append(renderDownloadLibraryButton(library, library === default_library));
     if (library !== default_library) {
         $(`#${library}-table_wrapper`).addClass('d-none');
     }
@@ -302,12 +302,14 @@ function displayResults(results) {
     $("#results").removeClass("d-none");
     $('#loading-screen').addClass('d-none');
 
+
     // Create selectpicker
-    $('#library-selectpicker').change(function (evt) {
-        var library = $(evt.target).val();
+    let library_selectpicker = $('#library-selectpicker');
+    library_selectpicker.change(function (evt) {
+        let library = $(evt.target).val();
 
         // Toggle
-        toggleSelectors(library = $(evt.target).val(), tab = $('#nav-tab .nav-item.active').attr('aria-controls'));
+        toggleSelectors(library, $('#nav-tab .nav-item.active').attr('aria-controls'));
 
         // Hide
         $('#tables-wrapper .dataTables_wrapper').addClass('d-none');
@@ -320,7 +322,7 @@ function displayResults(results) {
         generateNetwork();
         recolorAllNodes();
     });
-    $('#library-selectpicker').selectpicker('val', default_library);
+    library_selectpicker.selectpicker('val', default_library);
 
     document.getElementById("colorby").value = "none";
     recolorAllNodes();
@@ -333,7 +335,7 @@ function displayResults(results) {
         html: true,
         trigger: 'click',
         content: function () {
-            var content = $(this).attr("data-popover-content");
+            const content = $(this).attr("data-popover-content");
             return $(content).children(".popover-body").html();
         }
     });
@@ -342,18 +344,18 @@ function displayResults(results) {
         html: true,
         trigger: 'click',
         content: function () {
-            var content = $(this).attr("data-popover-content");
+            const content = $(this).attr("data-popover-content");
             return $(content).children(".popover-body").html();
         }
     });
-    matrix_str = buildClustergrammerMatrix(chea3Results);
+    const matrix_str = buildClustergrammerMatrix(chea3Results);
     generateClustergram(matrix_str);
 }
 
 $(document).ready(function () {
     uploadFileListener();
     $('#example-genelist').on('click', function () {
-        var gl = document.getElementById("genelist");
+        let gl = document.getElementById("genelist");
         gl.placeholder = "";
         jQuery.get('assets/chea-query/example_genelist.txt', function (data) {
             gl.value = data;
@@ -362,19 +364,18 @@ $(document).ready(function () {
     });
 
     $('#nav-clustergram-tab').on("click", function () {
-        console.log('ooof');
-        var iframe = document.getElementById('clustergram-iframe');
-        var src = iframe.dataset.source;
+        const iframe = document.getElementById('clustergram-iframe');
+        const src = iframe.dataset.source;
         if (iframe.src === '') {
             iframe.src = src;
         }
     });
 
-    $('#submit-genelist').on('click', function (evt) {
-        var geneset = document.getElementById("genelist").value.toUpperCase().split(/\n/);
-        var intersect = [...new Set(geneset)].filter(value => hgnc.includes(value));
-        var enrich_url = host + "kea3/api/enrich/";
-        var payload = {
+    $('#submit-genelist').on('click', function () {
+        const geneset = document.getElementById("genelist").value.toUpperCase().split(/\n/);
+        const intersect = [...new Set(geneset)].filter(value => hgnc.includes(value));
+        const enrich_url = host + "kea3/api/enrich/";
+        const payload = {
             "query_name": "gene_set_query",
             "gene_set": intersect
         };
@@ -394,7 +395,7 @@ $(document).ready(function () {
     });
 
     $('#nav-tab [data-toggle="tab"]').on('shown.bs.tab', function (evt) {
-        toggleSelectors(library = $('#library-selectpicker').val(), tab = $(evt.target).attr('aria-controls'));
+        toggleSelectors($('#library-selectpicker').val(), $(evt.target).attr('aria-controls'));
     })
 
 });

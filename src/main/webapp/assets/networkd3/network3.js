@@ -8,7 +8,7 @@ let net_width = 1000,
     net_height = 500;
 
 function whichNetwork() {
-    console.log("function whichNetwork() {")
+    console.log("function whichNetwork() {");
     const net = document.getElementById("whichnetwork").value;
     if (net === "GTEx TF Network") {
         return "gtex";

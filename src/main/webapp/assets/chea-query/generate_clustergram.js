@@ -63,11 +63,8 @@ function buildClustergrammerMatrix(chea_results, top_tfs = 5) {
     })
 
     // Build string
-    columns_str = $.map([tfs, libraries, ranks], function (x) { return x.join('\t') }).join('\n');
-    matrix_str = columns_str + '\n' + rows.join('\n');
-
-    // Return
-    return matrix_str;
+    const columns_str = $.map([tfs, libraries, ranks], function (x) { return x.join('\t') }).join('\n');
+    return columns_str + '\n' + rows.join('\n');
 }   
 
 // Function to generate clustergrammer
