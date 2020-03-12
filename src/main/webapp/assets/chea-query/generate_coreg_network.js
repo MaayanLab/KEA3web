@@ -255,7 +255,7 @@ function displayNetwork(network) {
 
 function generateNetwork() {
     console.log("generateNetwork()");
-    $.getJSON('assets/chea-query/KEA3_coreg_sub_network.json', function (coreg_network) {
+    $.getJSON('static/json/KEA3_coreg_sub_network.json', function (coreg_network) {
         displayNetwork(createNetwork(coreg_network, getTFs2()));
     })
 }

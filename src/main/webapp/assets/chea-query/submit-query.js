@@ -1,5 +1,5 @@
-var chea3Results;
-var json;
+let chea3Results;
+let json;
 
 function checkGeneList(data) {
     const genes = data.toUpperCase().split("\n").filter(Boolean);
@@ -8,9 +8,8 @@ function checkGeneList(data) {
     $('#genecheck').html(`${genes.length}  symbols entered, ${genes.length - uniq_genes.length} duplicates, <span id='num-valid-genes'> ${intersect.length} </span> valid symbols`);
 }
 
-
 function downloadResults(filename, text) {
-    var blob = new Blob([text], {type: 'text/csv;charset=utf-8;'});
+    const blob = new Blob([text], {type: 'text/csv;charset=utf-8;'});
     if (navigator.msSaveBlob) { // IE 10+
         navigator.msSaveBlob(blob, filename);
     } else {
@@ -41,28 +40,28 @@ function getColor(id) {
 }
 
 function translateNodeColor(val) {
-	switch (val){
-		case "Tissue (general)":
-        	return ("General_tissue_color");
+    switch (val) {
+        case "Tissue (general)":
+            return ("General_tissue_color");
         case "Tissue (specific)":
-        	return ("Specific_tissue_color");
-		case "WGCNA modules":
-        	return ("WGCNA_hex");
-		case "GO Enrichment":
-        	return ("GO_enrichment_color");
-		case "Tumor":
-        	return ("Tumor_color");
-		case "Tissue":
-        	return ("Tissue_color");
-    	default:
-        	return (defaultNodeColor);
+            return ("Specific_tissue_color");
+        case "WGCNA modules":
+            return ("WGCNA_hex");
+        case "GO Enrichment":
+            return ("GO_enrichment_color");
+        case "Tumor":
+            return ("Tumor_color");
+        case "Tissue":
+            return ("Tissue_color");
+        default:
+            return (defaultNodeColor);
     }
 }
 
 function defaultNodeColorAll() {
-    var colorby_val = document.getElementById("colorby").value;
-    var fill = translateNodeColor(colorby_val);
-    nodes = document.querySelectorAll("circle");
+    const colorby_val = document.getElementById("colorby").value;
+    const fill = translateNodeColor(colorby_val);
+    let nodes = document.querySelectorAll("circle");
     for (var n of nodes) {
         if (fill === defaultNodeColor) {
             n.setAttribute("fill", fill);
@@ -74,7 +73,7 @@ function defaultNodeColorAll() {
 }
 
 function getTFs2() {
-    var library = $('#library-selectpicker').val(),
+    const library = $('#library-selectpicker').val(),
         nr_tfs = parseInt($('#tf-slider').val());
     return typeof chea3Results !== "undefined" ? chea3Results[library].slice(0, nr_tfs).map(function (x) {
         return x['TF']
@@ -82,13 +81,11 @@ function getTFs2() {
 }
 
 function highlightNodes2() {
-    set1ValuesSliderSubset = getTFs2();
-
-    for (var tf of set1ValuesSliderSubset) {
+    for (let tf of getTFs2()) {
         node = document.getElementById(tf);
         if (node) {
-            node.setAttribute("stroke", getColor('colorpicker')); //getColor(colorpicker_id)
-            node.setAttribute("stroke-width", radius * 2.5)
+            node.setAttribute("stroke", getColor('colorpicker'));
+            node.setAttribute("stroke-width", radius * 2.5);
             node.setAttribute("stroke-opacity", .5)
         }
     }
@@ -104,7 +101,6 @@ function addSliderEventListener() {
 }
 
 function renderColorPicker() {
-    // New colorpicker
     $('#colorpicker')
         .spectrum({
             color: colorArray[1],
@@ -117,9 +113,8 @@ function renderColorPicker() {
 }
 
 function renderDownloadLibraryButton(libraryName, display) {
-    var libraryTitle = libraryName.replace("--", "_");
-    var libraryTitle = libraryTitle.replace("--", "_");
-    var displayClass = display ? '' : 'd-none';
+    const libraryTitle = libraryName.replace(/--/, "_");
+    const displayClass = display ? '' : 'd-none';
     return `<a id = "${libraryName}-download" class="btn btn-primary display-7 ${displayClass} download-tsv ml-0" style="padding:0;color:#28a0c9;font-size:80%" 
 	onclick="downloadResults('${libraryTitle}.tsv',libraryJSONtoTSV('${libraryName}'));"><span class="mbri-download display-5 mr-2"></span>
 	Download All ${libraryTitle.replace('_', ' ')} Results as TSV</a>`
@@ -127,11 +122,11 @@ function renderDownloadLibraryButton(libraryName, display) {
 }
 
 function validateGeneSet(geneset) {
-    var x = false;
+    let x = false;
     console.log($('#num-valid-genes').html());
-    if (geneset.length > 1 & $('#num-valid-genes').html() === "0") {
+    if (geneset.length > 1 && $('#num-valid-genes').html() === "0") {
         alert("No valid gene symbols have were recognized. Please note that CHEA3 currently only supports HGNC gene symbols (https://www.genenames.org/). If the submitted genes are identified using other systems, such as Ensembl IDs or Entrez IDs, please converting them to HGNC to proceed.");
-    } else if (geneset.length > 1 & geneset.length < 8000) {
+    } else if (geneset.length > 1 && geneset.length < 8000) {
         x = true;
     } else {
         alert("Gene set must contain more than 1 gene and fewer than 8,000 genes. One gene per line.");
@@ -140,7 +135,7 @@ function validateGeneSet(geneset) {
 }
 
 function intersectionPopover(row, library) {
-    var genes = row.Overlapping_Genes.split(','),
+    const genes = row.Overlapping_Genes.split(','),
         genes_link = genes.map(function (x) {
             return `<a href="https://amp.pharm.mssm.edu/Harmonizome/gene/${x}" target="_blank">${x}</a>`
         });
@@ -159,7 +154,7 @@ function intersectionPopover(row, library) {
 }
 
 function libraryPopover(row, library) {
-    var libs = row.Library.substr(0, 5) + '...';
+    const libs = row.Library.substr(0, 5) + '...';
 
     return `
 <div class="w-100 text-center">
@@ -175,7 +170,7 @@ function libraryPopover(row, library) {
 
 function uploadFileListener() {
     $('#file-input').on('change', function (evt) {
-        var f = evt.target.files[0],
+        let f = evt.target.files[0],
             reader = new FileReader();
 
         // Closure to capture the file information.
@@ -185,44 +180,31 @@ function uploadFileListener() {
                 checkGeneList(e.target.result);
             };
         })(f);
-
         reader.readAsText(f);
     })
 }
 
 function generateDatatable(library, library_results, default_library, filter_top_results = false) {
-
-    // Create table
     var $table = $('<table>', {
         'id': library + '-table',
         'class': 'w-100 text-black'
-    }) // + (library === default_library ? '' : 'd-none')
+    })
         .append($('<thead>', {'class': 'text-black'}).html($('<tr>')))
         .append($('<tbody>', {'class': 'text-black'}))
         .append($('<tfoot>', {'class': 'text-black'}));
 
-    // Append
     $('#tables-wrapper').append($table);
 
-    // Filter
     if (filter_top_results) {
         library_results = library_results.slice(0, filter_top_results);
     }
 
-    // Integrated libraries
+    let score_th;
     if (library.includes('Integrated')) {
-
-        // Get score column
         if (library === 'Integrated--meanRank') {
             score_th = 'Mean Rank';
-            library_render = function (x) {
-                return x
-            }
         } else if (library === 'Integrated--topRank') {
             score_th = 'Integrated Scaled Rank';
-            library_render = function (x) {
-                return x.split(',')[0]
-            }
         }
 
         // Initialize
@@ -231,7 +213,6 @@ function generateDatatable(library, library_results, default_library, filter_top
             pagingType: "simple",
             columns: [
                 {"mData": "Rank", "sTitle": "Rank", "className": "dt-head-center"},
-                //{ "mData": "TF", "sTitle": "TF", "mRender": function (x) { return `<a href="https://amp.pharm.mssm.edu/Harmonizome/gene/${x}" target="_blank">${x}</a>` } , "className": "dt-head-center"},
                 {
                     "mData": "TF", "sTitle": "Protein", "mRender": function (x) {
                         return `<a href="https://amp.pharm.mssm.edu/Harmonizome/gene/${x}" target="_blank">${x}</a>`
@@ -256,8 +237,6 @@ function generateDatatable(library, library_results, default_library, filter_top
         })
 
     } else {
-
-        // Initialize
         $table.DataTable({
             data: library_results,
             pagingType: "simple",
@@ -268,8 +247,6 @@ function generateDatatable(library, library_results, default_library, filter_top
                         return `<a href="https://amp.pharm.mssm.edu/Harmonizome/gene/${x}" target="_blank">${x}</a>`
                     }, "className": "dt-head-center"
                 },
-                // { "mData": "TF", "sTitle": "Protein", "mRender": function (x) { return `<a href="https://amp.pharm.mssm.edu/Harmonizome/gene/${x}" target="_blank">${x}</a>` } , "className": "dt-head-center"},
-                //          ^ same issue here
                 {"mData": "Set_name", "sTitle": "Set name", "className": "dt-head-center"},
                 {"mData": "Set length", "sTitle": "Set size", "className": "dt-head-center"},
                 {
@@ -287,11 +264,8 @@ function generateDatatable(library, library_results, default_library, filter_top
         })
     }
 
-    // Append
     $('#tables-wrapper').append(renderDownloadLibraryButton(library, library === default_library));
-
-    // Hide
-    if (library != default_library) {
+    if (library !== default_library) {
         $(`#${library}-table_wrapper`).addClass('d-none');
     }
 }
@@ -310,14 +284,12 @@ function toggleSelectors(library, tab) {
 }
 
 function displayResults(results) {
-
     chea3Results = results;
-
     // Loop through results
-    default_library = 'Integrated--meanRank';
+    let default_library = 'Integrated--meanRank';
     $.each(chea3Results, function (key, value) {
         generateDatatable(key, value, default_library);
-    })
+    });
 
     // Add libraries
     addSliderEventListener();
@@ -347,13 +319,13 @@ function displayResults(results) {
         generateBarChart();
         generateNetwork();
         recolorAllNodes();
-    })
+    });
     $('#library-selectpicker').selectpicker('val', default_library);
 
     document.getElementById("colorby").value = "none";
     recolorAllNodes();
     setLegendView();
-    location.href = '#top'
+    location.href = '#top';
 
     // Popovers
     // Ovrerlapping genes
@@ -374,19 +346,12 @@ function displayResults(results) {
             return $(content).children(".popover-body").html();
         }
     });
-
-    // Clustergrammer
-    // Get matrix and send to clustergrammer
     matrix_str = buildClustergrammerMatrix(chea3Results);
     generateClustergram(matrix_str);
-
-
 }
 
 $(document).ready(function () {
-
-    uploadFileListener()
-
+    uploadFileListener();
     $('#example-genelist').on('click', function () {
         var gl = document.getElementById("genelist");
         gl.placeholder = "";
@@ -394,10 +359,8 @@ $(document).ready(function () {
             gl.value = data;
             checkGeneList(data);
         });
-
     });
 
-    // Clustergram tab listner
     $('#nav-clustergram-tab').on("click", function () {
         console.log('ooof');
         var iframe = document.getElementById('clustergram-iframe');
@@ -406,26 +369,17 @@ $(document).ready(function () {
             iframe.src = src;
         }
     });
-    
-    // Submit genelist button event listener
+
     $('#submit-genelist').on('click', function (evt) {
-        var geneset = document.getElementById("genelist").value.split(/\n/);
-        var geneset = geneset.map(function (x) {
-            return x.toUpperCase()
-        })
-        var uniq_genes = [...new Set(geneset)];
-        var intersect = uniq_genes.filter(value => hgnc.includes(value));
+        var geneset = document.getElementById("genelist").value.toUpperCase().split(/\n/);
+        var intersect = [...new Set(geneset)].filter(value => hgnc.includes(value));
         var enrich_url = host + "kea3/api/enrich/";
         var payload = {
             "query_name": "gene_set_query",
             "gene_set": intersect
-        }
-
+        };
         if (validateGeneSet(intersect)) {
-
             $('#loading-screen').removeClass('d-none');
-
-            // send gene set to java servlet
             $.ajax({
                 type: "POST",
                 data: JSON.stringify(payload),
@@ -434,27 +388,14 @@ $(document).ready(function () {
                 url: enrich_url,
                 success: function (results) {
                     displayResults(results);
-
-                } //end success function
-            }); // end AJAX call
-
+                }
+            });
         }
     });
 
-    // Tab listener
     $('#nav-tab [data-toggle="tab"]').on('shown.bs.tab', function (evt) {
         toggleSelectors(library = $('#library-selectpicker').val(), tab = $(evt.target).attr('aria-controls'));
     })
-
-    // Automatic genelist submission for dev
-    var dev = false;
-    if (dev) {
-        $('#loading-screen').removeClass('d-none');
-        $.get("chea3Results.json", function (results) { //dev
-            displayResults(results);
-        })
-    }
-
 
 });
 
