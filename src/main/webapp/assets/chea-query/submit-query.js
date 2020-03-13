@@ -1,3 +1,4 @@
+// +
 let chea3Results;
 let json;
 
@@ -24,7 +25,6 @@ function downloadResults(filename, text) {
             document.body.removeChild(link);
         }
     }
-
 }
 
 function sliderChange() {
@@ -208,7 +208,7 @@ function generateDatatable(library, library_results, default_library, filter_top
         }
 
         // Initialize
-        $table.DataTable({
+        table.DataTable({
             data: library_results,
             pagingType: "simple",
             columns: [
@@ -286,9 +286,8 @@ function toggleSelectors(library, tab) {
 function displayResults(results) {
     chea3Results = results;
     // Loop through results
-    let default_library = 'Integrated--meanRank';
     $.each(chea3Results, function (key, value) {
-        generateDatatable(key, value, default_library);
+        generateDatatable(key, value, 'Integrated--meanRank');
     });
 
     // Add libraries
@@ -322,7 +321,7 @@ function displayResults(results) {
         generateNetwork();
         recolorAllNodes();
     });
-    library_selectpicker.selectpicker('val', default_library);
+    library_selectpicker.val('Integrated--meanRank');
 
     document.getElementById("colorby").value = "none";
     recolorAllNodes();
@@ -397,9 +396,4 @@ $(document).ready(function () {
     $('#nav-tab [data-toggle="tab"]').on('shown.bs.tab', function (evt) {
         toggleSelectors($('#library-selectpicker').val(), $(evt.target).attr('aria-controls'));
     })
-
 });
-
-
-
-

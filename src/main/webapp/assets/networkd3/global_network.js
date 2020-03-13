@@ -4,11 +4,15 @@ let max = 100;
 let zm;
 let global_nodes;
 let global_labels;
-let net_width = 1000,
-    net_height = 500;
+let net_width = 1000;
+let net_height = 500;
+let div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .attr("id", "tf_tooltip")
+    .style("opacity", 0);
 
 function whichNetwork() {
-    console.log("function whichNetwork() {");
+    console.log("function whichNetwork()");
     const net = document.getElementById("whichnetwork").value;
     if (net === "GTEx TF Network") {
         return "gtex";
@@ -22,33 +26,34 @@ function whichNetwork() {
 }
 
 function changeNetwork() {
-    console.log("function changeNetwork() {")
+    console.log("function changeNetwork()");
     const net_svg = document.getElementById("net_svg");
     if (net_svg != null) {
         deleteNetwork(net_svg);
     }
     zm = 1;
     const netview = whichNetwork();
+    const gtex_table_link = $("#gtextablelink")
     switch (netview) {
         case "gtex":
             setGTExColorByOptions();
             drawNetwork();
             setGTExLegendView();
             recolorAllNodes();
-            $("#gtextablelink").removeClass("d-none")
+            gtex_table_link.removeClass("d-none");
             break;
         case "archs4":
             setARCHS4ColorByOptions();
             drawARCHS4Network();
             setARCHS4LegendView();
             recolorAllNodes();
-            $("#gtextablelink").addClass("d-none")
+            gtex_table_link.addClass("d-none");
             break;
         case "tcga":
             setTCGAColorByOptions();
             drawTCGANetwork();
             setTCGALegendView();
-            $("#gtextablelink").addClass("d-none");
+            gtex_table_link.addClass("d-none");
             recolorAllNodes();
             break;
     }
@@ -56,11 +61,11 @@ function changeNetwork() {
 }
 
 function zoom_actions() {
-    console.log("function zoom_actions() {")
+    console.log("function zoom_actions()");
 	// create new scale objects based on event
-	var new_xScale = d3.event.transform
+	let new_xScale = d3.event.transform
 		.rescaleX(xScale);
-	var new_yScale = d3.event.transform
+	let new_yScale = d3.event.transform
 		.rescaleY(yScale);
 	// update axes
 
@@ -92,8 +97,8 @@ function zoom_actions() {
 }
 
 function requestFullScreen(element_id) {
-    console.log("function requestFullScreen(element_id) {")
-    var element = document.getElementById(element_id);
+    console.log("function requestFullScreen(element_id)");
+    const element = document.getElementById(element_id);
     // Supports most browsers and their versions.
     if (element.requestFullScreen) {
         element.requestFullScreen();
@@ -105,7 +110,7 @@ function requestFullScreen(element_id) {
 }
 
 function setTCGAColorByOptions() {
-    console.log("function setTCGAColorByOptions() {")
+    console.log("function setTCGAColorByOptions()");
     $("#colorby").html(`<select class="form-control" id="colorby"
 						onchange="recolorAllNodes();setTCGALegendView()">
 						<option>none</option>
@@ -116,7 +121,7 @@ function setTCGAColorByOptions() {
 }
 
 function setGTExColorByOptions() {
-    console.log("function setGTExColorByOptions() {")
+    console.log("function setGTExColorByOptions()");
     $("#colorby").html(`<select class="form-control" id="colorby"
 						onchange="recolorAllNodes();setGTExLegendView()">
 						<option>none</option>
@@ -127,7 +132,7 @@ function setGTExColorByOptions() {
 }
 
 function setARCHS4ColorByOptions() {
-    console.log("function setARCHS4ColorByOptions() {")
+    console.log("function setARCHS4ColorByOptions()");
     $("#colorby").html(`<select class="form-control" id="colorby"
 					onchange="recolorAllNodes();setARCHS4LegendView()">
 					<option>none</option>
@@ -137,14 +142,14 @@ function setARCHS4ColorByOptions() {
 }
 
 function saveSvg(svg_id, name) {
-    console.log("function saveSvg(svg_id, name) {")
-    var svgEl = document.getElementById(svg_id);
+    console.log("function saveSvg(svg_id, name)");
+    const svgEl = document.getElementById(svg_id);
     svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-    var svgData = svgEl.outerHTML;
-    var preface = '<?xml version="1.0" standalone="no"?>\r\n';
-    var svgBlob = new Blob([preface, svgData], {type: "image/svg+xml;charset=utf-8"});
-    var svgUrl = URL.createObjectURL(svgBlob);
-    var downloadLink = document.createElement("a");
+    const svgData = svgEl.outerHTML;
+    const preface = '<?xml version="1.0" standalone="no"?>\r\n';
+    const svgBlob = new Blob([preface, svgData], {type: "image/svg+xml;charset=utf-8"});
+    const svgUrl = URL.createObjectURL(svgBlob);
+    const downloadLink = document.createElement("a");
     downloadLink.href = svgUrl;
     downloadLink.download = name;
     document.body.appendChild(downloadLink);
@@ -153,8 +158,8 @@ function saveSvg(svg_id, name) {
 }
 
 function setLabelView() {
-    console.log("function setLabelView() {")
-    var labelview = getLabelView();
+    console.log("function setLabelView()");
+    const labelview = getLabelView();
     if (labelview === "auto") {
         if (zm >= 2) {
             global_labels.style("opacity", 1);
@@ -170,144 +175,144 @@ function setLabelView() {
 }
 
 function openNav(nav) {
-    console.log("function openNav(nav) {")
+    console.log("function openNav(nav)");
     $('#' + nav).removeClass('closeNav').addClass('openNav')
 }
 
 function closeNav(nav) {
-    console.log("function closeNav(nav) {")
+    console.log("function closeNav(nav)");
     $('#' + nav).removeClass('openNav').addClass('closeNav')
 }
 
 function getLabelView() {
-    console.log("function getLabelView() {")
+    console.log("function getLabelView()");
     return (document.getElementById("labelview").value)
 }
 
 function isLegendChecked() {
-    console.log("function isLegendChecked() {")
-    var chk = document.getElementById("legend_checkbox").checked;
-    return (chk);
+    console.log("function isLegendChecked()");
+    return (document.getElementById("legend_checkbox").checked);
 }
 
 function setGTExLegendView() {
-    console.log("function setGTExLegendView() {")
-    var colby = document.getElementById("colorby").value;
-    var gen_hidden = $("#general_tissue_legend").hasClass("hidden");
-    var spec_hidden = $("#specific_tissue_legend").hasClass("hidden");
-    var go_hidden = $("#GO_legend").hasClass("hidden");
+    console.log("function setGTExLegendView()");
+    const color_by = document.getElementById("colorby").value;
+    const general_tissue_legend = $("#general_tissue_legend");
+    const specific_tissue_legend =  $("#specific_tissue_legend");
+    const go_legend = $("#GO_legend");
+
+    const gen_hidden = general_tissue_legend.hasClass("hidden");
+    const spec_hidden = specific_tissue_legend.hasClass("hidden");
+    const go_hidden = go_legend.hasClass("hidden");
 
     if (isLegendChecked()) {
-        if (colby === "Tissue (general)") {
-            if (gen_hidden) {
-                $("#general_tissue_legend").removeClass("hidden");
-            }
-
-            if (!spec_hidden) {
-                $("#specific_tissue_legend").addClass("hidden");
-            }
-            if (!go_hidden) {
-                $("#GO_legend").addClass("hidden");
-            }
-
-
-        } else if (colby === "Tissue (specific)") {
-            if (spec_hidden) {
-                $("#specific_tissue_legend").removeClass("hidden");
-
-            }
-            if (!gen_hidden) {
-                $("#general_tissue_legend").addClass("hidden");
-            }
-            if (!go_hidden) {
-                $("#GO_legend").addClass("hidden");
-            }
-        } else if (colby === "GO Enrichment") {
-            console.log("GO");
-            if (go_hidden) {
-                $("#GO_legend").removeClass("hidden");
-            }
-            if (!gen_hidden) {
-                $("#general_tissue_legend").addClass("hidden");
-            }
-            if (!spec_hidden) {
-                $("#specific_tissue_legend").addClass("hidden");
-            }
-
-        } else {
-            if (!gen_hidden) {
-                $("#general_tissue_legend").addClass("hidden");
-
-            }
-
-            if (!spec_hidden) {
-                $("#specific_tissue_legend").addClass("hidden");
-            }
-            if (!go_hidden) {
-                $("#GO_legend").addClass("hidden");
-            }
+        switch (color_by) {
+            case "Tissue (general)":
+                if (gen_hidden) {
+                    general_tissue_legend.removeClass("hidden");
+                }
+                if (!spec_hidden) {
+                    specific_tissue_legend.addClass("hidden");
+                }
+                if (!go_hidden) {
+                    go_legend.addClass("hidden");
+                }
+                break;
+            case "Tissue (specific)":
+                if (spec_hidden) {
+                    specific_tissue_legend.removeClass("hidden");
+                }
+                if (!gen_hidden) {
+                    general_tissue_legend.addClass("hidden");
+                }
+                if (!go_hidden) {
+                    go_legend.addClass("hidden");
+                }
+                break;
+            case "GO Enrichment":
+                if (go_hidden) {
+                    go_legend.removeClass("hidden");
+                }
+                if (!gen_hidden) {
+                    general_tissue_legend.addClass("hidden");
+                }
+                if (!spec_hidden) {
+                    specific_tissue_legend.addClass("hidden");
+                }
+                break;
+            default:
+                if (!gen_hidden) {
+                    general_tissue_legend.addClass("hidden");
+                }
+                if (!spec_hidden) {
+                    specific_tissue_legend.addClass("hidden");
+                }
+                if (!go_hidden) {
+                    go_legend.addClass("hidden");
+                }
+                break;
         }
     } else {
         if (!gen_hidden) {
-            $("#general_tissue_legend").addClass("hidden");
-
+            general_tissue_legend.addClass("hidden");
         }
-
         if (!spec_hidden) {
-            $("#specific_tissue_legend").addClass("hidden");
+            specific_tissue_legend.addClass("hidden");
         }
         if (!go_hidden) {
-            $("#GO_legend").addClass("hidden");
+            go_legend.addClass("hidden");
         }
     }
 }
 
 function setTCGALegendView() {
-    console.log("function setTCGALegendView() {")
-    let color_by = document.getElementById("colorby").value;
-    let tumor_hidden = $("#Tumor_legend").hasClass("hidden");
+    console.log("function setTCGALegendView()");
+    const color_by = document.getElementById("colorby").value;
+    const tumor_legend = $("#Tumor_legend");
+    const tumor_hidden = tumor_legend.hasClass("hidden");
 
     if (isLegendChecked()) {
         if (color_by === "Tumor") {
             if (tumor_hidden) {
-                $("#Tumor_legend").removeClass("hidden");
+                tumor_legend.removeClass("hidden");
             }
         } else {
             if (!tumor_hidden) {
-                $("#Tumor_legend").addClass("hidden");
+                tumor_legend.addClass("hidden");
             }
         }
     } else {
         if (!tumor_hidden) {
-            $("#Tumor_legend").addClass("hidden");
+            tumor_legend.addClass("hidden");
         }
     }
 }
 
 function setARCHS4LegendView() {
-    console.log("function setARCHS4LegendView() {")
+    console.log("function setARCHS4LegendView()");
     const color_by = document.getElementById("colorby").value;
-    const tumor_hidden = $("#Tissue_legend").hasClass("hidden");
+    const tissue_legend = $("#Tissue_legend");
+    const tumor_hidden = tissue_legend.hasClass("hidden");
 
     if (isLegendChecked()) {
         if (color_by === "Tissue") {
             if (tumor_hidden) {
-                $("#Tissue_legend").removeClass("hidden");
+                tissue_legend.removeClass("hidden");
             }
         } else {
             if (!tumor_hidden) {
-                $("#Tissue_legend").addClass("hidden");
+                tissue_legend.addClass("hidden");
             }
         }
     } else {
         if (!tumor_hidden) {
-            $("#Tissue_legend").addClass("hidden");
+            tissue_legend.addClass("hidden");
         }
     }
 }
 
 function setLegendView() {
-    console.log("function setLegendView() {")
+    console.log("function setLegendView()");
     let net = whichNetwork();
     switch (net) {
         case "gtex":
@@ -322,16 +327,10 @@ function setLegendView() {
     }
 }
 
-//Define the div for the tooltip
-var div = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .attr("id", "tf_tooltip")
-    .style("opacity", 0);
-
 function drawNetwork() {
-    console.log("function drawNetwork() {")
+    console.log("function drawNetwork()");
     d3.json("assets/networkd3/wgcna_gtex_annotated4.json", function (net_json) {
-        var network_svg = d3.select("#tfnet").append("svg");
+        const network_svg = d3.select("#tfnet").append("svg");
         network_svg.attr("id", "net_svg")
             .attr("width", net_width)
             .attr("height", net_height);
@@ -353,10 +352,10 @@ function drawNetwork() {
         // add encompassing group for the zoom
         g = network_svg.append("g").attr("class", "everything");
 
-        var xScale = d3.scaleLinear().domain([min_x, max_x])
+        const xScale = d3.scaleLinear().domain([min_x, max_x])
             .range([net_width * 0.05, net_width * .95]);
 
-        var yScale = d3
+        const yScale = d3
             .scaleLinear()
             .domain([min_y, max_y])
             .range([net_height * 0.05, net_height * 0.95]);
@@ -657,7 +656,7 @@ function drawNetwork() {
 }
 
 function drawTCGANetwork() {
-    console.log("function drawTCGANetwork() {")
+    console.log("function drawTCGANetwork()");
     d3.json("assets/networkd3/wgcna_tcga_annotated.json", function (net_json) {
         console.log('tcga');
 
@@ -895,7 +894,7 @@ function drawTCGANetwork() {
 }
 
 function drawARCHS4Network() {
-    console.log("function drawARCHS4Network() {")
+    console.log("function drawARCHS4Network()");
     d3.json("assets/networkd3/wgcna_archs4_annotated.json", function (net_json) {
 
         var networkDiv = document.getElementById("tfnet");
@@ -1115,7 +1114,7 @@ function drawARCHS4Network() {
 }
 
 function deleteNetwork() {
-    console.log("function deleteNetwork() {")
+    console.log("function deleteNetwork()");
     document.getElementById("net_svg").remove();
 }
 

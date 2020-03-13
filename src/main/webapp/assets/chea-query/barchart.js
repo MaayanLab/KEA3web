@@ -1,3 +1,5 @@
+// +
+
 function parseMeanRankLibraries2(nr_tfs) {
     const maxMeanRankScore = Math.max(...chea3Results["Integrated--meanRank"].map(a => a.Score).map(Number));
     const toptfsdat = chea3Results["Integrated--meanRank"].slice(0, nr_tfs);
@@ -11,32 +13,20 @@ function parseMeanRankLibraries2(nr_tfs) {
     let datasets = [];
 
     for (let i = 0; i < libs.length; i++) {
-
-        //loop through toptfs
-        var ranks = Array(tfs.length).fill(null);
-
+        let ranks = Array(tfs.length).fill(null);
         for (let j = 0; j < tfs.length; j++) {
-            var ranksinfo = toptfsdat[j]["Library"].split(";").map(function (x) {
+            const ranksinfo = toptfsdat[j]["Library"].split(";").map(function (x) {
                 return x.split(",")
             });
 
-            //ranks to weighted contribution to mean
-            var c = ranksinfo.length;
-
-            //get scaled score
-            var score = toptfsdat[j].Score;
-            var scaledScore = 1 - toptfsdat[j].Score / maxMeanRankScore;
-
-            //loop through each contributing rank
+            const scaledScore = 1 - toptfsdat[j].Score / maxMeanRankScore;
             for (let k = 0; k < ranksinfo.length; k++) {
                 if (ranksinfo[k][0] === libs[i]) {
-                    // console.log(ranksinfo[k][0])
-                    ranks[j] = (ranks[j] + (ranksinfo[k][1] / (c * score)) * scaledScore).toFixed(3);
-                    // console.log(ranks[j])
+                    ranks[j] = (ranks[j] + (ranksinfo[k][1] / (ranksinfo.length * toptfsdat[j].Score)) * scaledScore).toFixed(3);
                 }
             }
         }
-        // console.log(ranks)
+
         datasets[i] = {
             label: libs[i],
             data: ranks,
@@ -44,7 +34,7 @@ function parseMeanRankLibraries2(nr_tfs) {
             borderWidth: 1
         }
     }
-    var data = {
+    const data = {
         labels: tfs,
         datasets: datasets
     };
@@ -52,10 +42,12 @@ function parseMeanRankLibraries2(nr_tfs) {
 }
 
 function parseLibrary(library, nr_tfs) {
-    var results = chea3Results[library].slice(0, nr_tfs),
-        process_score,
-        title, xlab;
+    let results = chea3Results[library].slice(0, nr_tfs);
+    let process_score;
+    let title;
+    let xlab;
     let label;
+
     if (library === 'Integrated--topRank') {
         process_score = function (x) {
             return 1 / x['Score']
@@ -71,7 +63,7 @@ function parseLibrary(library, nr_tfs) {
         label = library.replace('--', ' ') + '-log10 (FET P-Value)';
         xlab = '-log10 (FET P-Value)';
     }
-    var data = {
+    const data = {
         labels: results.map(function (x) {
             return x['TF']
         }),
@@ -87,12 +79,12 @@ function parseLibrary(library, nr_tfs) {
 
 function generateBarChart() {
     $('#nav-barchart').html('<canvas id="barchart" width="400" height="200"></canvas>');
-    var ctx = document.getElementById('barchart').getContext('2d'),
-        library = $('#library-selectpicker').val(),
-        nr_tfs = $('#tf-slider').val();
+    const  ctx = document.getElementById('barchart').getContext('2d');
+    const library = $('#library-selectpicker').val();
+    const nr_tfs = $('#tf-slider').val();
 
     if (library === "Integrated--meanRank") {
-        var data = parseMeanRankLibraries2(nr_tfs);
+        const data = parseMeanRankLibraries2(nr_tfs);
         new Chart(ctx, {
             type: 'horizontalBar',
             data: data,
@@ -117,7 +109,7 @@ function generateBarChart() {
         });
 
     } else {
-        var barchart_data = parseLibrary(library, nr_tfs);
+        const barchart_data = parseLibrary(library, nr_tfs);
         new Chart(ctx, {
             type: 'horizontalBar',
             data: barchart_data['data'],

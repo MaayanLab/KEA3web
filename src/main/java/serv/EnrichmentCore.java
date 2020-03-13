@@ -151,7 +151,7 @@ public class EnrichmentCore extends HttpServlet {
         String json = resultsToJSON(results, integrated_results);
 
         //respond to request
-        response.setContentType("text/plain");
+        response.setContentType("application/json");
         response.getWriter().write(json);
     }
 

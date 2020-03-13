@@ -14,7 +14,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/1295b553b3.js"></script>
 </head>
-</head>
 
 <body data-spy="scroll" data-target="#index__navbar" data-offset="150">
 <div id="top"></div>

@@ -1,3 +1,5 @@
+// +
+// TODO tho
 function createNetwork(coreg_network, tfs) {
     console.log("createNetwork(coreg_network, tfs)");
     let network = {"nodes": [], "links": []};
@@ -243,12 +245,6 @@ function displayNetwork(network) {
     function dragged(d) {
         d.fx = d3.event.x;
         d.fy = d3.event.y;
-    }
-
-    function dragended(d) {
-        if (!d3.event.active) simulation.alphaTarget(0);
-        d.fx = undefined;
-        d.fy = undefined;
     }
     update(network.links, network.nodes);
 }
