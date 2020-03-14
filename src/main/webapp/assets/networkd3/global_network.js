@@ -14,11 +14,12 @@ let div = d3.select("body").append("div")
 function whichNetwork() {
     console.log("function whichNetwork()");
     const net = document.getElementById("whichnetwork").value;
-    if (net === "GTEx TF Network") {
+    console.log(net);
+    if (net === "GTEx Kinase Network") {
         return "gtex";
-    } else if (net === "TCGA TF Network") {
+    } else if (net === "TCGA Kinase Network") {
         return ("tcga");
-    } else if (net === "ARCHS4 TF Network") {
+    } else if (net === "ARCHS4 Kinase Network") {
         return ("archs4");
     } else {
         return null;
@@ -33,31 +34,25 @@ function changeNetwork() {
     }
     zm = 1;
     const netview = whichNetwork();
-    const gtex_table_link = $("#gtextablelink")
+    setLegendView();
+    recolorAllNodes();
+    const gtex_table_link = $("#gtextablelink");
+    gtex_table_link.addClass("d-none");
     switch (netview) {
         case "gtex":
             setGTExColorByOptions();
             drawNetwork();
-            setGTExLegendView();
-            recolorAllNodes();
             gtex_table_link.removeClass("d-none");
             break;
         case "archs4":
             setARCHS4ColorByOptions();
             drawARCHS4Network();
-            setARCHS4LegendView();
-            recolorAllNodes();
-            gtex_table_link.addClass("d-none");
             break;
         case "tcga":
             setTCGAColorByOptions();
             drawTCGANetwork();
-            setTCGALegendView();
-            gtex_table_link.addClass("d-none");
-            recolorAllNodes();
             break;
     }
-
 }
 
 function zoom_actions() {
@@ -112,7 +107,7 @@ function requestFullScreen(element_id) {
 function setTCGAColorByOptions() {
     console.log("function setTCGAColorByOptions()");
     $("#colorby").html(`<select class="form-control" id="colorby"
-						onchange="recolorAllNodes();setTCGALegendView()">
+						onchange="recolorAllNodes();setLegendView()">
 						<option>none</option>
 						<option>Tumor</option>
 						<option>WGCNA modules</option>
@@ -123,7 +118,7 @@ function setTCGAColorByOptions() {
 function setGTExColorByOptions() {
     console.log("function setGTExColorByOptions()");
     $("#colorby").html(`<select class="form-control" id="colorby"
-						onchange="recolorAllNodes();setGTExLegendView()">
+						onchange="recolorAllNodes();setLegendView()">
 						<option>none</option>
 						<option>Tissue (general)</option>
 						<option>Tissue (specific)</option>
@@ -134,7 +129,7 @@ function setGTExColorByOptions() {
 function setARCHS4ColorByOptions() {
     console.log("function setARCHS4ColorByOptions()");
     $("#colorby").html(`<select class="form-control" id="colorby"
-					onchange="recolorAllNodes();setARCHS4LegendView()">
+					onchange="recolorAllNodes();setLegendView()">
 					<option>none</option>
 					<option>Tissue</option>
 					<option>WGCNA modules</option>
@@ -189,140 +184,45 @@ function getLabelView() {
     return (document.getElementById("labelview").value)
 }
 
-function isLegendChecked() {
-    console.log("function isLegendChecked()");
-    return (document.getElementById("legend_checkbox").checked);
+function hideAllLegends() {
+    $('#general_tissue_legend').hide();
+    $('#specific_tissue_legend').hide();
+    $('#GO_legend').hide();
+    $('#Tissue_legend').hide();
+    $('#Tumor_legend').hide();
 }
 
-function setGTExLegendView() {
-    console.log("function setGTExLegendView()");
+function setLegendViews(legend, legend_option_val) {
+    // TODO hideAllLegends()?
+    // TODO .add-/.removeClass('hidden') - > .toggle()
     const color_by = document.getElementById("colorby").value;
-    const general_tissue_legend = $("#general_tissue_legend");
-    const specific_tissue_legend =  $("#specific_tissue_legend");
-    const go_legend = $("#GO_legend");
+    const hidden = legend.hasClass("hidden");
 
-    const gen_hidden = general_tissue_legend.hasClass("hidden");
-    const spec_hidden = specific_tissue_legend.hasClass("hidden");
-    const go_hidden = go_legend.hasClass("hidden");
-
-    if (isLegendChecked()) {
-        switch (color_by) {
-            case "Tissue (general)":
-                if (gen_hidden) {
-                    general_tissue_legend.removeClass("hidden");
-                }
-                if (!spec_hidden) {
-                    specific_tissue_legend.addClass("hidden");
-                }
-                if (!go_hidden) {
-                    go_legend.addClass("hidden");
-                }
-                break;
-            case "Tissue (specific)":
-                if (spec_hidden) {
-                    specific_tissue_legend.removeClass("hidden");
-                }
-                if (!gen_hidden) {
-                    general_tissue_legend.addClass("hidden");
-                }
-                if (!go_hidden) {
-                    go_legend.addClass("hidden");
-                }
-                break;
-            case "GO Enrichment":
-                if (go_hidden) {
-                    go_legend.removeClass("hidden");
-                }
-                if (!gen_hidden) {
-                    general_tissue_legend.addClass("hidden");
-                }
-                if (!spec_hidden) {
-                    specific_tissue_legend.addClass("hidden");
-                }
-                break;
-            default:
-                if (!gen_hidden) {
-                    general_tissue_legend.addClass("hidden");
-                }
-                if (!spec_hidden) {
-                    specific_tissue_legend.addClass("hidden");
-                }
-                if (!go_hidden) {
-                    go_legend.addClass("hidden");
-                }
-                break;
+    if (color_by === legend_option_val) {
+        if (hidden) {
+            legend.removeClass("hidden");
         }
     } else {
-        if (!gen_hidden) {
-            general_tissue_legend.addClass("hidden");
-        }
-        if (!spec_hidden) {
-            specific_tissue_legend.addClass("hidden");
-        }
-        if (!go_hidden) {
-            go_legend.addClass("hidden");
-        }
-    }
-}
-
-function setTCGALegendView() {
-    console.log("function setTCGALegendView()");
-    const color_by = document.getElementById("colorby").value;
-    const tumor_legend = $("#Tumor_legend");
-    const tumor_hidden = tumor_legend.hasClass("hidden");
-
-    if (isLegendChecked()) {
-        if (color_by === "Tumor") {
-            if (tumor_hidden) {
-                tumor_legend.removeClass("hidden");
-            }
-        } else {
-            if (!tumor_hidden) {
-                tumor_legend.addClass("hidden");
-            }
-        }
-    } else {
-        if (!tumor_hidden) {
-            tumor_legend.addClass("hidden");
-        }
-    }
-}
-
-function setARCHS4LegendView() {
-    console.log("function setARCHS4LegendView()");
-    const color_by = document.getElementById("colorby").value;
-    const tissue_legend = $("#Tissue_legend");
-    const tumor_hidden = tissue_legend.hasClass("hidden");
-
-    if (isLegendChecked()) {
-        if (color_by === "Tissue") {
-            if (tumor_hidden) {
-                tissue_legend.removeClass("hidden");
-            }
-        } else {
-            if (!tumor_hidden) {
-                tissue_legend.addClass("hidden");
-            }
-        }
-    } else {
-        if (!tumor_hidden) {
-            tissue_legend.addClass("hidden");
+        if (!hidden) {
+            legend.addClass("hidden");
         }
     }
 }
 
 function setLegendView() {
-    console.log("function setLegendView()");
+    console.log('function setLegendView()');
     let net = whichNetwork();
     switch (net) {
-        case "gtex":
-            setGTExLegendView();
+        case 'gtex':
+            setLegendViews($('#general_tissue_legend'), 'Tissue (general)');
+            setLegendViews($('#specific_tissue_legend'), 'Tissue (specific)');
+            setLegendViews($('#GO_legend'), 'GO Enrichment');
             break;
-        case "archs4":
-            setARCHS4LegendView();
+        case 'archs4':
+            setLegendViews($('#Tissue_legend'), 'Tissue');
             break;
-        case "tcga":
-            setTCGALegendView();
+        case 'tcga':
+            setLegendViews($('#Tumor_legend'), 'Tumor');
             break;
     }
 }
@@ -649,10 +549,8 @@ function drawNetwork() {
         global_nodes = node;
         global_labels = label;
         setLabelView();
-
-        setGTExLegendView();
-
-    });// end d3.json
+        setLegendView();
+    });
 }
 
 function drawTCGANetwork() {
@@ -669,7 +567,7 @@ function drawTCGANetwork() {
         //console.log($('#tfnet').css('padding'))
 
 
-        var network_svg = d3.select("#tfnet").append("svg");
+        const network_svg = d3.select("#tfnet").append("svg");
         // network_svg.attr("viewBox","0,0,${net_width},${net_height}");
         network_svg.attr("preserveAspectRatio",
             "xMidYMid slice");
@@ -888,9 +786,8 @@ function drawTCGANetwork() {
         global_labels = label;
 
         setLabelView();
-        setTCGALegendView();
-
-    });// end d3.json
+        setLegendView();
+    });
 }
 
 function drawARCHS4Network() {
@@ -1108,7 +1005,7 @@ function drawARCHS4Network() {
         global_nodes = node;
         global_labels = label;
         setLabelView();
-        setARCHS4LegendView();
+        setLegendView();
 
     });
 }
@@ -1120,20 +1017,7 @@ function deleteNetwork() {
 
 $(document).ready(function () {
     drawNetwork();
-    $('#legend_checkbox').change(function () {
-        var netview = whichNetwork();
-        switch (netview) {
-            case "gtex":
-                setGTExLegendView();
-                break;
-            case "archs4":
-                setARCHS4LegendView();
-                break;
-            case "tcga":
-                setTCGALegendView();
-                break;
-        }
-    });
+    $('#legend_checkbox').change(setLegendView());
 
     $(window).resize(function () {
         var net_svg = document.getElementById("net_svg");
