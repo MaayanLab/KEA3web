@@ -12,7 +12,7 @@ let div = d3.select("body").append("div")
     .style("opacity", 0);
 
 function whichNetwork() {
-    console.log("function whichNetwork()");
+    console.log("whichNetwork()");
     const net = document.getElementById("whichnetwork").value;
     console.log(net);
     if (net === "GTEx Kinase Network") {
@@ -27,7 +27,7 @@ function whichNetwork() {
 }
 
 function changeNetwork() {
-    console.log("function changeNetwork()");
+    console.log("changeNetwork()");
     const net_svg = document.getElementById("net_svg");
     if (net_svg != null) {
         deleteNetwork(net_svg);
@@ -56,7 +56,7 @@ function changeNetwork() {
 }
 
 function zoom_actions() {
-    console.log("function zoom_actions()");
+    console.log("zoom_actions()");
 	// create new scale objects based on event
 	let new_xScale = d3.event.transform
 		.rescaleX(xScale);
@@ -84,7 +84,6 @@ function zoom_actions() {
 	if (getLabelView() === "auto") {
 		if (zm >= 2) {
 			label.style("opacity", "1");
-
 		} else {
 			label.style("opacity", "0");
 		}
@@ -92,7 +91,7 @@ function zoom_actions() {
 }
 
 function requestFullScreen(element_id) {
-    console.log("function requestFullScreen(element_id)");
+    console.log("requestFullScreen(element_id)");
     const element = document.getElementById(element_id);
     // Supports most browsers and their versions.
     if (element.requestFullScreen) {
@@ -105,7 +104,7 @@ function requestFullScreen(element_id) {
 }
 
 function setTCGAColorByOptions() {
-    console.log("function setTCGAColorByOptions()");
+    console.log("setTCGAColorByOptions()");
     $("#colorby").html(`<select class="form-control" id="colorby"
 						onchange="recolorAllNodes();setLegendView()">
 						<option>none</option>
@@ -116,7 +115,7 @@ function setTCGAColorByOptions() {
 }
 
 function setGTExColorByOptions() {
-    console.log("function setGTExColorByOptions()");
+    console.log("setGTExColorByOptions()");
     $("#colorby").html(`<select class="form-control" id="colorby"
 						onchange="recolorAllNodes();setLegendView()">
 						<option>none</option>
@@ -127,7 +126,7 @@ function setGTExColorByOptions() {
 }
 
 function setARCHS4ColorByOptions() {
-    console.log("function setARCHS4ColorByOptions()");
+    console.log("setARCHS4ColorByOptions()");
     $("#colorby").html(`<select class="form-control" id="colorby"
 					onchange="recolorAllNodes();setLegendView()">
 					<option>none</option>
@@ -137,7 +136,7 @@ function setARCHS4ColorByOptions() {
 }
 
 function saveSvg(svg_id, name) {
-    console.log("function saveSvg(svg_id, name)");
+    console.log("saveSvg(svg_id, name)");
     const svgEl = document.getElementById(svg_id);
     svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     const svgData = svgEl.outerHTML;
@@ -153,7 +152,7 @@ function saveSvg(svg_id, name) {
 }
 
 function setLabelView() {
-    console.log("function setLabelView()");
+    console.log("setLabelView()");
     const labelview = getLabelView();
     if (labelview === "auto") {
         if (zm >= 2) {
@@ -166,21 +165,20 @@ function setLabelView() {
     } else {
         global_labels.style("opacity", 0);
     }
-
 }
 
 function openNav(nav) {
-    console.log("function openNav(nav)");
+    console.log("openNav(nav)");
     $('#' + nav).removeClass('closeNav').addClass('openNav')
 }
 
 function closeNav(nav) {
-    console.log("function closeNav(nav)");
+    console.log("closeNav(nav)");
     $('#' + nav).removeClass('openNav').addClass('closeNav')
 }
 
 function getLabelView() {
-    console.log("function getLabelView()");
+    console.log("getLabelView()");
     return (document.getElementById("labelview").value)
 }
 
@@ -193,6 +191,7 @@ function hideAllLegends() {
 }
 
 function setLegendViews(legend, legend_option_val) {
+    console.log(`function setLegendViews${legend}, ${legend_option_val}`);
     // TODO hideAllLegends()?
     // TODO .add-/.removeClass('hidden') - > .toggle()
     const color_by = document.getElementById("colorby").value;
@@ -227,8 +226,69 @@ function setLegendView() {
     }
 }
 
+function drawLegend(legend_id, legend_data){
+    var legend = g.append("g")
+        .attr("class", "legend")
+        .attr("id", legend_id)
+        .attr("x", net_width - 100)
+        .attr("y", net_height)
+        .attr("height", 100)
+        .attr("width", 100)
+        .attr("class", "hidden")
+        .style("pointer-events", "none");
+
+    legend.selectAll('g').data(legend_data)
+        .enter()
+        .append('g')
+        .each(function (d, i) {
+
+            var g = d3.select(this);
+            g.append("rect")
+                .attr("x", net_width - 118)
+                .attr("y", i * 15 + 140)
+                .attr("width", 10)
+                .attr("height", 10)
+                .style("stroke-width", 1)
+                .style("stroke", "white")
+                .style("fill", function (d) {
+                    return d.color
+                });
+
+            g.append("text")
+                .attr("x", net_width - 105)
+                .attr("y", i * 15 + 150)
+                .attr("height", 10)
+                .attr("width", 100)
+                .style("fill", "white")
+                .style("font-size", "10pt")
+                .style("stroke-width", "0.4em")
+                .style("stroke", "white")
+                .text(function (d) {
+                    return d.term
+                });
+
+            g.append("text")
+                .attr("x", net_width - 105)
+                .attr("y", i * 15 + 150)
+                .attr("height", 10)
+                .attr("width", 100)
+                .style("fill", "black")
+                .style("stroke-opacity", 0)
+                .style("font-size", "10pt")
+                .text(function (d) {
+                    return d.term
+                });
+        });
+
+    highlightNodes2();
+    global_nodes = node;
+    global_labels = label;
+    setLabelView();
+    setLegendView();
+}
+
 function drawNetwork() {
-    console.log("function drawNetwork()");
+    console.log("drawNetwork()");
     d3.json("assets/networkd3/wgcna_gtex_annotated4.json", function (net_json) {
         const network_svg = d3.select("#tfnet").append("svg");
         network_svg.attr("id", "net_svg")
@@ -276,7 +336,6 @@ function drawNetwork() {
             circle_fill = translateNodeColor(colorby_val);
         }
 
-        // draw circles for the nodes
         var node = g
             .append("g")
             .selectAll("circle")
@@ -375,7 +434,6 @@ function drawNetwork() {
             .extent([[0, 0], [net_width, net_height]])
             .on("zoom", zoom_actions);
 
-
         zoom_handler(network_svg);
 
         var labelview = getLabelView();
@@ -385,7 +443,6 @@ function drawNetwork() {
         } else {
             op = 0;
         }
-
 
         let general_tissue_legend = g.append("g")
             .attr("class", "legend")
@@ -492,7 +549,6 @@ function drawNetwork() {
                     });
             });
 
-
         let go_legend = g.append("g")
             .attr("class", "legend")
             .attr("id", "GO_legend")
@@ -554,21 +610,10 @@ function drawNetwork() {
 }
 
 function drawTCGANetwork() {
-    console.log("function drawTCGANetwork()");
+    console.log("drawTCGANetwork()");
     d3.json("assets/networkd3/wgcna_tcga_annotated.json", function (net_json) {
         console.log('tcga');
-
-        var networkDiv = document.getElementById("tfnet");
-        // net_width = networkDiv.clientWidth;
-        // net_height = Math.max($('#tfea-submission').height(),networkDiv.clientHeight,500);
-        //console.log(net_width)
-        //console.log(net_height)
-        //console.log($('#tfnet').width())
-        //console.log($('#tfnet').css('padding'))
-
-
         const network_svg = d3.select("#tfnet").append("svg");
-        // network_svg.attr("viewBox","0,0,${net_width},${net_height}");
         network_svg.attr("preserveAspectRatio",
             "xMidYMid slice");
         network_svg.attr("id", "net_svg");
@@ -589,8 +634,6 @@ function drawTCGANetwork() {
         var min_y = Math.min.apply(Math, nodes.map(function (o) {
             return o.y;
         }));
-
-//		nodes = adjustCoordinates(nodes);
 
         // add encompassing group for the zoom
         g = network_svg.append("g").attr("class", "everything");
@@ -616,13 +659,11 @@ function drawTCGANetwork() {
 		let circle_fill;
         if (colorby_val == null) {
             alert('null');
-			circle_fill = "Tumor Type"
+			circle_fill = "Tumor"
         } else {
             circle_fill = translateNodeColor(colorby_val);
         }
 
-
-        // draw circles for the nodes
         var node = g
             .append("g")
             .selectAll("circle")
@@ -710,7 +751,6 @@ function drawTCGANetwork() {
             .extent([[0, 0], [net_width, net_height]])
             .on("zoom", zoom_actions);
 
-
         zoom_handler(network_svg);
 
         var labelview = getLabelView();
@@ -720,8 +760,6 @@ function drawTCGANetwork() {
         } else {
             op = 0;
         }
-
-
         var legend = g.append("g")
             .attr("class", "legend")
             .attr("id", "Tumor_legend")
@@ -774,12 +812,6 @@ function drawTCGANetwork() {
                         return d.Tumor
                     });
             });
-
-
-        // var sliders = document.querySelectorAll(".slider");
-        // if (sliders != null) {
-        // 	highlightNodes(sliders);
-        // }
         highlightNodes2();
 
         global_nodes = node;
@@ -791,16 +823,9 @@ function drawTCGANetwork() {
 }
 
 function drawARCHS4Network() {
-    console.log("function drawARCHS4Network()");
+    console.log("drawARCHS4Network()");
     d3.json("assets/networkd3/wgcna_archs4_annotated.json", function (net_json) {
-
-        var networkDiv = document.getElementById("tfnet");
-        // net_width = networkDiv.clientWidth;
-        // net_height = Math.max($('#tfea-submission').height(),networkDiv.clientHeight,500);
-
-
         var network_svg = d3.select("#tfnet").append("svg");
-        // network_svg.attr("viewBox","0,0,${net_width},${net_height}");
         network_svg.attr("preserveAspectRatio",
             "xMidYMid slice");
         network_svg.attr("id", "net_svg");
@@ -821,10 +846,6 @@ function drawARCHS4Network() {
         var min_y = Math.min.apply(Math, nodes.map(function (o) {
             return o.y;
         }));
-
-//		nodes = adjustCoordinates(nodes);
-
-        // add encompassing group for the zoom
         g = network_svg.append("g").attr("class", "everything");
 
         var xScale = d3.scaleLinear().domain([min_x, max_x])
@@ -982,8 +1003,9 @@ function drawARCHS4Network() {
                     .attr("width", 100)
                     .style("fill", "white")
                     .style("font-size", "10pt")
-                    .style("stroke-width", "0.4em")
+                    .style("stroke-width", "0.2em")
                     .style("stroke", "white")
+                    .style("stroke-opacity", 0.7)
                     .text(function (d) {
                         return d.Tissue
                     });
@@ -994,7 +1016,6 @@ function drawARCHS4Network() {
                     .attr("height", 10)
                     .attr("width", 100)
                     .style("fill", "black")
-                    .style("stroke-opacity", 0)
                     .style("font-size", "10pt")
                     .text(function (d) {
                         return d.Tissue
@@ -1006,12 +1027,11 @@ function drawARCHS4Network() {
         global_labels = label;
         setLabelView();
         setLegendView();
-
     });
 }
 
 function deleteNetwork() {
-    console.log("function deleteNetwork()");
+    console.log("deleteNetwork()");
     document.getElementById("net_svg").remove();
 }
 
