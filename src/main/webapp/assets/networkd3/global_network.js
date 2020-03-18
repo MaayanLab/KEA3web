@@ -41,16 +41,16 @@ function changeNetwork() {
     switch (netview) {
         case "gtex":
             setGTExColorByOptions();
-            drawNetwork();
+            drawNetwork("assets/networkd3/wgcna_gtex_annotated4.json", netview);
             gtex_table_link.removeClass("d-none");
             break;
         case "archs4":
             setARCHS4ColorByOptions();
-            drawARCHS4Network();
+            drawNetwork("assets/networkd3/wgcna_archs4_annotated.json", netview);
             break;
         case "tcga":
             setTCGAColorByOptions();
-            drawTCGANetwork();
+            drawNetwork("assets/networkd3/wgcna_tcga_annotated.json", netview);
             break;
     }
 }
@@ -287,9 +287,9 @@ function drawLegend(legend_id, legend_data){
     setLegendView();
 }
 
-function drawNetwork() {
+function drawNetwork(json_file, net_type) {
     console.log("drawNetwork()");
-    d3.json("assets/networkd3/wgcna_gtex_annotated4.json", function (net_json) {
+    d3.json(json_file, function (net_json) {
         const network_svg = d3.select("#tfnet").append("svg");
         network_svg.attr("id", "net_svg")
             .attr("width", net_width)
@@ -329,72 +329,189 @@ function drawNetwork() {
             [min_y, max_y]);
 
         let circle_fill;
-        var colorby_val = document.getElementById("colorby").value;
-        if (colorby_val == null) {
-            circle_fill = "General_tissue_color"
-        } else {
-            circle_fill = translateNodeColor(colorby_val);
+        let colorby_val = document.getElementById("colorby").value;
+        let node;
+
+        switch(net_type) {
+            case "gtex":
+                if (colorby_val == null) {
+                    circle_fill = "General_tissue_color"
+                } else {
+                    circle_fill = translateNodeColor(colorby_val);
+                }
+
+                node = g
+                    .append("g")
+                    .selectAll("circle")
+                    .data(nodes)
+                    .enter()
+                    .append("circle")
+                    .attr("r", radius)
+                    .attr("id", function (d) {
+                        return d.name;
+                    })
+                    .attr("cx", function (d) {
+                        return xScale(d.x)
+                    })
+                    .attr("cy", function (d) {
+                        return yScale(d.y)
+                    })
+                    .attr(
+                        "fill",
+                        function (d) {
+                            switch (circle_fill) {
+                                case "General_tissue_color":
+                                    return d.General_tissue_color;
+                                case "Specific_tissue_color":
+                                    return d.Specific_tissue_color;
+                                case "WGCNA_hex":
+                                    return d.WGCNA_hex;
+                                case "GO_enrichment_color":
+                                    return d.GO_enrichment_colordefault;
+                                default:
+                                    return defaultNodeColor;
+                            }
+                        }).attr("stroke", 0).attr(
+                        "stroke-opacity", 0).attr(
+                        "WGCNA_hex", function (d) {
+                            return d.WGCNA_hex
+                        }).attr("General_tissue_color",
+                        function (d) {
+                            return d.General_tissue_color
+                        }).attr("Specific_tissue_color",
+                        function (d) {
+                            return d.Specific_tissue_color
+                        }).attr("GO_enrichment_color",
+                        function (d) {
+                            return d.GO_enrichment_color
+                        }).on("mouseover", function (d) {
+                        div.transition()
+                            .duration(100)
+                            .style("opacity", .9);
+                        div.html(d.name)
+                            .style("left", (d3.event.pageX) + "px")
+                            .style("top", (d3.event.pageY - 28) + "px");
+                    })
+                    .on("mouseout", function (d) {
+                        div.transition()
+                            .duration(2000)
+                            .style("opacity", 0);
+                    });
+                break;
+            case "archs4":
+                node = g
+                    .append("g")
+                    .selectAll("circle")
+                    .data(nodes)
+                    .enter()
+                    .append("circle")
+                    .attr("r", radius)
+                    .attr("id", function (d) {
+                        return d.name;
+                    })
+                    .attr("cx", function (d) {
+                        return xScale(d.x)
+                    })
+                    .attr("cy", function (d) {
+                        return yScale(d.y)
+                    })
+                    .attr(
+                        "fill",
+                        function (d) {
+                            if (circle_fill === "Tissue_color") {
+                                return d.Tissue_color;
+                            } else if (circle_fill === "WGCNA_hex") {
+                                return d.WGCNA_hex;
+                            } else {
+                                return defaultNodeColor;
+                            }
+                        }).attr("stroke", 0).attr(
+                        "stroke-opacity", 0).attr(
+                        "WGCNA_hex", function (d) {
+                            return d.WGCNA_hex
+                        }).attr("Tissue_color",
+                        function (d) {
+                            return d.Tissue_color
+                        }).on("mouseover", function (d) {
+                        div.transition()
+                            .duration(100)
+                            .style("opacity", .9);
+                        div.html(d.name)
+                            .style("left", (d3.event.pageX) + "px")
+                            .style("top", (d3.event.pageY - 28) + "px");
+                    })
+                    .on("mouseout", function (d) {
+                        div.transition()
+                            .duration(2000)
+                            .style("opacity", 0);
+                    });
+                break;
+            case "tcga":
+                if (colorby_val == null) {
+                    alert('null');
+                    circle_fill = "Tumor Type"
+                } else {
+                    circle_fill = translateNodeColor(colorby_val);
+                }
+
+                node = g
+                    .append("g")
+                    .selectAll("circle")
+                    .data(nodes)
+                    .enter()
+                    .append("circle")
+                    .attr("r", radius)
+                    .attr("id", function (d) {
+                        return d.name;
+                    })
+                    .attr("cx", function (d) {
+                        return xScale(d.x)
+                    })
+                    .attr("cy", function (d) {
+                        return yScale(d.y)
+                    })
+                    .attr(
+                        "fill",
+                        function (d) {
+                            if (circle_fill === "Tumor_color") {
+                                return d.Tumor_color;
+                            } else if (circle_fill === "WGCNA_hex") {
+                                return d.WGCNA_hex;
+                            } else {
+                                return defaultNodeColor;
+                            }
+                        }).attr("stroke", 0).attr(
+                        "stroke-opacity", 0).attr(
+                        "WGCNA_hex", function (d) {
+                            return d.WGCNA_hex
+                        }).attr("Tumor_color",
+                        function (d) {
+                            return d.Tumor_color
+                        }).on("mouseover", function (d) {
+                        div.transition()
+                            .duration(100)
+                            .style("opacity", .9);
+                        div.html(d.name)
+                            .style("left", (d3.event.pageX) + "px")
+                            .style("top", (d3.event.pageY - 28) + "px");
+                    })
+                    .on("mouseout", function (d) {
+                        div.transition()
+                            .duration(2000)
+                            .style("opacity", 0);
+                    });
+                break;
         }
 
-        var node = g
-            .append("g")
-            .selectAll("circle")
-            .data(nodes)
-            .enter()
-            .append("circle")
-            .attr("r", radius)
-            .attr("id", function (d) {
-                return d.name;
-            })
-            .attr("cx", function (d) {
-                return xScale(d.x)
-            })
-            .attr("cy", function (d) {
-                return yScale(d.y)
-            })
-            .attr(
-                "fill",
-                function (d) {
-                    switch (circle_fill) {
-                        case "General_tissue_color":
-                            return d.General_tissue_color;
-                        case "Specific_tissue_color":
-                            return d.Specific_tissue_color;
-                        case "WGCNA_hex":
-                            return d.WGCNA_hex;
-                        case "GO_enrichment_color":
-                            return d.GO_enrichment_colordefault;
-                        default:
-                            return defaultNodeColor;
-                    }
-                }).attr("stroke", 0).attr(
-                "stroke-opacity", 0).attr(
-                "WGCNA_hex", function (d) {
-                    return d.WGCNA_hex
-                }).attr("General_tissue_color",
-                function (d) {
-                    return d.General_tissue_color
-                }).attr("Specific_tissue_color",
-                function (d) {
-                    return d.Specific_tissue_color
-                }).attr("GO_enrichment_color",
-                function (d) {
-                    return d.GO_enrichment_color
-                }).on("mouseover", function (d) {
-                div.transition()
-                    .duration(100)
-                    .style("opacity", .9);
-                div.html(d.name)
-                    .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
-            })
-            .on("mouseout", function (d) {
-                div.transition()
-                    .duration(2000)
-                    .style("opacity", 0);
-            });
+        const labelview = getLabelView();
+        let op;
+        if ((labelview === "auto" & zm > 2) || (labelview === "always")) {
+            op = 1;
+        } else {
+            op = 0;
+        }
 
-        var label = g.append("g")
+        let label = g.append("g")
             .attr("class", "label")
             .selectAll("text")
             .data(nodes)
@@ -428,7 +545,7 @@ function drawNetwork() {
                     .style("opacity", 0);
             });
 
-        var zoom_handler = d3
+        const zoom_handler = d3
             .zoom()
             .scaleExtent([0.5, 40])
             .extent([[0, 0], [net_width, net_height]])
@@ -436,591 +553,19 @@ function drawNetwork() {
 
         zoom_handler(network_svg);
 
-        var labelview = getLabelView();
-        var op;
-        if ((labelview === "auto" & zm > 2) || (labelview === "always")) {
-            op = 1;
-        } else {
-            op = 0;
+        switch(net_type) {
+            case "gtex":
+                drawLegend("general_tissue_legend", general_tissue);
+                drawLegend("specific_tissue_legend", specific_tissue);
+                drawLegend("GO_legend", GO_enrichment);
+                break;
+            case "archs4":
+                drawLegend("Tissue_legend", tissue);
+                break;
+            case "tcga":
+                drawLegend("Tumor_legend", tumor);
+                break;
         }
-
-        let general_tissue_legend = g.append("g")
-            .attr("class", "legend")
-            .attr("id", "general_tissue_legend")
-            .attr("x", net_width - 100)
-            .attr("y", net_height)
-            .attr("height", 100)
-            .attr("width", 100)
-            .attr("class", "hidden")
-            .style("pointer-events", "none");
-
-		general_tissue_legend.selectAll('g').data(general_tissue)
-            .enter()
-            .append('g')
-            .each(function (d, i) {
-
-                var g = d3.select(this);
-                g.append("rect")
-                    .attr("x", net_width - 118)
-                    .attr("y", i * 15 + 140)
-                    .attr("width", 10)
-                    .attr("height", 10)
-                    .style("stroke-width", 1)
-                    .style("stroke", "white")
-                    .style("fill", function (d) {
-                        return d.color
-                    });
-
-                g.append("text")
-                    .attr("x", net_width - 105)
-                    .attr("y", i * 15 + 150)
-                    .attr("height", 10)
-                    .attr("width", 100)
-                    .style("fill", "white")
-                    .style("font-size", "10pt")
-                    .style("stroke-width", "0.4em")
-                    .style("stroke", "white")
-                    .text(function (d) {
-                        return d.tissue
-                    });
-
-                g.append("text")
-                    .attr("x", net_width - 105)
-                    .attr("y", i * 15 + 150)
-                    .attr("height", 10)
-                    .attr("width", 100)
-                    .style("stroke-opacity", 0)
-                    .style("fill", "black")
-                    .style("font-size", "10pt")
-                    .text(function (d) {
-                        return d.tissue
-                    });
-            });
-
-        let specific_tissue_legend = g.append("g")
-            .attr("class", "legend")
-            .attr("id", "specific_tissue_legend")
-            .attr("x", net_width - 100)
-            .attr("y", net_height)
-            .attr("height", 100)
-            .attr("width", 100)
-            .attr("class", "hidden")
-            .style("pointer-events", "none");
-
-		specific_tissue_legend.selectAll('g').data(specific_tissue)
-            .enter()
-            .append('g')
-            .each(function (d, i) {
-                var g = d3.select(this);
-                g.append("rect")
-                    .attr("x", net_width - 148)
-                    .attr("y", i * 15 + 140)
-                    .attr("width", 10)
-                    .attr("height", 10)
-                    .style("stroke-width", 1)
-                    .style("stroke", "white")
-                    .style("fill", function (d) {
-                        return d.color
-                    });
-
-                g.append("text")
-                    .attr("x", net_width - 135)
-                    .attr("y", i * 15 + 150)
-                    .attr("height", 10)
-                    .attr("width", 100)
-                    .style("fill", "white")
-                    .style("font-size", "10pt")
-                    .style("stroke-width", "0.4em")
-                    .style("stroke", "white")
-                    .text(function (d) {
-                        return d.tissue
-                    });
-
-                g.append("text")
-                    .attr("x", net_width - 135)
-                    .attr("y", i * 15 + 150)
-                    .attr("height", 10)
-                    .attr("width", 100)
-                    .style("stroke-opacity", 0)
-                    .style("fill", "black")
-                    .style("font-size", "10pt")
-                    .text(function (d) {
-                        return d.tissue
-                    });
-            });
-
-        let go_legend = g.append("g")
-            .attr("class", "legend")
-            .attr("id", "GO_legend")
-            .attr("x", net_width - 400)
-            .attr("y", net_height)
-            .attr("height", 400)
-            .attr("width", 400)
-            .attr("class", "hidden")
-            .style("pointer-events", "none");
-
-		go_legend.selectAll('g').data(GO_enrichment)
-            .enter()
-            .append('g')
-            .each(function (d, i) {
-                var g = d3.select(this);
-                g.append("rect")
-                    .attr("x", net_width - 248)
-                    .attr("y", i * 15 + 50)
-                    .attr("width", 10)
-                    .attr("height", 10)
-                    .style("stroke-width", 1)
-                    .style("stroke", "white")
-                    .style("fill", function (d) {
-                        return d.color
-                    });
-
-                g.append("text")
-                    .attr("x", net_width - 235)
-                    .attr("y", i * 15 + 60)
-                    .attr("height", 10)
-                    .attr("width", 100)
-                    .style("fill", "white")
-                    .style("font-size", "10pt")
-                    .style("stroke-width", "0.4em")
-                    .style("stroke", "white")
-                    .text(function (d) {
-                        return d.GO_term
-                    });
-
-                g.append("text")
-                    .attr("x", net_width - 235)
-                    .attr("y", i * 15 + 60)
-                    .attr("height", 10)
-                    .attr("width", 100)
-                    .style("stroke-opacity", 0)
-                    .style("fill", "black")
-                    .style("font-size", "10pt")
-                    .text(function (d) {
-                        return d.GO_term
-                    });
-            });
-
-        highlightNodes2();
-        global_nodes = node;
-        global_labels = label;
-        setLabelView();
-        setLegendView();
-    });
-}
-
-function drawTCGANetwork() {
-    console.log("drawTCGANetwork()");
-    d3.json("assets/networkd3/wgcna_tcga_annotated.json", function (net_json) {
-        console.log('tcga');
-        const network_svg = d3.select("#tfnet").append("svg");
-        network_svg.attr("preserveAspectRatio",
-            "xMidYMid slice");
-        network_svg.attr("id", "net_svg");
-
-        network_svg.attr("width", net_width).attr("height",
-            net_height);
-
-        var nodes = net_json;
-        var max_x = Math.max.apply(Math, nodes.map(function (o) {
-            return o.x;
-        }));
-        var max_y = Math.max.apply(Math, nodes.map(function (o) {
-            return o.y;
-        }));
-        var min_x = Math.min.apply(Math, nodes.map(function (o) {
-            return o.x;
-        }));
-        var min_y = Math.min.apply(Math, nodes.map(function (o) {
-            return o.y;
-        }));
-
-        // add encompassing group for the zoom
-        g = network_svg.append("g").attr("class", "everything");
-
-        var xScale = d3.scaleLinear().domain([min_x, max_x])
-            .range([net_width * 0.05, net_width * .95]);
-
-        var yScale = d3
-            .scaleLinear()
-            .domain([min_y, max_y])
-            .range([net_height * 0.05, net_height * 0.95]);
-
-        var xUnscale = d3.scaleLinear().domain(
-            [net_width * 0.05, net_width * 0.95]).range(
-            [min_x, max_x]);
-
-        var yUnscale = d3.scaleLinear().domain(
-            [net_height * 0.05, net_width * 0.95]).range(
-            [min_y, max_y]);
-
-        var colorby_val = document.getElementById("colorby").value;
-        console.log(colorby_val);
-		let circle_fill;
-        if (colorby_val == null) {
-            alert('null');
-			circle_fill = "Tumor"
-        } else {
-            circle_fill = translateNodeColor(colorby_val);
-        }
-
-        var node = g
-            .append("g")
-            .selectAll("circle")
-            .data(nodes)
-            .enter()
-            .append("circle")
-            .attr("r", radius)
-            .attr("id", function (d) {
-                return d.name;
-            })
-            .attr("cx", function (d) {
-                return xScale(d.x)
-            })
-            .attr("cy", function (d) {
-                return yScale(d.y)
-            })
-            .attr(
-                "fill",
-                function (d) {
-                    if (circle_fill === "Tumor_color") {
-                        return d.Tumor_color;
-                    } else if (circle_fill === "WGCNA_hex") {
-                        return d.WGCNA_hex;
-                    } else {
-                        return defaultNodeColor;
-                    }
-                }).attr("stroke", 0).attr(
-                "stroke-opacity", 0).attr(
-                "WGCNA_hex", function (d) {
-                    return d.WGCNA_hex
-                }).attr("Tumor_color",
-                function (d) {
-                    return d.Tumor_color
-                }).on("mouseover", function (d) {
-                div.transition()
-                    .duration(100)
-                    .style("opacity", .9);
-                div.html(d.name)
-                    .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
-            })
-            .on("mouseout", function (d) {
-                div.transition()
-                    .duration(2000)
-                    .style("opacity", 0);
-            });
-
-        var label = g.append("g")
-            .attr("class", "label")
-            .selectAll("text")
-            .data(nodes)
-            .enter()
-            .append("text")
-            .attr("text-anchor", "middle")
-            .style("stroke-opacity", 0)
-            .text(function (d) {
-                return d.name;
-            })
-            .attr("x", function (d) {
-                return xScale(d.x);
-            })
-            .attr("y", function (d) {
-                return yScale(d.y) - 6;
-            })
-            .attr("id", function (d) {
-                return d.name + "_label";
-            })
-            .style("opacity", op).on("mouseover", function (d) {
-                div.transition()
-                    .duration(100)
-                    .style("opacity", .9);
-                div.html(d.name)
-                    .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
-            })
-            .on("mouseout", function (d) {
-                div.transition()
-                    .duration(2000)
-                    .style("opacity", 0);
-            });
-
-        var zoom_handler = d3
-            .zoom()
-            .scaleExtent([0.5, 40])
-            .extent([[0, 0], [net_width, net_height]])
-            .on("zoom", zoom_actions);
-
-        zoom_handler(network_svg);
-
-        var labelview = getLabelView();
-        var op;
-        if ((labelview === "auto" & zm > 2) || (labelview === "always")) {
-            op = 1;
-        } else {
-            op = 0;
-        }
-        var legend = g.append("g")
-            .attr("class", "legend")
-            .attr("id", "Tumor_legend")
-            .attr("x", net_width - 100)
-            .attr("y", net_height)
-            .attr("height", 100)
-            .attr("width", 100)
-            .attr("class", "hidden")
-            .style("pointer-events", "none");
-
-        legend.selectAll('g').data(tumor)
-            .enter()
-            .append('g')
-            .each(function (d, i) {
-
-                var g = d3.select(this);
-                g.append("rect")
-                    .attr("x", net_width - 118)
-                    .attr("y", i * 15 + 140)
-                    .attr("width", 10)
-                    .attr("height", 10)
-                    .style("stroke-width", 1)
-                    .style("stroke", "white")
-                    .style("fill", function (d) {
-                        return d.color
-                    });
-
-                g.append("text")
-                    .attr("x", net_width - 105)
-                    .attr("y", i * 15 + 150)
-                    .attr("height", 10)
-                    .attr("width", 100)
-                    .style("fill", "white")
-                    .style("font-size", "10pt")
-                    .style("stroke-width", "0.4em")
-                    .style("stroke", "white")
-                    .text(function (d) {
-                        return d.Tumor
-                    });
-
-                g.append("text")
-                    .attr("x", net_width - 105)
-                    .attr("y", i * 15 + 150)
-                    .attr("height", 10)
-                    .attr("width", 100)
-                    .style("fill", "black")
-                    .style("stroke-opacity", 0)
-                    .style("font-size", "10pt")
-                    .text(function (d) {
-                        return d.Tumor
-                    });
-            });
-        highlightNodes2();
-
-        global_nodes = node;
-        global_labels = label;
-
-        setLabelView();
-        setLegendView();
-    });
-}
-
-function drawARCHS4Network() {
-    console.log("drawARCHS4Network()");
-    d3.json("assets/networkd3/wgcna_archs4_annotated.json", function (net_json) {
-        var network_svg = d3.select("#tfnet").append("svg");
-        network_svg.attr("preserveAspectRatio",
-            "xMidYMid slice");
-        network_svg.attr("id", "net_svg");
-
-        network_svg.attr("width", net_width).attr("height",
-            net_height);
-
-        var nodes = net_json;
-        var max_x = Math.max.apply(Math, nodes.map(function (o) {
-            return o.x;
-        }));
-        var max_y = Math.max.apply(Math, nodes.map(function (o) {
-            return o.y;
-        }));
-        var min_x = Math.min.apply(Math, nodes.map(function (o) {
-            return o.x;
-        }));
-        var min_y = Math.min.apply(Math, nodes.map(function (o) {
-            return o.y;
-        }));
-        g = network_svg.append("g").attr("class", "everything");
-
-        var xScale = d3.scaleLinear().domain([min_x, max_x])
-            .range([net_width * 0.05, net_width * .95]);
-
-        var yScale = d3
-            .scaleLinear()
-            .domain([min_y, max_y])
-            .range([net_height * 0.05, net_height * 0.95]);
-
-        var xUnscale = d3.scaleLinear().domain(
-            [net_width * 0.05, net_width * 0.95]).range(
-            [min_x, max_x]);
-
-        var yUnscale = d3.scaleLinear().domain(
-            [net_height * 0.05, net_width * 0.95]).range(
-            [min_y, max_y]);
-
-        var colorby_val = document.getElementById("colorby").value;
-        console.log(colorby_val);
-        var circle_fill = translateNodeColor(colorby_val);
-
-
-        // draw circles for the nodes
-        var node = g
-            .append("g")
-            .selectAll("circle")
-            .data(nodes)
-            .enter()
-            .append("circle")
-            .attr("r", radius)
-            .attr("id", function (d) {
-                return d.name;
-            })
-            .attr("cx", function (d) {
-                return xScale(d.x)
-            })
-            .attr("cy", function (d) {
-                return yScale(d.y)
-            })
-            .attr(
-                "fill",
-                function (d) {
-                    if (circle_fill === "Tissue_color") {
-                        return d.Tissue_color;
-                    } else if (circle_fill === "WGCNA_hex") {
-                        return d.WGCNA_hex;
-                    } else {
-                        return defaultNodeColor;
-                    }
-                }).attr("stroke", 0).attr(
-                "stroke-opacity", 0).attr(
-                "WGCNA_hex", function (d) {
-                    return d.WGCNA_hex
-                }).attr("Tissue_color",
-                function (d) {
-                    return d.Tissue_color
-                }).on("mouseover", function (d) {
-                div.transition()
-                    .duration(100)
-                    .style("opacity", .9);
-                div.html(d.name)
-                    .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
-            })
-            .on("mouseout", function (d) {
-                div.transition()
-                    .duration(2000)
-                    .style("opacity", 0);
-            });
-
-        var label = g.append("g")
-            .attr("class", "label")
-            .selectAll("text")
-            .data(nodes)
-            .enter()
-            .append("text")
-            .attr("text-anchor", "middle")
-            .style("stroke-opacity", 0)
-            .text(function (d) {
-                return d.name;
-            })
-            .attr("x", function (d) {
-                return xScale(d.x);
-            })
-            .attr("y", function (d) {
-                return yScale(d.y) - 6;
-            })
-            .attr("id", function (d) {
-                return d.name + "_label";
-            })
-            .style("opacity", op).on("mouseover", function (d) {
-                div.transition()
-                    .duration(100)
-                    .style("opacity", .9);
-                div.html(d.name)
-                    .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
-            })
-            .on("mouseout", function (d) {
-                div.transition()
-                    .duration(2000)
-                    .style("opacity", 0);
-            });
-
-        var zoom_handler = d3
-            .zoom()
-            .scaleExtent([0.5, 40])
-            .extent([[0, 0], [net_width, net_height]])
-            .on("zoom", zoom_actions);
-
-
-        zoom_handler(network_svg);
-
-        var labelview = getLabelView();
-        var op;
-        if ((labelview === "auto" & zm > 2) || (labelview === "always")) {
-            op = 1;
-        } else {
-            op = 0;
-        }
-
-
-        var legend = g.append("g")
-            .attr("class", "legend")
-            .attr("id", "Tissue_legend")
-            .attr("x", net_width - 100)
-            .attr("y", net_height)
-            .attr("height", 100)
-            .attr("width", 100)
-            .attr("class", "hidden")
-            .style("pointer-events", "none");
-
-        legend.selectAll('g').data(tissue)
-            .enter()
-            .append('g')
-            .each(function (d, i) {
-
-                var g = d3.select(this);
-                g.append("rect")
-                    .attr("x", net_width - 118)
-                    .attr("y", i * 15 + 140)
-                    .attr("width", 10)
-                    .attr("height", 10)
-                    .style("stroke-width", 1)
-                    .style("stroke", "white")
-                    .style("fill", function (d) {
-                        return d.color
-                    });
-
-                g.append("text")
-                    .attr("x", net_width - 105)
-                    .attr("y", i * 15 + 150)
-                    .attr("height", 10)
-                    .attr("width", 100)
-                    .style("fill", "white")
-                    .style("font-size", "10pt")
-                    .style("stroke-width", "0.2em")
-                    .style("stroke", "white")
-                    .style("stroke-opacity", 0.7)
-                    .text(function (d) {
-                        return d.Tissue
-                    });
-
-                g.append("text")
-                    .attr("x", net_width - 105)
-                    .attr("y", i * 15 + 150)
-                    .attr("height", 10)
-                    .attr("width", 100)
-                    .style("fill", "black")
-                    .style("font-size", "10pt")
-                    .text(function (d) {
-                        return d.Tissue
-                    });
-            });
 
         highlightNodes2();
         global_nodes = node;
@@ -1036,27 +581,10 @@ function deleteNetwork() {
 }
 
 $(document).ready(function () {
-    drawNetwork();
+    drawNetwork("assets/networkd3/wgcna_gtex_annotated4.json", "gtex");
     $('#legend_checkbox').change(setLegendView());
 
     $(window).resize(function () {
-        var net_svg = document.getElementById("net_svg");
-        if (net_svg != null) {
-            deleteNetwork(net_svg);
-            zm = 1;
-            var netview = whichNetwork();
-            switch (netview) {
-                case "gtex":
-                    drawNetwork();
-                    break;
-                case "archs4":
-                    drawARCHS4Network();
-                    break;
-                case "tcga":
-                    drawTCGANetwork();
-                    break;
-            }
-        }
-
+        changeNetwork();
     });
 });
