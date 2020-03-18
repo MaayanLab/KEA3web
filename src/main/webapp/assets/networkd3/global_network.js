@@ -41,16 +41,16 @@ function changeNetwork() {
     switch (netview) {
         case "gtex":
             setGTExColorByOptions();
-            drawNetwork("assets/networkd3/wgcna_gtex_annotated4.json", netview);
+            drawNetwork("static/json/wgcna_gtex_annotated4.json", netview);
             gtex_table_link.removeClass("d-none");
             break;
         case "archs4":
             setARCHS4ColorByOptions();
-            drawNetwork("assets/networkd3/wgcna_archs4_annotated.json", netview);
+            drawNetwork("static/json/wgcna_archs4_annotated.json", netview);
             break;
         case "tcga":
             setTCGAColorByOptions();
-            drawNetwork("assets/networkd3/wgcna_tcga_annotated.json", netview);
+            drawNetwork("static/json/wgcna_tcga_annotated.json", netview);
             break;
     }
 }
@@ -513,10 +513,6 @@ function deleteNetwork() {
 }
 
 $(document).ready(function () {
-    drawNetwork("assets/networkd3/wgcna_gtex_annotated4.json", "gtex");
+    drawNetwork("static/json/wgcna_gtex_annotated4.json", "gtex");
     $('#legend_checkbox').change(setLegendView());
-
-    $(window).resize(function () {
-        changeNetwork();
-    });
 });

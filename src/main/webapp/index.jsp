@@ -143,11 +143,11 @@
 <link rel="stylesheet" href="assets/spectrum/spectrum.css">
 <link rel="stylesheet" href="assets/tooltips/css_tooltips.css">
 
-<script src="assets/js/hgnc_symbols.js"></script>
-<script src="assets/js/palette.js"></script>
+<script src="static/js/hgnc_symbols.js"></script>
+<script src="static/js/palette.js"></script>
+<script src="static/js/tissue_legends.js"></script>
 <script src="assets/chea-query/submit-query.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="assets/chea-query/download_results.js"></script>
 <script src="assets/chea-query/generate_clustergram.js"></script>
 <script src="assets/chea-query/local_network.js"></script>
 <script src="assets/chea-query/barchart.js"></script>
@@ -155,7 +155,6 @@
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 <script src="assets/dropdown/js/script.min.js"></script>
 <script src="assets/networkd3/global_network.js"></script>
-<script src="assets/js/tissue_legends.js"></script>
 <script src="assets/spectrum/spectrum.js"></script>
 
 <script>
