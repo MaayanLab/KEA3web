@@ -1,5 +1,4 @@
 // +
-// TODO tho
 function createNetwork(coreg_network, tfs) {
     console.log("createNetwork(coreg_network, tfs)");
     let network = {"nodes": [], "links": []};
@@ -117,23 +116,24 @@ function displayNetwork(network) {
                     .style('z-index', 1000)
                     .text('Interaction evidence sources:');
                 // TODO is to "none" or null?
+                console.log(d["ABkinsub"]);
                 if (d["ABkinsub"] !== "none") {
                     txt.append('tspan')
                         .attr('dy', dy)
                         .attr('x', 15)
-                        .text('Kinase-substrate (' + d['KINA'] + '→' + d['KINB'] + '): ' + d["ABkinsub"]);
+                        .text('Kinase-substrate (' + d['KINA'] + '\u2192' + d['KINB'] + '): ' + d["ABkinsub"]);
                 }
                 if (d["BAkinsub"] !== "none") {
                     txt.append('tspan')
                         .attr('dy', dy)
                         .attr('x', 15)
-                        .text('Kinase-substrate (' + d['KINB'] + '→' + d['KINA'] + '): ' + d["BAkinsub"]);
+                        .text('Kinase-substrate (' + d['KINB'] + '\u2192' + d['KINA'] + '): ' + d["BAkinsub"]);
                 }
                 if (d["ppi_evidence"] !== "none") {
                     txt.append('tspan')
                         .attr('dy', dy)
                         .attr('x', 15)
-                        .text('   • ' + 'PPI: ' + d["ppi_evidence"]);
+                        .text('PPI: ' + d["ppi_evidence"]);
                 }
 
                 nr_lines = txt.selectAll('tspan')._groups[0].length;
