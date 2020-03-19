@@ -8,6 +8,7 @@
 
     <title>KEA3</title>
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/results.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <%--  Below  --%>
@@ -45,11 +46,11 @@
                         KEA3 - Kinase Enrichment Analysis Version 3
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarNavAltMarkup"
-                            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            data-target="#navbar-menu"
+                            aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="collapse navbar-collapse" id="navbar-menu">
                         <div class="navbar-nav">
                             <a class="nav-item nav-link" href="#about">About</a>
                             <a class="nav-item nav-link" href="#tutorial">Tutorial</a>
@@ -120,14 +121,17 @@
 
 <script>
     var host = "http://localhost:8080/";
-    if ((location.protocol !== 'https:') && (location.hostname !== 'localhost')){location.href = 'https:' + window.location.href.substring(window.location.protocol.length);};
+    if ((location.protocol !== 'https:') && (location.hostname !== 'localhost')) {
+        location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+    }
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6277639-43"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag() {
+        dataLayer.push(arguments);
+    }
     gtag('js', new Date());
-
     gtag('config', 'UA-6277639-43');
     $('[data-toggle="popover"]').popover();
 </script>

@@ -121,13 +121,13 @@ function displayNetwork(network) {
                     txt.append('tspan')
                         .attr('dy', dy)
                         .attr('x', 15)
-                        .text('   •  Kinase-substrate (' + d['KINA'] + '→' + d['KINB'] + '): ' + d["ABkinsub"]);
+                        .text('Kinase-substrate (' + d['KINA'] + '→' + d['KINB'] + '): ' + d["ABkinsub"]);
                 }
                 if (d["BAkinsub"] !== "none") {
                     txt.append('tspan')
                         .attr('dy', dy)
                         .attr('x', 15)
-                        .text('   •  Kinase-substrate (' + d['KINB'] + '→' + d['KINA'] + '): ' + d["BAkinsub"]);
+                        .text('Kinase-substrate (' + d['KINB'] + '→' + d['KINA'] + '): ' + d["BAkinsub"]);
                 }
                 if (d["ppi_evidence"] !== "none") {
                     txt.append('tspan')
