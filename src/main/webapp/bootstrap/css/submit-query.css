@@ -1,0 +1,239 @@
+.c_spinner {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    left: 45%;
+    top: 40%;
+    -webkit-animation: c_spinner infinite 2.5s linear;
+       -moz-animation: c_spinner infinite 2.5s linear;
+         -o-animation: c_spinner infinite 2.5s linear;
+            animation: c_spinner infinite 2.5s linear;
+    border: 40px solid rgba(125, 125, 125, 0.9);
+    border-top-color: #520106;
+    border-right-color: #520106;
+    border-bottom-color: #520106;
+    border-radius: 100%;
+    z-index: 0;
+    
+}
+
+@keyframes c_spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.sidenavR {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 40px;
+  left: 0;
+  background-color: #333333;
+  overflow-x: scroll;
+  transition: 0.5s;
+  padding-top: 60px;
+  overflow-y: scroll;
+}
+
+.sidenavR.openNav{
+	width: 40%;
+}
+.sidenavR.closeNav{
+	width: 0;
+}
+
+.sidenavR a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenavR a:hover {
+  color: #f1f1f1;
+}
+
+.sidenavR .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 20px;
+  margin-left: 50px;
+}
+
+/* @media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+} */
+
+@media screen and (max-width: 825px) {
+  .sidenavR.openNav {width: 50%;}
+}
+
+@media screen and (max-width: 675px) {
+  .sidenavR.openNav {width: 100%;}
+}
+
+table.dataTable.squished tbody td {
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    
+}
+
+
+$dark3-color:     #989ca8;
+$dark2-color:     #5f6976;
+$secondary-color: #04a0b2;
+
+body {
+  padding: 20px;
+  text-align: center;
+}
+
+.popover-block-container {
+	display: inline;
+	float: right;
+    .popover-icon {
+        background: none;
+        color: none;
+        border: none;
+        padding: 0;
+        outline: none;
+        cursor: pointer;
+        i {
+            color: $secondary-color;
+            text-align: center;
+            margin-top:4px;
+        }
+      }
+  } 
+  .popover-header {
+      /* display: none; */
+      padding: 0rem .7rem;
+  }
+  .popover {
+    max-width: 600px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    /* box-shadow: 0 0 6px 1px #eee; */
+  }
+  .popover-body {
+    border: none;
+    padding: 0px;/* 20px 49.4px 24px 24px; */
+    color: $dark2-color;
+    font-size: 15px;
+    font-style: italic;
+    z-index: 2;
+    line-height: 1.53;
+    letter-spacing: 0.1px;
+
+    .popover-close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        opacity: 1;
+
+        .material-icons {
+            font-size: 16px;
+            font-weight: bold;
+            color: $secondary-color;
+        }
+
+    }
+}
+
+.nodecoration {
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+#results .btn {
+  padding: 7px 10px !important;
+  cursor: pointer;
+}
+
+[data-id="library-selectpicker"] {
+  margin-left: 0px;
+}
+
+#results .dropdown-menu .popover-header {
+  padding: 8px 10px !important;
+}
+
+.gene-popover {
+  padding: 5px 10px;
+}
+
+.sp-replacer{
+  padding: 5px 7px;
+  border-radius: 3px;
+  background-color: #f8f9fa;
+}
+
+.sp-container {
+  border-color: #dae0e5 !important;
+}
+
+#colorpicker-col .sp-replacer {
+  margin-top: 5px;
+  padding: 7px 9px;
+}
+
+#colorpicker-col .sp-preview {
+  height: 22px;
+  width: 22px;
+}
+
+#colorpicker-col .sp-dd {
+  margin-top: 3px;
+  margin-left: 2px;
+}
+
+#tables-wrapper input.form-control {
+  min-height: 0 !important;
+  padding: 3px 5px !important;
+}
+
+#tables-wrapper select.form-control {
+  min-height: 0 !important;
+  padding: 3px 13px !important;
+  padding-right: 25px !important;
+}
+
+#tables-wrapper .dataTables_paginate a {
+  box-shadow: none !important;
+}
+
+#tables-wrapper table th {
+  text-align: center;
+}
+
+#tables-wrapper td {
+  text-align: center;
+}
+
+.score-col {
+  width: 100px !important;
+}
+
+#nav-global-network {
+  min-height: 300px;
+}

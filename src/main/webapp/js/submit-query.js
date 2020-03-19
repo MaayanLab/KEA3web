@@ -366,7 +366,7 @@ $(document).ready(function () {
     $('#example-genelist').on('click', function () {
         let gl = document.getElementById("genelist");
         gl.placeholder = "";
-        jQuery.get('assets/chea-query/example_genelist.txt', function (data) {
+        jQuery.get('static/files/example_genelist.txt', function (data) {
             gl.value = data;
             checkGeneList(data);
         });

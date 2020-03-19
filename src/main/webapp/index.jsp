@@ -7,22 +7,22 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
-	<link rel="shortcut icon" href="assets/images/KEA3_logo_transparent.png" type="image/x-icon">
+	<link rel="shortcut icon" href="static/images/KEA3_logo_transparent.png" type="image/x-icon">
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="assets/theme/css/style.css">
+	<link rel="stylesheet" href="libs/theme/css/style.css">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
-	<link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css">
-	<link rel="stylesheet" href="assets/styles.css">
-	<link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+	<link rel="stylesheet" href="libs/mobirise/css/mbr-additional.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="libs/mobirise/mobirise-icons/mobirise-icons.css">
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="assets/mobirise/mbr-switch-arrow.js"></script>
-	<script src="assets/theme/js/script.js"></script>
+	<script src="libs/mobirise/mbr-switch-arrow.js"></script>
+	<script src="libs/theme/js/script.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 </head>
 
@@ -34,7 +34,7 @@
             <div class="menu-logo">
                 <div class="navbar-brand" style="margin-left: 10px; min-height: 1rem">
 						<span class="navbar-logo"><a href="#top">
-                            <img src="assets/images/KEA3_logo_transparent.png" alt="KEA3" title="" style="height: 1.5rem;">
+                            <img src="static/images/KEA3_logo_transparent.png" alt="KEA3" title="" style="height: 1.5rem;">
                         </a></span>
                     <span class="navbar-caption-wrap">
                         <a class="navbar-caption text-white display-4" href="#top" style="padding-right:0;margin-right:0">
@@ -132,30 +132,29 @@
 </body>
 </html>
 
-<link rel="stylesheet" href="assets/chea-query/d3barchart.css">
-<link rel="stylesheet" href="assets/chea-query/result_scroll.css">
-<link rel="stylesheet" href="assets/chea-query/submit-query.css">
+<link rel="stylesheet" href="css/result_scroll.css">
+<link rel="stylesheet" href="css/submit-query.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"/>
-<link rel="stylesheet" href="assets/networkd3/netprogressbar.css">
-<link rel="stylesheet" href="assets/networkd3/network_options.css">
-<link rel="stylesheet" href="assets/networkd3/network_style.css">
-<link rel="stylesheet" href="assets/socicon/css/styles.css">
-<link rel="stylesheet" href="assets/spectrum/spectrum.css">
-<link rel="stylesheet" href="assets/tooltips/css_tooltips.css">
+<link rel="stylesheet" href="css/netprogressbar.css">
+<link rel="stylesheet" href="css/network_options.css">
+<link rel="stylesheet" href="css/network_style.css">
+<link rel="stylesheet" href="libs/socicon/css/styles.css">
+<link rel="stylesheet" href="libs/spectrum/spectrum.css">
+<link rel="stylesheet" href="libs/tooltips/css_tooltips.css">
 
-<script src="static/js/hgnc_symbols.js"></script>
-<script src="static/js/palette.js"></script>
-<script src="static/js/tissue_legends.js"></script>
-<script src="assets/chea-query/submit-query.js"></script>
+<script src="js/hgnc_symbols.js"></script>
+<script src="js/palette.js"></script>
+<script src="js/tissue_legends.js"></script>
+<script src="js/submit-query.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="assets/chea-query/generate_clustergram.js"></script>
-<script src="assets/chea-query/local_network.js"></script>
-<script src="assets/chea-query/barchart.js"></script>
+<script src="js/generate_clustergram.js"></script>
+<script src="js/local_network.js"></script>
+<script src="js/barchart.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-<script src="assets/dropdown/js/script.min.js"></script>
-<script src="assets/networkd3/global_network.js"></script>
-<script src="assets/spectrum/spectrum.js"></script>
+<script src="libs/dropdown/js/script.min.js"></script>
+<script src="js/global_network.js"></script>
+<script src="libs/spectrum/spectrum.js"></script>
 
 <script>
 	var host = "http://localhost:8080/";

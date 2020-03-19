@@ -278,12 +278,6 @@ function drawLegend(legend_id, legend_data) {
                     return d.term
                 });
         });
-
-    highlightNodes2();
-    global_nodes = node;
-    global_labels = label;
-    setLabelView();
-    setLegendView();
 }
 
 function drawNetwork(json_file, net_type) {

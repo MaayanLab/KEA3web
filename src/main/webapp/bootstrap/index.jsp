@@ -9,12 +9,29 @@
     <title>KEA3</title>
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <%--  Below  --%>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="libs/theme/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
+    <link rel="stylesheet" href="libs/mobirise/css/mbr-additional.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="libs/mobirise/mobirise-icons/mobirise-icons.css">
+    <%--  Above  --%>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/1295b553b3.js"></script>
+
+    <%--  Below  --%>
+    <script src="libs/mobirise/mbr-switch-arrow.js"></script>
+    <script src="libs/theme/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+
 </head>
 
+<html>
 <body data-spy="scroll" data-target="#index__navbar" data-offset="150">
 <div id="top"></div>
 <div id="index" class="container index">
@@ -74,3 +91,43 @@
     <%@ include file="templates/footer.html" %>
 </div>
 </body>
+</html>
+
+
+<link rel="stylesheet" href="css/result_scroll.css">
+<link rel="stylesheet" href="css/submit-query.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"/>
+<link rel="stylesheet" href="css/netprogressbar.css">
+<link rel="stylesheet" href="css/network_options.css">
+<link rel="stylesheet" href="css/network_style.css">
+<link rel="stylesheet" href="libs/socicon/css/styles.css">
+<link rel="stylesheet" href="libs/spectrum/spectrum.css">
+<link rel="stylesheet" href="libs/tooltips/css_tooltips.css">
+
+<script src="js/hgnc_symbols.js"></script>
+<script src="js/palette.js"></script>
+<script src="js/tissue_legends.js"></script>
+<script src="js/submit-query.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="js/generate_clustergram.js"></script>
+<script src="js/local_network.js"></script>
+<script src="js/barchart.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script src="libs/dropdown/js/script.min.js"></script>
+<script src="js/global_network.js"></script>
+<script src="libs/spectrum/spectrum.js"></script>
+
+<script>
+    var host = "http://localhost:8080/";
+    if ((location.protocol !== 'https:') && (location.hostname !== 'localhost')){location.href = 'https:' + window.location.href.substring(window.location.protocol.length);};
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-6277639-43"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-6277639-43');
+    $('[data-toggle="popover"]').popover();
+</script>
