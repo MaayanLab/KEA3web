@@ -12,7 +12,7 @@ let div = d3.select("body").append("div")
     .style("opacity", 0);
 
 function whichNetwork() {
-    console.log("whichNetwork()");
+    console.log("global_network: whichNetwork()");
     const net = document.getElementById("whichnetwork").value;
     console.log(net);
     if (net === "GTEx Kinase Network") {
@@ -27,7 +27,7 @@ function whichNetwork() {
 }
 
 function changeNetwork() {
-    console.log("changeNetwork()");
+    console.log("global_network: changeNetwork()");
     const net_svg = document.getElementById("net_svg");
     if (net_svg != null) {
         deleteNetwork(net_svg);
@@ -56,7 +56,7 @@ function changeNetwork() {
 }
 
 function zoom_actions() {
-    console.log("zoom_actions()");
+    console.log("global_network: zoom_actions()");
     // create new scale objects based on event
     let new_xScale = d3.event.transform
         .rescaleX(xScale);
@@ -91,7 +91,7 @@ function zoom_actions() {
 }
 
 function requestFullScreen(element_id) {
-    console.log("requestFullScreen(element_id)");
+    console.log("global_network: requestFullScreen(element_id)");
     const element = document.getElementById(element_id);
     // Supports most browsers and their versions.
     if (element.requestFullScreen) {
@@ -104,7 +104,7 @@ function requestFullScreen(element_id) {
 }
 
 function setTCGAColorByOptions() {
-    console.log("setTCGAColorByOptions()");
+    console.log("global_network: setTCGAColorByOptions()");
     $("#colorby").html(`<select class="form-control" id="colorby"
 						onchange="recolorAllNodes();setLegendView()">
 						<option>none</option>
@@ -115,7 +115,7 @@ function setTCGAColorByOptions() {
 }
 
 function setGTExColorByOptions() {
-    console.log("setGTExColorByOptions()");
+    console.log("global_network: setGTExColorByOptions()");
     $("#colorby").html(`<select class="form-control" id="colorby"
 						onchange="recolorAllNodes();setLegendView()">
 						<option>none</option>
@@ -126,7 +126,7 @@ function setGTExColorByOptions() {
 }
 
 function setARCHS4ColorByOptions() {
-    console.log("setARCHS4ColorByOptions()");
+    console.log("global_network: setARCHS4ColorByOptions()");
     $("#colorby").html(`<select class="form-control" id="colorby"
 					onchange="recolorAllNodes();setLegendView()">
 					<option>none</option>
@@ -136,7 +136,7 @@ function setARCHS4ColorByOptions() {
 }
 
 function saveSvg(svg_id, name) {
-    console.log("saveSvg(svg_id, name)");
+    console.log("global_network: saveSvg(svg_id, name)");
     const svgEl = document.getElementById(svg_id);
     svgEl.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     const svgData = svgEl.outerHTML;
@@ -152,7 +152,7 @@ function saveSvg(svg_id, name) {
 }
 
 function setLabelView() {
-    console.log("setLabelView()");
+    console.log("global_network: setLabelView()");
     const labelview = getLabelView();
     if (labelview === "auto") {
         if (zm >= 2) {
@@ -168,17 +168,17 @@ function setLabelView() {
 }
 
 function openNav(nav) {
-    console.log("openNav(nav)");
+    console.log("global_network: openNav(nav)");
     $('#' + nav).removeClass('closeNav').addClass('openNav')
 }
 
 function closeNav(nav) {
-    console.log("closeNav(nav)");
+    console.log("global_network: closeNav(nav)");
     $('#' + nav).removeClass('openNav').addClass('closeNav')
 }
 
 function getLabelView() {
-    console.log("getLabelView()");
+    console.log("global_network: getLabelView()");
     return (document.getElementById("labelview").value)
 }
 
@@ -191,7 +191,7 @@ function hideAllLegends() {
 }
 
 function setLegendViews(legend, legend_option_val) {
-    console.log(`function setLegendViews${legend}, ${legend_option_val}`);
+    console.log(`global_network: function setLegendViews${legend}, ${legend_option_val}`);
     // TODO hideAllLegends()?
     // TODO .add-/.removeClass('hidden') - > .toggle()
     const color_by = document.getElementById("colorby").value;
@@ -209,7 +209,7 @@ function setLegendViews(legend, legend_option_val) {
 }
 
 function setLegendView() {
-    console.log('function setLegendView()');
+    console.log('global_network: function setLegendView()');
     let net = whichNetwork();
     switch (net) {
         case 'gtex':
@@ -227,6 +227,7 @@ function setLegendView() {
 }
 
 function drawLegend(legend_id, legend_data) {
+    console.log('global_network: drawLegend')
     const legend = g.append("g")
         .attr("class", "legend")
         .attr("id", legend_id)
@@ -281,7 +282,7 @@ function drawLegend(legend_id, legend_data) {
 }
 
 function drawNetwork(json_file, net_type) {
-    console.log("drawNetwork()");
+    console.log("global_network: drawNetwork()");
     d3.json(json_file, function (net_json) {
         const network_svg = d3.select("#tfnet").append("svg");
         network_svg.attr("id", "net_svg")
@@ -502,11 +503,12 @@ function drawNetwork(json_file, net_type) {
 }
 
 function deleteNetwork() {
-    console.log("deleteNetwork()");
+    console.log("global_network: deleteNetwork()");
     document.getElementById("net_svg").remove();
 }
 
 $(document).ready(function () {
+    console.log('global_network: document.ready')
     drawNetwork("static/json/wgcna_gtex_annotated4.json", "gtex");
     $('#legend_checkbox').change(setLegendView());
 });

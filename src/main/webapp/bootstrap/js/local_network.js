@@ -1,6 +1,6 @@
 // +
 function createNetwork(coreg_network, tfs) {
-    console.log("createNetwork(coreg_network, tfs)");
+    console.log("local_network: createNetwork(coreg_network, tfs)");
     let network = {"nodes": [], "links": []};
     $.each(coreg_network, function (index, edge) {
         if (tfs.includes(edge['KINA']) && tfs.includes(edge['KINB'])) {
@@ -20,7 +20,7 @@ function createNetwork(coreg_network, tfs) {
 }
 
 function displayNetwork(network) {
-    console.log("displayNetwork(network)");
+    console.log("local_network: displayNetwork(network)");
     let svg = d3.select("#coreg-network"),
         width = +svg.attr("width"),
         height = +svg.attr("height"),
@@ -249,7 +249,7 @@ function displayNetwork(network) {
 }
 
 function generateNetwork() {
-    console.log("generateNetwork()");
+    console.log("local_network: generateNetwork()");
     $.getJSON('static/json/KEA3_coreg_sub_network.json', function (coreg_network) {
         displayNetwork(createNetwork(coreg_network, getTFs2()));
     })
