@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
-	<link rel="shortcut icon" href="static/images/KEA3_logo_transparent.png" type="image/x-icon">
+	<link rel="shortcut icon" href="bootstrap/static/images/KEA3_logo_transparent.png" type="image/x-icon">
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<link rel="stylesheet" href="libs/theme/css/style.css">
@@ -34,7 +34,7 @@
             <div class="menu-logo">
                 <div class="navbar-brand" style="margin-left: 10px; min-height: 1rem">
 						<span class="navbar-logo"><a href="#top">
-                            <img src="static/images/KEA3_logo_transparent.png" alt="KEA3" title="" style="height: 1.5rem;">
+                            <img src="bootstrap/static/images/KEA3_logo_transparent.png" alt="KEA3" title="" style="height: 1.5rem;">
                         </a></span>
                     <span class="navbar-caption-wrap">
                         <a class="navbar-caption text-white display-4" href="#top" style="padding-right:0;margin-right:0">

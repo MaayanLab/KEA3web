@@ -3,16 +3,21 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-6">
-                    <button type="button" class="btn btn-link" id="example-genelist">Example protein list
-                    </button>
+                    <button type="button" class="btn btn-link" id="example-genelist">Example protein list</button>
+                    or <input id="file-input" type="file" style="width: 201px;" accept=".txt">
                     <textarea class="form-control form-control-sm" id="genelist" rows="12" name="text-genes"
                               placeholder="Input gene list"></textarea>
-                    <p>
-                        <span id="gene-count" style="color: darkgrey; font-size: 0.9rem;"></span>
-                    </p>
-                    <p>
-                        <span id="warning" style="color: coral; font-size: 0.8rem;"></span>
-                    </p>
+
+                    <span id="genecheck" style="color: darkgrey; font-size: 0.9rem;">0 symbols entered, 0 duplicates, 0 valid symbols</span>
+
+                    <span data-container="body" data-toggle="popover"
+                          data-placement="right" data-trigger="hover"
+                          data-title="What gene symbols are accepted?"
+                          data-content='KEA3 supports <a target="_blank" href ="https://www.genenames.org/">HGNC-approved</a> gene symbols. Symbols that are not included in this set are not analyzed.'
+                          data-template='<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+                          data-html="true">
+                            <i class="fas fa-question"></i>
+                        </span>
                     <p>
                         <a class="btn btn-primary landing__submit-button" href="#" role="button" id="submit-genelist">Submit</a>
                     </p>

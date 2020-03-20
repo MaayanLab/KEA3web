@@ -25,7 +25,8 @@ function displayNetwork(network) {
         width = +svg.attr("width"),
         height = +svg.attr("height"),
         node,
-        link;
+        link,
+        edgepaths;
 
     svg.selectAll('*').remove();
 
@@ -204,15 +205,14 @@ function displayNetwork(network) {
 
         simulation
             .nodes(nodes)
-            .on("tick", ticked);
+            .on("tick", ticked(edgepaths));
 
         simulation.force("link")
             .links(links);
     }
 
     function ticked() {
-        link
-            .attr("x1", function (d) {
+        link.attr("x1", function (d) {
                 return d.source.x;
             })
             .attr("y1", function (d) {
@@ -225,8 +225,7 @@ function displayNetwork(network) {
                 return d.target.y;
             });
 
-        node
-            .attr("transform", function (d) {
+        node.attr("transform", function (d) {
                 return "translate(" + d.x + ", " + d.y + ")";
             });
 

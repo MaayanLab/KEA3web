@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="static/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="static/images/KEA3_logo_transparent.png" type="image/x-icon">
 
     <title>KEA3</title>
     <link rel="stylesheet" href="css/custom.css">
@@ -36,7 +36,7 @@
 <body data-spy="scroll" data-target="#index__navbar" data-offset="150">
 <div id="top"></div>
 <div id="index" class="container index">
-    <div class="row justyfy-content-center">
+    <div class="row justify-content-center">
         <div class="col-sm col-md-10">
             <nav id="index__navbar" class="navbar fixed-top navbar-expand-sm navbar-dark index__navbar">
                 <div class="container">
@@ -62,7 +62,7 @@
             </nav>
         </div>
     </div>
-    <div class="row justyfy-content-center index__content">
+    <div class="row justify-content-center index__content">
         <div class="col-sm col-md-10">
             <div id="landing" class="row landing">
                 <%@ include file="templates/landing.html" %>
