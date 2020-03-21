@@ -381,7 +381,6 @@ function displayResults(results) {
 }
 
 $(document).ready(function () {
-
     console.log('submit-query: document.ready()');
     uploadFileListener();
     $('#example-genelist').on('click', function () {

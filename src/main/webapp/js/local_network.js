@@ -29,7 +29,7 @@ function displayNetwork(network) {
 
     svg.selectAll('*').remove();
 
-    let zoom_wrapper = svg.append("g");
+    let g = svg.append("g");
 
     // Tooltips elements
     let tooltip_wrapper = svg.append('g');
@@ -43,7 +43,7 @@ function displayNetwork(network) {
         .attr("opacity", 0);
 
     // Define arrows
-    zoom_wrapper.append("defs").selectAll("marker")
+    g.append("defs").selectAll("marker")
         .data(["arrow"])
         .enter().append("marker")
         .attr("id", "markerEnd")
@@ -57,7 +57,7 @@ function displayNetwork(network) {
         .append("path")
         .attr("d", "M0,-5L10,0L0,5");
 
-    zoom_wrapper.append("defs").selectAll("marker")
+    g.append("defs").selectAll("marker")
         .data(["arrow"])
         .enter().append("marker")
         .attr("id", "markerStart")
@@ -88,7 +88,7 @@ function displayNetwork(network) {
 
     // Functions to create network
     function update(links, nodes) {
-        link = zoom_wrapper.selectAll(".link")
+        link = g.selectAll(".link")
             .data(links)
             .enter()
             .append("line")
@@ -162,7 +162,7 @@ function displayNetwork(network) {
                     .attr("stroke", "transparent");
             });
         // TODO WTF??? It should be local under LET, not global
-        let edgepaths = zoom_wrapper.selectAll(".edgepath")
+        let edgepaths = g.selectAll(".edgepath")
             .data(links)
             .enter()
             .append('path')
@@ -174,7 +174,7 @@ function displayNetwork(network) {
             })
             .style("pointer-events", "none");
 
-        node = zoom_wrapper.selectAll(".node")
+        node = g.selectAll(".node")
             .data(nodes)
             .enter()
             .append("g")

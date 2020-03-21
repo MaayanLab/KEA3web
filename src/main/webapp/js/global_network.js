@@ -286,8 +286,11 @@ function drawNetwork(json_file, net_type) {
     d3.json(json_file, function (net_json) {
         const network_svg = d3.select("#tfnet").append("svg");
         network_svg.attr("id", "net_svg")
-            .attr("width", net_width)
-            .attr("height", net_height);
+            // .attr("width", net_width)
+            // .attr("height", net_height)
+            .attr("class", "h-100 w-100")
+            .attr("preserveAspectRatio", "xMinYMin")
+            .attr("viewBox", "0 0 1000 500");
 
         const nodes = net_json;
         const max_x = Math.max.apply(Math, nodes.map(function (o) {
