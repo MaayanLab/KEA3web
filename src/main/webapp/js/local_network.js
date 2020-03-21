@@ -1,5 +1,4 @@
 // +
-// TODO tho
 function createNetwork(coreg_network, tfs) {
     console.log("createNetwork(coreg_network, tfs)");
     let network = {"nodes": [], "links": []};
@@ -117,23 +116,24 @@ function displayNetwork(network) {
                     .style('z-index', 1000)
                     .text('Interaction evidence sources:');
                 // TODO is to "none" or null?
+                console.log(d["ABkinsub"]);
                 if (d["ABkinsub"] !== "none") {
                     txt.append('tspan')
                         .attr('dy', dy)
                         .attr('x', 15)
-                        .text('   •  Kinase-substrate (' + d['KINA'] + '→' + d['KINB'] + '): ' + d["ABkinsub"]);
+                        .text('Kinase-substrate (' + d['KINA'] + '\u2192' + d['KINB'] + '): ' + d["ABkinsub"]);
                 }
                 if (d["BAkinsub"] !== "none") {
                     txt.append('tspan')
                         .attr('dy', dy)
                         .attr('x', 15)
-                        .text('   •  Kinase-substrate (' + d['KINB'] + '→' + d['KINA'] + '): ' + d["BAkinsub"]);
+                        .text('Kinase-substrate (' + d['KINB'] + '\u2192' + d['KINA'] + '): ' + d["BAkinsub"]);
                 }
                 if (d["ppi_evidence"] !== "none") {
                     txt.append('tspan')
                         .attr('dy', dy)
                         .attr('x', 15)
-                        .text('   • ' + 'PPI: ' + d["ppi_evidence"]);
+                        .text('PPI: ' + d["ppi_evidence"]);
                 }
 
                 nr_lines = txt.selectAll('tspan')._groups[0].length;
@@ -162,7 +162,7 @@ function displayNetwork(network) {
                     .attr("stroke", "transparent");
             });
         // TODO WTF??? It should be local under LET, not global
-        edgepaths = zoom_wrapper.selectAll(".edgepath")
+        let edgepaths = zoom_wrapper.selectAll(".edgepath")
             .data(links)
             .enter()
             .append('path')
@@ -204,15 +204,14 @@ function displayNetwork(network) {
 
         simulation
             .nodes(nodes)
-            .on("tick", ticked);
+            .on("tick", ticked(edgepaths));
 
         simulation.force("link")
             .links(links);
     }
 
-    function ticked() {
-        link
-            .attr("x1", function (d) {
+    function ticked(edgepaths) {
+        link.attr("x1", function (d) {
                 return d.source.x;
             })
             .attr("y1", function (d) {
@@ -225,8 +224,7 @@ function displayNetwork(network) {
                 return d.target.y;
             });
 
-        node
-            .attr("transform", function (d) {
+        node.attr("transform", function (d) {
                 return "translate(" + d.x + ", " + d.y + ")";
             });
 

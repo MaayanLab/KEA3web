@@ -3,6 +3,7 @@ let chea3Results;
 let json;
 
 function checkGeneList(data) {
+    console.log('submit-query: function checkGeneList(data)');
     const genes = data.toUpperCase().split("\n").filter(Boolean);
     const uniq_genes = [...new Set(genes)];
     const intersect = uniq_genes.filter(value => hgnc.includes(value));
@@ -10,6 +11,7 @@ function checkGeneList(data) {
 }
 
 function downloadResults(filename, text) {
+    console.log('submit-query: function downloadResults(filename, text)');
     const blob = new Blob([text], {type: 'text/csv;charset=utf-8;'});
     if (navigator.msSaveBlob) { // IE 10+
         navigator.msSaveBlob(blob, filename);
@@ -28,6 +30,7 @@ function downloadResults(filename, text) {
 }
 
 function sliderChange() {
+    console.log('submit-query: function sliderChange()');
     recolorAllNodes();
     setLegendView();
     generateNetwork();
@@ -36,10 +39,12 @@ function sliderChange() {
 }
 
 function getColor(id) {
+    console.log('submit-query: function getColor(id)');
     return ($("#" + id).spectrum('get').toHexString())
 }
 
 function translateNodeColor(val) {
+    console.log('submit-query: function translateNodeColor(val)');
     switch (val) {
         case "Tissue (general)":
             return ("General_tissue_color");
@@ -59,6 +64,7 @@ function translateNodeColor(val) {
 }
 
 function defaultNodeColorAll() {
+    console.log('submit-query: function defaultNodeColorAll()');
     const colorby_val = document.getElementById("colorby").value;
     const fill = translateNodeColor(colorby_val);
     let nodes = document.querySelectorAll("circle");
@@ -73,6 +79,7 @@ function defaultNodeColorAll() {
 }
 
 function getTFs2() {
+    console.log('submit-query: function getTFs2()');
     const library = $('#library-selectpicker').val();
     const nr_tfs = parseInt($('#tf-slider').val());
     return typeof chea3Results !== "undefined" ? chea3Results[library].slice(0, nr_tfs).map(function (x) {
@@ -81,6 +88,7 @@ function getTFs2() {
 }
 
 function highlightNodes2() {
+    console.log('submit-query: function highlightNodes2()');
     for (let tf of getTFs2()) {
         let node = document.getElementById(tf);
         if (node) {
@@ -92,15 +100,18 @@ function highlightNodes2() {
 }
 
 function recolorAllNodes() {
+    console.log('submit-query: function recolorAllNodes()');
     defaultNodeColorAll();
     highlightNodes2();
 }
 
 function addSliderEventListener() {
+    console.log('submit-query: function addSliderEventListener()');
     document.getElementById('tf-slider').addEventListener('change', sliderChange);
 }
 
 function renderColorPicker() {
+    console.log('submit-query: function renderColorPicker()');
     $('#colorpicker')
         .spectrum({
             color: colorArray[1],
@@ -113,6 +124,7 @@ function renderColorPicker() {
 }
 
 function libraryJSONtoTSV(libraryName){
+    console.log('submit-query: function libraryJSONtoTSV(libraryName');
     const items = chea3Results[libraryName];
     const replacer = (key, value) => value === null ? '' : value; // specify how you want to handle null values here
     const header = Object.keys(items[0]);
@@ -123,6 +135,7 @@ function libraryJSONtoTSV(libraryName){
 }
 
 function renderDownloadLibraryButton(libraryName, display) {
+    console.log('submit-query: function renderDownloadLibraryButton(libraryName, display)');
     const libraryTitle = libraryName.replace(/--/, "_");
     const displayClass = display ? '' : 'd-none';
     return `<a id = "${libraryName}-download" class="btn btn-primary display-7 ${displayClass} download-tsv ml-0" style="padding:0;color:#28a0c9;font-size:80%" 
@@ -132,18 +145,20 @@ function renderDownloadLibraryButton(libraryName, display) {
 }
 
 function validateGeneSet(geneset) {
+    console.log('submit-query: function validateGeneSet(geneset)');
     let x = false;
     if (geneset.length > 1 && $('#num-valid-genes').html() === "0") {
         alert("No valid gene symbols have were recognized. Please note that CHEA3 currently only supports HGNC gene symbols (https://www.genenames.org/). If the submitted genes are identified using other systems, such as Ensembl IDs or Entrez IDs, please converting them to HGNC to proceed.");
-    } else if (geneset.length > 1 && geneset.length < 8000) {
+    } else if (geneset.length >= 20 && geneset.length <= 3000) {
         x = true;
     } else {
-        alert("Gene set must contain more than 1 gene and fewer than 8,000 genes. One gene per line.");
+        alert("Gene set containing fewer than 20 gene or more than 3,000 genes can produce inaccurate results.");
     }
     return x;
 }
 
 function intersectionPopover(row, library) {
+    console.log('submit-query: function intersectionPopover(row, library)');
     const genes = row.Overlapping_Genes.split(','),
         genes_link = genes.map(function (x) {
             return `<a href="https://amp.pharm.mssm.edu/Harmonizome/gene/${x}" target="_blank">${x}</a>`
@@ -163,6 +178,7 @@ function intersectionPopover(row, library) {
 }
 
 function libraryPopover(row, library) {
+    console.log('submit-query: function libraryPopover(row, library)');
     const libs = row.Library.substr(0, 5) + '...';
 
     return `
@@ -178,11 +194,11 @@ function libraryPopover(row, library) {
 }
 
 function uploadFileListener() {
+    console.log('submit-query: function uploadFileListener()');
     $('#file-input').on('change', function (evt) {
         let f = evt.target.files[0],
             reader = new FileReader();
 
-        // Closure to capture the file information.
         reader.onload = (function () {
             return function (e) {
                 $('#genelist').val(e.target.result);
@@ -194,6 +210,7 @@ function uploadFileListener() {
 }
 
 function generateDatatable(library, library_results, default_library, filter_top_results = false) {
+    console.log('submit-query: function generateDatatable(library, library_results, default_library, filter_top_results = false)');
     let table = $('<table>', {
         'id': library + '-table',
         'class': 'w-100 text-black'
@@ -281,6 +298,7 @@ function generateDatatable(library, library_results, default_library, filter_top
 }
 
 function toggleSelectors(library, tab) {
+    console.log('submit-query: function toggleSelectors(library, tab)');
     if (tab.includes('network')) {
         $('.tf-selector').removeClass('d-none');
     } else if (tab.includes('barchart')) {
@@ -294,6 +312,7 @@ function toggleSelectors(library, tab) {
 }
 
 function displayResults(results) {
+    console.log('submit-query: function displayResults(results)');
     chea3Results = results;
     // Loop through results
     $.each(chea3Results, function (key, value) {
@@ -362,6 +381,8 @@ function displayResults(results) {
 }
 
 $(document).ready(function () {
+
+    console.log('submit-query: document.ready()');
     uploadFileListener();
     $('#example-genelist').on('click', function () {
         let gl = document.getElementById("genelist");
@@ -381,6 +402,7 @@ $(document).ready(function () {
     });
 
     $('#submit-genelist').on('click', function () {
+        drawNetwork("static/json/wgcna_gtex_annotated4.json", "gtex");
         const geneset = document.getElementById("genelist").value.toUpperCase().split(/\n/);
         const intersect = [...new Set(geneset)].filter(value => hgnc.includes(value));
         const enrich_url = host + "kea3/api/enrich/";
@@ -397,7 +419,15 @@ $(document).ready(function () {
                 contentType: "application/json",
                 url: enrich_url,
                 success: function (results) {
+                    let res_element = $('#results');
                     displayResults(results);
+                    res_element.show();
+                    // Scroll to 'Results' on 'Submit' click
+                        $('body').animate({
+                            scrollTop: res_element.offset().top
+                        }, 800, function(){
+                            window.location.hash = '#results';
+                        });
                 }
             });
         }

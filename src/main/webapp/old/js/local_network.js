@@ -1,6 +1,7 @@
 // +
+// TODO tho
 function createNetwork(coreg_network, tfs) {
-    console.log("local_network: createNetwork(coreg_network, tfs)");
+    console.log("createNetwork(coreg_network, tfs)");
     let network = {"nodes": [], "links": []};
     $.each(coreg_network, function (index, edge) {
         if (tfs.includes(edge['KINA']) && tfs.includes(edge['KINB'])) {
@@ -20,13 +21,12 @@ function createNetwork(coreg_network, tfs) {
 }
 
 function displayNetwork(network) {
-    console.log("local_network: displayNetwork(network)");
+    console.log("displayNetwork(network)");
     let svg = d3.select("#coreg-network"),
         width = +svg.attr("width"),
         height = +svg.attr("height"),
         node,
-        link,
-        edgepaths;
+        link;
 
     svg.selectAll('*').remove();
 
@@ -117,24 +117,23 @@ function displayNetwork(network) {
                     .style('z-index', 1000)
                     .text('Interaction evidence sources:');
                 // TODO is to "none" or null?
-                console.log(d["ABkinsub"]);
                 if (d["ABkinsub"] !== "none") {
                     txt.append('tspan')
                         .attr('dy', dy)
                         .attr('x', 15)
-                        .text('Kinase-substrate (' + d['KINA'] + '\u2192' + d['KINB'] + '): ' + d["ABkinsub"]);
+                        .text('   •  Kinase-substrate (' + d['KINA'] + '→' + d['KINB'] + '): ' + d["ABkinsub"]);
                 }
                 if (d["BAkinsub"] !== "none") {
                     txt.append('tspan')
                         .attr('dy', dy)
                         .attr('x', 15)
-                        .text('Kinase-substrate (' + d['KINB'] + '\u2192' + d['KINA'] + '): ' + d["BAkinsub"]);
+                        .text('   •  Kinase-substrate (' + d['KINB'] + '→' + d['KINA'] + '): ' + d["BAkinsub"]);
                 }
                 if (d["ppi_evidence"] !== "none") {
                     txt.append('tspan')
                         .attr('dy', dy)
                         .attr('x', 15)
-                        .text('PPI: ' + d["ppi_evidence"]);
+                        .text('   • ' + 'PPI: ' + d["ppi_evidence"]);
                 }
 
                 nr_lines = txt.selectAll('tspan')._groups[0].length;
@@ -205,14 +204,15 @@ function displayNetwork(network) {
 
         simulation
             .nodes(nodes)
-            .on("tick", ticked(edgepaths));
+            .on("tick", ticked);
 
         simulation.force("link")
             .links(links);
     }
 
     function ticked() {
-        link.attr("x1", function (d) {
+        link
+            .attr("x1", function (d) {
                 return d.source.x;
             })
             .attr("y1", function (d) {
@@ -225,7 +225,8 @@ function displayNetwork(network) {
                 return d.target.y;
             });
 
-        node.attr("transform", function (d) {
+        node
+            .attr("transform", function (d) {
                 return "translate(" + d.x + ", " + d.y + ")";
             });
 
@@ -249,7 +250,7 @@ function displayNetwork(network) {
 }
 
 function generateNetwork() {
-    console.log("local_network: generateNetwork()");
+    console.log("generateNetwork()");
     $.getJSON('static/json/KEA3_coreg_sub_network.json', function (coreg_network) {
         displayNetwork(createNetwork(coreg_network, getTFs2()));
     })

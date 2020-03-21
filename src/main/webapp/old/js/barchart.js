@@ -1,7 +1,6 @@
 // +
 
 function parseMeanRankLibraries2(nr_tfs) {
-    console.log('barchart: function parseMeanRankLibraries2(nr_tfs)');
     const maxMeanRankScore = Math.max(...chea3Results["Integrated--meanRank"].map(a => a.Score).map(Number));
     const toptfsdat = chea3Results["Integrated--meanRank"].slice(0, nr_tfs);
     const tfs = toptfsdat.map(function (x) {
@@ -43,7 +42,6 @@ function parseMeanRankLibraries2(nr_tfs) {
 }
 
 function parseLibrary(library, nr_tfs) {
-    console.log('barchart: function parseLibrary(library, nr_tfs)');
     let results = chea3Results[library].slice(0, nr_tfs);
     let process_score;
     let title;
@@ -80,7 +78,6 @@ function parseLibrary(library, nr_tfs) {
 }
 
 function generateBarChart() {
-    console.log('barchart: function generateBarChart()');
     $('#nav-barchart').html('<canvas id="barchart" width="400" height="200"></canvas>');
     const  ctx = document.getElementById('barchart').getContext('2d');
     const library = $('#library-selectpicker').val();
