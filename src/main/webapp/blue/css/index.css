@@ -24,5 +24,9 @@ h3 {
     padding: 0.5rem;
     width: 160px;
     font-family: 'Helvetica Neue', 'Arial', sans-serif;
-    font-weight: bold;
+    font-weight: 400;
+}
+
+th {
+    font-weight: 500;
 }
