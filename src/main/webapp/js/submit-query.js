@@ -404,6 +404,7 @@ $(document).ready(function () {
         drawNetwork("static/json/wgcna_gtex_annotated4.json", "gtex");
         const geneset = document.getElementById("genelist").value.toUpperCase().split(/\n/);
         const intersect = [...new Set(geneset)].filter(value => hgnc.includes(value));
+        // const enrich_url = "https://amp.pharm.mssm.edu/kea3/api/enrich/";
         const enrich_url = host + "kea3/api/enrich/";
         const payload = {
             "query_name": "gene_set_query",

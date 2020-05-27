@@ -120,7 +120,7 @@
 <script src="libs/spectrum/spectrum.js"></script>
 
 <script>
-    var host = "http://localhost:8080/";
+    let host = "http://localhost:8080/";
     if ((location.protocol !== 'https:') && (location.hostname !== 'localhost')) {
         location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
     }
