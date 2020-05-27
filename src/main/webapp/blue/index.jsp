@@ -26,7 +26,9 @@
     <div class="row">
     <!--  Logo and nav  -->
     <div class="col-3">
-        <h3>Kinase<br/>Enrichment<br/>Analysis<br/>version 3</h3>
+        <div id="logo">
+            <h3>Kinase<br/>Enrichment<br/>Analysis<br/>version 3</h3>
+        </div>
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <a class="nav-link active" id="v-pills-results-tab" data-toggle="pill" href="#v-pills-results" role="tab" aria-controls="v-pills-results" aria-selected="true">Results</a>
             <a class="nav-link" id="v-pills-faq-tab" data-toggle="pill" href="#v-pills-faq" role="tab" aria-controls="v-pills-faq" aria-selected="false">FAQ</a>

@@ -18,3 +18,11 @@ h3 {
     background-color: #007bff73;
     color: #FFF9F1;
 }
+
+#logo {
+    background-color: #FFF9F1;
+    padding: 0.5rem;
+    width: 160px;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-weight: bold;
+}
