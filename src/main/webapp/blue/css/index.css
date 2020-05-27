@@ -1,8 +1,20 @@
 body {
     background-color: #FFE7CB;
-    color: #3871C8;
+    color: #46546A;
 }
 
 h3 {
     color: #3871C8;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0;
+}
+
+.nav-link {
+    padding: .5rem;
+}
+.nav-pills .nav-link.active {
+    background-color: #007bff73;
+    color: #FFF9F1;
 }
