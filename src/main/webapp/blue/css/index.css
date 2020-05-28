@@ -14,6 +14,7 @@ h3 {
 .nav-link {
     padding: .5rem;
 }
+
 .nav-pills .nav-link.active {
     background-color: #007bff73;
     color: #FFF9F1;
@@ -22,11 +23,25 @@ h3 {
 #logo {
     background-color: #FFF9F1;
     padding: 0.5rem;
-    width: 160px;
+    width: 165px;
     font-family: 'Helvetica Neue', 'Arial', sans-serif;
     font-weight: 400;
+    margin: 1rem 1rem 1rem 0;
 }
 
 th {
     font-weight: 500;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-button {
+    display: inline-block;
+    border-radius: 10px 10px;
+    padding: 3px 12px;
+    cursor: pointer;
+    background-color: #007bff73;
+    color: #FFF9F1;
 }

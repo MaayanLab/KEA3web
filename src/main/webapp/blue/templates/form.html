@@ -1,0 +1,37 @@
+<div class="col-12 landing__content mt-4">
+    <form>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-8">
+
+                    <p><span style="font-weight: 600">Kinase Enrichment Analysis 3 (KEA3)</span> infers upstream kinases whose putative substrates are
+                        overrepresented in a user-inputted list of genes or differentially phosphorylated proteins.
+                    </p>
+                    <button type="button" class="custom-button" id="example-genelist"><i class="fas fa-align-justify"></i> Input an example</button>
+
+                    <textarea class="form-control form-control-sm mt-2" id="genelist" rows="12" name="text-genes"
+                              placeholder="Input gene list"></textarea>
+
+                    <span id="genecheck" style="color: darkgrey; font-size: 0.9rem;">0 symbols entered, 0 duplicates, 0 valid symbols</span>
+
+                    <span data-container="body" data-toggle="popover"
+                          data-placement="right" data-trigger="hover"
+                          data-title="What gene symbols are accepted?"
+                          data-content='KEA3 supports <a target="_blank" href ="https://www.genenames.org/">HGNC-approved</a> gene symbols. Symbols that are not included in this set are not analyzed.'
+                          data-template='<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+                          data-html="true">
+                            <i class="far fa-question-circle" style="color: darkgrey; font-size: 0.9rem;"></i>
+                        </span>
+                    <p>
+                        <a class="custom-button" href="#" role="button" id="submit-genelist">Submit</a>
+                        <input id="file-input" type="file" style="width: 201px;" accept=".txt">
+                        <label for="file-upload" class="custom-button">
+                            <i class="fas fa-file-upload"></i>
+                            Upload gene list
+                        </label><input id="file-upload" type="file"/>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
