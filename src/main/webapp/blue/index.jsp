@@ -12,8 +12,6 @@
           crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="css/custom_dataTables.css"/>
-    <link rel="stylesheet" type="text/css" href="css/custom_select_dataTables.css"/>
 
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
 
@@ -46,10 +44,10 @@
             <div class="tab-content" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-index" role="tabpanel" aria-labelledby="v-pills-index-tab">
                     <%@ include file="templates/form.html" %>
+                    <div id="results" style="display: none">
+                        <%@ include file="templates/results.html" %>
+                    </div>
                 </div>
-                <div class="tab-pane fade" id="v-pills-results" role="tabpanel" aria-labelledby="v-pills-results-tab">
-                </div>
-                <div class="mb-4"></div>
                 <div class="tab-pane fade" id="v-pills-faq" role="tabpanel" aria-labelledby="v-pills-faq-tab">
                     <div id="faq" class="row faq">
                         <%@ include file="templates/faq.html" %>
@@ -103,7 +101,8 @@
     gtag('config', 'UA-6277639-43');
     $('[data-toggle="popover"]').popover();
 </script>
-<script type="text/javascript" src="js/submit-query.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="static/hgnc_symbols.js"></script>
 
 <script>
     $(document).ready(function () {
