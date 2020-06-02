@@ -47,7 +47,23 @@ function submitList(){
         $.post(`${location.protocol}//${location.hostname}:${location.port}/kea3/api/enrich/`,
             JSON.stringify({"query_name": "gene_set_query", "gene_set": geneset}),
             function (results) {
+                // drawTable(results[''], '#table-1-');
+                // drawTable(results[''], '#table-1-');
 
+                drawTable(results['ChengKSIN'], '#table-2-1');
+                drawTable(results['PTMsigDB'], '#table-2-2');
+                drawTable(results['PhosDAll'], '#table-2-3');
+                drawTable(results['KinomeScan'], '#table-2-4');
+
+                drawTable(results['prePPI'], '#table-3-1');
+                drawTable(results['BioGRID'], '#table-3-2');
+                drawTable(results['mentha'], '#table-3-3');
+                drawTable(results['MINT'], '#table-3-4');
+                drawTable(results['HIPPIE'], '#table-3-5');
+                drawTable(results['STRING.bind'], '#table-3-6');
+                drawTable(results['ChengPPI'], '#table-3-7');
+
+                drawTable(results['STRING'], '#table-4-1');
             })
     }
     return false;

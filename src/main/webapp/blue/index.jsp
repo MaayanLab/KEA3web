@@ -42,11 +42,9 @@
         <!--  Content  -->
         <div class="col-9">
             <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-index" role="tabpanel" aria-labelledby="v-pills-index-tab">
+                <div class="tab-pane fade show active" id="v-pills-index" role="tabpanel"
+                     aria-labelledby="v-pills-index-tab">
                     <%@ include file="templates/form.html" %>
-                    <div id="results" style="display: none">
-                        <%@ include file="templates/results.html" %>
-                    </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-faq" role="tabpanel" aria-labelledby="v-pills-faq-tab">
                     <div id="faq" class="row faq">
@@ -63,6 +61,11 @@
                         <%@ include file="templates/libraries.html" %>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div id="results" style="display: none">
+                <%@ include file="templates/results.html" %>
             </div>
         </div>
     </div>
@@ -94,14 +97,17 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6277639-43"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
+
     function gtag() {
         dataLayer.push(arguments);
     }
+
     gtag('js', new Date());
     gtag('config', 'UA-6277639-43');
     $('[data-toggle="popover"]').popover();
 </script>
 <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/results.js"></script>
 <script type="text/javascript" src="static/hgnc_symbols.js"></script>
 
 <script>
