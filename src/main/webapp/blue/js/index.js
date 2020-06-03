@@ -47,13 +47,14 @@ function submitList(){
         $.post(`${location.protocol}//${location.hostname}:${location.port}/kea3/api/enrich/`,
             JSON.stringify({"query_name": "gene_set_query", "gene_set": geneset}),
             function (results) {
-                // drawTable(results[''], '#table-1-');
-                // drawTable(results[''], '#table-1-');
+                generateClustergram(results);
+
+                drawIntegratedTable(results['Integrated--meanRank'], '#table-1-1', 'Mean rank');
+                drawIntegratedTable(results['Integrated--topRank'], '#table-1-2', 'Integrated scaled rank');
 
                 drawTable(results['ChengKSIN'], '#table-2-1');
                 drawTable(results['PTMsigDB'], '#table-2-2');
                 drawTable(results['PhosDAll'], '#table-2-3');
-                drawTable(results['KinomeScan'], '#table-2-4');
 
                 drawTable(results['prePPI'], '#table-3-1');
                 drawTable(results['BioGRID'], '#table-3-2');

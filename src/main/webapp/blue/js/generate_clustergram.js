@@ -1,4 +1,4 @@
-function buildClustergrammerMatrix(kea_results, top_tfs = 5) {
+function generateClustergram(kea_results, top_tfs = 5) {
     let genes = new Set();
     let tfs = ['', ''];
     let libraries = ['', ''];
@@ -49,10 +49,8 @@ function buildClustergrammerMatrix(kea_results, top_tfs = 5) {
     const columns_str = $.map([tfs, libraries, ranks], function (x) {
         return x.join('\t')
     }).join('\n');
-    return columns_str + '\n' + rows.join('\n');
-}
+    const matrix_str =  columns_str + '\n' + rows.join('\n');
 
-function generateClustergram(matrix_str) {
     let formData = new FormData();
     let blob = new Blob([matrix_str], {type: 'plain/text'});
     formData.append('file', blob, 'kea_clustergram.txt');

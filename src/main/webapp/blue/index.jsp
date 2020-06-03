@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="static/logo.png" type="image/x-icon">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap & DT CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.css"/>
 
     <!-- Custom CSS -->
 
@@ -65,7 +67,7 @@
         </div>
         <div class="col-12">
             <div id="results" style="display: none">
-                <%@ include file="templates/results.html" %>
+                <%@ include file="templates/results.jsp" %>
             </div>
         </div>
     </div>
@@ -82,8 +84,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-<script type="text/javascript"
-        src="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/b-html5-1.6.1/rg-1.1.1/sc-2.0.1/sp-1.0.1/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.js"></script>
 <script type="text/javascript"
         src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
 
@@ -108,6 +109,7 @@
 </script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/results.js"></script>
+<script type="text/javascript" src="js/generate_clustergram.js"></script>
 <script type="text/javascript" src="static/hgnc_symbols.js"></script>
 
 <script>
