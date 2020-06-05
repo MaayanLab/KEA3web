@@ -12,7 +12,9 @@
             <%@ include file="tables.html" %>
         </div>
         <div class="tab-pane fade" id="nav-networks" role="tabpanel" aria-labelledby="nav-networks-tab">...</div>
-        <div class="tab-pane fade" id="nav-barcharts" role="tabpanel" aria-labelledby="nav-barcharts-tab">...</div>
+        <div class="tab-pane fade" id="nav-barcharts" role="tabpanel" aria-labelledby="nav-barcharts-tab">
+            <%@ include file="barcharts.html" %>
+        </div>
         <div class="tab-pane fade" id="nav-cluster" role="tabpanel" aria-labelledby="nav-cluster-tab">
             <%@ include file="clustergramm.html" %>
         </div>

@@ -53,18 +53,30 @@ function submitList(){
                 drawIntegratedTable(results['Integrated--topRank'], '#table-1-2', 'Integrated scaled rank');
 
                 drawTable(results['ChengKSIN'], '#table-2-1');
+                chart(results['ChengKSIN'], '#bar-2-1');
                 drawTable(results['PTMsigDB'], '#table-2-2');
+                chart(results['PTMsigDB'], '#bar-2-2');
                 drawTable(results['PhosDAll'], '#table-2-3');
+                chart(results['PhosDAll'], '#bar-2-3');
 
                 drawTable(results['prePPI'], '#table-3-1');
+                chart(results['prePPI'], '#bar-3-1');
                 drawTable(results['BioGRID'], '#table-3-2');
+                chart(results['BioGRID'], '#bar-3-2');
                 drawTable(results['mentha'], '#table-3-3');
+                chart(results['mentha'], '#bar-3-3');
                 drawTable(results['MINT'], '#table-3-4');
+                chart(results['MINT'], '#bar-3-4');
                 drawTable(results['HIPPIE'], '#table-3-5');
+                chart(results['HIPPIE'], '#bar-3-5');
                 drawTable(results['STRING.bind'], '#table-3-6');
+                chart(results['STRING.bind'], '#bar-3-6');
                 drawTable(results['ChengPPI'], '#table-3-7');
+                chart(results['ChengPPI'], '#bar-3-7');
 
                 drawTable(results['STRING'], '#table-4-1');
+                chart(results['STRING'], '#bar-4-1');
+
             })
     }
     return false;

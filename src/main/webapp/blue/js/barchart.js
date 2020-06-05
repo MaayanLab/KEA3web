@@ -1,10 +1,21 @@
-function chart(dataEnrichr, color, numBar, order) {
-    const data = dataEnrichr.slice(0, numBar).sort((a, b) => b.value - a.value);
+function chart(json, wrapper, color = "steelblue", numBar = "20", order = "pvalue") {
+    let data = json.map(d => ({
+        "name": d['TF'],
+        "value": -Math.log10(parseFloat(d["FET p-value"])),
+        "pvalue": parseFloat(d["FET p-value"]),
+        "fdr": parseFloat(d["FDR"]),
+        "odds": parseFloat(d["Odds Ratio"]),
+        "scaled_Rank": parseFloat(d["Scaled Rank"]),
+        "mode": "pvalue",
+        "caption": "-log₁₀(p-value)"
+    }));
+
+    data = data.slice(0, numBar).sort((a, b) => b.value - a.value);
     const margin = ({top: 30, right: 20, bottom: 50, left: 300});
     const height = data.length * 25 + margin.top + margin.bottom;
-
-    const svg = d3.create("svg")
-        .attr("width", width)
+    const width = 600;
+    const svg = d3.select(wrapper);
+    svg.attr("width", width)
         .attr("height", height)
         .attr("class", "barchart");
 
@@ -16,41 +27,12 @@ function chart(dataEnrichr, color, numBar, order) {
         .attr("x", margin.left + (width - margin.left) / 2)
         .attr("y", height - margin.bottom + 40);
 
-    // Sort based on order; initialize the title
-    switch (order) {
-        case "logp":
-            for (const item in data) {
-                data[item].value = -Math.log10(data[item].pvalue);
-                data[item].mode = order
-            }
-            title.text("−log₁₀(p‐value)");
-            data.sort((a, b) => b.value - a.value);
-            break;
-        case "pvalue":
-            for (const item in data) {
-                data[item].value = data[item].pvalue;
-                data[item].mode = order
-            }
-            title.text("P‐value");
-            data.sort((a, b) => a.value - b.value);
-            break;
-        case "odds":
-            for (const item in data) {
-                data[item].value = data[item].odds;
-                data[item].mode = order
-            }
-            title.text("Odds ratio");
-            data.sort((a, b) => b.value - a.value);
-            break;
-        case "combined":
-            for (const item in data) {
-                data[item].value = data[item].combined;
-                data[item].mode = order
-            }
-            title.text("Combined score");
-            data.sort((a, b) => b.value - a.value);
-            break;
+    for (const item in data) {
+        data[item].value = data[item].pvalue;
+        data[item].mode = order
     }
+    title.text("P‐value");
+    data.sort((a, b) => a.value - b.value);
 
     let x = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.value)])
@@ -118,21 +100,13 @@ function chart(dataEnrichr, color, numBar, order) {
         .attr("dy", "0.35em")
         .text(d => d.mode === "pvalue" ? d3.format(".3")(d.pvalue) : d3.format(".3")(d.value));
 
+    console.log(svg.node)
+
     return svg.node();
 }
 
-async function convert_data(data_json) {
-    let data = await d3.json(data_json);
-
-    return data.map(data => ({
-        "name": data[1],
-        "value": -Math.log10(data[2]),
-        "pvalue": data[2],
-        "odds": data[3],
-        "combined": data[4],
-        "genes": data[5],
-        "adjusted": data[6],
-        "mode": "pvalue",
-        "caption": "-log₁₀(p-value)"
-    }));
+function trimLabel(label, avgLen) {
+    if (label.length > avgLen) {return `${label.slice(0, avgLen-1)}…`}
+    else if (label.length < avgLen) return label.padEnd(avgLen, '\xa0')
+    else return label
 }
