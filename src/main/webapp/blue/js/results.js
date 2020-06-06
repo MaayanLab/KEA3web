@@ -58,7 +58,7 @@ function drawIntegratedTable(data, wrapper, score) {
                 "mData": "Overlapping_Genes",
                 "sTitle": "Overlapping Genes",
                 "mRender": function (data, type, row, meta) {
-                    return `${row['Overlapping_Genes']}`
+                    return `${row['Overlapping_Genes'].length}`
                 }
             },
             {
