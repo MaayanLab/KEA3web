@@ -45,3 +45,13 @@ input[type="file"] {
     background-color: #007bff73;
     color: #FFF9F1;
 }
+
+.gene-link {
+    background-color: #FBE5CC;
+    color: #24243a;
+    padding: 1px 4px;
+    margin-top: 3px;
+    display: inline-block;
+    border-radius: 3px;
+    text-decoration: none !important;
+}

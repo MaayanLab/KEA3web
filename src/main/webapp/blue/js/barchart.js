@@ -11,7 +11,7 @@ function chart(json, wrapper, color = "steelblue", numBar = "20", order = "pvalu
     }));
 
     data = data.slice(0, numBar).sort((a, b) => b.value - a.value);
-    const margin = ({top: 30, right: 20, bottom: 50, left: 300});
+    const margin = ({top: 30, right: 20, bottom: 50, left: 50});
     const height = data.length * 25 + margin.top + margin.bottom;
     const width = 600;
     const svg = d3.select(wrapper);
@@ -99,9 +99,6 @@ function chart(json, wrapper, color = "steelblue", numBar = "20", order = "pvalu
         .attr("y", d => y(d.name) + y.bandwidth() / 2)
         .attr("dy", "0.35em")
         .text(d => d.mode === "pvalue" ? d3.format(".3")(d.pvalue) : d3.format(".3")(d.value));
-
-    console.log(svg.node)
-
     return svg.node();
 }
 

@@ -1,92 +1,108 @@
+<h4 id="item-1">Integrated results</h4>
 <div class="row">
-    <div class="col-3">
-        <h4>Results</h4>
-        <nav id="results-navbar" class="navbar navbar-light sticky-top">
-            <nav class="nav nav-pills flex-column">
-                <a class="nav-link" href="#barchart-1">Integrated results</a>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-link ml-3" href="#barchart-1-1">Mean rank</a>
-                    <a class="nav-link ml-3" href="#barchart-1-2">Top rank</a>
-                </nav>
-                <a class="nav-link" href="#barchart-2">Kinase-substrate interaction</a>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-link ml-3" href="#barchart-2-1">Cheng KSIN</a>
-                    <a class="nav-link ml-3" href="#barchart-2-2">PTMsigDB</a>
-                    <a class="nav-link ml-3" href="#barchart-2-3">PhosD All</a>
-                </nav>
-                <a class="nav-link" href="#barchart-3">Protein-protin interaction</a>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-link ml-3" href="#barchart-3-1">prePPI</a>
-                    <a class="nav-link ml-3" href="#barchart-3-2">BioGRID</a>
-                    <a class="nav-link ml-3" href="#barchart-3-3">mentha</a>
-                    <a class="nav-link ml-3" href="#barchart-3-4">MINT</a>
-                    <a class="nav-link ml-3" href="#barchart-3-5">HIPPIE</a>
-                    <a class="nav-link ml-3" href="#barchart-3-6">STRING bind</a>
-                    <a class="nav-link ml-3" href="#barchart-3-7">Cheng PPI</a>
-                </nav>
-                <a class="nav-link" href="#barchart-4">All associations</a>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-link ml-3" href="#barchart-4-1">STRING</a>
-                </nav>
-            </nav>
-        </nav>
+    <div class="col-6" style="display: block;
+    background: aliceblue;">
+        <h5 id="item-1-1">Mean rank</h5>
+        <div class="container-fluid">
+            <svg id="bar-1-1"></svg>
+        </div>
     </div>
-    <div class="col-9" data-spy="scroll" data-target="#results-navbar" data-offset="0">
-        <h4 id="barchart-1">Integrated results</h4>
-        <div class="container-fluid" style="display: block">
-            <h5 id="barchart-1-1">Mean rank</h5>
-            <svg id="bar-1-1"/>
+    <div class="col-6" style="display: block;
+    background: aliceblue;">
+        <h5 id="item-1-2">Top rank</h5>
+        <div class="container-fluid">
+            <svg id="bar-1-2"></svg>
         </div>
-        <div class="container-fluid" style="display: block">
-            <h5 id="barchart-1-2">Top rank</h5>
-            <svg id="bar-1-2"/>
+    </div>
+</div>
+<h4 id="item-2">Kinase-substrate interaction</h4>
+<div class="row">
+    <div class="col-6" style="display: block;
+    background: cornsilk;">
+        <h5 id="item-2-1">Cheng KSIN</h5>
+        <div class="container-fluid">
+            <svg id="bar-2-1"></svg>
         </div>
-        <h4 id="barchart-2">Kinase-substrate interaction</h4>
-        <div class="container-fluid" style="display: block">
-            <h5 id="barchart-2-1">Cheng KSIN</h5>
-            <svg id="bar-2-1"/>
+    </div>
+    <div class="col-6" style="display: block;
+    background: cornsilk;">
+        <h5 id="item-2-2">PTMsigDB</h5>
+        <div class="container-fluid">
+            <svg id="bar-2-2"></svg>
         </div>
-        <div class="container-fluid" style="display: block">
-            <h5 id="barchart-2-2">PTMsigDB</h5>
-            <svg id="bar-2-2"/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6 align-self-start" style="display: block;
+    background: cornsilk;">
+        <h5 id="item-2-3">PhosD All</h5>
+        <div class="container-fluid">
+            <svg id="bar-2-3"></svg>
         </div>
-        <div class="container-fluid" style="display: block">
-            <h5 id="barchart-2-3">PhosD All</h5>
-            <svg id="bar-2-3"/>
+    </div>
+</div>
+<h4 id="item-3">Protein-protein interaction</h4>
+<div class="row">
+    <div class="col-6" style="display: block;
+        background: #fccfc5;">
+        <h5 id="item-3-1">prePPI</h5>
+        <div class="container-fluid">
+            <svg id="bar-3-1"></svg>
         </div>
-        <h4 id="barchart-3">Protein-protin interaction</h4>
-        <div class="container-fluid" style="display: block">
-            <h5 id="barchart-3-1">prePPI</h5>
-            <svg id="bar-3-1"/>
+    </div>
+    <div class="col-6" style="display: block;
+    background: #fccfc5;">
+        <h5 id="item-3-2">BioGRID</h5>
+        <div class="container-fluid">
+            <svg id="bar-3-2"></svg>
         </div>
-        <div class="container-fluid" style="display: block">
-            <h5 id="barchart-3-2">BioGRID</h5>
-            <svg id="bar-3-2"/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6" style="display: block; background: #fccfc5">
+        <h5 id="item-3-3">mentha</h5>
+        <div class="container-fluid">
+            <svg id="bar-3-3"></svg>
         </div>
-        <div class="container-fluid" style="display: block">
-            <h5 id="barchart-3-3">mentha</h5>
-            <svg id="bar-3-3"/>
+    </div>
+    <div class="col-6" style="display: block; background: #fccfc5">
+        <h5 id="item-3-4">MINT</h5>
+        <div class="container-fluid">
+            <svg id="bar-3-4"></svg>
         </div>
-        <div class="container-fluid" style="display: block">
-            <h5 id="barchart-3-4">MINT</h5>
-            <svg id="bar-3-4"/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6" style="display: block; background: #fccfc5">
+        <h5 id="item-3-5">HIPPIE</h5>
+        <div class="container-fluid">
+            <svg id="bar-3-5"></svg>
         </div>
-        <div class="container-fluid" style="display: block">
-            <h5 id="barchart-3-5">HIPPIE</h5>
-            <svg id="bar-3-5"/>
+    </div>
+    <div class="col-6" style="display: block;
+    background: #fccfc5;">
+        <h5 id="item-3-6">STRING bind</h5>
+        <div class="container-fluid">
+            <svg id="bar-3-6"></svg>
         </div>
-        <div class="container-fluid" style="display: block">
-            <h5 id="barchart-3-6">STRING bind</h5>
-            <svg id="bar-3-6"/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6 align-self-start" style="display: block;
+    background: #fccfc5;">
+        <h5 id="item-3-7">Cheng PPI</h5>
+        <div class="container-fluid ">
+            <svg id="bar-3-7"></svg>
         </div>
-        <div class="container-fluid" style="display: block">
-            <h5 id="barchart-3-7">Cheng PPI</h5>
-            <svg id="bar-3-7"/>
-        </div>
-        <h4 id="barchart-4">All associations</h4>
-        <div class="container-fluid" style="display: block">
-            <h5 id="barchart-4-1">STRING</h5>
-            <svg id="bar-4-1"/>
+    </div>
+</div>
+<h4 id="item-4">All associations</h4>
+<div class="row">
+    <div class="col-6 align-self-start" style="display: block;
+    background: honeydew;">
+        <h5 id="item-4-1">STRING</h5>
+        <div class="container-fluid ">
+            <svg id="bar-4-1"></svg>
         </div>
     </div>
 </div>
