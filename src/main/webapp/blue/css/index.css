@@ -1,10 +1,6 @@
 body {
-    background-color: #FBE5CC;
+    background-color: #f8f7f2;
     color: #46546A;
-}
-
-h3 {
-    color: #3871C8;
 }
 
 .nav-pills .nav-link {
@@ -16,12 +12,12 @@ h3 {
 }
 
 .nav-pills .nav-link.active {
-    background-color: #007bff73;
-    color: #FFF9F1;
+    background-color: #f8f7f2;
+    color: #3871C8;
 }
 
 #logo {
-    background-color: #FFF9F1;
+    color: #3871C8;
     padding: 0.5rem;
     width: 165px;
     font-family: 'Helvetica Neue', 'Arial', sans-serif;

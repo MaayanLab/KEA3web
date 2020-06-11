@@ -11,7 +11,8 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.css"/>
 
     <!-- Custom CSS -->
 
@@ -22,13 +23,13 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <!--  Logo and nav  -->
-        <div class="col-3">
-            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <div class="col-2 align-self-start mh-100" style="background-color: #dfe8f7; padding-right: 0; padding-left: 0">
+            <div class="nav flex-column nav-pills pb-5 ml-4 mt-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-index-tab" data-toggle="pill" href="#v-pills-index" role="tab"
-                   aria-controls="v-pills-index" aria-selected="false" style="background-color: #FBE5CC">
+                   aria-controls="v-pills-index" aria-selected="false">
                     <div id="logo">
                         <h3>Kinase<br/>Enrichment<br/>Analysis<br/>version 3</h3>
                     </div>
@@ -40,40 +41,45 @@
                 <a class="nav-link" id="v-pills-download-tab" data-toggle="pill" href="#v-pills-download" role="tab"
                    aria-controls="v-pills-download" aria-selected="false">Download libraries</a>
             </div>
+            <%@ include file="templates/footer.html" %>
         </div>
         <!--  Content  -->
-        <div class="col-9">
-            <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-index" role="tabpanel"
-                     aria-labelledby="v-pills-index-tab">
-                    <%@ include file="templates/form.html" %>
-                </div>
-                <div class="tab-pane fade" id="v-pills-faq" role="tabpanel" aria-labelledby="v-pills-faq-tab">
-                    <div id="faq" class="row faq">
-                        <%@ include file="templates/faq.html" %>
+        <div class="col-10">
+            <div class="row">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-index" role="tabpanel"
+                         aria-labelledby="v-pills-index-tab">
+                        <%@ include file="templates/form.html" %>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="v-pills-api" role="tabpanel" aria-labelledby="v-pills-api-tab">
-                    <div id="api" class="row api">
-                        <%@ include file="templates/api.html" %>
+                    <div class="tab-pane fade" id="v-pills-faq" role="tabpanel" aria-labelledby="v-pills-faq-tab">
+                        <div id="faq" class="row faq">
+                            <%@ include file="templates/faq.html" %>
+                        </div>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="v-pills-download" role="tabpanel" aria-labelledby="v-pills-download-tab">
-                    <div id="libraries" class="row libraries">
-                        <%@ include file="templates/libraries.html" %>
+                    <div class="tab-pane fade" id="v-pills-api" role="tabpanel" aria-labelledby="v-pills-api-tab">
+                        <div id="api" class="row api">
+                            <%@ include file="templates/api.html" %>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-download" role="tabpanel"
+                         aria-labelledby="v-pills-download-tab">
+                        <div id="libraries" class="row libraries">
+                            <%@ include file="templates/libraries.html" %>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12">
-            <div id="results" style="display: none">
-                <%@ include file="templates/results.jsp" %>
+            <div class="row">
+                <div class="col-12">
+                    <div id="results" style="display: none">
+                        <%@ include file="templates/results.jsp" %>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<%@ include file="templates/footer.html" %>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         crossorigin="anonymous"></script>
@@ -84,7 +90,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.js"></script>
+<script type="text/javascript"
+        src="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.js"></script>
 <script type="text/javascript"
         src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
 
