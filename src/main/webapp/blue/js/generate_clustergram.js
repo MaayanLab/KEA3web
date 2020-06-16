@@ -61,11 +61,8 @@ function generateClustergram(kea_results, top_tfs = 5) {
 
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
-            let response = request.responseText;
             if (request.status === 200) {
-                response = response.replace("http", "https");
-                console.log(response);
-                document.getElementById("clustergram-iframe").dataset.source = response;
+                document.getElementById('clustergram-iframe').src = request.responseText.replace("http", "https");
                 $('#clustergram-error').addClass('d-none');
             } else {
                 $('#clustergram-iframe').addClass('d-none');

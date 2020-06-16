@@ -36,6 +36,7 @@ input[type="file"] {
 .custom-button {
     display: inline-block;
     border-radius: 10px 10px;
+    border: none;
     padding: 3px 12px;
     cursor: pointer;
     background-color: #007bff73;

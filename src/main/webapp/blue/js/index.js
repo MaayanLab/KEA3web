@@ -41,41 +41,48 @@ function uploadFileListener() {
 }
 
 function submitList(){
-    $('#results').show(500);
+    $('#placeholder').show();
     const geneset = [...new Set($('#genelist').val().toUpperCase().split(/\n/))].filter(value => hgnc.includes(value));
     if (validateGeneSet(geneset)) {
         $.post(`${location.protocol}//${location.hostname}:${location.port}/kea3/api/enrich/`,
             JSON.stringify({"query_name": "gene_set_query", "gene_set": geneset}),
             function (results) {
-                generateClustergram(results);
+                // console.log(results['Integrated--topRank']);
+
 
                 drawIntegratedTable(results['Integrated--meanRank'], '#table-1-1', 'Mean rank');
                 drawIntegratedTable(results['Integrated--topRank'], '#table-1-2', 'Integrated scaled rank');
 
                 drawTable(results['ChengKSIN'], '#table-2-1');
-                chart(results['ChengKSIN'], '#bar-2-1');
                 drawTable(results['PTMsigDB'], '#table-2-2');
-                chart(results['PTMsigDB'], '#bar-2-2');
                 drawTable(results['PhosDAll'], '#table-2-3');
-                chart(results['PhosDAll'], '#bar-2-3');
 
                 drawTable(results['prePPI'], '#table-3-1');
-                chart(results['prePPI'], '#bar-3-1');
                 drawTable(results['BioGRID'], '#table-3-2');
-                chart(results['BioGRID'], '#bar-3-2');
                 drawTable(results['mentha'], '#table-3-3');
-                chart(results['mentha'], '#bar-3-3');
                 drawTable(results['MINT'], '#table-3-4');
-                chart(results['MINT'], '#bar-3-4');
                 drawTable(results['HIPPIE'], '#table-3-5');
-                chart(results['HIPPIE'], '#bar-3-5');
                 drawTable(results['STRING.bind'], '#table-3-6');
-                chart(results['STRING.bind'], '#bar-3-6');
                 drawTable(results['ChengPPI'], '#table-3-7');
+                drawTable(results['STRING'], '#table-4-1');
+
+                $('#placeholder').hide();
+                $('#results').show();
+                stacked_chart(results['Integrated--meanRank'], '#bar-1-1')
+                chart(results['ChengKSIN'], '#bar-2-1');
+                chart(results['PTMsigDB'], '#bar-2-2');
+                chart(results['PhosDAll'], '#bar-2-3');
+
+                chart(results['prePPI'], '#bar-3-1');
+                chart(results['BioGRID'], '#bar-3-2');
+                chart(results['mentha'], '#bar-3-3');
+                chart(results['MINT'], '#bar-3-4');
+                chart(results['HIPPIE'], '#bar-3-5');
+                chart(results['STRING.bind'], '#bar-3-6');
                 chart(results['ChengPPI'], '#bar-3-7');
 
-                drawTable(results['STRING'], '#table-4-1');
                 chart(results['STRING'], '#bar-4-1');
+                generateClustergram(results);
 
             })
     }
