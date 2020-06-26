@@ -1,0 +1,2207 @@
+[
+  {
+    "Tumor": "COAD",
+    "name": "MST1R",
+    "x": -241.3291,
+    "y": 977.7135,
+    "WGCNA_module": "pink",
+    "Tumor_color": "#8B008B",
+    "WGCNA_hex": "#FFC0CB"
+  },
+  {
+    "Tumor": "COAD",
+    "name": "MAPK13",
+    "x": -481.0899,
+    "y": 917.1235,
+    "WGCNA_module": "pink",
+    "Tumor_color": "#8B008B",
+    "WGCNA_hex": "#FFC0CB"
+  },
+  {
+    "Tumor": "COAD",
+    "name": "SRC",
+    "x": -367.3861,
+    "y": 839.6568,
+    "WGCNA_module": "pink",
+    "Tumor_color": "#8B008B",
+    "WGCNA_hex": "#FFC0CB"
+  },
+  {
+    "Tumor": "COAD",
+    "name": "SRMS",
+    "x": -532.047,
+    "y": 830.2444,
+    "WGCNA_module": "pink",
+    "Tumor_color": "#8B008B",
+    "WGCNA_hex": "#FFC0CB"
+  },
+  {
+    "Tumor": "COAD",
+    "name": "ERN2",
+    "x": -221.1996,
+    "y": 852.3583,
+    "WGCNA_module": "pink",
+    "Tumor_color": "#8B008B",
+    "WGCNA_hex": "#FFC0CB"
+  },
+  {
+    "Tumor": "COAD",
+    "name": "RPS6KA4",
+    "x": -703.5344,
+    "y": 376.7884,
+    "WGCNA_module": "pink",
+    "Tumor_color": "#8B008B",
+    "WGCNA_hex": "#FFC0CB"
+  },
+  {
+    "Tumor": "COAD",
+    "name": "EPHA2",
+    "x": -104.3171,
+    "y": 1028.812,
+    "WGCNA_module": "pink",
+    "Tumor_color": "#8B008B",
+    "WGCNA_hex": "#FFC0CB"
+  },
+  {
+    "Tumor": "COAD",
+    "name": "PTK6",
+    "x": -345.1478,
+    "y": 933.5471,
+    "WGCNA_module": "pink",
+    "Tumor_color": "#8B008B",
+    "WGCNA_hex": "#FFC0CB"
+  },
+  {
+    "Tumor": "COAD",
+    "name": "STYK1",
+    "x": 270.3988,
+    "y": 1002.2372,
+    "WGCNA_module": "pink",
+    "Tumor_color": "#8B008B",
+    "WGCNA_hex": "#FFC0CB"
+  },
+  {
+    "Tumor": "COAD",
+    "name": "RIPK3",
+    "x": -130.2653,
+    "y": 917.488,
+    "WGCNA_module": "pink",
+    "Tumor_color": "#8B008B",
+    "WGCNA_hex": "#FFC0CB"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "PDGFRB",
+    "x": 918.1772,
+    "y": 479.9288,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "TIE1",
+    "x": 779.8846,
+    "y": 674.548,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "TEK",
+    "x": 733.2818,
+    "y": 760.8168,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "INSR",
+    "x": 655.3263,
+    "y": 833.5324,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "JAK1",
+    "x": 1101.1631,
+    "y": 248.5742,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "PRKG1",
+    "x": 807,
+    "y": 514.4979,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "TGFBR2",
+    "x": 1019.1646,
+    "y": 341.2944,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "PNCK",
+    "x": 354.1714,
+    "y": 521.5807,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "KDR",
+    "x": 604.8174,
+    "y": 643.2137,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "SNRK",
+    "x": 702.9249,
+    "y": 619.311,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "KSR1",
+    "x": 496.4272,
+    "y": 557.6178,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "PRKAA2",
+    "x": 510.1219,
+    "y": 918.047,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "ALPK2",
+    "x": 461.9201,
+    "y": 792.3347,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "FLT4",
+    "x": 600.5441,
+    "y": 753.5345,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "FLT1",
+    "x": 544.8611,
+    "y": 695.9493,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "KIRC",
+    "name": "CDK18",
+    "x": 423.8133,
+    "y": 656.369,
+    "WGCNA_module": "red",
+    "Tumor_color": "#BF3EFF",
+    "WGCNA_hex": "#FF0000"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "ALPK1",
+    "x": -72.2485,
+    "y": -936.8384,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "TSSK6",
+    "x": 209.215,
+    "y": -693.557,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "MYLK4",
+    "x": -305.2526,
+    "y": -864.946,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "MLKL",
+    "x": 317.0384,
+    "y": -915.8816,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "GRK3",
+    "x": 280.6736,
+    "y": -738.1862,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "CDK13",
+    "x": -406.9035,
+    "y": -1091.6656,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "ULK4",
+    "x": 308.6926,
+    "y": -831.915,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "HIPK3",
+    "x": 424.4435,
+    "y": -1076.9059,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "PIK3C3",
+    "x": 310.1101,
+    "y": -292.5768,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "STK26",
+    "x": 50.0175,
+    "y": -924.6143,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "LRRK1",
+    "x": -260.247,
+    "y": -730.4496,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "LATS1",
+    "x": 253.3469,
+    "y": -966.3911,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "ROCK1",
+    "x": 176.4326,
+    "y": -989.1819,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "TAOK1",
+    "x": 556.26,
+    "y": -905.557,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "TRPM7",
+    "x": -5.489,
+    "y": -981.1617,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "HIPK1",
+    "x": -151.8542,
+    "y": -942.7257,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "GRK7",
+    "x": 159.4977,
+    "y": -474.7912,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "STK4",
+    "x": 33.4716,
+    "y": -586.2313,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "MKNK1",
+    "x": 19.4747,
+    "y": -504.6291,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "MAP4K2",
+    "x": -329.8337,
+    "y": -670.9425,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "CSNK1G1",
+    "x": 74.4001,
+    "y": -1067.7662,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "CDKL4",
+    "x": -228.5398,
+    "y": -988.1156,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "CDKL3",
+    "x": 172.5824,
+    "y": -555.1157,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "CDKL1",
+    "x": 200.5725,
+    "y": -824.5864,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "DYRK1A",
+    "x": 285.6304,
+    "y": -1053.9486,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "JAK2",
+    "x": 157.2107,
+    "y": -1065.7534,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "SMG1",
+    "x": -40.7965,
+    "y": -860.8136,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "PAN3",
+    "x": -107.8679,
+    "y": -817.122,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "JAK3",
+    "x": -127.7246,
+    "y": -578.6456,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "IRAK3",
+    "x": -181.9903,
+    "y": -727.1207,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "MAP3K8",
+    "x": -7.1522,
+    "y": -1064.7666,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "PRPF4B",
+    "x": -75.9643,
+    "y": -1017.5616,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "MATK",
+    "x": 63.849,
+    "y": -419.8221,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "FGR",
+    "x": -58.5264,
+    "y": -514.9707,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "RPS6KA5",
+    "x": -154.708,
+    "y": -1021.4892,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "MAP3K1",
+    "x": 355.4341,
+    "y": -765.3175,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "LTK",
+    "x": 190.5968,
+    "y": -906.9845,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "STK10",
+    "x": -114.1305,
+    "y": -459.2694,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "TAOK3",
+    "x": -174.2431,
+    "y": -645.9449,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "ATR",
+    "x": 95.527,
+    "y": -991.9034,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "PRKY",
+    "x": 93.1349,
+    "y": -535.2557,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "CSNK1A1L",
+    "x": 465.0844,
+    "y": -875.804,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "BMP2K",
+    "x": -172.6695,
+    "y": -863.4889,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "BRAF",
+    "x": 487.878,
+    "y": -782.7241,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "WEE2",
+    "x": -316.1974,
+    "y": -786.4805,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "GRK2",
+    "x": -215.0121,
+    "y": -575.8831,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "FES",
+    "x": -254.3212,
+    "y": -650.3267,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "CDK3",
+    "x": -47.0854,
+    "y": -596.1808,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "TEX14",
+    "x": 429.2083,
+    "y": -965.8564,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "MAPK14",
+    "x": -238.2318,
+    "y": -907.9214,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "BTK",
+    "x": 39.6468,
+    "y": -665.7257,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "AAK1",
+    "x": -294.6772,
+    "y": -583.4029,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "ATM",
+    "x": 102.0562,
+    "y": -859.7862,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "IRAK4",
+    "x": 296.2205,
+    "y": -652.3065,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "TEC",
+    "x": 29.9616,
+    "y": -825.0818,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "PXK",
+    "x": -97.4276,
+    "y": -657.4772,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "PRKCB",
+    "x": -30.2902,
+    "y": -701.3207,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "GRK4",
+    "x": 442.6941,
+    "y": -432.5642,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "CDK6",
+    "x": -36.3053,
+    "y": -781.7555,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "TTBK2",
+    "x": 334.3792,
+    "y": -468.4194,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "PRKACG",
+    "x": 226.6428,
+    "y": -613.8677,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "PTK2B",
+    "x": -183.5343,
+    "y": -503.2515,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "TSSK3",
+    "x": 108.2385,
+    "y": -705.5081,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "FLT3",
+    "x": -102.3378,
+    "y": -737.8457,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "MAK",
+    "x": -218.2933,
+    "y": -798.1964,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "TXK",
+    "x": 35.5305,
+    "y": -746.1988,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LAML",
+    "name": "TSSK4",
+    "x": 127.0316,
+    "y": -783.1773,
+    "WGCNA_module": "turquoise",
+    "Tumor_color": "#7FFF00",
+    "WGCNA_hex": "#40E0D0"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "DCLK1",
+    "x": 934.1675,
+    "y": -299.8368,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "SIK3",
+    "x": 541.9104,
+    "y": -442.0982,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "MAST3",
+    "x": 667.0257,
+    "y": -484.5395,
+    "WGCNA_module": "tan",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#D2B48C"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "PHKG1",
+    "x": 1081.262,
+    "y": -307.3611,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "FYN",
+    "x": 938.7311,
+    "y": -52.4863,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "MAPK10",
+    "x": 813.6564,
+    "y": -287.6042,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "PRKD1",
+    "x": 967.5098,
+    "y": -615.684,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "STK33",
+    "x": -703.6376,
+    "y": -738.7834,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "NTRK2",
+    "x": 946.6347,
+    "y": -131.1562,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "PRKCA",
+    "x": 864.4589,
+    "y": -80.1836,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "NIM1K",
+    "x": 791.7068,
+    "y": -208.9783,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "CDK14",
+    "x": 1055.5007,
+    "y": -75.2441,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "HIPK4",
+    "x": 432.5515,
+    "y": -638.5125,
+    "WGCNA_module": "tan",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#D2B48C"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "DCLK2",
+    "x": 878.0256,
+    "y": -241.5094,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "TNIK",
+    "x": 1067.3348,
+    "y": -211.1591,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "EPHB1",
+    "x": 954.8052,
+    "y": -220.0489,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "PINK1",
+    "x": 658.0516,
+    "y": 49.4524,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "TNK2",
+    "x": 872.5125,
+    "y": -381.7748,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "CAMK2G",
+    "x": 763.2322,
+    "y": -348.2153,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "CAMKV",
+    "x": 723.4171,
+    "y": -425.1883,
+    "WGCNA_module": "tan",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#D2B48C"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "PRKCG",
+    "x": 766.8897,
+    "y": -712.7156,
+    "WGCNA_module": "tan",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#D2B48C"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "TYRO3",
+    "x": 1118.5764,
+    "y": -127.5742,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "NTRK3",
+    "x": 872.1116,
+    "y": -162.3071,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "SRPK2",
+    "x": 1037.8185,
+    "y": 24.753,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "CAMK2D",
+    "x": 1029.3988,
+    "y": -464.2865,
+    "WGCNA_module": "brown",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#A52A2A"
+  },
+  {
+    "Tumor": "LGG",
+    "name": "CAMK2A",
+    "x": 739.1568,
+    "y": -564.526,
+    "WGCNA_module": "tan",
+    "Tumor_color": "#FF1493",
+    "WGCNA_hex": "#D2B48C"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "ADCK1",
+    "x": -754.1901,
+    "y": -103.0393,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "RPS6KB2",
+    "x": -646.0672,
+    "y": 222.3156,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "CLK3",
+    "x": -955.2911,
+    "y": -362.8209,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "GSK3A",
+    "x": -882.2797,
+    "y": -449.2611,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "DYRK4",
+    "x": -1046.3903,
+    "y": -246.079,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "ADCK2",
+    "x": -937.7059,
+    "y": 74.6812,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "PHKG2",
+    "x": -910.0076,
+    "y": -66.9002,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "DYRK1B",
+    "x": -921.574,
+    "y": -621.0562,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "CDK10",
+    "x": -840.2023,
+    "y": 130.565,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "CDK5",
+    "x": -937.6197,
+    "y": -141.8964,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "ADCK5",
+    "x": -678.1569,
+    "y": -13.5641,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "SCYL1",
+    "x": -835.4716,
+    "y": 254.2398,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "ULK3",
+    "x": -948.8808,
+    "y": -258.3797,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "VRK3",
+    "x": -1079.0288,
+    "y": 71.9939,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "STK16",
+    "x": -1025.4041,
+    "y": -10.5473,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "MAP3K11",
+    "x": -940.1266,
+    "y": 399.904,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "FASTK",
+    "x": -847.6732,
+    "y": -18.4392,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "NEK8",
+    "x": -1007.7284,
+    "y": 172.2981,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "COQ8B",
+    "x": -1068.7201,
+    "y": -102.8509,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "LIHC",
+    "name": "CSNK2B",
+    "x": -845.9689,
+    "y": -213.307,
+    "WGCNA_module": "deeppink4",
+    "Tumor_color": "#00CED1",
+    "WGCNA_hex": "#8B0A50"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "RET",
+    "x": 486.7082,
+    "y": 10.4151,
+    "WGCNA_module": "black",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#000000"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "RPS6KA6",
+    "x": 380.2988,
+    "y": 32.1328,
+    "WGCNA_module": "black",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#000000"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "BRSK1",
+    "x": 648.2462,
+    "y": -213.4589,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "SPEG",
+    "x": 600.0947,
+    "y": 113.37,
+    "WGCNA_module": "black",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#000000"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "PAK3",
+    "x": 550.0629,
+    "y": -99.84,
+    "WGCNA_module": "black",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#000000"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "RPS6KA1",
+    "x": 9.7411,
+    "y": 997.9931,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "PRKACB",
+    "x": 841.4409,
+    "y": -484.9376,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "MAPK12",
+    "x": 591.8627,
+    "y": 386.6382,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "PRKCE",
+    "x": 482.2657,
+    "y": -140.5813,
+    "WGCNA_module": "black",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#000000"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "PRKACA",
+    "x": 493.4338,
+    "y": 153.5551,
+    "WGCNA_module": "black",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#000000"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "NTRK1",
+    "x": 432.2012,
+    "y": -50.7044,
+    "WGCNA_module": "black",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#000000"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "CAMK4",
+    "x": 311.2166,
+    "y": -27.7458,
+    "WGCNA_module": "black",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#000000"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "RPS6KL1",
+    "x": 635.5794,
+    "y": -58.5843,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "MAPK11",
+    "x": 737.0873,
+    "y": 148.7797,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "CDK20",
+    "x": -684.2705,
+    "y": -603.639,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "BRSK2",
+    "x": 700.2721,
+    "y": -153.0566,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "LMTK3",
+    "x": 785.3234,
+    "y": -43.7124,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "KSR2",
+    "x": 727.5151,
+    "y": 11.0175,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "MARK4",
+    "x": 376.5428,
+    "y": 370.8754,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "INSRR",
+    "x": 439.3578,
+    "y": 85.3173,
+    "WGCNA_module": "black",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#000000"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "MAST1",
+    "x": 622.9699,
+    "y": -138.5322,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "PAK5",
+    "x": 715.6287,
+    "y": -257.8743,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "CAMKK1",
+    "x": 655.0635,
+    "y": 173.5571,
+    "WGCNA_module": "black",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#000000"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "EPHA8",
+    "x": 526.1326,
+    "y": 79.9049,
+    "WGCNA_module": "black",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#000000"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "TAOK2",
+    "x": 795.1166,
+    "y": 76.0887,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "CAMK2B",
+    "x": 562.0434,
+    "y": -19.5591,
+    "WGCNA_module": "black",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#000000"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "STK32A",
+    "x": 141.9985,
+    "y": 998.0197,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "PCPG",
+    "name": "TTBK1",
+    "x": 779.2201,
+    "y": -130.2526,
+    "WGCNA_module": "green",
+    "Tumor_color": "#CD950C",
+    "WGCNA_hex": "#00FF00"
+  },
+  {
+    "Tumor": "READ",
+    "name": "ROCK2",
+    "x": -804.6797,
+    "y": 577.615,
+    "WGCNA_module": "greenyellow",
+    "Tumor_color": "#8B4513",
+    "WGCNA_hex": "#ADFF2F"
+  },
+  {
+    "Tumor": "READ",
+    "name": "NEK3",
+    "x": -808.8435,
+    "y": 461.6459,
+    "WGCNA_module": "greenyellow",
+    "Tumor_color": "#8B4513",
+    "WGCNA_hex": "#ADFF2F"
+  },
+  {
+    "Tumor": "READ",
+    "name": "EPHB2",
+    "x": -639.4093,
+    "y": 745.4329,
+    "WGCNA_module": "greenyellow",
+    "Tumor_color": "#8B4513",
+    "WGCNA_hex": "#ADFF2F"
+  },
+  {
+    "Tumor": "READ",
+    "name": "SRPK1",
+    "x": -526.4113,
+    "y": 574.5123,
+    "WGCNA_module": "greenyellow",
+    "Tumor_color": "#8B4513",
+    "WGCNA_hex": "#ADFF2F"
+  },
+  {
+    "Tumor": "READ",
+    "name": "CDK8",
+    "x": -683.1761,
+    "y": 593.4324,
+    "WGCNA_module": "greenyellow",
+    "Tumor_color": "#8B4513",
+    "WGCNA_hex": "#ADFF2F"
+  },
+  {
+    "Tumor": "READ",
+    "name": "STK38",
+    "x": -742.2589,
+    "y": 690.9614,
+    "WGCNA_module": "greenyellow",
+    "Tumor_color": "#8B4513",
+    "WGCNA_hex": "#ADFF2F"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "DDR2",
+    "x": 908.3025,
+    "y": 574.3576,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "CLK4",
+    "x": -818.9813,
+    "y": -678.4586,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "DMPK",
+    "x": 843.3572,
+    "y": 311.213,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "MYLK",
+    "x": 752.2793,
+    "y": 390.7565,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "PRKG2",
+    "x": 222.9608,
+    "y": 688.713,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "MOK",
+    "x": 152.8707,
+    "y": 897.679,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "ABL1",
+    "x": 1028.2667,
+    "y": 461.6907,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "ABL2",
+    "x": 224.7125,
+    "y": 585.405,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "NEK5",
+    "x": -561.9907,
+    "y": -858.6611,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "MAP3K19",
+    "x": -706.0689,
+    "y": -884.1235,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "AKT3",
+    "x": 437.1352,
+    "y": -239.1165,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "NEK1",
+    "x": 598.952,
+    "y": -354.653,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "ILK",
+    "x": 658.1738,
+    "y": 494.8754,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "EPHA4",
+    "x": 66.9723,
+    "y": 609.239,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "NEK11",
+    "x": -809.0899,
+    "y": -805.6141,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "DAPK2",
+    "x": 26.3667,
+    "y": 705.8926,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "TESK2",
+    "x": 395.1812,
+    "y": 959.3631,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "CDK2",
+    "x": 227.649,
+    "y": 444.2079,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "CLK1",
+    "x": -819.1611,
+    "y": -539.1338,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "DSTYK",
+    "x": 165.8899,
+    "y": 790.7924,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "FER",
+    "x": 645.312,
+    "y": -675.5964,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "TRIB2",
+    "x": 32.3529,
+    "y": 865.9949,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "PAK4",
+    "x": -992.3828,
+    "y": -519.2338,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "EPHA6",
+    "x": 324.3216,
+    "y": 756.8683,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "RPS6KB1",
+    "x": -573.7947,
+    "y": -82.248,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "SARC",
+    "name": "CAMKK2",
+    "x": 306.8443,
+    "y": 878.1024,
+    "WGCNA_module": "grey",
+    "Tumor_color": "#458B74",
+    "WGCNA_hex": "#BEBEBE"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "NEK2",
+    "x": -171.7672,
+    "y": 428.2648,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "ACVR1",
+    "x": -65.8231,
+    "y": 750.8702,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "PKMYT1",
+    "x": -387.7885,
+    "y": 386.8919,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "BUB1B",
+    "x": -314.0849,
+    "y": 356.665,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "PIM2",
+    "x": -341.362,
+    "y": 70.5328,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "PLK1",
+    "x": -317.1308,
+    "y": 452.0135,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "MAPKAPK5",
+    "x": -556.2485,
+    "y": 411.8307,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "AURKA",
+    "x": -424.6864,
+    "y": 539.7944,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "BUB1",
+    "x": -238.4907,
+    "y": 329.0004,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "GRK6",
+    "x": -371.3334,
+    "y": 196.2959,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "CHEK2",
+    "x": -386.1886,
+    "y": 295.8774,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "TTK",
+    "x": -248.2343,
+    "y": 408.8145,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "PBK",
+    "x": -373.2725,
+    "y": 601.1599,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "CSK",
+    "x": -220.5778,
+    "y": 150.1363,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "PKN3",
+    "x": -2.8682,
+    "y": 470.6241,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "PLK4",
+    "x": -226.3591,
+    "y": 486.5125,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "NRBP1",
+    "x": -534.9592,
+    "y": 47.4585,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "CDC7",
+    "x": -474.1681,
+    "y": 419.9533,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "RPS6KA2",
+    "x": -153.7474,
+    "y": 546.0502,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "MELK",
+    "x": -396.2321,
+    "y": 466.183,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "AURKB",
+    "x": -308.8107,
+    "y": 276.8234,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "PRKDC",
+    "x": -214.0186,
+    "y": 628.1675,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "STK35",
+    "x": -90.9453,
+    "y": 334.8896,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "BMPR2",
+    "x": -593.8405,
+    "y": 148.4319,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "PDK2",
+    "x": 88.2389,
+    "y": 293.3141,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "CDK1",
+    "x": -273.1755,
+    "y": 564.4774,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "VRK1",
+    "x": -452.5613,
+    "y": 338.5666,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "RIOK1",
+    "x": -491.038,
+    "y": 497.1878,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "CHEK1",
+    "x": -342.6023,
+    "y": 526.5984,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "TGCT",
+    "name": "TLK2",
+    "x": -473.189,
+    "y": 173.0619,
+    "WGCNA_module": "blue",
+    "Tumor_color": "#B22222",
+    "WGCNA_hex": "#0000FF"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "TYK2",
+    "x": -430.6181,
+    "y": -150.0215,
+    "WGCNA_module": "purple",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#A020F0"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "EPHB6",
+    "x": 42.7933,
+    "y": 12.5121,
+    "WGCNA_module": "purple",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#A020F0"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "ITK",
+    "x": -55.9345,
+    "y": -87.4472,
+    "WGCNA_module": "purple",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#A020F0"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "BLK",
+    "x": -229.1611,
+    "y": -372.7095,
+    "WGCNA_module": "purple",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#A020F0"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "ZAP70",
+    "x": -138.5332,
+    "y": 0.7804,
+    "WGCNA_module": "purple",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#A020F0"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "LCK",
+    "x": -59.1415,
+    "y": 71.0797,
+    "WGCNA_module": "purple",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#A020F0"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "DAPK3",
+    "x": -715.9566,
+    "y": -427.2351,
+    "WGCNA_module": "magenta",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#FF00FF"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "MAP2K2",
+    "x": -741.3793,
+    "y": -212.3418,
+    "WGCNA_module": "magenta",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#FF00FF"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "PRKCH",
+    "x": -298.0117,
+    "y": -55.2667,
+    "WGCNA_module": "purple",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#A020F0"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "PRKCQ",
+    "x": -183.594,
+    "y": -95.6847,
+    "WGCNA_module": "purple",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#A020F0"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "SYK",
+    "x": -68.4287,
+    "y": -338.2371,
+    "WGCNA_module": "purple",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#A020F0"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "CDK9",
+    "x": -945.6605,
+    "y": 233.7808,
+    "WGCNA_module": "magenta",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#FF00FF"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "STK11",
+    "x": -636.6194,
+    "y": -263.3697,
+    "WGCNA_module": "magenta",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#FF00FF"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "MAP4K1",
+    "x": -165.4021,
+    "y": -227.1904,
+    "WGCNA_module": "purple",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#A020F0"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "CSNK1G2",
+    "x": -621.3129,
+    "y": -391.232,
+    "WGCNA_module": "magenta",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#FF00FF"
+  },
+  {
+    "Tumor": "THYM",
+    "name": "MAP2K7",
+    "x": -799.6168,
+    "y": -317.8607,
+    "WGCNA_module": "magenta",
+    "Tumor_color": "#458B00",
+    "WGCNA_hex": "#FF00FF"
+  }
+]

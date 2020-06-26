@@ -92,8 +92,12 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 <script type="text/javascript"
         src="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.js"></script>
 <script type="text/javascript"
@@ -101,7 +105,7 @@
 
 <script type="text/javascript" src="https://kit.fontawesome.com/1295b553b3.js"></script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">en_US</script>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
@@ -121,6 +125,7 @@
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/results.js"></script>
 <script type="text/javascript" src="js/barchart.js"></script>
+<script type="text/javascript" src="js/global_network.js"></script>
 <script type="text/javascript" src="js/generate_clustergram.js"></script>
 <script type="text/javascript" src="static/hgnc_symbols.js"></script>
 

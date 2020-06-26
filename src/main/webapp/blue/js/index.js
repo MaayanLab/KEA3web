@@ -1,5 +1,4 @@
 function checkGeneList(data) {
-    console.log('index: function checkGeneList(data)');
     const genes = data.toUpperCase().split("\n").filter(Boolean);
     const uniq_genes = [...new Set(genes)];
     const intersect = uniq_genes.filter(value => hgnc.includes(value));
@@ -47,9 +46,6 @@ function submitList(){
         $.post(`${location.protocol}//${location.hostname}:${location.port}/kea3/api/enrich/`,
             JSON.stringify({"query_name": "gene_set_query", "gene_set": geneset}),
             function (results) {
-                // console.log(results['Integrated--topRank']);
-
-
                 drawIntegratedTable(results['Integrated--meanRank'], '#table-1-1', 'Mean rank');
                 drawIntegratedTable(results['Integrated--topRank'], '#table-1-2', 'Integrated scaled rank');
 
@@ -68,6 +64,7 @@ function submitList(){
 
                 $('#placeholder').hide();
                 $('#results').show();
+                location.hash = "#results";
                 stacked_chart(results['Integrated--meanRank'], '#bar-1-1')
                 chart(results['ChengKSIN'], '#bar-2-1');
                 chart(results['PTMsigDB'], '#bar-2-2');
@@ -82,6 +79,11 @@ function submitList(){
                 chart(results['ChengPPI'], '#bar-3-7');
 
                 chart(results['STRING'], '#bar-4-1');
+
+                scatter('#archs4-network', 'static/json/wgcna_archs4_annotated.json', 'WGCNA_module', results['Integrated--meanRank'])
+                scatter('#gtex-network', 'static/json/wgcna_gtex_annotated4.json', 'WGCNA_module')
+                scatter('#tcga-network', 'static/json/wgcna_tcga_annotated.json', 'WGCNA_module')
+
                 generateClustergram(results);
 
             })
