@@ -1,7 +1,8 @@
-scatter = (wrapper, json, color_by = 'WGCNA_module', library = [], top_n = 10) => {
-    let kinases = [];
-    library.slice(0, top_n).forEach(term => kinases.push(term.TF));
-    const k_set = new Set(kinases);
+scatter = (type) => {
+    const wrapper = `#${type}-network`;
+    const json = `static/json/wgcna_${type}_annotated.json`;
+    const k = kinases(results[network_mode[type].library]).slice(0, network_mode[type].num);
+    const color_by = network_mode[type].color_by;
     const height = 500;
     const width = 900;
     const margin = {top: 30, right: 50, bottom: 30, left: 50};
@@ -38,7 +39,7 @@ scatter = (wrapper, json, color_by = 'WGCNA_module', library = [], top_n = 10) =
                     .attr("cx", d => x(d.x))
                     .attr("cy", d => y(d.y))
                     .attr("r", 10)
-                    .attr("opacity", d => (k_set.has(d.name) ? 0.5 : 0))
+                    .attr("opacity", d => (k.includes(d.name) ? 0.5 : 0))
                     .style("fill", d => d[color_by])
             )
             .call(g =>

@@ -2,15 +2,19 @@
 <div class="row">
     <div class="col-10" style="display: block;">
         <div class="card">
-            <div class="btn-group btn-group-toggle card-header" data-toggle="buttons">
-                <label class="btn btn-sm btn-outline-primary active"
-                       onclick="scatter('#archs4-network', 'static/json/wgcna_archs4_annotated.json', 'WGCNA_module')">
-                    <input autocomplete="off" checked id="archs4_wgcna" name="archs4_annotation" type="radio">WGCNA
-                </label>
-                <label class="btn btn-sm btn-outline-primary"
-                       onclick="scatter('#archs4-network', 'static/json/wgcna_archs4_annotated.json', 'Tissue_color')">
-                    <input autocomplete="off" id="archs4_tissue" name="archs4_annotation" type="radio">Tissue
-                </label>
+            <div class="row">
+                <div class="col-3">
+                    <div class="btn-group btn-group-toggle card-header" data-toggle="buttons">
+                        <label class="btn btn-sm btn-outline-primary active"
+                               onclick="network_mode.archs4.color_by = 'WGCNA_module'; scatter('archs4');">
+                            <input autocomplete="off" checked id="archs4_wgcna" name="archs4_annotation" type="radio">WGCNA
+                        </label>
+                        <label class="btn btn-sm btn-outline-primary"
+                               onclick="network_mode.archs4.color_by = 'Tissue_color'; scatter('archs4')">
+                            <input autocomplete="off" id="archs4_tissue" name="archs4_annotation" type="radio">Tissue
+                        </label>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <svg id="archs4-network">
@@ -24,21 +28,25 @@
 <div class="row">
     <div class="col-10" style="display: block;">
         <div class="card">
-            <div class="btn-group btn-group-toggle card-header" data-toggle="buttons">
-                <label class="btn btn-sm btn-outline-primary active"
-                       onclick="scatter('#gtex-network', 'static/json/wgcna_gtex_annotated4.json', 'WGCNA_module')">
-                    <input autocomplete="off" checked id="gtex_wgcna" name="gtex_annotation" type="radio">WGCNA
-                </label>
-                <label class="btn btn-sm btn-outline-primary"
-                       onclick="scatter('#gtex-network', 'static/json/wgcna_gtex_annotated4.json', 'General_tissue_color')">
-                    <input autocomplete="off" id="gtex_specific_tissue" name="gtex_annotation" type="radio">General
-                    Tissue
-                </label>
-                <label class="btn btn-sm btn-outline-primary"
-                       onclick="scatter('#gtex-network', 'static/json/wgcna_gtex_annotated4.json', 'Specific_tissue_color')">
-                    <input autocomplete="off" id="gtex_general_tissue" name="gtex_annotation" type="radio">Specific
-                    tissue
-                </label>
+            <div class="row">
+                <div class="col-5">
+                    <div class="btn-group btn-group-toggle card-header" data-toggle="buttons">
+                        <label class="btn btn-sm btn-outline-primary active"
+                               onclick="network_mode.gtex.color_by = 'WGCNA_module'; scatter('gtex');">
+                            <input autocomplete="off" checked id="gtex_wgcna" name="gtex_annotation" type="radio">WGCNA
+                        </label>
+                        <label class="btn btn-sm btn-outline-primary"
+                               onclick="network_mode.gtex.color_by = 'General_tissue_color'; scatter('gtex');">
+                            <input autocomplete="off" id="gtex_specific_tissue" name="gtex_annotation" type="radio">General
+                            Tissue
+                        </label>
+                        <label class="btn btn-sm btn-outline-primary"
+                               onclick="network_mode.gtex.color_by='Specific_tissue_color'; scatter('gtex');">
+                            <input autocomplete="off" id="gtex_general_tissue" name="gtex_annotation" type="radio">Specific
+                            tissue
+                        </label>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <svg id="gtex-network">
@@ -52,15 +60,19 @@
 <div class="row">
     <div class="col-10" style="display: block;">
         <div class="card">
-            <div class="btn-group btn-group-toggle card-header" data-toggle="buttons">
-                <label class="btn btn-sm btn-outline-primary active"
-                       onclick="scatter('#tcga-network', 'static/json/wgcna_tcga_annotated.json', 'WGCNA_module')">
-                    <input autocomplete="off" checked id="tcga_wgcna" name="tcga_annotation" type="radio">WGCNA
-                </label>
-                <label class="btn btn-sm btn-outline-primary"
-                       onclick="scatter('#tcga-network', 'static/json/wgcna_tcga_annotated.json', 'Tumor_color')">
-                    <input autocomplete="off" id="tcga_tumor_color" name="tcga_annotation" type="radio">Tumor
-                </label>
+            <div class="row">
+                <div class="col-3">
+                    <div class="btn-group btn-group-toggle card-header" data-toggle="buttons">
+                        <label class="btn btn-sm btn-outline-primary active"
+                               onclick="network_mode.tcga.color_by = 'WGCNA_module'; scatter('tcga');">
+                            <input autocomplete="off" checked id="tcga_wgcna" name="tcga_annotation" type="radio">WGCNA
+                        </label>
+                        <label class="btn btn-sm btn-outline-primary"
+                               onclick="network_mode.tcga.color_by = 'Tumor_color'; scatter('tcga');">
+                            <input autocomplete="off" id="tcga_tumor_color" name="tcga_annotation" type="radio">Tumor
+                        </label>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <svg id="tcga-network">

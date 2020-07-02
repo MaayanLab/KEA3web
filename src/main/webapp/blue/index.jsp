@@ -122,12 +122,13 @@
     gtag('config', 'UA-6277639-43');
     $('[data-toggle="popover"]').popover();
 </script>
+<script type="text/javascript" src="static/hgnc_symbols.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/results.js"></script>
 <script type="text/javascript" src="js/barchart.js"></script>
 <script type="text/javascript" src="js/global_network.js"></script>
+<script type="text/javascript" src="js/graph.js"></script>
 <script type="text/javascript" src="js/generate_clustergram.js"></script>
-<script type="text/javascript" src="static/hgnc_symbols.js"></script>
 
 <script>
     $(document).ready(function () {

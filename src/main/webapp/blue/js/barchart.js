@@ -26,17 +26,17 @@ function split_libs(result){
     return vals
 }
 
-function stacked_chart(json, wrapper, numBar= 10) {
+function stacked_chart(json, wrapper, num= 10) {
     const data = d3
         .csvParse(
-            split_libs(json),
+            split_libs(json.slice(0, num)),
             (d, i, columns) => (
                 d3.autoType(d), (d.total = d3.sum(columns, c => d[c])), d
             )
         )
         .sort((a, b) => b.total - a.total);
 
-    const margin = ({top: 30, right: 10, bottom: 0, left: 30});
+    const margin = ({top: 30, right: 20, bottom: 50, left: 60});
     const height = data.length * 25 + margin.top + margin.bottom;
     const width = 500;
     const svg = d3.select(wrapper);
@@ -66,6 +66,8 @@ function stacked_chart(json, wrapper, numBar= 10) {
 
     let yAxis = g => g
         .attr("transform", `translate(${margin.left},0)`)
+        .style("font-size", "12px")
+        .style("font-family", "'Lucida Console', Monaco, monospace")
         .call(d3.axisLeft(y).tickSizeOuter(0))
         .call(g => g.selectAll(".domain").remove());
 
@@ -89,7 +91,7 @@ function stacked_chart(json, wrapper, numBar= 10) {
         .attr("width", d => x(d[1]) - x(d[0]))
         .attr("height", y.bandwidth())
         .append("title")
-        .text(d => `${d.data.name} ${d.key}${formatValue(d.data[d.key])}`);
+        .text(d => `${d.key}: ${formatValue(d.data[d.key])}`);
 
     svg.append("g").call(xAxis);
     svg.append("g").call(yAxis);
@@ -98,19 +100,19 @@ function stacked_chart(json, wrapper, numBar= 10) {
 
 }
 
-function chart(json, wrapper, color = "steelblue", numBar = 10, order = "pvalue") {
+function chart(json, wrapper, order = "pvalue", color = "steelblue", numBar = 10) {
     let data = json.map(d => ({
         "name": d['TF'],
-        "value": -Math.log10(parseFloat(d["FET p-value"])),
+        "value": order === "pvalue" ? -Math.log10(parseFloat(d["FET p-value"])): parseFloat(d["Score"]),
         "pvalue": parseFloat(d["FET p-value"]),
         "fdr": parseFloat(d["FDR"]),
         "odds": parseFloat(d["Odds Ratio"]),
         "scaled_Rank": parseFloat(d["Scaled Rank"]),
-        "mode": "pvalue",
+        "mode": order,
         "caption": "-log₁₀(p-value)"
     }));
 
-    data = data.slice(0, numBar).sort((a, b) => a.value - b.value);
+    data = data.sort((a, b) => b.value - a.value).slice(0, numBar);
     const margin = ({top: 30, right: 20, bottom: 50, left: 60});
     const height = data.length * 25 + margin.top + margin.bottom;
     const width = 500;
@@ -128,12 +130,7 @@ function chart(json, wrapper, color = "steelblue", numBar = 10, order = "pvalue"
         .attr("x", margin.left + (width - margin.left) / 2)
         .attr("y", height - margin.bottom + 40);
 
-    for (const item in data) {
-        data[item].value = data[item].pvalue;
-        data[item].mode = order
-    }
-    title.text("P-value");
-    // data.sort((a, b) => a.value - b.value);
+    title.text(order === "pvalue" ? "-log10(p-value)" : "Score");
 
     let x = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.value)])
