@@ -51,6 +51,13 @@
                     <div class="tab-pane fade show active" id="v-pills-index" role="tabpanel"
                          aria-labelledby="v-pills-index-tab">
                         <%@ include file="templates/form.html" %>
+                        <div class="row">
+                            <div class="col-12">
+                                <div id="results" style="display: none">
+                                    <%@ include file="templates/results.jsp" %>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-faq" role="tabpanel" aria-labelledby="v-pills-faq-tab">
                         <div id="faq" class="row faq">
@@ -74,13 +81,6 @@
                 <div class="col-12">
                     <div id="placeholder" style="display: none">
                         <%@ include file="templates/placeholder.html" %>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div id="results" style="display: none">
-                        <%@ include file="templates/results.jsp" %>
                     </div>
                 </div>
             </div>
