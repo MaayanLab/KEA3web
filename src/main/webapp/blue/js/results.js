@@ -1,7 +1,14 @@
 function drawTable(data, wrapper) {
+    let data_clean = [];
+    for (let k of data) {
+        if (k['Overlapping_Genes'] !== "") {
+            data_clean.push(k);
+        }
+    }
+
     $(wrapper).DataTable({
         width: '100%',
-        data: data,
+        data: data_clean,
         pagingType: "simple",
         columns: [
             {"mData": "Rank", "sTitle": "Rank"},
@@ -44,8 +51,15 @@ function drawTable(data, wrapper) {
 }
 
 function drawIntegratedTable(data, wrapper, score) {
+    let data_clean = [];
+    for (let k of data) {
+        if (k['Overlapping_Genes'] !== "") {
+            data_clean.push(k);
+        }
+    }
+
     $(wrapper).DataTable({
-        data: data,
+        data: data_clean,
         pagingType: "simple",
         columns: [
             {
