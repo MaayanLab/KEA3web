@@ -1,3 +1,23 @@
+function save_svg(){
+    saveSvgAsPng.svgAsDataUri(cur_modal.svg[0], {}, function(uri) {
+        downloadUri(uri, cur_modal.name + '.svg');
+    })
+}
+
+function save_png() {
+    saveSvgAsPng.svgAsPngUri(cur_modal.svg[0], {}, function(uri) {
+        downloadUri(uri, cur_modal.name + '.png');
+    })
+}
+
+function downloadUri(uri, filename) {
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", uri);
+    downloadAnchorNode.setAttribute("download", filename);
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+}
+
 function drawTable(data, wrapper) {
     let data_clean = [];
     for (let k of data) {

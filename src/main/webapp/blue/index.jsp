@@ -102,6 +102,7 @@
         src="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.js"></script>
 <script type="text/javascript"
         src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
+<script type="text/javascript" src="js/save-svg-as-png/lib/saveSvgAsPng.js"></script>
 
 <script type="text/javascript" src="https://kit.fontawesome.com/1295b553b3.js"></script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
