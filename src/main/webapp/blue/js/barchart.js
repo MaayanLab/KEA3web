@@ -130,7 +130,7 @@ function chart(json, wrapper, order = "pvalue", color = "steelblue", numBar = 10
         .attr("x", margin.left + (width - margin.left) / 2)
         .attr("y", height - margin.bottom + 40);
 
-    title.text(order === "pvalue" ? "-log10(p-value)" : "Score");
+    title.text(order === "pvalue" ? decodeURIComponent("%E2%88%92log%E2%82%81%E2%82%80(p%E2%80%90value)") : "Score");
 
     let x = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.value)])
@@ -168,12 +168,6 @@ function chart(json, wrapper, order = "pvalue", color = "steelblue", numBar = 10
     svg.selectAll(".domain")
         .attr("opacity", 0);
 
-    // Trim long labels
-    const yLabels = data.map(d => d.name.length);
-    const maxAvgLen = Math.floor(((Math.min(...yLabels) + Math.max(...yLabels)) / 2));
-    const avgLabel = maxAvgLen < 40 ? maxAvgLen : 40;
-    gy.text(d => trimLabel(d, avgLabel));
-
     const bar = svg.append("g")
         .attr("fill", color)
         .selectAll("rect")
@@ -188,7 +182,7 @@ function chart(json, wrapper, order = "pvalue", color = "steelblue", numBar = 10
         .attr("fill", "black")
         .attr("opacity", 0.8)
         .attr("text-anchor", "start")
-        .style("font-size", "12px")
+        .style("font-size", "10px")
         .style("font-family", "'Lucida Console', Monaco, monospace")
         .selectAll("text")
         .data(data)
@@ -196,13 +190,6 @@ function chart(json, wrapper, order = "pvalue", color = "steelblue", numBar = 10
         .attr("x", x(0) + 10)
         .attr("y", d => y(d.name) + y.bandwidth() / 2)
         .attr("dy", "0.35em")
-        .text(d => d.mode === "pvalue" ? d3.format(".3")(d.pvalue) : d3.format(".3")(d.value));
+        .text(d => order === "pvalue" ? decodeURIComponent(`%E2%88%92log%E2%82%81%E2%82%80(${d3.format(".3")(d.pvalue)})`) : d3.format(".3")(d.value));
     return svg.node();
-}
-
-function trimLabel(label, avgLen) {
-    if (label.length > avgLen) {
-        return `${label.slice(0, avgLen - 1)}…`
-    } else if (label.length < avgLen) return label.padEnd(avgLen, '\xa0')
-    else return label
 }
