@@ -99,8 +99,16 @@ function submitList() {
                 chart(results['STRING'], '#bar-4-1');
 
                 scatter('archs4', kinases(results['Integrated--meanRank']))
+                drawLegend('archs4', "Tissue_legend", tissue);
+
                 scatter('gtex', kinases(results['Integrated--meanRank']))
+                drawLegend('gtex', "general_tissue_legend", general_tissue);
+                // drawLegend("specific_tissue_legend", specific_tissue);
+                // drawLegend("GO_legend", GO_enrichment);
+
                 scatter('tcga', kinases(results['Integrated--meanRank']))
+                drawLegend('tcga', "Tumor_legend", tumor);
+
 
                 graph('Integrated--meanRank', '#graph-1-1')
                 graph('Integrated--topRank', '#graph-1-2', 'Score');

@@ -70,3 +70,60 @@ scatter = (type) => {
         return svg.node();
     });
 }
+
+function drawLegend(type, legend_id, legend_data) {
+    const height = 500;
+    const width = 900;
+    const g = d3.select(`#${type}-network`)
+    const legend = g.append("g")
+        .attr("class", "legend")
+        .attr("id", legend_id)
+        .attr("x", width - 100)
+        .attr("y", height)
+        .attr("height", 100)
+        .attr("width", 100)
+        .attr("class", "hidden")
+        .style("pointer-events", "none");
+
+    legend.selectAll('g').data(legend_data)
+        .enter()
+        .append('g')
+        .each(function (d, i) {
+            const g = d3.select(this);
+            g.append("rect")
+                .attr("x", width - 118)
+                .attr("y", i * 15)
+                .attr("width", 10)
+                .attr("height", 10)
+                .style("stroke-width", 1)
+                .style("stroke", "white")
+                .style("fill", function (d) {
+                    return d.color
+                });
+
+            g.append("text")
+                .attr("x", width - 105)
+                .attr("y", i * 15 + 10)
+                .attr("height", 10)
+                .attr("width", 100)
+                .style("fill", "white")
+                .style("font-size", "10pt")
+                .style("stroke-width", "0.4em")
+                .style("stroke", "white")
+                .text(function (d) {
+                    return d.term
+                });
+
+            g.append("text")
+                .attr("x", width - 105)
+                .attr("y", i * 15 + 10)
+                .attr("height", 10)
+                .attr("width", 100)
+                .style("fill", "black")
+                .style("stroke-opacity", 1)
+                .style("font-size", "10pt")
+                .text(function (d) {
+                    return d.term
+                });
+        });
+}

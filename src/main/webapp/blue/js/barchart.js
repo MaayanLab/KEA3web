@@ -41,8 +41,7 @@ function stacked_chart(json, wrapper, num= 10) {
     const width = 500;
     const svg = d3.select(wrapper);
     const series = d3.stack()
-        .keys(data.columns.slice(1))
-        (data)
+        .keys(data.columns.slice(1))(data)
         .map(d => (d.forEach(v => v.key = d.key), d));
 
     const x = d3.scaleLinear()
@@ -73,9 +72,7 @@ function stacked_chart(json, wrapper, num= 10) {
 
     let formatValue = x => isNaN(x) ? "N/A" : x.toLocaleString("en");
 
-    svg.attr("width", width)
-        .attr("height", height)
-        .attr("viewBox", [0, 0, width, height])
+    svg.attr("viewBox", [0, 0, width, height])
         .attr("class", "barchart");
 
     svg.append("g")
@@ -117,9 +114,7 @@ function chart(json, wrapper, order = "pvalue", color = "steelblue", numBar = 10
     const height = data.length * 25 + margin.top + margin.bottom;
     const width = 500;
     const svg = d3.select(wrapper);
-    svg.attr("width", width)
-        .attr("height", height)
-        .attr("viewBox", [0, 0, width, height])
+    svg.attr("viewBox", [0, 0, width, height])
         .attr("class", "barchart");
 
     const title = svg.append("text")

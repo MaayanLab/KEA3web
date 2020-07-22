@@ -124,6 +124,7 @@
     $('[data-toggle="popover"]').popover();
 </script>
 <script type="text/javascript" src="static/hgnc_symbols.js"></script>
+<script type="text/javascript" src="static/tissue_legends.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/results.js"></script>
 <script type="text/javascript" src="js/barchart.js"></script>
