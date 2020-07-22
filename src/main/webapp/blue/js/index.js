@@ -5,7 +5,6 @@ let network_mode = ({
 });
 
 let graph_mode = ({library: 'Integrated--meanRank', num: 10});
-
 let results;
 
 function checkGeneList(data) {
@@ -57,6 +56,30 @@ function kinases(results, num = results.length) {
     return kinases;
 }
 
+function drawAllScatters(library='Integrated--meanRank'){
+    network_mode.archs4.library = library;
+    network_mode.gtex.library = library;
+    network_mode.tcga.library = library;
+    scatter('archs4')
+    drawLegend('archs4', "Tissue_legend", tissue);
+
+    scatter('gtex')
+    drawLegend('gtex', "general_tissue_legend", general_tissue);
+    // drawLegend("specific_tissue_legend", specific_tissue);
+    // drawLegend("GO_legend", GO_enrichment);
+
+    scatter('tcga')
+    drawLegend('tcga', "Tumor_legend", tumor);
+}
+
+function drawAllTables(){
+
+}
+
+function drawAllBarcharts() {
+
+}
+
 function submitList() {
     $('#placeholder').show();
     const geneset = [...new Set($('#genelist').val().toUpperCase().split(/\n/))].filter(value => hgnc.includes(value));
@@ -98,17 +121,7 @@ function submitList() {
                 chart(results['ChengPPI'], '#bar-3-7');
                 chart(results['STRING'], '#bar-4-1');
 
-                scatter('archs4', kinases(results['Integrated--meanRank']))
-                drawLegend('archs4', "Tissue_legend", tissue);
-
-                scatter('gtex', kinases(results['Integrated--meanRank']))
-                drawLegend('gtex', "general_tissue_legend", general_tissue);
-                // drawLegend("specific_tissue_legend", specific_tissue);
-                // drawLegend("GO_legend", GO_enrichment);
-
-                scatter('tcga', kinases(results['Integrated--meanRank']))
-                drawLegend('tcga', "Tumor_legend", tumor);
-
+                drawAllScatters();
 
                 graph('Integrated--meanRank', '#graph-1-1')
                 graph('Integrated--topRank', '#graph-1-2', 'Score');

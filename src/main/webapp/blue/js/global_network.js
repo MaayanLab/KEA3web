@@ -120,7 +120,7 @@ function drawLegend(type, legend_id, legend_data) {
                 .attr("height", 10)
                 .attr("width", 100)
                 .style("fill", "black")
-                .style("stroke-opacity", 1)
+                .style("stroke-opacity", 0)
                 .style("font-size", "10pt")
                 .text(function (d) {
                     return d.term
