@@ -3,6 +3,14 @@ graph = (library, wrapper) => {
     const width = 500;
     const k = kinases(results[library], graph_mode.num)
 
+    const markerBoxWidth = 10;
+    const markerBoxHeight = 10;
+    const refX = 30;
+    const refY = 5;
+    const markerWidth = markerBoxWidth / 2;
+    const markerHeight = markerBoxHeight / 2;
+    const arrowPoints = [[0, 0], [0, 10], [10, 5]];
+
     const link_strength = 0.1;
     const charge_strength = 500;
     const r_mult = 4;
@@ -12,6 +20,20 @@ graph = (library, wrapper) => {
         .attr("height", height)
         .attr("viewBox", [-width / 2, -height / 2, width, height])
         .attr("class", "graph");
+
+    const marker = svg
+        .append('defs')
+        .append('marker')
+        .attr('id', 'arrow')
+        .attr('viewBox', [0, 0, markerBoxWidth, markerBoxHeight])
+        .attr('refX', refX)
+        .attr('refY', refY)
+        .attr('markerWidth', markerWidth)
+        .attr('markerHeight', markerHeight)
+        .attr('orient', 'auto-start-reverse')
+        .append('path')
+        .attr('d', d3.line()(arrowPoints))
+        .attr('fill', '#999');
 
     // This json should be loaded in index.js _synchronously_ before calling graph(kinases)
     d3.json('static/json/KEA3_coreg_sub_network.json').then(function (data) {
@@ -60,7 +82,8 @@ graph = (library, wrapper) => {
             .selectAll("line")
             .data(links)
             .join("line")
-            .attr("stroke-width", 1.5);
+            .attr("stroke-width", 1.5)
+            .attr('marker-start', 'url(#arrow)');
 
         const node = svg
             .append("g")
