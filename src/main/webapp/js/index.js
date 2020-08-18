@@ -1,11 +1,11 @@
-let network_mode = ({
+network_mode = ({
     archs4: ({color_by: 'WGCNA_module', num: 10, library: 'Integrated--meanRank'}),
     gtex: ({color_by: 'WGCNA_module', num: 10, library: 'Integrated--meanRank'}),
     tcga: ({color_by: 'WGCNA_module', num: 10, library: 'Integrated--meanRank'})
 });
 
-let graph_mode = ({library: 'Integrated--meanRank', num: 10});
-let results;
+graph_mode = ({library: 'Integrated--meanRank', num: 10});
+results = {};
 
 function checkGeneList(data) {
     const genes = data.toUpperCase().split("\n").filter(Boolean);
