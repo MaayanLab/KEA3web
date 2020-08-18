@@ -16,7 +16,7 @@
 
     <!-- Custom CSS -->
 
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="dist/css/index.css"/>
 
     <meta property="og:type" content="website"/>
     <meta property="og:image" content="static/thumbnail.png"/>
@@ -42,7 +42,7 @@
                 <a class="nav-link" id="v-pills-download-tab" data-toggle="pill" href="#v-pills-download" role="tab"
                    aria-controls="v-pills-download" aria-selected="false">Download libraries</a>
             </div>
-            <%@ include file="templates/footer.html" %>
+            <%@ include file="footer.html" %>
         </div>
         <!--  Content  -->
         <div class="col-10">
@@ -50,29 +50,29 @@
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-index" role="tabpanel"
                          aria-labelledby="v-pills-index-tab">
-                        <%@ include file="templates/form.html" %>
+                        <%@ include file="form.html" %>
                         <div class="row">
                             <div class="col-12">
                                 <div id="results" style="display: none">
-                                    <%@ include file="templates/results.jsp" %>
+                                    <%@ include file="results.jsp" %>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-faq" role="tabpanel" aria-labelledby="v-pills-faq-tab">
                         <div id="faq" class="row faq">
-                            <%@ include file="templates/faq.html" %>
+                            <%@ include file="faq.html" %>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-api" role="tabpanel" aria-labelledby="v-pills-api-tab">
                         <div id="api" class="row api">
-                            <%@ include file="templates/api.html" %>
+                            <%@ include file="api.html" %>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-download" role="tabpanel"
                          aria-labelledby="v-pills-download-tab">
                         <div id="libraries" class="row libraries">
-                            <%@ include file="templates/libraries.html" %>
+                            <%@ include file="libraries.html" %>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-12">
                     <div id="placeholder" style="display: none">
-                        <%@ include file="templates/placeholder.html" %>
+                        <%@ include file="placeholder.html" %>
                     </div>
                 </div>
             </div>
@@ -124,12 +124,12 @@
 </script>
 <script type="text/javascript" src="static/hgnc_symbols.js"></script>
 <script type="text/javascript" src="static/tissue_legends.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/results.js"></script>
-<script type="text/javascript" src="js/barchart.js"></script>
-<script type="text/javascript" src="js/global_network.js"></script>
-<script type="text/javascript" src="js/graph.js"></script>
-<script type="text/javascript" src="js/generate_clustergram.js"></script>
+<script type="text/javascript" src="dist/js/index.js"></script>
+<script type="text/javascript" src="dist/js/results.js"></script>
+<script type="text/javascript" src="dist/js/barchart.js"></script>
+<script type="text/javascript" src="dist/js/global_network.js"></script>
+<script type="text/javascript" src="dist/js/graph.js"></script>
+<script type="text/javascript" src="dist/js/generate_clustergram.js"></script>
 <script type="text/javascript" src="https://kit.fontawesome.com/1295b553b3.js"></script>
 
 <script>
