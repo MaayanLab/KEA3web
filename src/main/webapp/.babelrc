@@ -1,0 +1,17 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["> 5%", "ie >= 11"]
+      },
+      "modules": false,
+      "useBuiltIns": true,
+      "loose": true
+    }]
+  ],
+  "plugins": [
+    "transform-remove-strict-mode",
+    "transform-react-jsx",
+    "transform-runtime"
+  ]
+}
