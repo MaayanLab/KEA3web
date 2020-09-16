@@ -33,12 +33,10 @@ function drawTable(data, wrapper) {
         data: data_clean,
         pagingType: "simple",
         dom: 'lfrtiBp',
-        buttons: [
-            {
-                extend: 'csvHtml5',
-                // filename: 'Test',
-                // text: '<i class="fas fa-download" title="Download SVG"></i>SVG'
-            }],
+        buttons: [{
+            extend: 'csvHtml5',
+            text: '<i class="fas fa-download" title="Download SVG"></i>CSV'
+        }],
         columns: [
             {"mData": "Rank", "sTitle": "Rank"},
             {
@@ -91,7 +89,10 @@ function drawIntegratedTable(data, wrapper, score) {
         data: data_clean,
         pagingType: "simple",
         dom: 'lfrtiBp',
-        buttons: ['csvHtml5'],
+        buttons: [{
+            extend: 'csvHtml5',
+            text: '<i class="fas fa-download" title="Download SVG"></i>CSV'
+        }],
         columns: [
             {
                 "mData": "Rank",
