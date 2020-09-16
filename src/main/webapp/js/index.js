@@ -91,18 +91,18 @@ function submitList() {
                 drawIntegratedTable(results['Integrated--meanRank'], '#table-1-1', 'Mean rank');
                 drawIntegratedTable(results['Integrated--topRank'], '#table-1-2', 'Integrated scaled rank');
 
-                drawTable(results['ChengKSIN'], '#table-2-1');
-                drawTable(results['PTMsigDB'], '#table-2-2');
-                drawTable(results['PhosDAll'], '#table-2-3');
+                drawTable(results['ChengKSIN'], '#table-2-1', 'ChengKSIN');
+                drawTable(results['PTMsigDB'], '#table-2-2', 'PTMsigDB');
+                drawTable(results['PhosDAll'], '#table-2-3', 'PhosDAll');
 
-                drawTable(results['prePPI'], '#table-3-1');
-                drawTable(results['BioGRID'], '#table-3-2');
-                drawTable(results['mentha'], '#table-3-3');
-                drawTable(results['MINT'], '#table-3-4');
-                drawTable(results['HIPPIE'], '#table-3-5');
-                drawTable(results['STRING.bind'], '#table-3-6');
-                drawTable(results['ChengPPI'], '#table-3-7');
-                drawTable(results['STRING'], '#table-4-1');
+                drawTable(results['prePPI'], '#table-3-1', 'prePPI');
+                drawTable(results['BioGRID'], '#table-3-2', 'BioGRID');
+                drawTable(results['mentha'], '#table-3-3', 'mentha');
+                drawTable(results['MINT'], '#table-3-4', 'MINT');
+                drawTable(results['HIPPIE'], '#table-3-5', 'HIPPIE');
+                drawTable(results['STRING.bind'], '#table-3-6', 'STRING.bind');
+                drawTable(results['ChengPPI'], '#table-3-7', 'ChengPPI');
+                drawTable(results['STRING'], '#table-4-1', 'STRING');
 
                 $('#placeholder').hide();
                 $('#results').show();

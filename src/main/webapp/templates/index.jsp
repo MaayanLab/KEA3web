@@ -15,7 +15,6 @@
           href="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.3/b-html5-1.6.3/datatables.min.css"/>
 
     <!-- Custom CSS -->
-
     <link rel="stylesheet" type="text/css" href="dist/css/index.css"/>
 
     <meta property="og:type" content="website"/>

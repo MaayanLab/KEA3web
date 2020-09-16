@@ -77,11 +77,11 @@ input[type="file"] {
     margin: 0 0.5em 0 0;
 }
 
-.button-dt {
-    padding: 0 !important;
+.dt-button {
+    padding: 3px 10px !important;
     border-radius: 10px 10px !important;
     border: none !important;
-    cursor: pointer!important;
     background-color: #007bff73 !important;
     color: #FFF9F1 !important;
+    margin: 10px !important;
 }

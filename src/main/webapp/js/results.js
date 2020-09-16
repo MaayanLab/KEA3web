@@ -20,7 +20,7 @@ function downloadUri(uri, filename) {
     downloadAnchorNode.remove();
 }
 
-function drawTable(data, wrapper) {
+function drawTable(data, wrapper, name) {
     let data_clean = [];
     for (let k of data) {
         if (k['Overlapping_Genes'] !== "") {
@@ -32,10 +32,11 @@ function drawTable(data, wrapper) {
         width: '100%',
         data: data_clean,
         pagingType: "simple",
-        dom: 'lfrtiBp',
+        dom: 'lfrtipB',
         buttons: [{
             extend: 'csvHtml5',
-            text: '<i class="fas fa-download" title="Download SVG"></i>CSV'
+            text: '<i class="fas fa-download" title="Download CSV"></i>CSV',
+            filename: name
         }],
         columns: [
             {"mData": "Rank", "sTitle": "Rank"},
@@ -88,10 +89,11 @@ function drawIntegratedTable(data, wrapper, score) {
     $(wrapper).DataTable({
         data: data_clean,
         pagingType: "simple",
-        dom: 'lfrtiBp',
+        dom: 'lfrtipB',
         buttons: [{
             extend: 'csvHtml5',
-            text: '<i class="fas fa-download" title="Download SVG"></i>CSV'
+            text: '<i class="fas fa-download" title="Download CSV"></i>CSV',
+            filename: score
         }],
         columns: [
             {
