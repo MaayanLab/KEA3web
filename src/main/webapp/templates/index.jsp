@@ -12,7 +12,7 @@
 
 
     <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.css"/>
+          href="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.3/b-html5-1.6.3/datatables.min.css"/>
 
     <!-- Custom CSS -->
 
@@ -99,7 +99,7 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 <script type="text/javascript"
-        src="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.js"></script>
+        src="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.3/b-html5-1.6.3/datatables.min.js"></script>
 <script type="text/javascript"
         src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
 

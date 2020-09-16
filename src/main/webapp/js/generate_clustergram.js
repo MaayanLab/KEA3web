@@ -56,7 +56,7 @@ function generateClustergram(kea_results, top_tfs = 5) {
     formData.append('file', blob, 'kea_clustergram.txt');
 
     let request = new XMLHttpRequest();
-    request.open('POST', 'https://amp.pharm.mssm.edu/clustergrammer/matrix_upload/');
+    request.open('POST', 'https://maayanlab.cloud/clustergrammer/matrix_upload/');
     request.send(formData);
 
     request.onreadystatechange = function () {

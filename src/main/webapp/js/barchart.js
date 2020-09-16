@@ -1,4 +1,4 @@
-function split_libs(result){
+function split_libs(result, threshold = 3){
     let vals = 'name,BioGRID,ChengKSIN,ChengPPI,HIPPIE,mentha,MINT,PhosDAll,prePPI,PTMsigDB,STRING,STRING.bind';
     for (let kin of result) {
         let lib_vals = {
@@ -17,11 +17,16 @@ function split_libs(result){
         let kinase = kin['TF']; // lol
         let libstring = kin['Library']
         let libs = libstring.split(';');
+        let non_z_counter = 0;
         for (let l of libs) {
             const nv = l.split(',');
             lib_vals[nv[0]] = parseInt(nv[1]);
+            if (parseInt(nv[1])){non_z_counter++;}
+
         }
-        vals = `${vals}\n${kinase},${lib_vals["BioGRID"]},${lib_vals["ChengKSIN"]},${lib_vals["ChengPPI"]},${lib_vals["HIPPIE"]},${lib_vals["mentha"]},${lib_vals["MINT"]},${lib_vals["PhosDAll"]},${lib_vals["prePPI"]},${lib_vals["PTMsigDB"]},${lib_vals["STRING"]},${lib_vals["STRING.bind"]}`;
+        if (non_z_counter >= threshold) {
+            vals = `${vals}\n${kinase},${lib_vals["BioGRID"]},${lib_vals["ChengKSIN"]},${lib_vals["ChengPPI"]},${lib_vals["HIPPIE"]},${lib_vals["mentha"]},${lib_vals["MINT"]},${lib_vals["PhosDAll"]},${lib_vals["prePPI"]},${lib_vals["PTMsigDB"]},${lib_vals["STRING"]},${lib_vals["STRING.bind"]}`;
+        }
     }
     return vals
 }
@@ -35,7 +40,6 @@ function stacked_chart(json, wrapper, num= 10) {
             )
         )
         .sort((a, b) => b.total - a.total);
-
     const margin = ({top: 30, right: 20, bottom: 50, left: 60});
     const height = data.length * 25 + margin.top + margin.bottom;
     const width = 500;

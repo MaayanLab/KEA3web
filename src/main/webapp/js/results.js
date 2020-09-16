@@ -32,11 +32,18 @@ function drawTable(data, wrapper) {
         width: '100%',
         data: data_clean,
         pagingType: "simple",
+        dom: 'lfrtiBp',
+        buttons: [
+            {
+                extend: 'csvHtml5',
+                // filename: 'Test',
+                // text: '<i class="fas fa-download" title="Download SVG"></i>SVG'
+            }],
         columns: [
             {"mData": "Rank", "sTitle": "Rank"},
             {
                 "mData": "TF", "sTitle": "Protein", "mRender": function (x) {
-                    return `<a href="https://amp.pharm.mssm.edu/Harmonizome/gene/${x}" target="_blank">${x}</a>`
+                    return `<a href="https://maayanlab.cloud/Harmonizome/gene/${x}" target="_blank">${x}</a>`
                 }
             },
             {
@@ -45,7 +52,7 @@ function drawTable(data, wrapper) {
                 "mRender": function (data, type, row, meta) {
                     let geneLinks = [];
                     $.each(row['Overlapping_Genes'].split(',').sort(), function (index, gene) {
-                        geneLinks.push(`<a class="gene-link" href="https://amp.pharm.mssm.edu/Harmonizome/gene/${gene}" target="_blank">${gene}</a>`);
+                        geneLinks.push(`<a class="gene-link" href="https://maayanlab.cloud/Harmonizome/gene/${gene}" target="_blank">${gene}</a>`);
                     });
                     return $('<div>', {
                         'class': 'popover-button',
@@ -83,6 +90,8 @@ function drawIntegratedTable(data, wrapper, score) {
     $(wrapper).DataTable({
         data: data_clean,
         pagingType: "simple",
+        dom: 'lfrtiBp',
+        buttons: ['csvHtml5'],
         columns: [
             {
                 "mData": "Rank",
@@ -92,7 +101,7 @@ function drawIntegratedTable(data, wrapper, score) {
                 "mData": "TF",
                 "sTitle": "Protein",
                 "mRender": function (x) {
-                    return `<a href="https://amp.pharm.mssm.edu/Harmonizome/gene/${x}" target="_blank">${x}</a>`
+                    return `<a href="https://maayanlab.cloud/Harmonizome/gene/${x}" target="_blank">${x}</a>`
                 }
             },
             {
@@ -126,7 +135,7 @@ function drawIntegratedTable(data, wrapper, score) {
                 "mRender": function (data, type, row, meta) {
                     let geneLinks = [];
                     $.each(row['Overlapping_Genes'].split(',').sort(), function (index, gene) {
-                        geneLinks.push(`<a class="gene-link" href="https://amp.pharm.mssm.edu/Harmonizome/gene/${gene}" target="_blank">${gene}</a>`);
+                        geneLinks.push(`<a class="gene-link" href="https://maayanlab.cloud/Harmonizome/gene/${gene}" target="_blank">${gene}</a>`);
                     });
                     return $('<div>', {
                         'class': 'popover-button',

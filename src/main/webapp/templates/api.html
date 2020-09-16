@@ -15,9 +15,9 @@
     <ol>
         <li><strong>Command-line Example</strong> - The following returns results from all KEA3
             libraries in JSON format:
-            <pre style="width: 100%; overflow-x: scroll; white-space: nowrap">$ curl -d '{"query_name":"myQuery", "gene_set":["FOXM1","SMAD9","MYC","SMAD3","STAT1","STAT3"]}' -H 'Content-Type: application/json' https://amp.pharm.mssm.edu/kea3/api/enrich/</pre>
+            <pre style="width: 100%; overflow-x: scroll; white-space: nowrap">$ curl -d '{"query_name":"myQuery", "gene_set":["FOXM1","SMAD9","MYC","SMAD3","STAT1","STAT3"]}' -H 'Content-Type: application/json' https://maayanlab.cloud/kea3/api/enrich/</pre>
             Redirect the JSON-formatted results to a file:
-            <pre style="width: 100%; overflow-x: scroll; white-space: nowrap">$ curl -d '{"query_name":"myQuery", "gene_set":["FOXM1","SMAD9","MYC","SMAD3","STAT1","STAT3"]}' -H 'Content-Type: application/json' https://amp.pharm.mssm.edu/kea3/api/enrich/ > results.json</pre>
+            <pre style="width: 100%; overflow-x: scroll; white-space: nowrap">$ curl -d '{"query_name":"myQuery", "gene_set":["FOXM1","SMAD9","MYC","SMAD3","STAT1","STAT3"]}' -H 'Content-Type: application/json' https://maayanlab.cloud/kea3/api/enrich/ > results.json</pre>
         </li>
         <li><strong>R Example</strong>
             <pre>
@@ -25,7 +25,7 @@ library(httr)
 library(jsonlite)
 
 genes = c("SMAD9","FOXO1","MYC","STAT1",'STAT3',"SMAD3")
-url = "https://amp.pharm.mssm.edu/kea3/api/enrich/"
+url = "https://maayanlab.cloud/kea3/api/enrich/"
 encode = "json"
 payload = list(query_name = "myQuery", gene_set = genes)
 
