@@ -81,7 +81,7 @@ input[type="file"] {
     padding: 3px 10px !important;
     border-radius: 10px 10px !important;
     border: none !important;
-    background-color: #007bff73 !important;
-    color: #FFF9F1 !important;
+    background-color: #fff !important;
+    color: #000 !important;
     margin: 10px !important;
 }
