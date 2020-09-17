@@ -9,16 +9,16 @@ function generateClustergram(kea_results, top_tfs = 5) {
         if (key.indexOf('Integrated') === -1) {
             for (let i = 0; i < top_tfs; i++) {
                 // Value
-                const chea_result = value[i];
+                const kea_result = value[i];
                 const library = key.split('--')[0];
                 // Rows
-                $.each(chea_result['Overlapping_Genes'].split(','), function (index, gene) {
+                $.each(kea_result['Overlapping_Genes'].split(','), function (index, gene) {
                     genes.add(gene);
                 });
                 // Column labels
-                tfs.push('Kinase: ' + library + '-' + chea_result['Rank'].padStart(2, '0') + '-' + chea_result['TF']);
+                tfs.push('Kinase: ' + library + '-' + kea_result['Rank'].toString().padStart(2, '0') + '-' + kea_result['TF']);
                 libraries.push('Library: ' + library);
-                ranks.push('Rank: ' + chea_result['Rank']);
+                ranks.push('Rank: ' + kea_result['Rank']);
             }
         }
     });
