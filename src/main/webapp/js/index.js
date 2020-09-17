@@ -80,6 +80,17 @@ function drawAllBarcharts() {
 
 }
 
+function convertRanks(res) {
+    res['FDR'] = parseFloat(res['FDR']);
+    res['FET p-value'] = parseFloat(res['FET p-value']);
+    res['Intersect'] = parseInt(res['Intersect']);
+    res['Odds Ratio'] = parseFloat(res['Odds Ratio']);
+    res['Rank'] = parseFloat(res['Rank']);
+    res['Scaled Rank'] = parseFloat(res['Scaled Rank']);
+    res['Set length'] = parseFloat(res['Set length']);
+    return res
+}
+
 function submitList() {
     $('#placeholder').show();
     const geneset = [...new Set($('#genelist').val().toUpperCase().split(/\n/))].filter(value => hgnc.includes(value));
@@ -88,35 +99,29 @@ function submitList() {
             JSON.stringify({"query_name": "gene_set_query", "gene_set": geneset}),
             function (r) {
                 results = r;
-                let integrated = {
-                    'Integrated--meanRank': results['Integrated--meanRank'].forEach((res) => {
-                        res['Rank'] = parseInt(res['Rank']);
-                        res['Score'] = parseFloat(res['Score']);
-                        console.log(res);
-                        return res;
-                    }),
-                    'Integrated--topRank': results['Integrated--topRank'].forEach((res) => {
-                        res['Rank'] = parseInt(res['Rank']);
-                        res['Score'] = parseFloat(res['Score']);
-                        return res;
-                    })
-                };
+                results['Integrated--meanRank'].forEach(res => {
+                    res['Rank'] = parseInt(res['Rank']);
+                    res['Score'] = parseFloat(res['Score']);
+                    return res;
+                });
+                results['Integrated--topRank'].forEach(res => {
+                    res['Rank'] = parseInt(res['Rank']);
+                    res['Score'] = parseFloat(res['Score']);
+                    return res;
+                });
+                results['ChengKSIN'].forEach(res => convertRanks(res));
+                results['PTMsigDB'].forEach(res => convertRanks(res));
+                results['PhosDAll'].forEach(res => convertRanks(res));
+                results['prePPI'].forEach(res => convertRanks(res));
+                results['BioGRID'].forEach(res => convertRanks(res));
+                results['mentha'].forEach(res => convertRanks(res));
+                results['MINT'].forEach(res => convertRanks(res));
+                results['HIPPIE'].forEach(res => convertRanks(res));
+                results['STRING.bind'].forEach(res => convertRanks(res));
+                results['ChengPPI'].forEach(res => convertRanks(res));
+                results['STRING'].forEach(res => convertRanks(res));
 
-                let enrichment_results = {
-                    'ChengKSIN': results['ChengKSIN'],
-                    'PTMsigDB': results['PTMsigDB'],
-                    'PhosDAll': results['PhosDAll'],
-                    'prePPI': results['prePPI'],
-                    'BioGRID': results['BioGRID'],
-                    'mentha': results['mentha'],
-                    'MINT': results['MINT'],
-                    'HIPPIE': results['HIPPIE'],
-                    'STRING.bind': results['STRING.bind'],
-                    'ChengPPI': results['ChengPPI'],
-                    'STRING': results['STRING']
-                }
-
-                console.log(integrated)
+                console.log(results);
 
                 drawIntegratedTable(results['Integrated--meanRank'], '#table-1-1', 'Mean rank');
                 drawIntegratedTable(results['Integrated--topRank'], '#table-1-2', 'Integrated scaled rank');
@@ -167,7 +172,8 @@ function submitList() {
                 graph('STRING', '#graph-4-1');
 
                 generateClustergram(results);
-            })
+            }
+        )
     }
     return false;
 }

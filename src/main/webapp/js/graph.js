@@ -3,6 +3,7 @@ graph = (library, wrapper) => {
     const width = 500;
     const k = kinases(results[library], graph_mode.num)
 
+    // Arrow ends
     const markerBoxWidth = 10;
     const markerBoxHeight = 10;
     const refX = 30;
@@ -18,7 +19,7 @@ graph = (library, wrapper) => {
     const svg = d3.select(wrapper).html(null)
         .attr("width", width)
         .attr("height", height)
-        .attr("viewBox", [-width / 2, -height / 2, width, height])
+        .attr("viewBox", [0, 0, width, height])
         .attr("class", "graph");
 
     const marker = svg
@@ -72,8 +73,8 @@ graph = (library, wrapper) => {
             )
             .force("charge", d3.forceManyBody().strength(-charge_strength))
             .force("collide", d3.forceCollide(d => Math.floor(Math.sqrt(r_mult))))
-            .force("x", d3.forceX())
-            .force("y", d3.forceY());
+            .force("x", d3.forceX(width/2))
+            .force("y", d3.forceY(height/2));
 
         const link = svg
             .append("g")
