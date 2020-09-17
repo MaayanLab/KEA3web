@@ -1,13 +1,13 @@
 var saveSvgAsPng = require('save-svg-as-png');
 
-function save_svg(svg, name){
-    saveSvgAsPng.svgAsDataUri(svg, {}, function(uri) {
+function save_svg(svg, name) {
+    saveSvgAsPng.svgAsDataUri(svg, {}, function (uri) {
         downloadUri(uri, `${name}.svg`);
     })
 }
 
 function save_png(svg, name) {
-    saveSvgAsPng.svgAsPngUri(svg, {}, function(uri) {
+    saveSvgAsPng.svgAsPngUri(svg, {}, function (uri) {
         downloadUri(uri, `${name}.png`);
     })
 }
@@ -135,23 +135,27 @@ function drawIntegratedTable(data, wrapper, score) {
             {
                 "mData": "Overlapping_Genes",
                 "sTitle": "Overlapping Genes",
-                "mRender": function (data, type, row, meta) {
+                "mRender": function (data, type, row) {
                     let geneLinks = [];
                     $.each(row['Overlapping_Genes'].split(',').sort(), function (index, gene) {
                         geneLinks.push(`<a class="gene-link" href="https://maayanlab.cloud/Harmonizome/gene/${gene}" target="_blank">${gene}</a>`);
                     });
-                    return $('<div>', {
-                        'class': 'popover-button',
-                        'data-toggle': 'popover',
-                        'data-placement': 'right',
-                        'data-trigger': 'focus',
-                        'data-html': 'true',
-                        'data-template': '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
-                        'title': 'Genes',
-                        'data-content': `${geneLinks.slice(0, 20).join(" ")}`
-                    }).append(
-                        `<span tabindex="-1" style="cursor: pointer;text-decoration: underline dotted;">${row['Overlapping_Genes'].length} genes </span>`,
-                    ).prop('outerHTML')
+                    console.log(geneLinks);
+                    return `<button type="button" class="btn btn-outline-primary overlap-button" data-toggle="modal" data-target="#exampleModal">
+                            <span tabindex="-1" style="cursor: pointer;text-decoration: underline dotted;">${row['Overlapping_Genes'].length} genes </span>
+                        </button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-body">
+                                ${geneLinks}
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-outline-primary" data-dismiss="modal">Copy genes</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>`;
                 }
             }
         ],

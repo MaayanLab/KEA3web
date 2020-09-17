@@ -109,6 +109,7 @@ function submitList() {
                     res['Score'] = parseFloat(res['Score']);
                     return res;
                 });
+
                 results['ChengKSIN'].forEach(res => convertRanks(res));
                 results['PTMsigDB'].forEach(res => convertRanks(res));
                 results['PhosDAll'].forEach(res => convertRanks(res));

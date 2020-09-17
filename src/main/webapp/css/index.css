@@ -85,3 +85,8 @@ input[type="file"] {
     color: #000 !important;
     margin: 10px !important;
 }
+
+.overlap-button {
+    border: none !important;
+    padding: 0 !important;
+}
