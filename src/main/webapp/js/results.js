@@ -35,8 +35,11 @@ function drawTable(data, wrapper, name) {
         dom: 'lfrtipB',
         buttons: [{
             extend: 'csvHtml5',
-            text: '<i class="fas fa-download" title="Download CSV"></i>CSV',
-            filename: name
+            text: '<i class="fas fa-download" title="Download TSV"></i>.tsv',
+            filename: name,
+            fieldSeparator: '\t',
+            extension: '.tsv',
+            fieldBoundary: ''
         }],
         columns: [
             {"mData": "Rank", "sTitle": "Rank"},
@@ -92,8 +95,11 @@ function drawIntegratedTable(data, wrapper, score) {
         dom: 'lfrtipB',
         buttons: [{
             extend: 'csvHtml5',
-            text: '<i class="fas fa-download" title="Download CSV"></i>CSV',
-            filename: score
+            text: '<i class="fas fa-download" title="Download TSV"></i>.tsv',
+            filename: score,
+            fieldSeparator: '\t',
+            extension: '.tsv',
+            fieldBoundary: ''
         }],
         columns: [
             {
