@@ -77,8 +77,16 @@ function drawTable(data, wrapper, name) {
                     ).prop('outerHTML')
                 }
             },
-            {"mData": "FET p-value", "sTitle": "FET p-value"},
-            {"mData": "FDR", "sTitle": "FDR"},
+            {
+                "mData": "FET p-value",
+                "sTitle": "FET p-value",
+                "mRender": (data, type, row) => row['FET p-value'] < 0.01 ? row['FET p-value'].toExponential(2) : row['FET p-value'].toFixed(3)
+            },
+            {
+                "mData": "FDR",
+                "sTitle": "FDR",
+                "mRender": (data, type, row) => row['FDR'] < 0.01 ? row['FDR'].toExponential(2) : row['FDR'].toFixed(3)
+            },
             {"mData": "Odds Ratio", "sTitle": "Odds Ratio"}
         ],
         columnDefs: [
