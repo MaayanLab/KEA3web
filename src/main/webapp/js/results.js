@@ -39,7 +39,10 @@ function drawTable(data, wrapper, name) {
             filename: name,
             fieldSeparator: '\t',
             extension: '.tsv',
-            fieldBoundary: ''
+            fieldBoundary: '',
+            exportOptions: {
+                columns: [ 0, 2, 4, 5, 6]
+            }
         }],
         columns: [
             {"mData": "Rank", "sTitle": "Rank"},
@@ -50,8 +53,12 @@ function drawTable(data, wrapper, name) {
             },
             {
                 "mData": "Overlapping_Genes",
+                "sTitle": "Overlapping Genes"
+            },
+            {
+                "mData": "Overlapping_Genes",
                 "sTitle": "Overlapping Genes",
-                "mRender": function (data, type, row, meta) {
+                "mRender": function (data, type, row) {
                     let geneLinks = [];
                     $.each(row['Overlapping_Genes'].split(',').sort(), function (index, gene) {
                         geneLinks.push(`<a class="gene-link" href="https://maayanlab.cloud/Harmonizome/gene/${gene}" target="_blank">${gene}</a>`);
@@ -73,6 +80,12 @@ function drawTable(data, wrapper, name) {
             {"mData": "FET p-value", "sTitle": "FET p-value"},
             {"mData": "FDR", "sTitle": "FDR"},
             {"mData": "Odds Ratio", "sTitle": "Odds Ratio"}
+        ],
+        columnDefs: [
+            {
+                "targets": [ 2 ],
+                "visible": false
+            }
         ],
         drawCallback: function () {
             $('.popover-button').popover();
@@ -99,7 +112,10 @@ function drawIntegratedTable(data, wrapper, score) {
             filename: score,
             fieldSeparator: '\t',
             extension: '.tsv',
-            fieldBoundary: ''
+            fieldBoundary: '',
+            exportOptions: {
+                columns: [ 0, 1, 2, 4]
+            }
         }],
         columns: [
             {
@@ -112,6 +128,10 @@ function drawIntegratedTable(data, wrapper, score) {
                 "mRender": function (x) {
                     return `<a href="https://maayanlab.cloud/Harmonizome/gene/${x}" target="_blank">${x}</a>`
                 }
+            },
+            {
+                "mData": "Score",
+                "sTitle": score
             },
             {
                 "mData": "Score",
@@ -140,6 +160,10 @@ function drawIntegratedTable(data, wrapper, score) {
             },
             {
                 "mData": "Overlapping_Genes",
+                "sTitle": "Overlapping Genes"
+            },
+            {
+                "mData": "Overlapping_Genes",
                 "sTitle": "Overlapping Genes",
                 "mRender": function (data, type, row, meta) {
                     let geneLinks = [];
@@ -159,6 +183,12 @@ function drawIntegratedTable(data, wrapper, score) {
                         `<span tabindex="-1" style="cursor: pointer;text-decoration: underline dotted;">${row['Overlapping_Genes'].split(',').length} genes </span>`,
                     ).prop('outerHTML')
                 }
+            }
+        ],
+        columnDefs: [
+            {
+                "targets": [ 2, 4 ],
+                "visible": false
             }
         ],
         drawCallback: function () {
