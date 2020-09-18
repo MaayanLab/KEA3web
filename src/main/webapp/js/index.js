@@ -110,6 +110,7 @@ function submitList() {
                     return res;
                 });
 
+                // TODO Don't be an idiot and use Object.entries
                 results['ChengKSIN'].forEach(res => convertRanks(res));
                 results['PTMsigDB'].forEach(res => convertRanks(res));
                 results['PhosDAll'].forEach(res => convertRanks(res));
@@ -121,8 +122,6 @@ function submitList() {
                 results['STRING.bind'].forEach(res => convertRanks(res));
                 results['ChengPPI'].forEach(res => convertRanks(res));
                 results['STRING'].forEach(res => convertRanks(res));
-
-                console.log(results);
 
                 drawIntegratedTable(results['Integrated--meanRank'], '#table-1-1', 'Mean rank');
                 drawIntegratedTable(results['Integrated--topRank'], '#table-1-2', 'Integrated scaled rank');
