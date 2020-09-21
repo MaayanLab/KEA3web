@@ -76,6 +76,11 @@ graph = (library, wrapper) => {
             .force("x", d3.forceX(width/2))
             .force("y", d3.forceY(height/2));
 
+        const tooltip = d3.select("body").append("div")
+            .attr("class", "svg-tooltip")
+            .style("position", "absolute")
+            .style("visibility", "hidden");
+
         const link = svg
             .append("g")
             .attr("stroke", "#999")
@@ -84,7 +89,16 @@ graph = (library, wrapper) => {
             .data(links)
             .join("line")
             .attr("stroke-width", 1.5)
-            .attr('marker-start', 'url(#arrow)');
+            .attr('marker-start', 'url(#arrow)')
+            .on("mouseover", function(d){
+                return tooltip.style("visibility", "visible").text(`Kinase substrate evidence: ${d.kinase_substrate_evidence}\nPPI evidence: ${d.ppi_evidence}`);
+            })
+            .on("mousemove", function(){
+                return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
+            })
+            .on("mouseout", function(){
+                return tooltip.style("visibility", "hidden");
+            });
 
         const node = svg
             .append("g")
