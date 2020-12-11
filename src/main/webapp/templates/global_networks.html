@@ -1,5 +1,6 @@
 <div class="dropdown">
-    <button class="btn btn-sm btn-outline-primary dropdown-toggle mt-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-sm btn-outline-primary dropdown-toggle mt-3" type="button" id="dropdownMenuButton"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Select a library
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -24,7 +25,7 @@
         <div class="card">
             <div class="row">
                 <div class="col-3">
-                    <div class="btn-group btn-group-toggle card-header" data-toggle="buttons">
+                    <div class="btn-group btn-group-toggle card-header" data-toggle="buttons" style="background-color: white">
                         <label class="btn btn-sm btn-outline-primary active"
                                onclick="hide_legend('',['']); network_mode.archs4.color_by = 'WGCNA_module'; scatter('archs4');">
                             <input autocomplete="off" checked id="archs4_wgcna" name="archs4_annotation" type="radio">WGCNA
@@ -50,7 +51,7 @@
         <div class="card">
             <div class="row">
                 <div class="col-5">
-                    <div class="btn-group btn-group-toggle card-header" data-toggle="buttons">
+                    <div class="btn-group btn-group-toggle card-header" data-toggle="buttons" style="background-color: white">
                         <label class="btn btn-sm btn-outline-primary active"
                                onclick='hide_legend("general_tissue_legend", ["specific_tissue_legend", "GO_legend"]); network_mode.gtex.color_by = "WGCNA_module"; scatter("gtex");'>
                             <input autocomplete="off" checked id="gtex_wgcna" name="gtex_annotation" type="radio">WGCNA
@@ -82,7 +83,7 @@
         <div class="card">
             <div class="row">
                 <div class="col-3">
-                    <div class="btn-group btn-group-toggle card-header" data-toggle="buttons">
+                    <div class="btn-group btn-group-toggle card-header" data-toggle="buttons" style="background-color: white">
                         <label class="btn btn-sm btn-outline-primary active"
                                onclick="hide_legend('Tumor_legend',['']); network_mode.tcga.color_by = 'WGCNA_module'; scatter('tcga');">
                             <input autocomplete="off" checked id="tcga_wgcna" name="tcga_annotation" type="radio">WGCNA
