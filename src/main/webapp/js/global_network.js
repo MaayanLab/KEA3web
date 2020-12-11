@@ -127,3 +127,8 @@ function drawLegend(type, legend_id, legend_data) {
                 });
         });
 }
+
+function hide_legend(show_legend_id, hide_legend_ids) {
+    $(`#{show_legend_id}`).show();
+    hide_legend_ids.forEach(legend_id => $(`#${legend_id}`).hide());
+}

@@ -26,11 +26,11 @@
                 <div class="col-3">
                     <div class="btn-group btn-group-toggle card-header" data-toggle="buttons">
                         <label class="btn btn-sm btn-outline-primary active"
-                               onclick="network_mode.archs4.color_by = 'WGCNA_module'; scatter('archs4');">
+                               onclick="hide_legend('',['']); network_mode.archs4.color_by = 'WGCNA_module'; scatter('archs4');">
                             <input autocomplete="off" checked id="archs4_wgcna" name="archs4_annotation" type="radio">WGCNA
                         </label>
                         <label class="btn btn-sm btn-outline-primary"
-                               onclick="network_mode.archs4.color_by = 'Tissue_color'; scatter('archs4')">
+                               onclick="hide_legend('Tissue_legend',['']); network_mode.archs4.color_by = 'Tissue_color'; scatter('archs4')">
                             <input autocomplete="off" id="archs4_tissue" name="archs4_annotation" type="radio">Tissue
                         </label>
                     </div>
@@ -52,16 +52,16 @@
                 <div class="col-5">
                     <div class="btn-group btn-group-toggle card-header" data-toggle="buttons">
                         <label class="btn btn-sm btn-outline-primary active"
-                               onclick="network_mode.gtex.color_by = 'WGCNA_module'; scatter('gtex');">
+                               onclick='hide_legend("general_tissue_legend", ["specific_tissue_legend", "GO_legend"]); network_mode.gtex.color_by = "WGCNA_module"; scatter("gtex");'>
                             <input autocomplete="off" checked id="gtex_wgcna" name="gtex_annotation" type="radio">WGCNA
                         </label>
                         <label class="btn btn-sm btn-outline-primary"
-                               onclick="network_mode.gtex.color_by = 'General_tissue_color'; scatter('gtex');">
+                               onclick='hide_legend("specific_tissue_legend",["general_tissue_legend", "GO_legend"]); network_mode.gtex.color_by = "General_tissue_color"; scatter("gtex");'>
                             <input autocomplete="off" id="gtex_specific_tissue" name="gtex_annotation" type="radio">General
                             Tissue
                         </label>
                         <label class="btn btn-sm btn-outline-primary"
-                               onclick="network_mode.gtex.color_by='Specific_tissue_color'; scatter('gtex');">
+                               onclick='hide_legend("GO_legend",["general_tissue_legend", "specific_tissue_legend"]); network_mode.gtex.color_by="Specific_tissue_color"; scatter("gtex");'>
                             <input autocomplete="off" id="gtex_general_tissue" name="gtex_annotation" type="radio">Specific
                             tissue
                         </label>
@@ -84,11 +84,11 @@
                 <div class="col-3">
                     <div class="btn-group btn-group-toggle card-header" data-toggle="buttons">
                         <label class="btn btn-sm btn-outline-primary active"
-                               onclick="network_mode.tcga.color_by = 'WGCNA_module'; scatter('tcga');">
+                               onclick="hide_legend('Tumor_legend',['']); network_mode.tcga.color_by = 'WGCNA_module'; scatter('tcga');">
                             <input autocomplete="off" checked id="tcga_wgcna" name="tcga_annotation" type="radio">WGCNA
                         </label>
                         <label class="btn btn-sm btn-outline-primary"
-                               onclick="network_mode.tcga.color_by = 'Tumor_color'; scatter('tcga');">
+                               onclick="hide_legend('',['']); network_mode.tcga.color_by = 'Tumor_color'; scatter('tcga');">
                             <input autocomplete="off" id="tcga_tumor_color" name="tcga_annotation" type="radio">Tumor
                         </label>
                     </div>
