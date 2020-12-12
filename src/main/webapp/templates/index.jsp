@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!-- Required meta tags -->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="static/logo.png" type="image/x-icon">
 
@@ -23,68 +23,33 @@
 <body>
 
 <div class="container-fluid">
-    <div class="row">
-        <!--  Logo and nav  -->
-        <div class="col-2 align-self-start mh-100" style="background-color: #dfe8f7; padding-right: 0; padding-left: 0">
-            <div class="nav flex-column nav-pills pb-5 ml-4 mt-3" id="v-pills-tab" role="tablist"
-                 aria-orientation="vertical">
-                <a class="nav-link active" id="v-pills-index-tab" data-toggle="pill" href="#v-pills-index" role="tab"
-                   aria-controls="v-pills-index" aria-selected="false">
-                    <div id="logo">
-                        <h3>Kinase<br/>Enrichment<br/>Analysis<br/>version 3</h3>
-                    </div>
-                </a>
-                <a class="nav-link" id="v-pills-faq-tab" data-toggle="pill" href="#v-pills-faq" role="tab"
-                   aria-controls="v-pills-faq" aria-selected="false">FAQ</a>
-                <a class="nav-link" id="v-pills-api-tab" data-toggle="pill" href="#v-pills-api" role="tab"
-                   aria-controls="v-pills-api" aria-selected="false">API</a>
-                <a class="nav-link" id="v-pills-download-tab" data-toggle="pill" href="#v-pills-download" role="tab"
-                   aria-controls="v-pills-download" aria-selected="false">Download libraries</a>
-            </div>
-            <%@ include file="footer.html" %>
-        </div>
-        <!--  Content  -->
-        <div class="col-10">
-            <div class="row">
-                <div class="tab-content" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="v-pills-index" role="tabpanel"
-                         aria-labelledby="v-pills-index-tab">
-                        <%@ include file="form.html" %>
-                        <div class="row">
-                            <div class="col-12">
-                                <div id="results" style="display: none">
-                                    <%@ include file="results.jsp" %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-faq" role="tabpanel" aria-labelledby="v-pills-faq-tab">
-                        <div id="faq" class="row faq">
-                            <%@ include file="faq.html" %>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-api" role="tabpanel" aria-labelledby="v-pills-api-tab">
-                        <div id="api" class="row api">
-                            <%@ include file="api.html" %>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="v-pills-download" role="tabpanel"
-                         aria-labelledby="v-pills-download-tab">
-                        <div id="libraries" class="row libraries">
-                            <%@ include file="libraries.html" %>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div id="placeholder" style="display: none">
-                        <%@ include file="placeholder.html" %>
-                    </div>
-                </div>
+    <!--  Logo and nav  -->
+    <div class="row justify-content-center">
+        <div class="col-8 pl-0">
+            <div id="logo">
+                <p>Kinase Enrichment Analysis version 3</p>
             </div>
         </div>
     </div>
+    <div class="row justify-content-center">
+        <!--  Content  -->
+        <div class="col-8">
+            <div class="row">
+                <%@ include file="form.html" %>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <%@ include file="results.jsp" %>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div id="placeholder" style="display: none">
+                <%@ include file="placeholder.html" %>
+            </div>
+        </div>
+    </div>
+    <%@ include file="footer.html" %>
 </div>
 
 

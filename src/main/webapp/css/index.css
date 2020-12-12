@@ -7,26 +7,12 @@ body {
     color: #46546A;
 }
 
-.nav-pills .nav-link {
-    border-radius: 0;
-}
-
-.nav-link {
-    padding: .5rem;
-}
-
-.nav-pills .nav-link.active {
-    background-color: #f8f7f2;
-    color: #3871C8;
-}
-
 #logo {
     color: #3871C8;
-    padding: 0.5rem;
-    width: 165px;
     font-family: 'Helvetica Neue', 'Arial', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     margin: 1rem 1rem 1rem 0;
+    font-size: 2rem;
 }
 
 th {

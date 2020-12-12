@@ -1,4 +1,4 @@
-<div class="col-12 hidden">
+<div id="results" style="display: none" class="col-10">
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-tables-tab" data-toggle="tab" href="#nav-tables" role="tab"
