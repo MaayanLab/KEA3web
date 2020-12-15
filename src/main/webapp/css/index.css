@@ -33,6 +33,26 @@ input[type="file"] {
     color: #FFF9F1;
 }
 
+.url-button {
+    display: inline-block;
+    border-radius: 10px 10px;
+    border: none;
+    padding: 3px 12px;
+    cursor: pointer;
+    background-color: #E3E3E3;
+    color: #007bff;
+}
+
+.github-button {
+    display: inline-block;
+    border-radius: 10px 10px;
+    border: none;
+    padding: 1px 12px 2px 12px;
+    cursor: pointer;
+    background-color: #55555573;
+    color: #FFF9F1;
+}
+
 .gene-link {
     background-color: #FBE5CC;
     color: #24243a;

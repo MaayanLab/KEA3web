@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="static/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/kea3/static/KEA3_logo_transparent.png" type="image/x-icon">
 
     <!-- Bootstrap & DT CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -23,20 +23,11 @@
 <body>
 
 <div class="container-fluid">
-    <!--  Logo and nav  -->
-    <div class="row justify-content-center">
-        <div class="col-8 pl-0">
-            <div id="logo">
-                <p>Kinase Enrichment Analysis version 3</p>
-            </div>
-        </div>
-    </div>
+    <%@ include file="header.html" %>
     <div class="row justify-content-center">
         <!--  Content  -->
         <div class="col-8">
-            <div class="row">
                 <%@ include file="form.html" %>
-            </div>
         </div>
     </div>
     <div class="row justify-content-center">

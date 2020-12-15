@@ -4,22 +4,23 @@
     <!-- Required meta tags -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="static/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/kea3/static/KEA3_logo_transparent.png" type="image/x-icon">
 
-    <!-- Bootstrap & DT CSS -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="dist/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/kea3/dist/css/index.css"/>
 
     <meta property="og:type" content="website"/>
-    <meta property="og:image" content="static/thumbnail.png"/>
+    <meta property="og:image" content="/kea3/static/thumbnail.png"/>
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12 about__content m-4 mt-5">
+    <%@ include file="header.html" %>
+    <div class="row justify-content-center">
+        <div class="col-8 about__content">
             <h3 class="text-muted">About KEA</h3>
 
             <p>Protein kinases are enzymes that catalyze the transfer of a phosphate group from ATP to another protein
@@ -300,6 +301,7 @@
                 correlated tissue type.</p>
         </div>
     </div>
+    <%@ include file="footer.html" %>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>

@@ -1,12 +1,11 @@
-<form>
-    <div class="form-group">
-        <div class="row">
-            <div class="col-8">
+<div class="row">
+    <div class="col-lg-6 col-md-8 col-sm-8">
+        <form>
                 <textarea class="form-control form-control-sm mt-2" id="genelist" rows="12" name="text-genes"
                           placeholder="Input gene list"></textarea>
 
+            <div class="my-2">
                 <span id="genecheck" style="color: darkgrey; font-size: 0.9rem;">0 symbols entered, 0 duplicates, 0 valid symbols</span>
-
                 <span data-container="body" data-toggle="popover"
                       data-placement="right" data-trigger="hover"
                       data-title="What gene symbols are accepted?"
@@ -15,24 +14,24 @@
                       data-html="true">
                             <i class="far fa-question-circle" style="color: darkgrey; font-size: 0.9rem;"></i>
                         </span>
-                <p>
-                    <a class="custom-button" href="#" role="button" id="submit-genelist"
-                       onclick="submitList();">Submit</a>
-                    <label for="file-upload" class="custom-button">
-                        <i class="fas fa-file-upload"></i>
-                        Upload gene list
-                    </label><input id="file-upload" type="file" accept=".txt"/>
-                    <button type="button" class="custom-button" id="example-genelist" onclick="insertExample();"><i
-                            class="fas fa-align-justify"></i> Input an example
-                    </button>
-                </p>
             </div>
-            <div class="col-4">
-                <p><span style="font-weight: 600">Kinase Enrichment Analysis 3 (KEA3)</span> infers upstream kinases
-                    whose putative substrates are
-                    overrepresented in a user-inputted list of genes or differentially phosphorylated proteins.
-                </p>
-            </div>
-        </div>
+            <p>
+                <a class="custom-button" href="#" role="button" id="submit-genelist"
+                   onclick="submitList();">Submit</a>
+                <button type="button" class="custom-button" id="example-genelist" onclick="insertExample();"><i
+                        class="fas fa-align-justify"></i> Input an example
+                </button>
+                <label for="file-upload" class="custom-button">
+                    <i class="fas fa-file-upload"></i>
+                    Upload gene list
+                </label><input id="file-upload" type="file" accept=".txt"/>
+            </p>
+        </form>
     </div>
-</form>
+    <div class="col-lg-6 col-md-4 col-8">
+        <p><span style="font-weight: 600">Kinase Enrichment Analysis 3 (KEA3)</span> infers upstream kinases
+            whose putative substrates are
+            overrepresented in a user-inputted list of genes or differentially phosphorylated proteins.
+        </p>
+    </div>
+</div>
