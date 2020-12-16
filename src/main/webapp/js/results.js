@@ -33,6 +33,7 @@ function drawTable(data, wrapper, name) {
         data: data_clean,
         pagingType: "simple",
         dom: 'lfrtipB',
+        responsive: true,
         buttons: [{
             extend: 'csvHtml5',
             text: '<i class="fas fa-download" title="Download TSV"></i>.tsv',
