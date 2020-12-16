@@ -17,8 +17,8 @@ graph = (library, wrapper) => {
     const r_mult = 4;
 
     const svg = d3.select(wrapper).html(null)
-        .attr("width", width)
-        .attr("height", height)
+        // .attr("width", width)
+        // .attr("height", height)
         .attr("viewBox", [0, 0, width, height])
         .attr("class", "graph");
 

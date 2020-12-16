@@ -30,6 +30,7 @@ input[type="file"] {
     cursor: pointer;
     background-color: #007bff73;
     color: #FFF9F1;
+    margin-top: .25rem;
 }
 
 .url-button {

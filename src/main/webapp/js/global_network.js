@@ -8,8 +8,8 @@ scatter = (type) => {
     const margin = {top: 30, right: 50, bottom: 30, left: 50};
 
     const svg = d3.select(wrapper).html(null)
-        .attr("width", width)
-        .attr("height", height)
+        // .attr("width", width)
+        // .attr("height", height)
         .attr("viewBox", [0, 0, width, height])
         .attr("class", "global-network");
 
