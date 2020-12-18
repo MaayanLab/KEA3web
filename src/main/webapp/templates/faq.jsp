@@ -20,9 +20,9 @@
 <div class="container-fluid">
     <%@ include file="header.html" %>
     <div class="row justify-content-center">
-        <div class="col-8 about__content">
-            <h3 class="text-muted">About KEA</h3>
-
+        <div class="col-7 about__content">
+            <h3>Frequently asked questions</h3>
+            <h4 class="mt-3">What is enrichment of kinase substrates?</h4>
             <p>Protein kinases are enzymes that catalyze the transfer of a phosphate group from ATP to another protein
                 on a
                 threonine, a serine, or a tyrosine residue. The reversible addition of a phosphate group to a protein
@@ -42,7 +42,9 @@
                 substrates in a
                 set of differentially phosphorylated proteins can serve as a marker of the activity of the upstream
                 kinases,
-                thus providing insights into physiological and pathophysiological mechanisms. Kinase Enrichment Analysis
+                thus providing insights into physiological and pathophysiological mechanisms.</p>
+            <h4 class="mt-3">What is KEA?</h4>
+            <p>Kinase Enrichment Analysis
                 3
                 (KEA3) infers upstream kinases whose putative substrates are overrepresented in a user-inputted list of
                 genes or
@@ -54,101 +56,85 @@
                 supersets of
                 kinase substrate sets that are aggregated based on the database from which they are derived.</p>
 
-            <p><strong>Library Construction</strong></p>
+            <h4>How librares are constructed?</h4>
             <p> All protein and gene symbols were mapped to 2019 HGNC-approved gene symbols using the custom R package
-                <a
-                        href="https://github.com/MaayanLab/genesetr">genesetr</a>. Gene or protein symbols that could
-                not be mapped
-                using synonym or alias matching were discarded. The set of 520 unique <a
-                        href="https://www.genenames.org/">HGNC-mappable</a>
-                human protein kinases used for KEA3 are derived from <a
+                <a href="https://github.com/MaayanLab/genesetr">genesetr</a>. Gene or protein symbols that could
+                not be mapped using synonym or alias matching were discarded. The set of 520 unique <a
+                        href="https://www.genenames.org/">HGNC-mappable</a> human protein kinases used for KEA3 are
+                derived from <a
                         href="https://www.ncbi.nlm.nih.gov/pubmed/12471243">Manning
                     et al.</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/17557329">Miranda-Saavedra and Barton</a>,
                 and the
                 <a href="https://druggablegenome.net/">Illuminating the Druggable Genome</a> (IDG) project.
             </p>
 
-            <p><i>Kinase-substrate interactions</i></p>
-            <p>Kinase-substrated interactions were collected from <a
-                    href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4116514/#SD5" target="_blank">Cheng <i>et al.</i></a>,
-                <a
-                        href="https://omictools.com/phosd-tool">PhosD</a>, and <a
-                        href="http://prot-shiny-vm.broadinstitute.org:3838/ptmsigdb-app/" target="_blank">PTMsigDB</a>
-                to generate
-                the <i>Cheng.KSIN</i>, <i>PhosD.All</i>, and <i>PTMsigDB</i> KEA3 libraries, respectively. The <a
-                        href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4116514/#SD5" target="_blank">Cheng <i>et
-                    al.</i></a>kinase-substrate
-                interaction network (KSIN) dataset incorporates human kinase-substrate interactions from the <a href="">Phospho.ELM</a>,<a
+            <h5 style="font-weight: 400;">Kinase-substrate interactions libraries</h5>
+            <p>
+            <ul>
+                <li>
+                    The <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4116514/#SD5" target="_blank">Cheng <i>et
+                    al. </i></a>kinase-substrate interaction network (KSIN) dataset incorporates human kinase-substrate
+                    interactions from the <a href="">Phospho.ELM</a>, <a
                         href="https://genome.cshlp.org/content/13/10/2363.full.html">HPRD</a>, <a
-                        href="https://phosphonetworks.org/">PhosphoNetworks</a>, and<a
-                        href="https://www.phosphosite.org/homeAction.action">PhosphoSitePlus</a> databases.<a
-                        href="http://prot-shiny-vm.broadinstitute.org:3838/ptmsigdb-app/" target="_blank">PTMsigDB</a>contains
-                a
-                collection of kinase phosphorylation signatures derived from <a
-                        href="https://www.phosphosite.org/homeAction.action">PhosphoSitePlus</a>.<a
-                        href="https://omictools.com/phosd-tool">PhosD</a> predicts kinase-substrate interactions based
-                on
-                protein domains.</p>
+                        href="https://phosphonetworks.org/">PhosphoNetworks</a>, and <a
+                        href="https://www.phosphosite.org/homeAction.action">PhosphoSitePlus</a> databases.
 
+                <li>
+                    <a href="http://prot-shiny-vm.broadinstitute.org:3838/ptmsigdb-app/" target="_blank">PTMsigDB</a>
+                    contains
+                    a collection of kinase phosphorylation signatures derived from <a
+                        href="https://www.phosphosite.org/homeAction.action">PhosphoSitePlus</a>.
 
-            <p><i>Protein-protein interactions </i></p>
-            <p>Kinase-interacting proteins were collected from the PPI databases <a
-                    href="https://thebiogrid.org/">BioGRID</a>, <a href="https://mentha.uniroma2.it/">mentha</a>, <a
-                    href="https://mint.bio.uniroma2.it/">MINT</a>, <a
-                    href="http://cbdm-01.zdv.uni-mainz.de/~mschaefer/hippie/">HIPPIE</a>,
-                <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4116514/">Cheng <i>et al.</i></a>, <a
-                        href="http://honig.c2b2.columbia.edu/preppi">prePPI</a>, and <a href="https://string-db.org/">STRING</a>
-                to
-                generate the <i>BioGRID</i>, <i>mentha</i>, <i>MINT</i>, <i>HIPPIE</i>, <i>Cheng.bind</i>, <i>prePPI</i>,
-                and
-                <i>STRING.bind</i>
-                KEA3 libraries, respectively. The <a href="https://thebiogrid.org/">BioGRID</a> and <a
-                        href="https://mint.bio.uniroma2.it/">MINT</a>databases contain PPIs from high- and
-                low-throughput
-                experiments that were manually curated from the literature. <a
-                        href="https://mentha.uniroma2.it/">Mentha</a> is
-                a PPI network (PPIN) that contains molecular interactions aggregated and updated weekly from <a
-                        href="https://mint.bio.uniroma2.it/">MINT</a>, <a
-                        href="https://www.ebi.ac.uk/intact/">IntAct</a>, <a
-                        href="https://thebiogrid.org/">BioGRID</a>, <a
-                        href="http://matrixdb.univ-lyon1.fr/">MatrixDB</a>, and
-                the<a href="https://dip.doe-mbi.ucla.edu/dip/Main.cgi">Database of Interacting Proteins (DIP)</a>.<a
-                        href="http://cbdm-01.zdv.uni-mainz.de/~mschaefer/hippie/">HIPPIE</a>aggregates experimentally
-                determined
-                PPIs from <a href="https://www.ebi.ac.uk/intact/">IntAct</a>, <a href="https://mint.bio.uniroma2.it/">MINT</a>,
-                <a href="https://thebiogrid.org/">BioGRID</a>, <a
-                        href="https://genome.cshlp.org/content/13/10/2363.full.html">HPRD</a>,
-                <a href="https://dip.doe-mbi.ucla.edu/dip/Main.cgi">DIP</a>, <a
+                <li>
+                    <a href="https://omictools.com/phosd-tool">PhosD</a> predicts kinase-substrate interactions based
+                    on protein domains.
+                </li>
+            </ul>
+            </p>
+            <h5 style="font-weight: 400;">Protein-protein interactions libraries</h5>
+            <p>
+            <ul>
+                <li>
+                    The <a href="https://thebiogrid.org/">BioGRID</a> and <a
+                        href="https://mint.bio.uniroma2.it/">MINT</a> databases contain PPIs from high- and
+                    low-throughput experiments that were manually curated from the literature.
+                <li><a href="https://mentha.uniroma2.it/">Mentha</a> is a PPI network (PPIN) that contains molecular
+                    interactions aggregated and updated weekly from <a href="https://mint.bio.uniroma2.it/">MINT</a>, <a
+                        href="https://www.ebi.ac.uk/intact/">IntAct</a>, <a href="https://thebiogrid.org/">BioGRID</a>,
+                    <a href="http://matrixdb.univ-lyon1.fr/">MatrixDB</a>, and the <a
+                        href="https://dip.doe-mbi.ucla.edu/dip/Main.cgi">Database of Interacting Proteins (DIP)</a>.
+                <li>
+                    <a href="http://cbdm-01.zdv.uni-mainz.de/~mschaefer/hippie/">HIPPIE</a> aggregates experimentally
+                    determined PPIs from <a href="https://www.ebi.ac.uk/intact/">IntAct</a>, <a
+                        href="https://mint.bio.uniroma2.it/">MINT</a>, <a href="https://thebiogrid.org/">BioGRID</a>, <a
+                        href="https://genome.cshlp.org/content/13/10/2363.full.html">HPRD</a>, <a
+                        href="https://dip.doe-mbi.ucla.edu/dip/Main.cgi">DIP</a>, <a
                         href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC165503/">BIND</a>, and <a
-                        href="http://mips.helmholtz-muenchen.de/proj/ppi/">MMPI</a>.<a
-                        href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4116514/">Cheng <i>et al.</i></a> used PPIs
-                collected
-                from<a href="https://www.ebi.ac.uk/intact/">IntAct</a>, <a href="https://mint.bio.uniroma2.it/">MINT</a>,
-                <a
-                        href="https://thebiogrid.org/">BioGRID</a>, <a href="https://dip.doe-mbi.ucla.edu/dip/Main.cgi">DIP</a>,
-                <a
+                        href="http://mips.helmholtz-muenchen.de/proj/ppi/">MMPI</a>.
+                <li>
+                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4116514/">Cheng <i>et al.</i></a> used PPIs
+                    collected from<a href="https://www.ebi.ac.uk/intact/">IntAct</a>, <a
+                        href="https://mint.bio.uniroma2.it/">MINT</a>, <a href="https://thebiogrid.org/">BioGRID</a>, <a
+                        href="https://dip.doe-mbi.ucla.edu/dip/Main.cgi">DIP</a>, <a
                         href="https://genome.cshlp.org/content/13/10/2363.full.html">HPRD</a>, and <a
-                        href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1347366/">MIPS MPact</a>.<a
-                        href="http://honig.c2b2.columbia.edu/preppi">PrePPI</a> consists of predicted PPIs that were
-                determined
-                using a Bayesian framework that relies on three-dimensional structural, functional evolutionary, and
-                expression
-                information to make PPI predictions. Note there is overlap and redundancy among the databases that
-                aggregate
+                        href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1347366/">MIPS MPact</a>.
+                <li>
+                    <a href="http://honig.c2b2.columbia.edu/preppi">PrePPI</a> consists of predicted PPIs that were
+                    determined using a Bayesian framework that relies on three-dimensional structural, functional
+                    evolutionary, and expression information to make PPI predictions.
+                </li>
+            </ul>
             </p>
 
-            <p><i>Other</i></p>
-            <p>All kinase interactions in the <a href="https://string-db.org" target="_blank">STRING</a> database were
-                used to
-                generate the <i>STRING</i> KEA3 library. <a href="https://string-db.org" target="_blank">STRING</a>includes
-                physical interaction, co-expression, co-occurrence in the literature, and evolutionary co-occurrence,
-                among
-                other association types.
-            </p>
+            <h5 style="font-weight: 400;">Other libraries</h5>
+            <p><a href="https://string-db.org" target="_blank">STRING</a> KEA3 library includes physical interaction,
+                co-expression, co-occurrence in the literature, and evolutionary co-occurrence, among other association
+                types.</p>
 
-            <p><strong>Kinase Substrate Over-representation Analysis</strong> - The goal of KEA3 is to predict kinases
+            <h4>What is kinase substrate over-representation analysis?</h4>
+            <p>The goal of KEA3 is to predict kinases
                 associated with user-input sets of genes/proteins. Discrete query gene/protein sets are compared to <a
-                        href="#download">KEA3 libraries</a> of putative kinase substrate sets assembled from multiple
+                        href="/kea3/templates/libraries.jsp">KEA3 libraries</a> of putative kinase substrate sets assembled from multiple
                 publically
                 available datasets. The Fisher's Exact Test, with a background size of 20,000, is used to compare the
                 input
@@ -156,7 +142,8 @@
                 associated
                 with the input gene/protein set.
             </p>
-            <p><strong>Input</strong> - Users can submit a set of human gene or protein symbols for kinase enrichment
+            <h4>What types of input KEA3 accepts?</h4>
+            <p>Users can submit a set of human gene or protein symbols for kinase enrichment
                 analysis.
                 Commonly, the gene set may be a set of differentially expressed genes, or a set of differentially
                 phosphorylated
@@ -165,7 +152,9 @@
                 in the phenotype.
             </p>
 
-            <p><strong>Kinase Co-expression Network Visualizations</strong> - The KEA3 application displays a scatter
+            <h4>What does kinase co-expression networks visualization show?</h4>
+
+            <p>The KEA3 application displays a scatter
                 plot of
                 points representing human kinases based on their co-expression similarity. This kinase coexpression
                 network was
@@ -174,15 +163,13 @@
                     Co-expression Network Analysis (WGCNA)</a> over human kinase expression data. WGCNs were constructed
                 from <a
                         href="https://gtexportal.org/home/">GTEx</a> samples, <a href="https://portal.gdc.cancer.gov">TCGA</a>
-                samples, and<a href="https://maayanlab.cloud/archs4/">ARCHS4</a> samples. The network layouts were
+                samples, and <a href="https://maayanlab.cloud/archs4/">ARCHS4</a> samples. The network layouts were
                 determined
                 using Allegro Fruchterman-Reingold Clustering in <a href="https://cytoscape.org">Cytoscape</a>. For the
-                <a
-                        href="https://gtexportal.org/home/">GTEx</a> networks, WGCNA kinase module summary expression
+                GTEx networks, WGCNA kinase module summary expression
                 profiles,
-                also known as Eigen-genes, were correlated with gene expression profiles from all <a
-                        href="https://gtexportal.org/home/">GTEx</a> tissue samples to determine strong module-tissue
-                associations. Each <a href="https://gtexportal.org/home/">GTEx</a> WGCN module may be colored by its
+                also known as Eigen-genes, were correlated with gene expression profiles from all GTEx tissue samples to determine strong module-tissue
+                associations. Each GTEx WGCN module may be colored by its
                 most highly
                 correlated tissue. Tissues are aggregated into more general tissue types (e.g. brain) and more specific
                 tissue
@@ -289,14 +276,12 @@
                     </tbody>
                 </table>
             </div>
-            <p><a href="https://portal.gdc.cancer.gov">TCGA</a> module Eigen-genes were correlated with tumor gene
+            <p>TCGA module Eigen-genes were correlated with tumor gene
                 expression
-                profiles to determine strong module-tumor type associations. Each <a
-                        href="https://portal.gdc.cancer.gov">TCGA</a> WGCN module may be colored by its most highly
+                profiles to determine strong module-tumor type associations. Each TCGA WGCN module may be colored by its most highly
                 correlated
-                tumor type. Finally, the <a href="https://maayanlab.cloud/archs4/">ARCHS4</a> module Eigen-genes were
-                correlated with <a href="https://maayanlab.cloud/archs4/">ARCHS4</a> tissue types. The <a
-                        href="https://maayanlab.cloud/archs4/">ARCHS4</a> network modules may be colored by the most
+                tumor type. Finally, the ARCHS4 module Eigen-genes were
+                correlated with ARCHS4 tissue types. The ARCHS4 network modules may be colored by the most
                 highly
                 correlated tissue type.</p>
         </div>
