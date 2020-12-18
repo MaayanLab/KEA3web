@@ -20,8 +20,8 @@
 <div class="container-fluid">
     <%@ include file="header.html" %>
     <div class="row  justify-content-center">
-        <div class="col-8 libraries__content">
-            <h3 class="text-muted">Download</h3>
+        <div class="col-7 libraries__content">
+            <h3>Download libraries</h3>
             <p>
                 "Primary" libraries are used by KEA3 to conduct kinase enrichment analysis. "Benchmarking" libraries
                 were

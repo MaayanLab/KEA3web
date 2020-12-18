@@ -20,8 +20,8 @@
 <div class="container-fluid">
     <%@ include file="header.html" %>
     <div class="row justify-content-center">
-        <div class="col-8 api__content">
-            <h3 class="text-muted">API</h3>
+        <div class="col-7 api__content">
+            <h3>API reference</h3>
             <p>KEA3 has an API to enable programmatic access for querying the KEA3 database</p>
             <p>The KEA3 REST API uses POST to transport user submitted JSON-formatted gene sets and JSON-formatted
                 query results between the KEA3 server and the user's script. The user gene set and optional
@@ -34,14 +34,11 @@
             <p>query_name: String</p>
             <p>gene_set: An array of strings</p>
 
-            <ol>
-                <li><strong>Command-line Example</strong> - The following returns results from all KEA3
-                    libraries in JSON format:
+<h5>Command-line Example</h5>
+                    <p>The following returns results from all KEA3
+                        libraries in JSON format:</p>
                     <pre style="width: 100%; overflow-x: scroll; white-space: nowrap">$ curl -d '{"query_name":"myQuery", "gene_set":["FOXM1","SMAD9","MYC","SMAD3","STAT1","STAT3"]}' -H 'Content-Type: application/json' https://maayanlab.cloud/kea3/api/enrich/</pre>
-                    Redirect the JSON-formatted results to a file:
-                    <pre style="width: 100%; overflow-x: scroll; white-space: nowrap">$ curl -d '{"query_name":"myQuery", "gene_set":["FOXM1","SMAD9","MYC","SMAD3","STAT1","STAT3"]}' -H 'Content-Type: application/json' https://maayanlab.cloud/kea3/api/enrich/ > results.json</pre>
-                </li>
-                <li><strong>R Example</strong>
+<h5>R Example</h5>
                     <pre>
 library(httr)
 library(jsonlite)
@@ -56,8 +53,6 @@ json = content(response, "text")
 
 results = fromJSON(json)
 </pre>
-                </li>
-            </ol>
         </div>
     </div>
     <%@ include file="footer.html" %>
