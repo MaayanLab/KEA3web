@@ -40,7 +40,7 @@
                 for each integration method and library may be downloaded as a tab-separated (tsv) file using a
                 link found at the footer of each
                 results table. Full results are also available via the
-                <a href="#api">KEA3 API</a>.
+                <a href="/kea3/templates/api.jsp">KEA3 API</a>.
                 <img src="/kea3/static/tables.gif" class="img-fluid"></p>
             <h4>Visualizing Your Results</h4>
             <p>A global kinase co-expression
