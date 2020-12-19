@@ -58,7 +58,6 @@
 <script type="text/javascript"
         src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
 
-<script type="text/javascript" src="https://kit.fontawesome.com/1295b553b3.js"></script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <script src="https://platform.linkedin.com/in.js" type="text/javascript">en_US</script>
 <div id="fb-root"></div>
