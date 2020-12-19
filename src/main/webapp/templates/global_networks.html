@@ -22,24 +22,41 @@
 <h4 class="my-3" id="archs4">ARCHS4</h4>
 <div class="row">
     <div class="col-10 mt-1" style="display: block;">
+        <nav class="nav nav-pills mb-3" id="archs4-tab" role="tablist">
+            <a class="nav-link m-1 py-1 active" id="archs4-wgcna-tab" data-toggle="pill" href="#archs4-wgcna" role="tab"
+               aria-controls="archs4-wgcna" aria-selected="true">WGCNA modules</a>
+            <a class="nav-link m-1 py-1" id="archs4-tissue-tab" data-toggle="pill" href="#archs4-tissue" role="tab"
+               aria-controls="archs4-tissue" aria-selected="false">Tissue</a>
+        </nav>
         <div class="card">
-            <div class="row">
-                <div class="col-3">
-                    <div class="btn-group btn-group-toggle card-header" data-toggle="buttons" style="background-color: white">
-                        <label class="btn btn-sm btn-outline-primary active"
-                               onclick="hide_legend('#Tissue_legend',['']); drawLegend('archs4', 'Tissue_legend', tissue); network_mode.archs4.color_by = 'WGCNA_module'; scatter('archs4');">
-                            <input autocomplete="off" checked id="archs4_wgcna" name="archs4_annotation" type="radio">WGCNA
-                        </label>
-                        <label class="btn btn-sm btn-outline-primary"
-                               onclick="hide_legend('',['#Tissue_legend']); drawLegend('archs4', 'general_tissue_legend', general_tissue); network_mode.archs4.color_by = 'Tissue_color'; scatter('archs4')">
-                            <input autocomplete="off" id="archs4_tissue" name="archs4_annotation" type="radio">Tissue
-                        </label>
+            <div class="tab-content card-body" id="archs4-tabContent">
+                <div class="tab-pane fade show active" id="archs4-wgcna" role="tabpanel"
+                     aria-labelledby="archs4-wgcna-tab">
+                    <svg id="archs4-wgcna-network"></svg>
+                    <div class="row ml-1">
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#archs4-wgcna-network')[0], 'ARCHS4_WGCNA_Network')">
+                            <i class="fas fa-download" title="Download SVG"></i>
+                            SVG
+                        </button>
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#archs4-wgcna-network')[0], 'ARCHS4_WGCNA_Network')">
+                            <i class="fas fa-download" title="Download PNG"></i>
+                            PNG
+                        </button>
                     </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <svg id="archs4-network">
-                </svg>
+                <div class="tab-pane fade" id="archs4-tissue" role="tabpanel" aria-labelledby="archs4-tissue-tab">
+                    <svg id="archs4-tissue-network"></svg>
+                    <div class="row ml-1">
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#archs4-tissue-network')[0], 'ARCHS4_Tissue_Network')">
+                            <i class="fas fa-download" title="Download SVG"></i>
+                            SVG
+                        </button>
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#archs4-tissue-network')[0], 'ARCHS4_Tissue_Network')">
+                            <i class="fas fa-download" title="Download PNG"></i>
+                            PNG
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -48,30 +65,60 @@
 <h4 class="my-3" id="gtex">GTEx</h4>
 <div class="row">
     <div class="col-10 mt-1" style="display: block;">
+        <nav class="nav nav-pills mb-3" id="gtex-tab" role="tablist">
+            <a class="nav-link m-1 py-1 active" id="gtex-wgcna-tab" data-toggle="pill" href="#gtex-wgcna" role="tab"
+               aria-controls="gtex-wgcna" aria-selected="true">WGCNA modules</a>
+            <a class="nav-link m-1 py-1" id="gtex-general-tissue-tab" data-toggle="pill" href="#gtex-general-tissue"
+               role="tab"
+               aria-controls="gtex-general-tissue" aria-selected="false">General tissue</a>
+            <a class="nav-link m-1 py-1" id="gtex-specific-tissue-tab" data-toggle="pill" href="#gtex-specific-tissue"
+               role="tab"
+               aria-controls="gtex-specific-tissue" aria-selected="false">Specific tissue</a>
+        </nav>
         <div class="card">
-            <div class="row">
-                <div class="col-5">
-                    <div class="btn-group btn-group-toggle card-header" data-toggle="buttons" style="background-color: white">
-                        <label class="btn btn-sm btn-outline-primary active"
-                               onclick='hide_legend("#general_tissue_legend", ["#specific_tissue_legend", "#GO_legend"]); drawLegend("gtex", "Tissue_legend", tissue); network_mode.gtex.color_by = "WGCNA_module"; scatter("gtex");'>
-                            <input autocomplete="off" checked id="gtex_wgcna" name="gtex_annotation" type="radio">WGCNA
-                        </label>
-                        <label class="btn btn-sm btn-outline-primary"
-                               onclick='hide_legend("#specific_tissue_legend",["#general_tissue_legend", "#GO_legend"]); drawLegend("gtex", "general_tissue_legend", general_tissue); network_mode.gtex.color_by = "General_tissue_color"; scatter("gtex");'>
-                            <input autocomplete="off" id="gtex_specific_tissue" name="gtex_annotation" type="radio">General
-                            Tissue
-                        </label>
-                        <label class="btn btn-sm btn-outline-primary"
-                               onclick='hide_legend("#GO_legend",["#general_tissue_legend", "#specific_tissue_legend"]); drawLegend("gtex", "specific_tissue_legend", specific_tissue); network_mode.gtex.color_by="Specific_tissue_color"; scatter("gtex");'>
-                            <input autocomplete="off" id="gtex_general_tissue" name="gtex_annotation" type="radio">Specific
-                            tissue
-                        </label>
+            <div class="tab-content card-body" id="gtex-tabContent">
+                <div class="tab-pane fade show active" id="gtex-wgcna" role="tabpanel"
+                     aria-labelledby="gtex-wgcna-tab">
+                    <svg id="gtex-wgcna-network"></svg>
+                    <div class="row ml-1">
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#gtex-wgcna-network')[0], 'GTEx_WGCNA_Network')">
+                            <i class="fas fa-download" title="Download SVG"></i>
+                            SVG
+                        </button>
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#gtex-wgcna-network')[0], 'GTEx_WGCNA_Network')">
+                            <i class="fas fa-download" title="Download PNG"></i>
+                            PNG
+                        </button>
                     </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <svg id="gtex-network">
-                </svg>
+                <div class="tab-pane fade" id="gtex-general-tissue" role="tabpanel"
+                     aria-labelledby="gtex-general-tissue-tab">
+                    <svg id="gtex-general-tissue-network"></svg>
+                    <div class="row ml-1">
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#gtex-general-tissue-network')[0], 'GTEx_General_Tissue_Network')">
+                            <i class="fas fa-download" title="Download SVG"></i>
+                            SVG
+                        </button>
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#gtex-general-tissue-network')[0], 'GTEx_General_Tissue_Network')">
+                            <i class="fas fa-download" title="Download PNG"></i>
+                            PNG
+                        </button>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="gtex-specific-tissue" role="tabpanel"
+                     aria-labelledby="gtex-specific-tissue-tab">
+                    <svg id="gtex-specific-tissue-network"></svg>
+                    <div class="row ml-1">
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#gtex-specific-tissue-network')[0], 'GTEx_Specific_Tissue_Network')">
+                            <i class="fas fa-download" title="Download SVG"></i>
+                            SVG
+                        </button>
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#gtex-specific-tissue-network')[0], 'GTEx_Specific_Tissue_Network')">
+                            <i class="fas fa-download" title="Download PNG"></i>
+                            PNG
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -80,24 +127,41 @@
 <h4 class="my-3" id="tcga">TCGA</h4>
 <div class="row">
     <div class="col-10 mt-1" style="display: block;">
+        <nav class="nav nav-pills mb-3" id="tcga-tab" role="tablist">
+            <a class="nav-link m-1 py-1 active" id="tcga-wgcna-tab" data-toggle="pill" href="#tcga-wgcna" role="tab"
+               aria-controls="tcga-wgcna" aria-selected="true">WGCNA modules</a>
+            <a class="nav-link m-1 py-1" id="tcga-tumor-tab" data-toggle="pill" href="#tcga-tumor" role="tab"
+               aria-controls="tcga-tumor" aria-selected="false">Tumor</a>
+        </nav>
         <div class="card">
-            <div class="row">
-                <div class="col-3">
-                    <div class="btn-group btn-group-toggle card-header" data-toggle="buttons" style="background-color: white">
-                        <label class="btn btn-sm btn-outline-primary active"
-                               onclick="hide_legend('#Tumor_legend',['']); network_mode.tcga.color_by = 'WGCNA_module'; drawLegend('tcga', 'Tumor_legend', tumor); scatter('tcga');">
-                            <input autocomplete="off" checked id="tcga_wgcna" name="tcga_annotation" type="radio">WGCNA
-                        </label>
-                        <label class="btn btn-sm btn-outline-primary"
-                               onclick="hide_legend('',['']); network_mode.tcga.color_by = 'Tumor_color'; drawLegend('tcga', 'Tumor_legend', tumor); scatter('tcga');">
-                            <input autocomplete="off" id="tcga_tumor_color" name="tcga_annotation" type="radio">Tumor
-                        </label>
+            <div class="tab-content card-body" id="tcga-tabContent">
+                <div class="tab-pane fade show active" id="tcga-wgcna" role="tabpanel"
+                     aria-labelledby="tcga-wgcna-tab">
+                    <svg id="tcga-wgcna-network"></svg>
+                    <div class="row ml-1">
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#tcga-wgcna-network')[0], 'TCGA_WGCNA_Network')">
+                            <i class="fas fa-download" title="Download SVG"></i>
+                            SVG
+                        </button>
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#tcga-wgcna-network')[0], 'TCGA_WGCNA_Network')">
+                            <i class="fas fa-download" title="Download PNG"></i>
+                            PNG
+                        </button>
                     </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <svg id="tcga-network">
-                </svg>
+                <div class="tab-pane fade" id="tcga-tumor" role="tabpanel" aria-labelledby="tcga-tumor-tab">
+                    <svg id="tcga-tumor-network"></svg>
+                    <div class="row ml-1">
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#tcga-tumor-network')[0], 'TCGA_Tumor_Network')">
+                            <i class="fas fa-download" title="Download SVG"></i>
+                            SVG
+                        </button>
+                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#tcga-tumor-network')[0], 'TCGA_Tumor_Network')">
+                            <i class="fas fa-download" title="Download PNG"></i>
+                            PNG
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -14,19 +14,19 @@
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-tables" role="tabpanel" aria-labelledby="nav-tables-tab">
+        <div class="tab-pane px-2 fade show active" id="nav-tables" role="tabpanel" aria-labelledby="nav-tables-tab">
             <%@ include file="tables.html" %>
         </div>
-        <div class="tab-pane fade" id="nav-networks" role="tabpanel" aria-labelledby="nav-networks-tab">
+        <div class="tab-pane px-2 fade" id="nav-networks" role="tabpanel" aria-labelledby="nav-networks-tab">
             <%@ include file="global_networks.html" %>
         </div>
-        <div class="tab-pane fade" id="nav-graph" role="tabpanel" aria-labelledby="nav-graph-tab">
+        <div class="tab-pane px-2 fade" id="nav-graph" role="tabpanel" aria-labelledby="nav-graph-tab">
             <%@ include file="graph.html" %>
         </div>
-        <div class="tab-pane fade" id="nav-barcharts" role="tabpanel" aria-labelledby="nav-barcharts-tab">
+        <div class="tab-pane px-2 fade" id="nav-barcharts" role="tabpanel" aria-labelledby="nav-barcharts-tab">
             <%@ include file="barcharts.html" %>
         </div>
-        <div class="tab-pane fade" id="nav-cluster" role="tabpanel" aria-labelledby="nav-cluster-tab">
+        <div class="tab-pane px-2 fade" id="nav-cluster" role="tabpanel" aria-labelledby="nav-cluster-tab">
             <%@ include file="clustergramm.html" %>
         </div>
     </div>

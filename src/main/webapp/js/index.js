@@ -60,24 +60,13 @@ function drawAllScatters(library = 'Integrated--meanRank') {
     network_mode.archs4.library = library;
     network_mode.gtex.library = library;
     network_mode.tcga.library = library;
-    scatter('archs4')
-    drawLegend('archs4', "Tissue_legend", tissue);
-
-    scatter('gtex')
-    drawLegend('gtex', "general_tissue_legend", general_tissue);
-    // drawLegend("specific_tissue_legend", specific_tissue);
-    // drawLegend("GO_legend", GO_enrichment);
-
-    scatter('tcga')
-    drawLegend('tcga', "Tumor_legend", tumor);
-}
-
-function drawAllTables() {
-
-}
-
-function drawAllBarcharts() {
-
+    scatter('archs4', '#archs4-wgcna-network', 'WGCNA_hex', wgcna)
+    scatter('archs4', '#archs4-tissue-network', 'Tissue_color', tissue)
+    scatter('gtex', "#gtex-wgcna-network", 'WGCNA_hex', wgcna)
+    scatter('gtex', "#gtex-general-tissue-network", 'General_tissue_color', general_tissue)
+    scatter('gtex', "#gtex-specific-tissue-network", 'Specific_tissue_color', specific_tissue)
+    scatter('tcga', "#tcga-wgcna-network", 'WGCNA_hex', wgcna)
+    scatter('tcga', "#tcga-tumor-network", 'Tumor_color',tumor)
 }
 
 function convertRanks(res) {

@@ -292,3 +292,5 @@ const tissue = [
         "term": "Skeletal Muscle",
         "color": "#00CED1"
     }];
+
+const wgcna = [];
