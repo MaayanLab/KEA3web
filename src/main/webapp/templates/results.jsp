@@ -6,9 +6,9 @@
             <a class="nav-item nav-link" id="nav-networks-tab" data-toggle="tab" href="#nav-networks" role="tab"
                aria-controls="nav-networks" aria-selected="false">Networks</a>
             <a class="nav-item nav-link" id="nav-graph-tab" data-toggle="tab" href="#nav-graph" role="tab"
-               aria-controls="nav-graph" aria-selected="false">Graph</a>
+               aria-controls="nav-graph" aria-selected="false">Subnetworks</a>
             <a class="nav-item nav-link" id="nav-barcharts-tab" data-toggle="tab" href="#nav-barcharts" role="tab"
-               aria-controls="nav-barcharts" aria-selected="false">Barcharts</a>
+               aria-controls="nav-barcharts" aria-selected="false">Bar Charts</a>
             <a class="nav-item nav-link" id="nav-cluster-tab" data-toggle="tab" href="#nav-cluster" role="tab"
                aria-controls="nav-cluster" aria-selected="false">Clustergrammer</a>
         </div>
