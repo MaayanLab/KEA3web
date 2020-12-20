@@ -1,5 +1,5 @@
 scatter = (type, wrapper, color_by, legend_data) => {
-    drawLegend(wrapper, legend_data)
+    drawLegend(wrapper, legend_data);
     const json = `static/json/wgcna_${type}_annotated.json`;
     const k = kinases(results[network_mode[type].library]).slice(0, network_mode[type].num);
     // const color_by = network_mode[type].color_by;

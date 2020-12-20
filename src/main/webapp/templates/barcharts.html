@@ -4,68 +4,78 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title" id="item-1-1">Weighted contribution to mean</h5>
-                <div style="display: flex; align-items: center; margin-left: 0px; min-height: 33px; font: 10px sans-serif;">
-                    <div class="row" style="width: 100%;">
-                        <div class="col-4">
-                            <div class="O-1-item">
-                                <div class="O-1-swatch" style="background:#9e0142;"></div>
-                                <div class="O-1-label" title="BioGRID">BioGRID</div>
-                            </div>
-                            <div class="O-1-item">
-                                <div class="O-1-swatch" style="background:#d53e4f;"></div>
-                                <div class="O-1-label" title="ChengKSIN">ChengKSIN</div>
-                            </div>
-                            <div class="O-1-item">
-                                <div class="O-1-swatch" style="background:#f46d43;"></div>
-                                <div class="O-1-label" title="ChengPPI">ChengPPI</div>
-                            </div>
-                            <div class="O-1-item">
-                                <div class="O-1-swatch" style="background:#fdae61;"></div>
-                                <div class="O-1-label" title="HIPPIE">HIPPIE</div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="O-1-item">
-                                <div class="O-1-swatch" style="background:#fee08b;"></div>
-                                <div class="O-1-label" title="mentha">mentha</div>
-                            </div>
-                            <div class="O-1-item">
-                                <div class="O-1-swatch" style="background:#ffffbf;"></div>
-                                <div class="O-1-label" title="MINT">MINT</div>
-                            </div>
-                            <div class="O-1-item">
-                                <div class="O-1-swatch" style="background:#e6f598;"></div>
-                                <div class="O-1-label" title="PhosDAll">PhosDAll</div>
-                            </div>
-                            <div class="O-1-item">
-                                <div class="O-1-swatch" style="background:#abdda4;"></div>
-                                <div class="O-1-label" title="prePPI">prePPI</div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="O-1-item">
-                                <div class="O-1-swatch" style="background:#66c2a5;"></div>
-                                <div class="O-1-label" title="PTMsigDB">PTMsigDB</div>
-                            </div>
-                            <div class="O-1-item">
-                                <div class="O-1-swatch" style="background:#3288bd;"></div>
-                                <div class="O-1-label" title="STRING">STRING</div>
-                            </div>
-                            <div class="O-1-item">
-                                <div class="O-1-swatch" style="background:#5e4fa2;"></div>
-                                <div class="O-1-label" title="STRING.bind">STRING.bind</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-<!--                <svg id="bar-1-1" height="285"></svg>-->
-                <svg id="bar-1-1"></svg>
+                <svg id="bar-1-1">
+                    <g>
+                        <g>
+                            <rect x="60" y="0" width="10" height="10" style="fill: #9e0142;"></rect>
+                            <text x="70" y="10" style="font-size: 10px;">
+                                BioGRID
+                            </text>
+                        </g>
+                        <g>
+                            <rect x="60" y="15" width="10" height="10" style="fill: #d53e4f;"></rect>
+                            <text x="70" y="25" style="font-size: 10px;">
+                                ChengKSIN
+                            </text>
+                        </g>
+                        <g>
+                            <rect x="60" y="30" width="10" height="10" style="fill: #f46d43;"></rect>
+                            <text x="70" y="40" style="font-size: 10px;">
+                                ChengPPI
+                            </text>
+                        </g>
+                        <g>
+                            <rect x="60" y="45" width="10" height="10" style="fill: #fdae61;"></rect>
+                            <text x="70" y="55" style="font-size: 10px;">
+                                HIPPIE
+                            </text>
+                        </g>
+                        <g>
+                            <rect x="120" y="0" width="10" height="10" style="fill: #fee08b;"></rect>
+                            <text x="130" y="10" style="font-size: 10px;">
+                                mentha
+                            </text>
+                        </g>
+                        <g>
+                            <rect x="120" y="15" width="10" height="10" style="fill: #ffffbf;"></rect>
+                            <text x="130" y="25" style="font-size: 10px;">
+                                MINT
+                            </text>
+                        </g>
+                        <g>
+                            <rect x="120" y="30" width="10" height="10" style="fill: #e6f598;"></rect>
+                            <text x="130" y="40" style="font-size: 10px;">
+                                PhosDAll
+                            </text>
+                        </g>
+                        <g>
+                            <rect x="120" y="45" width="10" height="10" style="fill: #abdda4;"></rect>
+                            <text x="130" y="55" style="font-size: 10px;">
+                                prePPI
+                            </text>
+                        </g>
+                        <g>
+                            <rect x="180" y="0" width="10" height="10" style="fill: #66c2a5;"></rect>
+                            <text x="190" y="10" style="font-size: 10px;">
+                                PTMsigDB
+                            </text>
+                        </g>
+                        <g>
+                            <rect x="180" y="15" width="10" height="10" style="fill: #3288bd;"></rect>
+                            <text x="190" y="25" style="font-size: 10px;">
+                                STRING
+                            </text>
+                        </g>
+                    </g>
+                </svg>
                 <div class="row ml-1">
-                    <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#bar-1-1')[0], 'Weighted_contribution_to_mean')">
+                    <button class="btn btn-primary-outline btn-sm"
+                            onclick="save_svg($('#bar-1-1')[0], 'Weighted_contribution_to_mean')">
                         <i class="fas fa-download" title="Download SVG"></i>
                         SVG
                     </button>
-                    <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#bar-1-1')[0], 'Weighted_contribution_to_mean')">
+                    <button class="btn btn-primary-outline btn-sm"
+                            onclick="save_png($('#bar-1-1')[0], 'Weighted_contribution_to_mean')">
                         <i class="fas fa-download" title="Download PNG"></i>
                         PNG
                     </button>

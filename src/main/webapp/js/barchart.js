@@ -1,4 +1,4 @@
-function split_libs(result, threshold = 3){
+function split_libs(result, threshold = 3) {
     let vals = 'name,BioGRID,ChengKSIN,ChengPPI,HIPPIE,mentha,MINT,PhosDAll,prePPI,PTMsigDB,STRING,STRING.bind';
     for (let kin of result) {
         let lib_vals = {
@@ -21,7 +21,9 @@ function split_libs(result, threshold = 3){
         for (let l of libs) {
             const nv = l.split(',');
             lib_vals[nv[0]] = parseInt(nv[1]);
-            if (parseInt(nv[1])){non_z_counter++;}
+            if (parseInt(nv[1])) {
+                non_z_counter++;
+            }
         }
         if (non_z_counter >= threshold) {
             vals = `${vals}\n${kinase},${lib_vals["BioGRID"]},${lib_vals["ChengKSIN"]},${lib_vals["ChengPPI"]},${lib_vals["HIPPIE"]},${lib_vals["mentha"]},${lib_vals["MINT"]},${lib_vals["PhosDAll"]},${lib_vals["prePPI"]},${lib_vals["PTMsigDB"]},${lib_vals["STRING"]},${lib_vals["STRING.bind"]}`;
@@ -30,7 +32,7 @@ function split_libs(result, threshold = 3){
     return vals
 }
 
-function stacked_chart(json, wrapper, num= 10) {
+function stacked_chart(json, wrapper, num = 10) {
     const data = d3
         .csvParse(
             split_libs(json.slice(0, num)),
@@ -39,7 +41,7 @@ function stacked_chart(json, wrapper, num= 10) {
             )
         )
         .sort((a, b) => b.total - a.total);
-    const margin = ({top: 30, right: 20, bottom: 50, left: 60});
+    const margin = ({top: 80, right: 20, bottom: 30, left: 60});
     const height = data.length * 25 + margin.top + margin.bottom;
     const width = 500;
     const svg = d3.select(wrapper);
@@ -103,7 +105,7 @@ function stacked_chart(json, wrapper, num= 10) {
 function chart(json, wrapper, order = "pvalue", color = "steelblue", numBar = 10) {
     let data = json.map(d => ({
         "name": d['TF'],
-        "value": order === "pvalue" ? -Math.log10(parseFloat(d["FET p-value"])): parseFloat(d["Score"]),
+        "value": order === "pvalue" ? -Math.log10(parseFloat(d["FET p-value"])) : parseFloat(d["Score"]),
         "pvalue": parseFloat(d["FET p-value"]),
         "fdr": parseFloat(d["FDR"]),
         "odds": parseFloat(d["Odds Ratio"]),
