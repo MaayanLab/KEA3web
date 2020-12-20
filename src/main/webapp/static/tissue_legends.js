@@ -293,4 +293,71 @@ const tissue = [
         "color": "#00CED1"
     }];
 
-const wgcna = [];
+const wgcna = [{
+    "term": "black module",
+    "color": "#000000"
+},
+    {
+        "term": "blue module",
+        "color": "#0000FF"
+    },
+    {
+        "term": "brown module",
+        "color": "#A52A2A"
+    },
+    {
+        "term": "cyan module",
+        "color": "#00FFFF"
+    },
+    {
+        "term": "deeppink module",
+        "color": "#8B0A50"
+    },
+    {
+        "term": "green module",
+        "color": "#00FF00"
+    },
+    {
+        "term": "greenyellow module",
+        "color": "#ADFF2F"
+    },
+    {
+        "term": "grey module",
+        "color": "#BEBEBE"
+    },
+    {
+        "term": "lightcyan module",
+        "color": "#E0FFFF"
+    },
+    {
+        "term": "magenta module",
+        "color": "#FF00FF"
+    },
+    {
+        "term": "midnightblue module",
+        "color": "#191970"
+    },
+    {
+        "term": "pink module",
+        "color": "#FFC0CB"
+    },
+    {
+        "term": "purple module",
+        "color": "#A020F0"
+    },
+    {
+        "term": "red module",
+        "color": "#FF0000"
+    },
+    {
+        "term": "salmon module",
+        "color": "#FA8072"
+    },
+    {
+        "term": "tan module",
+        "color": "#D2B48C"
+    },
+    {
+        "term": "turquoise module",
+        "color": "#40E0D0"
+    }];
