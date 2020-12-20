@@ -1,4 +1,5 @@
-scatter = (type, wrapper, color_by, legend) => {
+scatter = (type, wrapper, color_by, legend_data) => {
+    drawLegend(wrapper, legend_data)
     const json = `static/json/wgcna_${type}_annotated.json`;
     const k = kinases(results[network_mode[type].library]).slice(0, network_mode[type].num);
     // const color_by = network_mode[type].color_by;
@@ -50,38 +51,45 @@ scatter = (type, wrapper, color_by, legend) => {
                     .attr("cy", d => y(d.y))
                     .attr("r", 5)
                     .style("fill", d => d[color_by])
-                    .append("title")
-                    .text(d => d.name)
             );
-        // .call(g =>
-        //   g
-        //     .append("text")
-        //     .attr("class", "label")
-        //     .attr("x", d => x(d.x))
-        //     .attr("y", d => y(d.y))
-        //     .attr("dy", -12)
-        //     .attr("text-anchor", "middle")
-        //     .style("font", "13px sans-serif")
-        //     .style("fill-opacity", 0.6)
-        //     .text((d, i) => d.name)
-        // );
+        // append labels after displaying all nodes to avoid overlap
+        const label = svg.append("g");
+        label
+            .selectAll("g")
+            .data(data)
+            .join("g")
+            .append("g")
+            .call(g =>
+                g
+                    .append("text")
+                    .join("text")
+                    .attr("class", "label")
+                    .attr("x", d => x(d.x))
+                    .attr("y", d => y(d.y))
+                    .attr("dy", -12)
+                    .attr("text-anchor", "middle")
+                    .style("font", "15px sans-serif")
+                    .style("font-weight", "600")
+                    .style("fill-opacity", d => (k.includes(d.name) ? 1 : 0))
+                    .style("stroke", "white")
+                    .style("stroke-opacity", d => (k.includes(d.name) ? 0.8 : 0))
+                    .style("stroke-width", d => (k.includes(d.name) ? "0.7px" : 0))
+                    .text((d) => d.name)
+            )
 
         return svg.node();
     });
 }
 
-function drawLegend(type, legend_id, legend_data) {
+function drawLegend(wrapper, legend_data) {
     const height = 500;
     const width = 900;
-    const g = d3.select(`#${type}-network`)
+    const g = d3.select(wrapper)
     const legend = g.append("g")
-        .attr("class", "legend")
-        .attr("id", legend_id)
         .attr("x", width - 100)
         .attr("y", height)
         .attr("height", 100)
         .attr("width", 100)
-        .attr("class", "hidden")
         .style("pointer-events", "none");
 
     legend.selectAll('g').data(legend_data)
@@ -125,10 +133,4 @@ function drawLegend(type, legend_id, legend_data) {
                     return d.term
                 });
         });
-}
-
-function hide_legend(show_legend_id, hide_legend_ids) {
-    console.log('hide_legend')
-    $(`${show_legend_id}`).show();
-    hide_legend_ids.forEach(legend_id => $(`${legend_id}`).hide());
 }
