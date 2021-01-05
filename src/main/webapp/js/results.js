@@ -54,11 +54,11 @@ function drawTable(data, wrapper, name) {
             },
             {
                 "mData": "Overlapping_Genes",
-                "sTitle": "Overlapping Genes"
+                "sTitle": "Overlapping Proteins"
             },
             {
                 "mData": "Overlapping_Genes",
-                "sTitle": "Overlapping Genes",
+                "sTitle": "Overlapping Proteins",
                 "mRender": function (data, type, row) {
                     let geneLinks = [];
                     $.each(row['Overlapping_Genes'].split(',').sort(), function (index, gene) {
@@ -169,11 +169,11 @@ function drawIntegratedTable(data, wrapper, score) {
             },
             {
                 "mData": "Overlapping_Genes",
-                "sTitle": "Overlapping Genes"
+                "sTitle": "Overlapping Proteins"
             },
             {
                 "mData": "Overlapping_Genes",
-                "sTitle": "Overlapping Genes",
+                "sTitle": "Overlapping Proteins",
                 "mRender": function (data, type, row, meta) {
                     let geneLinks = [];
                     $.each(row['Overlapping_Genes'].split(',').sort(), function (index, gene) {
@@ -189,7 +189,7 @@ function drawIntegratedTable(data, wrapper, score) {
                         'title': 'Genes',
                         'data-content': `${geneLinks.join(" ")}`
                     }).append(
-                        `<span tabindex="-1" style="cursor: pointer;text-decoration: underline dotted;">${row['Overlapping_Genes'].split(',').length} genes </span>`,
+                        `<span tabindex="-1" style="cursor: pointer;text-decoration: underline dotted;">${row['Overlapping_Genes'].split(',').length} proteins </span>`,
                     ).prop('outerHTML')
                 }
             }
