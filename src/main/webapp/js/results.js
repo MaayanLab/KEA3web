@@ -185,7 +185,7 @@ function drawIntegratedTable(data, wrapper, score) {
                         'data-placement': 'right',
                         'data-trigger': 'focus',
                         'data-html': 'true',
-                        'data-template': '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
+                        'data-template': '<div class="popover overflow-auto" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
                         'title': 'Genes',
                         'data-content': `${geneLinks.join(" ")}`
                     }).append(

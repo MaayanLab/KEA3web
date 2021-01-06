@@ -112,3 +112,8 @@ input[type="file"] {
     z-index: 300;
     visibility: hidden;
 }
+
+.popover-body {
+    max-height: 400px;
+    overflow: auto !important;
+}
