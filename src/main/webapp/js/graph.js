@@ -91,7 +91,17 @@ graph = (library, wrapper) => {
             .attr("stroke-width", 1.5)
             .attr('marker-start', 'url(#arrow)')
             .on("mouseover", function(d){
-                return tooltip.style("visibility", "visible").text(`Kinase substrate evidence\n\t${d.kinase_substrate_evidence.split(', ').join('\n\t')}\n\nPPI evidence\n\t${d.ppi_evidence.split(', ').join('\n\t')}`);
+                let kse = '';
+                let ppie ='';
+                if (typeof(d.kinase_substrate_evidence) != 'undefined')
+                    {
+                        kse = `Kinase substrate evidence\n\t${d.kinase_substrate_evidence.split(', ').join('\n\t')}\n\n`;
+                    }
+                if (typeof(d.ppi_evidence) != 'undefined')
+                {
+                    ppie = `PPI evidence\n\t${d.ppi_evidence.split(', ').join('\n\t')}`;
+                }
+                return tooltip.style("visibility", "visible").text(`${kse}${ppie}`);
             })
             .on("mousemove", function(){
                 return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
