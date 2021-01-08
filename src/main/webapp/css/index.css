@@ -117,3 +117,14 @@ input[type="file"] {
     max-height: 400px;
     overflow: auto !important;
 }
+
+.carousel-caption {
+    color: black !important;
+    text-align: left !important;
+}
+
+.carousel-control-next,
+.carousel-control-prev,
+.carousel-indicators {
+    filter: invert(100%);
+}
