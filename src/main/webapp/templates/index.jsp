@@ -20,8 +20,9 @@
     <meta property="og:type" content="website"/>
     <meta property="og:image" content="static/thumbnail.png"/>
 </head>
-<body>
 
+<body class="d-flex flex-column h-100">
+<main role="main" class="flex-shrink-0">
 <div class="container-fluid">
     <%@ include file="header.html" %>
     <div class="row justify-content-center">
@@ -41,6 +42,7 @@
         </div>
     </div>
 </div>
+</main>
 <%@ include file="footer.html" %>
 
 

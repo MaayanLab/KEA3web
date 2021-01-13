@@ -1,8 +1,9 @@
 <div class="row">
     <div class="col-lg-6 col-md-8 col-sm-8">
         <form>
+            <h4>Input list of proteins</h4>
                 <textarea class="form-control form-control-sm mt-2" id="genelist" rows="12" name="text-genes"
-                          placeholder="Input protein list"></textarea>
+                          placeholder="KEA3 supports HGNC-approved gene symbols. Symbols that are not included in this set are not analyzed."></textarea>
 
             <div class="my-2">
                 <span id="genecheck" style="color: darkgrey; font-size: 0.9rem;">0 symbols entered, 0 duplicates, 0 valid symbols</span>
@@ -29,12 +30,13 @@
         </form>
     </div>
     <div class="col-lg-6 col-md-4 col-8">
-        <p><span style="font-weight: 600">Kinase Enrichment Analysis 3 (KEA3)</span> infers upstream kinases whose
-            putative substrates are overrepresented in a user-inputted list of proteins or differentially
-            phosphorylated proteins.
-        </p>
-
-        <div id="carouselPipelineCaptions" class="carousel slide" data-ride="carousel">
+<!--        <h4>What is KEA3?</h4>-->
+<!--        <p>Kinase Enrichment Analysis 3 (KEA3) infers upstream kinases whose-->
+<!--            putative substrates are overrepresented in a user-inputted list of proteins or differentially-->
+<!--            phosphorylated proteins.-->
+<!--        </p>-->
+        <h4>How to use it?</h4>
+        <div id="carouselPipelineCaptions" class="carousel slide border p-2" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselPipelineCaptions" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselPipelineCaptions" data-slide-to="1"></li>
