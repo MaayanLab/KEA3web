@@ -1,13 +1,13 @@
 var saveSvgAsPng = require('save-svg-as-png');
 
-function save_svg(svg, name){
-    saveSvgAsPng.svgAsDataUri(svg, {}, function(uri) {
+function save_svg(svg, name) {
+    saveSvgAsPng.svgAsDataUri(svg, {}, function (uri) {
         downloadUri(uri, `${name}.svg`);
     })
 }
 
 function save_png(svg, name) {
-    saveSvgAsPng.svgAsPngUri(svg, {}, function(uri) {
+    saveSvgAsPng.svgAsPngUri(svg, {}, function (uri) {
         downloadUri(uri, `${name}.png`);
     })
 }
@@ -42,7 +42,7 @@ function drawTable(data, wrapper, name) {
             extension: '.tsv',
             fieldBoundary: '',
             exportOptions: {
-                columns: [ 0, 2, 4, 5, 6]
+                columns: [0, 2, 4, 5, 6]
             }
         }],
         columns: [
@@ -60,6 +60,7 @@ function drawTable(data, wrapper, name) {
                 "mData": "Overlapping_Genes",
                 "sTitle": "Overlapping Proteins",
                 "mRender": function (data, type, row) {
+                    if (type === "display") {
                     let geneLinks = [];
                     $.each(row['Overlapping_Genes'].split(',').sort(), function (index, gene) {
                         geneLinks.push(`<a class="gene-link" href="https://maayanlab.cloud/Harmonizome/gene/${gene}" target="_blank">${gene}</a>`);
@@ -76,6 +77,7 @@ function drawTable(data, wrapper, name) {
                     }).append(
                         `<span tabindex="-1" style="cursor: pointer;text-decoration: underline dotted;">${row['Intersect']}/${row['Set length']}</span>`,
                     ).prop('outerHTML')
+                    } else return row['Intersect'];
                 }
             },
             {
@@ -92,7 +94,7 @@ function drawTable(data, wrapper, name) {
         ],
         columnDefs: [
             {
-                "targets": [ 2 ],
+                "targets": [2],
                 "visible": false
             }
         ],
@@ -123,7 +125,7 @@ function drawIntegratedTable(data, wrapper, score) {
             extension: '.tsv',
             fieldBoundary: '',
             exportOptions: {
-                columns: [ 0, 1, 2, 4]
+                columns: [0, 1, 2, 4]
             }
         }],
         columns: [
@@ -147,24 +149,26 @@ function drawIntegratedTable(data, wrapper, score) {
                 "sTitle": score,
                 "className": "score-col",
                 "mRender": function (data, type, row, meta) {
-                    const libraries = row['Library'].split(';');
-                    let rend_libs = [];
-                    $.each(libraries, function (index, lib) {
-                        const name_val = lib.split(',');
-                        rend_libs.push(`<p><b>${name_val[0]}</b>: ${name_val[1]}</p>`)
-                    })
-                    return $('<div>', {
-                        'class': 'popover-button',
-                        'data-toggle': 'popover',
-                        'data-placement': 'right',
-                        'data-trigger': 'focus',
-                        'data-html': 'true',
-                        'data-template': '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
-                        'title': 'Libraries',
-                        'data-content': `${rend_libs.join('')}`
-                    }).append(
-                        `<span tabindex="-1" style="cursor: pointer;text-decoration: underline dotted;">${row['Score']}  </span>`,
-                    ).prop('outerHTML')
+                    if (type === "display") {
+                        const libraries = row['Library'].split(';');
+                        let rend_libs = [];
+                        $.each(libraries, function (index, lib) {
+                            const name_val = lib.split(',');
+                            rend_libs.push(`<p><b>${name_val[0]}</b>: ${name_val[1]}</p>`)
+                        })
+                        return $('<div>', {
+                            'class': 'popover-button',
+                            'data-toggle': 'popover',
+                            'data-placement': 'right',
+                            'data-trigger': 'focus',
+                            'data-html': 'true',
+                            'data-template': '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
+                            'title': 'Libraries',
+                            'data-content': `${rend_libs.join('')}`
+                        }).append(
+                            `<span tabindex="-1" style="cursor: pointer;text-decoration: underline dotted;">${row['Score']}  </span>`,
+                        ).prop('outerHTML')
+                    } else return data;
                 }
             },
             {
@@ -175,28 +179,30 @@ function drawIntegratedTable(data, wrapper, score) {
                 "mData": "Overlapping_Genes",
                 "sTitle": "Overlapping Proteins",
                 "mRender": function (data, type, row, meta) {
-                    let geneLinks = [];
-                    $.each(row['Overlapping_Genes'].split(',').sort(), function (index, gene) {
-                        geneLinks.push(`<a class="gene-link" href="https://maayanlab.cloud/Harmonizome/gene/${gene}" target="_blank">${gene}</a>`);
-                    });
-                    return $('<div>', {
-                        'class': 'popover-button',
-                        'data-toggle': 'popover',
-                        'data-placement': 'right',
-                        'data-trigger': 'focus',
-                        'data-html': 'true',
-                        'data-template': '<div class="popover overflow-auto" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
-                        'title': 'Genes',
-                        'data-content': `${geneLinks.join(" ")}`
-                    }).append(
-                        `<span tabindex="-1" style="cursor: pointer;text-decoration: underline dotted;">${row['Overlapping_Genes'].split(',').length} proteins </span>`,
-                    ).prop('outerHTML')
+                    if (type === "display") {
+                        let geneLinks = [];
+                        $.each(row['Overlapping_Genes'].split(',').sort(), function (index, gene) {
+                            geneLinks.push(`<a class="gene-link" href="https://maayanlab.cloud/Harmonizome/gene/${gene}" target="_blank">${gene}</a>`);
+                        });
+                        return $('<div>', {
+                            'class': 'popover-button',
+                            'data-toggle': 'popover',
+                            'data-placement': 'right',
+                            'data-trigger': 'focus',
+                            'data-html': 'true',
+                            'data-template': '<div class="popover overflow-auto" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
+                            'title': 'Genes',
+                            'data-content': `${geneLinks.join(" ")}`
+                        }).append(
+                            `<span tabindex="-1" style="cursor: pointer;text-decoration: underline dotted;">${row['Overlapping_Genes'].split(',').length} proteins </span>`,
+                        ).prop('outerHTML')
+                    } else return row['Overlapping_Genes'].split(',').length;
                 }
             }
         ],
         columnDefs: [
             {
-                "targets": [ 2, 4 ],
+                "targets": [2, 4],
                 "visible": false
             }
         ],
