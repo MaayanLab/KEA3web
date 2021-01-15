@@ -2,8 +2,8 @@
     <div class="col-lg-6 col-md-8 col-sm-8">
         <form>
             <h4>Input a list of proteins</h4>
-                <textarea class="form-control form-control-sm mt-2" id="genelist" rows="12" name="text-genes"
-                          placeholder="KEA3 supports HGNC-approved gene symbols. Symbols that are not included in this set are not analyzed."></textarea>
+            <textarea class="form-control form-control-sm mt-2" id="genelist" rows="12" name="text-genes"
+                      placeholder="KEA3 supports HGNC-approved gene symbols. Symbols that are not included in this set are not analyzed."></textarea>
 
             <div class="my-2">
                 <span id="genecheck" style="color: darkgrey; font-size: 0.9rem;">0 symbols entered, 0 duplicates, 0 valid symbols</span>
@@ -30,12 +30,12 @@
         </form>
     </div>
     <div class="col-lg-6 col-md-4 col-8">
-<!--        <h4>What is KEA3?</h4>-->
-<!--        <p>Kinase Enrichment Analysis 3 (KEA3) infers upstream kinases whose-->
-<!--            putative substrates are overrepresented in a user-inputted list of proteins or differentially-->
-<!--            phosphorylated proteins.-->
-<!--        </p>-->
-        <h4>The KEA3 Workflow</h4>
+        <!--        <h4>What is KEA3?</h4>-->
+        <!--        <p>Kinase Enrichment Analysis 3 (KEA3) infers upstream kinases whose-->
+        <!--            putative substrates are overrepresented in a user-inputted list of proteins or differentially-->
+        <!--            phosphorylated proteins.-->
+        <!--        </p>-->
+        <h4>The KEA3 workflow</h4>
         <div id="carouselPipelineCaptions" class="carousel slide border p-2" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselPipelineCaptions" data-slide-to="0" class="active"></li>
@@ -58,13 +58,15 @@
                 <div class="carousel-item">
                     <img src="static/carousel2.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <p>KEA performs enrichment analysis on the inputted list of differentially expressed proteins using gene set libraries from kinase-substrate interaction databases.</p>
+                        <p>KEA performs enrichment analysis on the inputted list of differentially expressed proteins
+                            using gene set libraries from kinase-substrate interaction databases.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="static/carousel3.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <p>A ranked list of the top predicted kinases is displayed as networks, subnetworks, bar graphs and a clustergram.</p>
+                        <p>A ranked list of the top predicted kinases is displayed as networks, subnetworks, bar graphs
+                            and a clustergram.</p>
                     </div>
                 </div>
             </div>
