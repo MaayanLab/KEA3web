@@ -1,3 +1,7 @@
+<p>Human kinome regulatory networks produced by applying Weighted Gene Co-expression Network Analysis (WGCNA) to various
+    datasets. All data was quantile-normalized and filtered to include only protein kinases prior to WGCNA. Clustering
+    was performed in Cytoscape with the Allegro Fruchterman-Reingold Force Directed Layout plugin. Nodes are colored by
+    the most significant tissue/tumor correlation to the parent WGCNA module.</p>
 <div class="dropdown">
     <button class="btn btn-sm btn-outline-primary dropdown-toggle mt-3" type="button" id="dropdownMenuButton"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -20,6 +24,8 @@
     </div>
 </div>
 <h4 class="my-3" id="archs4">ARCHS4</h4>
+<p>Data consisted of 100 random RNA-seq samples for each of 18 tissue types pulled from the ARCHS4 database. WGCNA
+    module eigengenes were correlated to ARCHS4 sample labels, which can be viewed by selecting the “Tissue” tab.</p>
 <div class="row">
     <div class="col-10 mt-1" style="display: block;">
         <nav class="nav nav-pills mb-3" id="archs4-tab" role="tablist">
@@ -34,11 +40,13 @@
                      aria-labelledby="archs4-wgcna-tab">
                     <svg id="archs4-wgcna-network"></svg>
                     <div class="row ml-1">
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#archs4-wgcna-network')[0], 'ARCHS4_WGCNA_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_svg($('#archs4-wgcna-network')[0], 'ARCHS4_WGCNA_Network')">
                             <i class="fas fa-download" title="Download SVG"></i>
                             SVG
                         </button>
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#archs4-wgcna-network')[0], 'ARCHS4_WGCNA_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_png($('#archs4-wgcna-network')[0], 'ARCHS4_WGCNA_Network')">
                             <i class="fas fa-download" title="Download PNG"></i>
                             PNG
                         </button>
@@ -47,11 +55,13 @@
                 <div class="tab-pane fade" id="archs4-tissue" role="tabpanel" aria-labelledby="archs4-tissue-tab">
                     <svg id="archs4-tissue-network"></svg>
                     <div class="row ml-1">
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#archs4-tissue-network')[0], 'ARCHS4_Tissue_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_svg($('#archs4-tissue-network')[0], 'ARCHS4_Tissue_Network')">
                             <i class="fas fa-download" title="Download SVG"></i>
                             SVG
                         </button>
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#archs4-tissue-network')[0], 'ARCHS4_Tissue_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_png($('#archs4-tissue-network')[0], 'ARCHS4_Tissue_Network')">
                             <i class="fas fa-download" title="Download PNG"></i>
                             PNG
                         </button>
@@ -63,6 +73,8 @@
 </div>
 <hr>
 <h4 class="my-3" id="gtex">GTEx</h4>
+<p>Data is from GTEx gene expression dataset. WGCNA module eigengenes were correlated to GTEx tissue sample labels,
+    which can be viewed by selecting the “General tissue” and “Specific tissue” tabs.</p>
 <div class="row">
     <div class="col-10 mt-1" style="display: block;">
         <nav class="nav nav-pills mb-3" id="gtex-tab" role="tablist">
@@ -81,11 +93,13 @@
                      aria-labelledby="gtex-wgcna-tab">
                     <svg id="gtex-wgcna-network"></svg>
                     <div class="row ml-1">
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#gtex-wgcna-network')[0], 'GTEx_WGCNA_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_svg($('#gtex-wgcna-network')[0], 'GTEx_WGCNA_Network')">
                             <i class="fas fa-download" title="Download SVG"></i>
                             SVG
                         </button>
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#gtex-wgcna-network')[0], 'GTEx_WGCNA_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_png($('#gtex-wgcna-network')[0], 'GTEx_WGCNA_Network')">
                             <i class="fas fa-download" title="Download PNG"></i>
                             PNG
                         </button>
@@ -95,11 +109,13 @@
                      aria-labelledby="gtex-general-tissue-tab">
                     <svg id="gtex-general-tissue-network"></svg>
                     <div class="row ml-1">
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#gtex-general-tissue-network')[0], 'GTEx_General_Tissue_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_svg($('#gtex-general-tissue-network')[0], 'GTEx_General_Tissue_Network')">
                             <i class="fas fa-download" title="Download SVG"></i>
                             SVG
                         </button>
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#gtex-general-tissue-network')[0], 'GTEx_General_Tissue_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_png($('#gtex-general-tissue-network')[0], 'GTEx_General_Tissue_Network')">
                             <i class="fas fa-download" title="Download PNG"></i>
                             PNG
                         </button>
@@ -109,11 +125,13 @@
                      aria-labelledby="gtex-specific-tissue-tab">
                     <svg id="gtex-specific-tissue-network"></svg>
                     <div class="row ml-1">
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#gtex-specific-tissue-network')[0], 'GTEx_Specific_Tissue_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_svg($('#gtex-specific-tissue-network')[0], 'GTEx_Specific_Tissue_Network')">
                             <i class="fas fa-download" title="Download SVG"></i>
                             SVG
                         </button>
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#gtex-specific-tissue-network')[0], 'GTEx_Specific_Tissue_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_png($('#gtex-specific-tissue-network')[0], 'GTEx_Specific_Tissue_Network')">
                             <i class="fas fa-download" title="Download PNG"></i>
                             PNG
                         </button>
@@ -125,6 +143,8 @@
 </div>
 <hr>
 <h4 class="my-3" id="tcga">TCGA</h4>
+<p>Data consisted of 100 samples from each of 96 cancer types from the TCGA database. WCGNA module eigengenes were
+    correlated to TCGA tumor types, which can be viewed by selecting the “Tumor” tab.</p>
 <div class="row">
     <div class="col-10 mt-1" style="display: block;">
         <nav class="nav nav-pills mb-3" id="tcga-tab" role="tablist">
@@ -139,11 +159,13 @@
                      aria-labelledby="tcga-wgcna-tab">
                     <svg id="tcga-wgcna-network"></svg>
                     <div class="row ml-1">
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#tcga-wgcna-network')[0], 'TCGA_WGCNA_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_svg($('#tcga-wgcna-network')[0], 'TCGA_WGCNA_Network')">
                             <i class="fas fa-download" title="Download SVG"></i>
                             SVG
                         </button>
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#tcga-wgcna-network')[0], 'TCGA_WGCNA_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_png($('#tcga-wgcna-network')[0], 'TCGA_WGCNA_Network')">
                             <i class="fas fa-download" title="Download PNG"></i>
                             PNG
                         </button>
@@ -152,11 +174,13 @@
                 <div class="tab-pane fade" id="tcga-tumor" role="tabpanel" aria-labelledby="tcga-tumor-tab">
                     <svg id="tcga-tumor-network"></svg>
                     <div class="row ml-1">
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#tcga-tumor-network')[0], 'TCGA_Tumor_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_svg($('#tcga-tumor-network')[0], 'TCGA_Tumor_Network')">
                             <i class="fas fa-download" title="Download SVG"></i>
                             SVG
                         </button>
-                        <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#tcga-tumor-network')[0], 'TCGA_Tumor_Network')">
+                        <button class="btn btn-primary-outline btn-sm"
+                                onclick="save_png($('#tcga-tumor-network')[0], 'TCGA_Tumor_Network')">
                             <i class="fas fa-download" title="Download PNG"></i>
                             PNG
                         </button>
