@@ -11,6 +11,16 @@ function checkGeneList(data) {
     const genes = data.toUpperCase().split("\n").filter(Boolean);
     const uniq_genes = [...new Set(genes)];
     const intersect = uniq_genes.filter(value => hgnc.includes(value));
+    let submit_button = $('#submit-genelist')
+    if (genes.length > 0) {
+        submit_button.prop('disabled', false);
+        submit_button.css('background-color', '#007bff73');
+    }
+    else {
+        submit_button.prop("disabled", true);
+        submit_button.css('background-color', 'lightgray');
+    }
+
     $('#genecheck').html(`${genes.length}  symbols entered, ${genes.length - uniq_genes.length} duplicates, <span id='num-valid-genes'> ${intersect.length} </span> valid symbols`);
 }
 

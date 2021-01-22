@@ -1,8 +1,12 @@
-<div class="row">
-    <div class="col-lg-6 col-md-8 col-sm-8">
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-10 col-sm-12">
         <form>
             <h4>Input a list of proteins</h4>
-            <textarea class="form-control form-control-sm mt-2" id="genelist" rows="12" name="text-genes"
+            <textarea class="form-control form-control-sm mt-2"
+                      id="genelist" rows="12" name="text-genes"
+                      onkeyup="checkGeneList($(this).val())"
+                      onchange="checkGeneList($(this).val())"
+                      onfocus="checkGeneList($(this).val())"
                       placeholder="KEA3 supports HGNC-approved gene symbols. Symbols that are not included in this set are not analyzed."></textarea>
 
             <div class="my-2">
@@ -18,7 +22,7 @@
             </div>
             <p>
                 <a class="custom-button" href="#" role="button" id="submit-genelist"
-                   onclick="submitList();">Submit</a>
+                   onclick="submitList();" disabled style="text-decoration: none;">Submit</a>
                 <button type="button" class="custom-button" id="example-genelist" onclick="insertExample();"><i
                         class="fas fa-align-justify"></i> Input an example
                 </button>
@@ -29,7 +33,7 @@
             </p>
         </form>
     </div>
-    <div class="col-lg-6 col-md-4 col-8">
+    <div class="col-lg-6 col-md-10 col-12">
         <!--        <h4>What is KEA3?</h4>-->
         <!--        <p>Kinase Enrichment Analysis 3 (KEA3) infers upstream kinases whose-->
         <!--            putative substrates are overrepresented in a user-inputted list of proteins or differentially-->
@@ -45,18 +49,18 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="static/carousel0.png" class="d-block w-100" alt="...">
+                    <img src="static/carousel0.png" class="d-block w-100 img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="static/carousel1.png" class="d-block w-100" alt="...">
+                    <img src="static/carousel1.png" class="d-block w-100 img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <p>Input a list of differentially expressed proteins.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="static/carousel2.png" class="d-block w-100" alt="...">
+                    <img src="static/carousel2.png" class="d-block w-100 img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <p>KEA performs enrichment analysis on the inputted list of differentially expressed proteins
                             using gene set libraries from kinase-substrate interaction databases.</p>

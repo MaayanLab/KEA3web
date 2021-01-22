@@ -128,3 +128,10 @@ input[type="file"] {
 .carousel-indicators {
     filter: invert(100%);
 }
+
+#submit-genelist {
+    background-color: lightgray;
+}
+#submit-genelist:hover {
+    color: #fff;
+}
