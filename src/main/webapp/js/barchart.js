@@ -1,5 +1,6 @@
-function split_libs(result, threshold = 3) {
+function split_libs(result, threshold, num) {
     let vals = 'name,BioGRID,ChengKSIN,ChengPPI,HIPPIE,mentha,MINT,PhosDAll,prePPI,PTMsigDB,STRING,STRING.bind';
+    let counter = 0;
     for (let kin of result) {
         let lib_vals = {
             "BioGRID": 0,
@@ -25,23 +26,24 @@ function split_libs(result, threshold = 3) {
                 non_z_counter++;
             }
         }
-        if (non_z_counter >= threshold) {
+        if ((non_z_counter >= threshold)&&(counter < num)) {
             vals = `${vals}\n${kinase},${lib_vals["BioGRID"]},${lib_vals["ChengKSIN"]},${lib_vals["ChengPPI"]},${lib_vals["HIPPIE"]},${lib_vals["mentha"]},${lib_vals["MINT"]},${lib_vals["PhosDAll"]},${lib_vals["prePPI"]},${lib_vals["PTMsigDB"]},${lib_vals["STRING"]},${lib_vals["STRING.bind"]}`;
+            counter++;
         }
     }
     return vals
 }
 
-function stacked_chart(json, wrapper, num = 10) {
-    const data = d3
+function stacked_chart(json, wrapper, threshold = 3, num = 10) {
+    let data = d3
         .csvParse(
-            split_libs(json.slice(0, num)),
+            split_libs(json, threshold, num),
             (d, i, columns) => (
                 d3.autoType(d), (d.total = d3.sum(columns, c => d[c])), d
             )
         )
         .sort((a, b) => b.total - a.total);
-    const margin = ({top: 80, right: 20, bottom: 30, left: 60});
+    const margin = ({top: 80, right: 20, bottom: 0, left: 60});
     const height = data.length * 25 + margin.top + margin.bottom;
     const width = 500;
     const svg = d3.select(wrapper);
