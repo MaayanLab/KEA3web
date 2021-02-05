@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="/kea3/static/KEA3_logo_transparent.png" type="image/x-icon">
+    <link rel="shortcut icon" href="//kea3kea3/static/KEA3_logo_transparent.png" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="/kea3/dist/css/index.css"/>
 
     <meta property="og:type" content="website"/>
-    <meta property="og:image" content="/kea3/static/thumbnail.png"/>
+    <meta property="og:image" content="//kea3kea3/static/thumbnail.png"/>
 </head>
 <body>
 <div class="container-fluid">
@@ -60,7 +60,7 @@
                         <td>240</td>
                         <td>2,251</td>
                         <td>24</td>
-                        <td><a download="" href="/static/tflibs/BioGRID.gmt">
+                        <td><a download="" href="/kea3/static/libraries/BioGRID.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -70,7 +70,7 @@
                         <td>227</td>
                         <td>2,154</td>
                         <td>31</td>
-                        <td><a download="" href="/static/tflibs/Cheng.KSIN.gmt">
+                        <td><a download="" href="/kea3/static/libraries/Cheng.KSIN.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -80,7 +80,7 @@
                         <td>474</td>
                         <td>8,798</td>
                         <td>97</td>
-                        <td><a download="" href="/static/tflibs/HIPPIE.gmt">
+                        <td><a download="" href="/kea3/static/libraries/HIPPIE.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -89,7 +89,7 @@
                         <td>474</td>
                         <td>8,639</td>
                         <td>72</td>
-                        <td><a download="" href="/static/tflibs/mentha.gmt">
+                        <td><a download="" href="/kea3/static/libraries/mentha.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -98,7 +98,7 @@
                         <td>156</td>
                         <td>1,383</td>
                         <td>72</td>
-                        <td><a download="" href="/static/tflibs/MINT.gmt">
+                        <td><a download="" href="/kea3/static/libraries/MINT.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -108,7 +108,7 @@
                         <td>376</td>
                         <td>4,678</td>
                         <td>40</td>
-                        <td><a download="" href="/static/tflibs/Cheng.PPI.gmt">
+                        <td><a download="" href="/kea3/static/libraries/Cheng.PPI.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -118,7 +118,7 @@
                         <td>163</td>
                         <td>2,262</td>
                         <td>32</td>
-                        <td><a download="" href="/static/tflibs/PTMsigDB.gmt">
+                        <td><a download="" href="/kea3/static/libraries/PTMsigDB.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -129,7 +129,7 @@
                         <td>514</td>
                         <td>18,213</td>
                         <td>1,235</td>
-                        <td><a download="" href="/static/tflibs/STRING.gmt">
+                        <td><a download="" href="/kea3/static/libraries/STRING.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -140,7 +140,7 @@
                         <td>432</td>
                         <td>5,254</td>
                         <td>72</td>
-                        <td><a download="" href="/static/tflibs/STRING.bind.gmt">
+                        <td><a download="" href="/kea3/static/libraries/STRING.bind.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -149,7 +149,7 @@
                         <td>339</td>
                         <td>6,544</td>
                         <td>368</td>
-                        <td><a download="" href="/static/tflibs/PhosD.All.gmt">
+                        <td><a download="" href="/kea3/static/libraries/PhosD.All.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -158,7 +158,7 @@
                         <td>519</td>
                         <td>14,382</td>
                         <td>658</td>
-                        <td><a download="" href="/static/tflibs/prePPI.gmt">
+                        <td><a download="" href="/kea3/static/libraries/prePPI.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -178,7 +178,7 @@
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
-                        <td><a download="" href="/static/tflibs/PTMsigDB_drugtarget_signatures.gmt">
+                        <td><a download="" href="/kea3/static/libraries/PTMsigDB_drugtarget_signatures.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -188,7 +188,7 @@
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
-                        <td><a download="" href="/static/tflibs/single_kinase_perts_from_GEO_updn.gmt">
+                        <td><a download="" href="/kea3/static/libraries/single_kinase_perts_from_GEO_updn.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -198,7 +198,7 @@
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
-                        <td><a download="" href="/static/tflibs/L1000FWD_kin_targets_updn.gmt">
+                        <td><a download="" href="/kea3/static/libraries/L1000FWD_kin_targets_updn.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -217,7 +217,7 @@
                         <td>44</td>
                         <td>493</td>
                         <td>14</td>
-                        <td><a download="" href="/static/tflibs/PSOPIA.gmt">
+                        <td><a download="" href="/kea3/static/libraries/PSOPIA.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -227,7 +227,7 @@
                         <td>165</td>
                         <td>2,269</td>
                         <td>32</td>
-                        <td><a download="" href="/static/tflibs/PhosphoSitePlus.gmt">
+                        <td><a download="" href="/kea3/static/libraries/PhosphoSitePlus.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -237,7 +237,7 @@
                         <td>285</td>
                         <td>1,914</td>
                         <td>83</td>
-                        <td><a download="" href="/static/tflibs/PhosphoNetworks.rawKSI.gmt">
+                        <td><a download="" href="/kea3/static/libraries/PhosphoNetworks.rawKSI.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -247,7 +247,7 @@
                         <td>181</td>
                         <td>1,115</td>
                         <td>23</td>
-                        <td><a download="" href="/static/tflibs/PhosphoNetworks.comKSI.gmt">
+                        <td><a download="" href="/kea3/static/libraries/PhosphoNetworks.comKSI.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -257,7 +257,7 @@
                         <td>164</td>
                         <td>717</td>
                         <td>21</td>
-                        <td><a download="" href="/static/tflibs/PhosphoNetworks.refKSI.gmt">
+                        <td><a download="" href="/kea3/static/libraries/PhosphoNetworks.refKSI.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -266,7 +266,7 @@
                         <td>161</td>
                         <td>3,799</td>
                         <td>127</td>
-                        <td><a download="" href="/static/tflibs/PhosD.ELM.gmt">
+                        <td><a download="" href="/kea3/static/libraries/PhosD.ELM.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -275,7 +275,7 @@
                         <td>212</td>
                         <td>5,565</td>
                         <td>246</td>
-                        <td><a download="" href="/static/tflibs/PhosD.ELM.gmt">
+                        <td><a download="" href="/kea3/static/libraries/PhosD.ELM.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -285,7 +285,7 @@
                         <td>515</td>
                         <td>16,711</td>
                         <td>300</td>
-                        <td><a download="" href="/static/tflibs/ARCHS4.coexp.gmt">
+                        <td><a download="" href="/kea3/static/libraries/ARCHS4.coexp.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -294,7 +294,7 @@
                         <td>515</td>
                         <td>17,769</td>
                         <td>300</td>
-                        <td><a download="" href="/static/tflibs/GTEx.coexp.gmt">
+                        <td><a download="" href="/kea3/static/libraries/GTEx.coexp.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -304,7 +304,7 @@
                         <td>266</td>
                         <td>2,068</td>
                         <td>50</td>
-                        <td><a download="" href="/static/tflibs/PIPs.gmt">
+                        <td><a download="" href="/kea3/static/libraries/PIPs.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -313,7 +313,7 @@
                         <td>178</td>
                         <td>1,209</td>
                         <td>22</td>
-                        <td><a download="" href="/static/tflibs/REACTOME.gmt">
+                        <td><a download="" href="/kea3/static/libraries/REACTOME.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -323,7 +323,7 @@
                         <td>39</td>
                         <td>418</td>
                         <td>16</td>
-                        <td><a download="" href="/static/tflibs/Phospho.ELM.gmt">
+                        <td><a download="" href="/kea3/static/libraries/Phospho.ELM.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
@@ -333,7 +333,7 @@
                         <td>33</td>
                         <td>294</td>
                         <td>12</td>
-                        <td><a download="" href="/static/tflibs/hu.MAP.gmt">
+                        <td><a download="" href="/kea3/static/libraries/hu.MAP.gmt">
                             <i class="fas fa-file-download" aria-hidden="true"></i>
                         </a></td>
                     </tr>
