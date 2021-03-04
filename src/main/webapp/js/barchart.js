@@ -41,11 +41,12 @@ function stacked_chart(json, wrapper, threshold = 3, num = 10) {
             (d, i, columns) => (
                 d3.autoType(d), (d.total = d3.sum(columns, c => d[c])), d
             )
-        )
-        .sort((a, b) => b.total - a.total);
+        );
+        // .sort((a, b) => b.total - a.total);
     const margin = ({top: 80, right: 20, bottom: 0, left: 60});
     const height = data.length * 25 + margin.top + margin.bottom;
     const width = 500;
+    $(wrapper).empty();
     const svg = d3.select(wrapper);
     const series = d3.stack()
         .keys(data.columns.slice(1))(data)
@@ -120,6 +121,7 @@ function chart(json, wrapper, order = "pvalue", color = "steelblue", numBar = 10
     const margin = ({top: 30, right: 20, bottom: 50, left: 60});
     const height = data.length * 25 + margin.top + margin.bottom;
     const width = 500;
+    $(wrapper).empty();
     const svg = d3.select(wrapper);
     svg.attr("viewBox", [0, 0, width, height])
         .attr("class", "barchart");

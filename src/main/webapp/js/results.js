@@ -28,12 +28,19 @@ function drawTable(data, wrapper, name) {
         }
     }
 
+    if ($.fn.dataTable.isDataTable(wrapper)) {
+        console.log('Non empty')
+        $(wrapper).DataTable().clear().destroy()
+    }
+
+
     $(wrapper).DataTable({
         width: '100%',
         data: data_clean,
         pagingType: "simple",
         dom: 'lfrtipB',
         responsive: true,
+        retrieve: true,
         buttons: [{
             extend: 'csvHtml5',
             text: '<i class="fas fa-download" title="Download TSV"></i>.tsv',
@@ -113,10 +120,16 @@ function drawIntegratedTable(data, wrapper, score) {
         }
     }
 
+    if ($.fn.dataTable.isDataTable(wrapper)) {
+        console.log('Non empty')
+        $(wrapper).DataTable().clear().destroy()
+    }
+
     $(wrapper).DataTable({
         data: data_clean,
         pagingType: "simple",
         dom: 'lfrtipB',
+        retrieve: true,
         buttons: [{
             extend: 'csvHtml5',
             text: '<i class="fas fa-download" title="Download TSV"></i>.tsv',
