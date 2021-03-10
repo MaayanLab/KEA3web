@@ -45,7 +45,7 @@ function insertExample() {
 }
 
 function uploadFileListener() {
-    $('#file-input').on('change', function (evt) {
+    $('#file-upload').on('change', function (evt) {
         const f = evt.target.files[0];
         let reader = new FileReader();
         reader.onload = (function () {
