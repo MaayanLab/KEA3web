@@ -1,3 +1,9 @@
+let meanrank_legend;
+
+$.get('static/meanrank_legend.html', function (response) {
+    meanrank_legend = response;
+});
+
 function split_libs(result, threshold, num) {
     let vals = 'name,BioGRID,ChengKSIN,ChengPPI,HIPPIE,mentha,MINT,PhosDAll,prePPI,PTMsigDB,STRING,STRING.bind';
     let counter = 0;
@@ -47,6 +53,7 @@ function stacked_chart(json, wrapper, threshold = 3, num = 10) {
     const height = data.length * 25 + margin.top + margin.bottom;
     const width = 500;
     $(wrapper).empty();
+    $('#bar-1-1').html(meanrank_legend).contents();
     const svg = d3.select(wrapper);
     const series = d3.stack()
         .keys(data.columns.slice(1))(data)
