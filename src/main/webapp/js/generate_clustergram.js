@@ -16,7 +16,7 @@ function generateClustergram(kea_results, top_tfs = 5) {
                     genes.add(gene);
                 });
                 // Column labels
-                tfs.push('Kinase: ' + library + '-' + kea_result['Rank'].toString().padStart(2, '0') + '-' + kea_result['TF']);
+                tfs.push(`Kinase: ${kea_result['TF']}`);
                 libraries.push('Library: ' + library);
                 ranks.push('Rank: ' + kea_result['Rank']);
             }
