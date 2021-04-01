@@ -1,7 +1,7 @@
-graph = (library, wrapper) => {
+graph = (library, wrapper, num= 10) => {
     const height = 330;
     const width = 500;
-    const k = kinases(results[library], graph_mode.num)
+    const k = kinases(results[library], num)
 
     // Arrow ends
     const markerBoxWidth = 10;

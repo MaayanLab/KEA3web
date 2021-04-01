@@ -4,7 +4,6 @@ network_mode = ({
     tcga: ({color_by: 'WGCNA_module', num: 10, library: 'Integrated--meanRank'})
 });
 
-graph_mode = ({library: 'Integrated--meanRank', num: 10});
 results = {};
 
 function checkGeneList(data) {

@@ -1,6 +1,7 @@
 function generateClustergram(kea_results, top_tfs = 5) {
     let genes = new Set();
     let tfs = ['', ''];
+    let kinases = ['', '']
     let libraries = ['', ''];
     let ranks = ['', ''];
     let rows = [];
@@ -16,9 +17,10 @@ function generateClustergram(kea_results, top_tfs = 5) {
                     genes.add(gene);
                 });
                 // Column labels
-                tfs.push(`Kinase: ${kea_result['TF']}`);
-                libraries.push('Library: ' + library);
-                ranks.push('Rank: ' + kea_result['Rank']);
+                tfs.push(`Kinase results: ${kea_result['TF']} ${library}`);
+                kinases.push(`Kinase: ${kea_result['TF']}`);
+                libraries.push(`Library: ${library}`);
+                ranks.push(`Rank: ${kea_result['Rank']}`);
             }
         }
     });
@@ -46,7 +48,7 @@ function generateClustergram(kea_results, top_tfs = 5) {
     });
 
     // Build string
-    const columns_str = $.map([tfs, libraries, ranks], function (x) {
+    const columns_str = $.map([tfs, kinases, libraries, ranks], function (x) {
         return x.join('\t')
     }).join('\n');
     const matrix_str =  columns_str + '\n' + rows.join('\n');

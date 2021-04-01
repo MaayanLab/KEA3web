@@ -1,6 +1,6 @@
-scatter = (type, wrapper, color_by, legend_data) => {
+scatter = (type, wrapper, color_by, legend_data, num = 10) => {
     const json = `static/json/wgcna_${type}_annotated.json`;
-    const k = kinases(results[network_mode[type].library]).slice(0, network_mode[type].num);
+    const k = kinases(results[network_mode[type].library]).slice(0, num);
     const height = 500;
     const width = 900;
     const margin = {top: 30, right: 50, bottom: 30, left: 50};
