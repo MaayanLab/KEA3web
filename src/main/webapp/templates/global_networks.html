@@ -3,32 +3,39 @@
     datasets. All data was quantile-normalized and filtered to include only protein kinases prior to WGCNA. Clustering
     was performed in Cytoscape with the Allegro Fruchterman-Reingold Force Directed Layout plugin. Nodes are colored by
     the most significant tissue/tumor correlation to the parent WGCNA module.</p>
-<div class="dropdown">
-    <button class="btn btn-sm btn-outline-primary dropdown-toggle mt-3" type="button" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Select a library
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#results" onclick="drawAllScatters('Integrated--meanRank');">Mean rank</a>
-        <a class="dropdown-item" href="#results" onclick="drawAllScatters('Integrated--topRank');">Top rank</a>
-        <a class="dropdown-item" href="#results" onclick="drawAllScatters('ChengKSIN');">ChengKSIN</a>
-        <a class="dropdown-item" href="#results" onclick="drawAllScatters('PTMsigDB');">PTMsigDB</a>
-        <a class="dropdown-item" href="#results" onclick="drawAllScatters('PhosDAll');">PhosDAll</a>
-        <a class="dropdown-item" href="#results" onclick="drawAllScatters('prePPI');">prePPI</a>
-        <a class="dropdown-item" href="#results" onclick="drawAllScatters('BioGRID');">BioGRID</a>
-        <a class="dropdown-item" href="#results" onclick="drawAllScatters('mentha');">mentha</a>
-        <a class="dropdown-item" href="#results" onclick="drawAllScatters('MINT');">MINT</a>
-        <a class="dropdown-item" href="#results" onclick="drawAllScatters('HIPPIE');">HIPPIE</a>
-        <a class="dropdown-item" href="#results" onclick="drawAllScatters('STRING.bind');">STRING.bind</a>
-        <a class="dropdown-item" href="#results" onclick="drawAllScatters('ChengPPI');">ChengPPI</a>
-        <a class="dropdown-item" href="#results" onclick="drawAllScatters('STRING');">STRING</a>
-    </div>
-</div>
 <h4 class="my-3" id="archs4">ARCHS4</h4>
 <p>Data consisted of 100 random RNA-seq samples for each of 18 tissue types pulled from the ARCHS4 database. WGCNA
     module eigengenes were correlated to ARCHS4 sample labels, which can be viewed by selecting the "Tissue" tab.</p>
 <div class="row">
     <div class="col-10 mt-1" style="display: block;">
+        <div class="dropdown">
+            <label for="dropdown_archs4_button">Select a library</label>
+            <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="dropdown_archs4_button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Integrated--meanRank
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#results" onclick="draw_archs4_scatters('Integrated--meanRank', parseInt($('#slider-net-archs4').val()));">Mean rank</a>
+                <a class="dropdown-item" href="#results" onclick="draw_archs4_scatters('Integrated--topRank', parseInt($('#slider-net-archs4').val()));">Top rank</a>
+                <a class="dropdown-item" href="#results" onclick="draw_archs4_scatters('ChengKSIN', parseInt($('#slider-net-archs4').val()));">ChengKSIN</a>
+                <a class="dropdown-item" href="#results" onclick="draw_archs4_scatters('PTMsigDB', parseInt($('#slider-net-archs4').val()));">PTMsigDB</a>
+                <a class="dropdown-item" href="#results" onclick="draw_archs4_scatters('PhosDAll', parseInt($('#slider-net-archs4').val()));">PhosDAll</a>
+                <a class="dropdown-item" href="#results" onclick="draw_archs4_scatters('prePPI', parseInt($('#slider-net-archs4').val()));">prePPI</a>
+                <a class="dropdown-item" href="#results" onclick="draw_archs4_scatters('BioGRID', parseInt($('#slider-net-archs4').val()));">BioGRID</a>
+                <a class="dropdown-item" href="#results" onclick="draw_archs4_scatters('mentha', parseInt($('#slider-net-archs4').val()));">mentha</a>
+                <a class="dropdown-item" href="#results" onclick="draw_archs4_scatters('MINT', parseInt($('#slider-net-archs4').val()));">MINT</a>
+                <a class="dropdown-item" href="#results" onclick="draw_archs4_scatters('HIPPIE', parseInt($('#slider-net-archs4').val()));">HIPPIE</a>
+                <a class="dropdown-item" href="#results" onclick="draw_archs4_scatters('STRING.bind', parseInt($('#slider-net-archs4').val()));">STRING.bind</a>
+                <a class="dropdown-item" href="#results" onclick="draw_archs4_scatters('ChengPPI', parseInt($('#slider-net-archs4').val()));">ChengPPI</a>
+                <a class="dropdown-item" href="#results" onclick="draw_archs4_scatters('STRING', parseInt($('#slider-net-archs4').val()));">STRING</a>
+            </div>
+        </div>
+        <div class="d-flex mt-3">
+            <p>Showing top <span id="slider-net-val-archs4">10</span> results</p>
+            <input id="slider-net-archs4" type="range" min="1" max="50" step="1" value="10" class="ml-3 mb-2"
+                   oninput="draw_archs4_scatters(network_mode.archs4.library, parseInt(this.value)); $('#slider-net-val-archs4').text(this.value)"
+                   onchange="draw_archs4_scatters(network_mode.archs4.library, parseInt(this.value)); $('#slider-net-val-archs4').text(this.value)">
+        </div>
         <nav class="nav nav-pills mb-3" id="archs4-tab" role="tablist">
             <a class="nav-link m-1 py-1 active" id="archs4-wgcna-tab" data-toggle="pill" href="#archs4-wgcna" role="tab"
                aria-controls="archs4-wgcna" aria-selected="true">WGCNA modules</a>
@@ -78,6 +85,34 @@
     which can be viewed by selecting the "General tissue" and "Specific tissue" tabs.</p>
 <div class="row">
     <div class="col-10 mt-1" style="display: block;">
+        <div class="dropdown">
+            <label for="dropdown_gtex_button">Select a library</label>
+            <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="dropdown_gtex_button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Integrated--meanRank
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#results" onclick="draw_gtex_scatters('Integrated--meanRank', parseInt($('#slider-net-gtex').val()));">Mean rank</a>
+                <a class="dropdown-item" href="#results" onclick="draw_gtex_scatters('Integrated--topRank', parseInt($('#slider-net-gtex').val()));">Top rank</a>
+                <a class="dropdown-item" href="#results" onclick="draw_gtex_scatters('ChengKSIN', parseInt($('#slider-net-gtex').val()));">ChengKSIN</a>
+                <a class="dropdown-item" href="#results" onclick="draw_gtex_scatters('PTMsigDB', parseInt($('#slider-net-gtex').val()));">PTMsigDB</a>
+                <a class="dropdown-item" href="#results" onclick="draw_gtex_scatters('PhosDAll', parseInt($('#slider-net-gtex').val()));">PhosDAll</a>
+                <a class="dropdown-item" href="#results" onclick="draw_gtex_scatters('prePPI', parseInt($('#slider-net-gtex').val()));">prePPI</a>
+                <a class="dropdown-item" href="#results" onclick="draw_gtex_scatters('BioGRID', parseInt($('#slider-net-gtex').val()));">BioGRID</a>
+                <a class="dropdown-item" href="#results" onclick="draw_gtex_scatters('mentha', parseInt($('#slider-net-gtex').val()));">mentha</a>
+                <a class="dropdown-item" href="#results" onclick="draw_gtex_scatters('MINT', parseInt($('#slider-net-gtex').val()));">MINT</a>
+                <a class="dropdown-item" href="#results" onclick="draw_gtex_scatters('HIPPIE', parseInt($('#slider-net-gtex').val()));">HIPPIE</a>
+                <a class="dropdown-item" href="#results" onclick="draw_gtex_scatters('STRING.bind', parseInt($('#slider-net-gtex').val()));">STRING.bind</a>
+                <a class="dropdown-item" href="#results" onclick="draw_gtex_scatters('ChengPPI', parseInt($('#slider-net-gtex').val()));">ChengPPI</a>
+                <a class="dropdown-item" href="#results" onclick="draw_gtex_scatters('STRING', parseInt($('#slider-net-gtex').val()));">STRING</a>
+            </div>
+        </div>
+        <div class="d-flex mt-3">
+            <p>Showing top <span id="slider-net-val-gtex">10</span> results</p>
+            <input id="slider-net-gtex" type="range" min="1" max="50" step="1" value="10" class="ml-3 mb-2"
+                   oninput="draw_gtex_scatters(network_mode.gtex.library, parseInt(this.value)); $('#slider-net-val-gtex').text(this.value)"
+                   onchange="draw_gtex_scatters(network_mode.gtex.library, parseInt(this.value)); $('#slider-net-val-gtex').text(this.value)">
+        </div>
         <nav class="nav nav-pills mb-3" id="gtex-tab" role="tablist">
             <a class="nav-link m-1 py-1 active" id="gtex-wgcna-tab" data-toggle="pill" href="#gtex-wgcna" role="tab"
                aria-controls="gtex-wgcna" aria-selected="true">WGCNA modules</a>
@@ -148,6 +183,34 @@
     correlated to TCGA tumor types, which can be viewed by selecting the "Tumor" tab.</p>
 <div class="row">
     <div class="col-10 mt-1" style="display: block;">
+        <div class="dropdown">
+            <label for="dropdown_tcga_button">Select a library</label>
+            <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="dropdown_tcga_button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Integrated--meanRank
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#results" onclick="draw_tcga_scatters('Integrated--meanRank', parseInt($('#slider-net-tcga').val()));">Mean rank</a>
+                <a class="dropdown-item" href="#results" onclick="draw_tcga_scatters('Integrated--topRank', parseInt($('#slider-net-tcga').val()));">Top rank</a>
+                <a class="dropdown-item" href="#results" onclick="draw_tcga_scatters('ChengKSIN', parseInt($('#slider-net-tcga').val()));">ChengKSIN</a>
+                <a class="dropdown-item" href="#results" onclick="draw_tcga_scatters('PTMsigDB', parseInt($('#slider-net-tcga').val()));">PTMsigDB</a>
+                <a class="dropdown-item" href="#results" onclick="draw_tcga_scatters('PhosDAll', parseInt($('#slider-net-tcga').val()));">PhosDAll</a>
+                <a class="dropdown-item" href="#results" onclick="draw_tcga_scatters('prePPI', parseInt($('#slider-net-tcga').val()));">prePPI</a>
+                <a class="dropdown-item" href="#results" onclick="draw_tcga_scatters('BioGRID', parseInt($('#slider-net-tcga').val()));">BioGRID</a>
+                <a class="dropdown-item" href="#results" onclick="draw_tcga_scatters('mentha', parseInt($('#slider-net-tcga').val()));">mentha</a>
+                <a class="dropdown-item" href="#results" onclick="draw_tcga_scatters('MINT', parseInt($('#slider-net-tcga').val()));">MINT</a>
+                <a class="dropdown-item" href="#results" onclick="draw_tcga_scatters('HIPPIE', parseInt($('#slider-net-tcga').val()));">HIPPIE</a>
+                <a class="dropdown-item" href="#results" onclick="draw_tcga_scatters('STRING.bind', parseInt($('#slider-net-tcga').val()));">STRING.bind</a>
+                <a class="dropdown-item" href="#results" onclick="draw_tcga_scatters('ChengPPI', parseInt($('#slider-net-tcga').val()));">ChengPPI</a>
+                <a class="dropdown-item" href="#results" onclick="draw_tcga_scatters('STRING', parseInt($('#slider-net-tcga').val()));">STRING</a>
+            </div>
+        </div>
+        <div class="d-flex mt-3">
+            <p>Showing top <span id="slider-net-val-tcga">10</span> results</p>
+            <input id="slider-net-tcga" type="range" min="1" max="50" step="1" value="10" class="ml-3 mb-2"
+                   oninput="draw_tcga_scatters(network_mode.tcga.library, parseInt(this.value)); $('#slider-net-val-tcga').text(this.value)"
+                   onchange="draw_tcga_scatters(network_mode.tcga.library, parseInt(this.value)); $('#slider-net-val-tcga').text(this.value)">
+        </div>
         <nav class="nav nav-pills mb-3" id="tcga-tab" role="tablist">
             <a class="nav-link m-1 py-1 active" id="tcga-wgcna-tab" data-toggle="pill" href="#tcga-wgcna" role="tab"
                aria-controls="tcga-wgcna" aria-selected="true">WGCNA modules</a>

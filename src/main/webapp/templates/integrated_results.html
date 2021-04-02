@@ -12,6 +12,12 @@
                           data-html="true">
                         <i class="fas fa-info-circle" style="color: darkgrey; font-size: 0.9rem;"></i>
                     </span></h5>
+                <div class="d-flex mb-2">
+                    <p>Showing top <span id="slider-bar-1-1">10</span> results</p>
+                    <input type="range" min="1" max="50" step="1" value="10" class="ml-3 mb-2"
+                           oninput="stacked_chart(results['Integrated--meanRank'], '#bar-1-1', parseInt(this.value)); $('#slider-bar-1-1').text(this.value)"
+                           onchange="stacked_chart(results['Integrated--meanRank'], '#bar-1-1', parseInt(this.value)); $('#slider-bar-1-1').text(this.value)">
+                </div>
                 <svg id="bar-1-1">
                 </svg>
                 <div class="row ml-1">
@@ -40,14 +46,22 @@
                           data-html="true">
                         <i class="fas fa-info-circle" style="color: darkgrey; font-size: 0.9rem;"></i>
                     </span></h5>
+                <div class="d-flex mb-2">
+                    <p>Showing top <span id="slider-bar-1-2">10</span> results</p>
+                    <input type="range" min="1" max="50" step="1" value="10" class="ml-3 mb-2"
+                           oninput="chart(results['Integrated--topRank'], '#bar-1-2', parseInt(this.value), 'Score'); $('#slider-bar-1-2').text(this.value)"
+                           onchange="chart(results['Integrated--topRank'], '#bar-1-2', parseInt(this.value), 'Score'); $('#slider-bar-1-2').text(this.value)">
+                </div>
                 <svg id="bar-1-2">
                 </svg>
                 <div class="row ml-1">
-                    <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#bar-1-2')[0], 'TopRank_Score')">
+                    <button class="btn btn-primary-outline btn-sm"
+                            onclick="save_svg($('#bar-1-2')[0], 'TopRank_Score')">
                         <i class="fas fa-download" title="Download SVG"></i>
                         SVG
                     </button>
-                    <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#bar-1-2')[0], 'TopRank_Score')">
+                    <button class="btn btn-primary-outline btn-sm"
+                            onclick="save_png($('#bar-1-2')[0], 'TopRank_Score')">
                         <i class="fas fa-download" title="Download PNG"></i>
                         PNG
                     </button>
@@ -124,6 +138,12 @@
                           data-html="true">
                         <i class="fas fa-info-circle" style="color: darkgrey; font-size: 0.9rem;"></i>
                     </span></h5>
+                <div class="d-flex mb-2">
+                    <p>Showing top <span id="slider-1-1">10</span> results</p>
+                    <input type="range" min="1" max="50" step="1" value="10" class="ml-3 mb-2"
+                           oninput="graph('Integrated--meanRank', '#graph-1-1', parseInt(this.value)); $('#slider-1-1').text(this.value)"
+                           onchange="graph('Integrated--meanRank', '#graph-1-1', parseInt(this.value)); $('#slider-1-1').text(this.value)">
+                </div>
                 <svg id="graph-1-1">
                 </svg>
                 <div class="row ml-1">
@@ -150,14 +170,23 @@
                           data-html="true">
                         <i class="fas fa-info-circle" style="color: darkgrey; font-size: 0.9rem;"></i>
                     </span></h5>
+                <div class="d-flex mb-2">
+                    <p>Showing top <span id="slider-1-2">10</span> results</p>
+                    <input type="range" min="1" max="50" step="1" value="10" class="ml-3 mb-2"
+                           oninput="graph('Integrated--topRank', '#graph-1-2', parseInt(this.value)); $('#slider-1-2').text(this.value)"
+                           onchange="graph('Integrated--meanRank', '#graph-1-2', parseInt(this.value)); $('#slider-1-2').text(this.value)">
+                </div>
+
                 <svg id="graph-1-2">
                 </svg>
                 <div class="row ml-1">
-                    <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#graph-1-2')[0], 'TopRank_Score')">
+                    <button class="btn btn-primary-outline btn-sm"
+                            onclick="save_svg($('#graph-1-2')[0], 'TopRank_Score')">
                         <i class="fas fa-download" title="Download SVG"></i>
                         SVG
                     </button>
-                    <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#graph-1-2')[0], 'TopRank_Score')">
+                    <button class="btn btn-primary-outline btn-sm"
+                            onclick="save_png($('#graph-1-2')[0], 'TopRank_Score')">
                         <i class="fas fa-download" title="Download PNG"></i>
                         PNG
                     </button>

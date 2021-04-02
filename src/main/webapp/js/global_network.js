@@ -4,7 +4,7 @@ scatter = (type, wrapper, color_by, legend_data, num = 10) => {
     const height = 500;
     const width = 900;
     const margin = {top: 30, right: 50, bottom: 30, left: 50};
-
+    $(wrapper).empty();
     const svg = d3.select(wrapper).html(null)
         .attr("viewBox", [0, 0, width, height])
         .attr("class", "global-network");

@@ -65,17 +65,39 @@ function kinases(results, num = results.length) {
     return kinases;
 }
 
-function drawAllScatters(library = 'Integrated--meanRank') {
+function drawAllScatters(library = 'Integrated--meanRank', num = 10) {
     network_mode.archs4.library = library;
     network_mode.gtex.library = library;
     network_mode.tcga.library = library;
-    scatter('archs4', '#archs4-wgcna-network', 'WGCNA_hex', wgcna)
-    scatter('archs4', '#archs4-tissue-network', 'Tissue_color', tissue)
-    scatter('gtex', "#gtex-wgcna-network", 'WGCNA_hex', wgcna)
-    scatter('gtex', "#gtex-general-tissue-network", 'General_tissue_color', general_tissue)
-    scatter('gtex', "#gtex-specific-tissue-network", 'Specific_tissue_color', specific_tissue)
-    scatter('tcga', "#tcga-wgcna-network", 'WGCNA_hex', wgcna)
-    scatter('tcga', "#tcga-tumor-network", 'Tumor_color',tumor)
+    scatter('archs4', '#archs4-wgcna-network', 'WGCNA_hex', wgcna, num)
+    scatter('archs4', '#archs4-tissue-network', 'Tissue_color', tissue, num)
+    scatter('gtex', "#gtex-wgcna-network", 'WGCNA_hex', wgcna, num)
+    scatter('gtex', "#gtex-general-tissue-network", 'General_tissue_color', general_tissue, num)
+    scatter('gtex', "#gtex-specific-tissue-network", 'Specific_tissue_color', specific_tissue, num)
+    scatter('tcga', "#tcga-wgcna-network", 'WGCNA_hex', wgcna, num)
+    scatter('tcga', "#tcga-tumor-network", 'Tumor_color',tumor, num)
+}
+
+function draw_archs4_scatters(library = 'Integrated--meanRank', num = 10) {
+    network_mode.archs4.library = library;
+    $('#dropdown_archs4_button').text(library)
+    scatter('archs4', '#archs4-wgcna-network', 'WGCNA_hex', wgcna, num)
+    scatter('archs4', '#archs4-tissue-network', 'Tissue_color', tissue, num)
+}
+
+function draw_gtex_scatters(library = 'Integrated--meanRank', num = 10) {
+    network_mode.gtex.library = library;
+    $('#dropdown_gtex_button').text(library)
+    scatter('gtex', "#gtex-wgcna-network", 'WGCNA_hex', wgcna, num)
+    scatter('gtex', "#gtex-general-tissue-network", 'General_tissue_color', general_tissue, num)
+    scatter('gtex', "#gtex-specific-tissue-network", 'Specific_tissue_color', specific_tissue, num)
+}
+
+function draw_tcga_scatters(library = 'Integrated--meanRank', num = 10) {
+    network_mode.tcga.library = library;
+    $('#dropdown_tcga_button').text(library)
+    scatter('tcga', "#tcga-wgcna-network", 'WGCNA_hex', wgcna, num)
+    scatter('tcga', "#tcga-tumor-network", 'Tumor_color',tumor, num)
 }
 
 function convertRanks(res) {
@@ -140,7 +162,7 @@ function submitList() {
                 $('#results').show();
                 location.hash = "#results";
                 stacked_chart(results['Integrated--meanRank'], '#bar-1-1')
-                chart(results['Integrated--topRank'], '#bar-1-2', 'Score');
+                chart(results['Integrated--topRank'], '#bar-1-2', 10,'Score');
                 chart(results['ChengKSIN'], '#bar-2-1');
                 chart(results['PTMsigDB'], '#bar-2-2');
                 chart(results['PhosDAll'], '#bar-2-3');
@@ -156,7 +178,7 @@ function submitList() {
                 drawAllScatters();
 
                 graph('Integrated--meanRank', '#graph-1-1')
-                graph('Integrated--topRank', '#graph-1-2', 'Score');
+                graph('Integrated--topRank', '#graph-1-2');
                 graph('ChengKSIN', '#graph-2-1');
                 graph('PTMsigDB', '#graph-2-2');
                 graph('PhosDAll', '#graph-2-3');

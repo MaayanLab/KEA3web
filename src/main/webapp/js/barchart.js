@@ -40,7 +40,7 @@ function split_libs(result, threshold, num) {
     return vals
 }
 
-function stacked_chart(json, wrapper, threshold = 3, num = 10) {
+function stacked_chart(json, wrapper, num = 10, threshold = 3) {
     let data = d3
         .csvParse(
             split_libs(json, threshold, num),
@@ -112,7 +112,7 @@ function stacked_chart(json, wrapper, threshold = 3, num = 10) {
 
 }
 
-function chart(json, wrapper, order = "pvalue", color = "steelblue", numBar = 10) {
+function chart(json, wrapper, numBar = 10, order = "pvalue", color = "steelblue") {
     let data = json.map(d => ({
         "name": d['TF'],
         "value": order === "pvalue" ? -Math.log10(parseFloat(d["FET p-value"])) : parseFloat(d["Score"]),

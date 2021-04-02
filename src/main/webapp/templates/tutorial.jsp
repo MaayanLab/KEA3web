@@ -62,11 +62,7 @@
                 from the library that is selected from library selection dropdown menu.
                 Network node coloring options provide additional information about the tissues or tumor
                 types the kinases may be
-                most active in. The network may be zoomed, panned, and saved as an SVG image. There are
-                other options, for
-                example, hiding the legend or switching to full screen. These options can be accessed by
-                clicking
-                the "Network Options" hamburger.
+                most active in. The network may be zoomed, panned, and saved as an SVG image.
             </p>
 
             <h5 class="mt-3">Kinase Co-regulatory Networks</h5>
