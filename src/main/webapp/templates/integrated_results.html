@@ -76,6 +76,15 @@
     column will open a Harmonizome page for the relevant protein-coding gene. Select a column heading to order the
     results by the values in that column; select an already active column heading to toggle between ascending and
     descending order.</p>
+<div class="d-flex mb-2" id="slider-tables">
+    <span>Genes in the top <span id="slider-tables-val">10</span> results</span> <input type="range" min="1" max="50" step="1" value="10" class="mx-2 mb-2"
+                                                                              oninput="redrawIntTablesOnSlider(parseInt(this.value)); $('#slider-tables-val').text(this.value)"
+                                                                              onchange="redrawIntTablesOnSlider(parseInt(this.value)); $('#slider-tables-val').text(this.value)"><span> in both MeanRank and TopRank
+
+        are shown with * after their names.</span>
+
+</div>
+
 <div class="row justify-content-center">
     <div class="col-lg-6 col-md-8 col-sm-10 mt-1" style="display: block;">
         <div class="card">

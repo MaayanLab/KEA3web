@@ -49,7 +49,7 @@ function drawTable(data, wrapper, name) {
             extension: '.tsv',
             fieldBoundary: '',
             exportOptions: {
-                columns: [0, 2, 4, 5, 6]
+                columns: [0, 1, 2, 4, 5, 6]
             }
         }],
         columns: [
@@ -112,13 +112,22 @@ function drawTable(data, wrapper, name) {
 
 }
 
-function drawIntegratedTable(data, wrapper, score) {
+function redrawIntTablesOnSlider(num) {
+    drawIntegratedTable(results['Integrated--meanRank'], '#table-1-1', 'Mean rank', num);
+    drawIntegratedTable(results['Integrated--topRank'], '#table-1-2', 'Integrated scaled rank', num);
+}
+
+function drawIntegratedTable(data, wrapper, score, num = 10) {
     let data_clean = [];
     for (let k of data) {
         if (k['Overlapping_Genes'] !== "") {
             data_clean.push(k);
         }
     }
+
+    let mr = results['Integrated--meanRank'].map(d => d['TF']).slice(0, num);
+    let tr = results['Integrated--topRank'].map(d => d['TF']).slice(0, num);
+    let overlap = mr.filter(value => tr.includes(value));
 
     if ($.fn.dataTable.isDataTable(wrapper)) {
         console.log('Non empty')
@@ -150,7 +159,8 @@ function drawIntegratedTable(data, wrapper, score) {
                 "mData": "TF",
                 "sTitle": "Protein",
                 "mRender": function (x) {
-                    return `<a href="https://maayanlab.cloud/Harmonizome/gene/${x}" target="_blank">${x}</a>`
+                    let asterix = overlap.includes(x) ? '*' : '';
+                    return `<a href="https://maayanlab.cloud/Harmonizome/gene/${x}" target="_blank">${x}${asterix}</a>`
                 }
             },
             {

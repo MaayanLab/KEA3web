@@ -9,8 +9,6 @@ scatter = (type, wrapper, color_by, legend_data, num = 10) => {
         .attr("viewBox", [0, 0, width, height])
         .attr("class", "global-network");
 
-    drawLegend(wrapper, legend_data);
-
     d3.json(json).then(function (data) {
         const x = d3
             .scaleLinear()
@@ -77,6 +75,9 @@ scatter = (type, wrapper, color_by, legend_data, num = 10) => {
 
         return svg.node();
     });
+    drawLegend(wrapper, legend_data);
+    let legend = d3.select(`${wrapper.slice(1)}-legend`);
+    legend.raise();
 }
 
 function drawLegend(wrapper, legend_data) {
@@ -88,9 +89,12 @@ function drawLegend(wrapper, legend_data) {
         .attr("y", height)
         .attr("height", 100)
         .attr("width", 100)
+        .attr("opacity", 0.7)
+        .attr("id", `${wrapper.slice(1)}-legend`)
         .style("pointer-events", "none");
 
-    legend.selectAll('g').data(legend_data)
+    legend.selectAll('g')
+        .data(legend_data)
         .enter()
         .append('g')
         .each(function (d, i) {
