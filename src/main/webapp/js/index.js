@@ -191,7 +191,8 @@ function submitList() {
                 graph('ChengPPI', '#graph-3-7');
                 graph('STRING', '#graph-4-1');
 
-                generateClustergram(results);
+                generateClustergram('clustergram');
+                generateClustergram('clustergram-int', 10, 1);
             }
         )
     }

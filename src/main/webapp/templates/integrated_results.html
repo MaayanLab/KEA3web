@@ -77,9 +77,11 @@
     results by the values in that column; select an already active column heading to toggle between ascending and
     descending order.</p>
 <div class="d-flex mb-2" id="slider-tables">
-    <span>Genes in the top <span id="slider-tables-val">10</span> results</span> <input type="range" min="1" max="50" step="1" value="10" class="mx-2 mb-2"
-                                                                              oninput="redrawIntTablesOnSlider(parseInt(this.value)); $('#slider-tables-val').text(this.value)"
-                                                                              onchange="redrawIntTablesOnSlider(parseInt(this.value)); $('#slider-tables-val').text(this.value)"><span> in both MeanRank and TopRank
+    <span>Genes in the top <span id="slider-tables-val">10</span> results</span> <input type="range" min="1" max="50"
+                                                                                        step="1" value="10"
+                                                                                        class="mx-2 mb-2"
+                                                                                        oninput="redrawIntTablesOnSlider(parseInt(this.value)); $('#slider-tables-val').text(this.value)"
+                                                                                        onchange="redrawIntTablesOnSlider(parseInt(this.value)); $('#slider-tables-val').text(this.value)"><span> in both MeanRank and TopRank
 
         are shown with * after their names.</span>
 
@@ -201,6 +203,22 @@
                     </button>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<h4 class="my-3" id="clust-item-1">Clustergrammer</h4>
+<p>The clustergrammer visualization provides means to see the relationship between the most common kinase-substrate
+    associations detected to overlap with the input list. Each column represents a set from a KEA3 library while the rows
+    are putative substrates from the input list that overlap with proteins within MeanRank and TopRank KEA3 libraries.</p>
+<div class="row justify-content-center">
+    <div class="col-12 mt-1" style="display: block;">
+        <iframe class="w-100" height="1000" id="clustergram-int-iframe" style="border: none"></iframe>
+        <div class="text-center py-5 display-5 d-none" id="clustergram-int-error">
+            <p>Sorry, there has been an error generating the clustergrammer visualization.
+                <button class="btn btn-primary mx-0" onclick="generateClustergram('clustergram-int', 10, 1);;"
+                        type="button">Try again
+                </button>
+            </p>
         </div>
     </div>
 </div>

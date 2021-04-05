@@ -49,12 +49,22 @@ function stacked_chart(json, wrapper, num = 10, threshold = 3) {
             )
         );
         // .sort((a, b) => b.total - a.total);
-    const margin = ({top: 80, right: 20, bottom: 0, left: 60});
-    const height = data.length * 25 + margin.top + margin.bottom;
+    const margin = ({top: 80, right: 20, bottom: 20, left: 60});
+    const height = data.length * 23 + margin.top + margin.bottom;
     const width = 500;
     $(wrapper).empty();
     $('#bar-1-1').html(meanrank_legend).contents();
     const svg = d3.select(wrapper);
+
+    const title = svg.append("text")
+        .attr("class", "title")
+        .attr("fill", "black")
+        .attr("opacity", 0.8)
+        .style("font", "12px sans-serif")
+        .attr("x", width/2)
+        .attr("y", height - margin.bottom + 15)
+        .text("Sum of Ranks")
+
     const series = d3.stack()
         .keys(data.columns.slice(1))(data)
         .map(d => (d.forEach(v => v.key = d.key), d));
@@ -124,7 +134,7 @@ function chart(json, wrapper, numBar = 10, order = "pvalue", color = "steelblue"
         "caption": "-log₁₀(p-value)"
     }));
 
-    data = data.sort((a, b) => b.value - a.value).slice(0, numBar);
+    data = order === "pvalue" ? data.sort((a, b) => b.value - a.value).slice(0, numBar) : data.sort((a, b) => a.value - b.value).slice(0, numBar) ;
     const margin = ({top: 30, right: 20, bottom: 50, left: 60});
     const height = data.length * 25 + margin.top + margin.bottom;
     const width = 500;
@@ -138,10 +148,10 @@ function chart(json, wrapper, numBar = 10, order = "pvalue", color = "steelblue"
         .attr("fill", "black")
         .attr("opacity", 0.8)
         .style("font", "12px sans-serif")
-        .attr("x", margin.left + (width - margin.left) / 2)
+        .attr("x", width / 2)
         .attr("y", height - margin.bottom + 40);
 
-    title.text(order === "pvalue" ? decodeURIComponent("%E2%88%92log%E2%82%81%E2%82%80(p%E2%80%90value)") : "Score");
+    title.text(order === "pvalue" ? decodeURIComponent("%E2%88%92log%E2%82%81%E2%82%80(p%E2%80%90value)") : "TopRank Score");
 
     let x = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.value)])

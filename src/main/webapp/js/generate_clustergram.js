@@ -1,4 +1,4 @@
-function generateClustergram(kea_results, top_tfs = 5) {
+function generateClustergram(wrapper, top_tfs = 5, int = 0) {
     let genes = new Set();
     let tfs = ['', ''];
     let kinases = ['', '']
@@ -6,13 +6,12 @@ function generateClustergram(kea_results, top_tfs = 5) {
     let ranks = ['', ''];
     let rows = [];
 
-    $.each(kea_results, function (key, value) {
-        if (key.indexOf('Integrated') === -1) {
-            console.log(key);
+    $.each(results, function (key, value) {
+        if (key.indexOf('Integrated') === -1 + int) {
             for (let i = 0; i < top_tfs; i++) {
                 // Value
                 const kea_result = value[i];
-                const library = key.split('--')[0];
+                const library = key.split('--')[int];
                 // Rows
                 $.each(kea_result['Overlapping_Genes'].split(','), function (index, gene) {
                     genes.add(gene);
@@ -32,8 +31,8 @@ function generateClustergram(kea_results, top_tfs = 5) {
         let gene_bools = [];
 
         // Get binary values
-        $.each(kea_results, function (key, value) {
-            if (key.indexOf('Integrated') === -1) {
+        $.each(results, function (key, value) {
+            if (key.indexOf('Integrated') === -1 + int) {
                 for (let i = 0; i < top_tfs; i++) {
                     let gene_bool = value[i]['Overlapping_Genes'].indexOf(gene) > -1 ? 1 : 0;
                     gene_bools.push(gene_bool);
@@ -65,11 +64,11 @@ function generateClustergram(kea_results, top_tfs = 5) {
     request.onreadystatechange = function () {
         if (request.readyState === 4) {
             if (request.status === 200) {
-                document.getElementById('clustergram-iframe').src = request.responseText.replace("http", "https");
-                $('#clustergram-error').addClass('d-none');
+                document.getElementById(`${wrapper}-iframe`).src = request.responseText.replace("http", "https");
+                $(`#${wrapper}-error`).addClass('d-none');
             } else {
-                $('#clustergram-iframe').addClass('d-none');
-                $('#clustergram-error').removeClass('d-none');
+                $(`#${wrapper}-iframe`).addClass('d-none');
+                $(`#${wrapper}-error`).removeClass('d-none');
             }
         }
     }
