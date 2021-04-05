@@ -34,12 +34,12 @@
             <p>query_name: String</p>
             <p>gene_set: An array of strings</p>
 
-<h5>Command-line Example</h5>
-                    <p>The following returns results from all KEA3
-                        libraries in JSON format:</p>
-                    <pre style="width: 100%; overflow-x: scroll; white-space: nowrap">$ curl -d '{"query_name":"myQuery", "gene_set":["FOXM1","SMAD9","MYC","SMAD3","STAT1","STAT3"]}' -H 'Content-Type: application/json' https://maayanlab.cloud/kea3/api/enrich/</pre>
-<h5>R Example</h5>
-                    <pre>
+            <h5>Command-line Example</h5>
+            <p>The following returns results from all KEA3
+                libraries in JSON format:</p>
+            <pre style="width: 100%; overflow-x: scroll; white-space: nowrap">$ curl -d '{"query_name":"myQuery", "gene_set":["FOXM1","SMAD9","MYC","SMAD3","STAT1","STAT3"]}' -H 'Content-Type: application/json' https://maayanlab.cloud/kea3/api/enrich/</pre>
+            <h5>R Example</h5>
+            <pre>
 library(httr)
 library(jsonlite)
 
@@ -52,6 +52,40 @@ response = POST(url = url, body = payload, encode = encode)
 json = content(response, "text")
 
 results = fromJSON(json)
+</pre>
+
+            <h5>Python example</h5>
+<pre>
+import json
+import requests
+from pprint import pprint
+from time import sleep
+
+
+def get_kea3_results(gene_set, query_name):
+    ADDLIST_URL = 'https://amp.pharm.mssm.edu/kea3/api/enrich/'
+    payload = {
+        'gene_set': gene_set,
+        'query_name': query_name
+    }
+    response = requests.post(ADDLIST_URL, data=json.dumps(payload))
+    if not response.ok:
+        raise Exception('Error analyzing gene list')
+    sleep(1)
+    return json.loads(response.text)
+
+
+def main():
+    gene_list = ['ZNF264', 'TMPO', 'ISL2', 'MAP3K8', 'EFNB1', 'EIF3C', 'OSBPL11',
+                 'ABCF1', 'UTRN', 'OPRK1', 'TSC1', 'GAB2', 'RPS3P2', 'DDX3X', 'PPP1CA',
+                 'NF2', 'RBM3', 'IRAK1', 'KCNH2', 'NPR1', 'MOCOS', 'ITSN2', 'MITF',
+                 'ARAF', 'DAPK2', 'EPHB2', 'CACNA1G', 'YWHAZ', 'GMFB']
+    pprint(get_kea3_results(gene_list, 'Test query'), indent=2)
+    return None
+
+
+if __name__ == '__main__':
+    main()
 </pre>
         </div>
     </div>
