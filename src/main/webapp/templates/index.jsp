@@ -7,8 +7,8 @@
     <link rel="shortcut icon" href="/kea3/static/KEA3_logo_transparent.png" type="image/x-icon">
 
     <!-- Bootstrap & DT CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
 
     <link rel="stylesheet" type="text/css"
@@ -23,37 +23,35 @@
 
 <body class="d-flex flex-column h-100">
 <main role="main" class="flex-shrink-0">
-<div class="container-fluid">
-    <%@ include file="header.html" %>
-    <div class="row justify-content-center">
-        <!--  Content  -->
-        <div class="col-8">
+    <div class="container-fluid">
+        <%@ include file="header.html" %>
+        <div class="row justify-content-center">
+            <!--  Content  -->
+            <div class="col-8">
                 <%@ include file="form.html" %>
+            </div>
         </div>
-    </div>
-    <div class="row justify-content-center">
-        <%@ include file="results.jsp" %>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-10">
-            <div id="placeholder" style="display: none">
-                <%@ include file="placeholder.html" %>
+        <div class="row justify-content-center">
+            <%@ include file="results.jsp" %>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div id="placeholder" style="display: none">
+                    <%@ include file="placeholder.html" %>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </main>
 <%@ include file="footer.html" %>
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
 <script type="text/javascript"
         src="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.3/b-html5-1.6.3/datatables.min.js"></script>

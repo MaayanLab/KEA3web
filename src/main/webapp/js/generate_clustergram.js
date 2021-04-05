@@ -8,6 +8,7 @@ function generateClustergram(kea_results, top_tfs = 5) {
 
     $.each(kea_results, function (key, value) {
         if (key.indexOf('Integrated') === -1) {
+            console.log(key);
             for (let i = 0; i < top_tfs; i++) {
                 // Value
                 const kea_result = value[i];
