@@ -60,6 +60,15 @@
                 evidence for an interaction was found.
             </p>
             <img src="/kea3/static/int_results_subnetworks.gif" class="img-fluid">
+            <p>
+                A <a href="https://maayanlab.cloud/clustergrammer/">Clustergrammer</a> visualization is also 
+                provided for the integrated results. Each column is a ranked set from the MeanRank or
+                TopRank results, and each row is a putative substrate from the input list that overlaps with 
+                the sets from the integrated methods. The heat map is fully interactive; hover over terms 
+                or sections for more detailed information. Rows and columns can also be sorted by sum. 
+                Clustergrammer is developed by the Ma'ayan Lab. 
+            </p>
+            <img src="/kea3/static/int_results_clustergram.gif" class="img-fluid">
 
             <h5 class="mt-3">The Tables Tab</h5>
             <p>
