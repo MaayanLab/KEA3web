@@ -39,7 +39,7 @@
                 TopRank bar chart displays the corresponding score for each kinase. Use the 
                 sliders to view more or less kinases. The charts can be downloaded in SVG or PNG format.
             </p>
-            <img src="/kea3/static/int_results_barcharts.gif" class="img-fluid">
+            <img src="/kea3/static/int_results_barcharts_updated.gif" class="img-fluid">
             <p>
                 Below the bar charts are tables that provide more detailed results. Kinases which are 
                 top-ranked for both integrated ranking methods have an asterisk next to their name; the 
