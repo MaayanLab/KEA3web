@@ -1,8 +1,14 @@
-<p class="my-3">Human kinome regulatory networks produced by applying Weighted Gene Co-expression Network Analysis
-    (WGCNA) to various
-    datasets. All data was quantile-normalized and filtered to include only protein kinases prior to WGCNA. Clustering
-    was performed in Cytoscape with the Allegro Fruchterman-Reingold Force Directed Layout plugin. Nodes are colored by
-    the most significant tissue/tumor correlation to the parent WGCNA module.</p>
+<h4 class="my-3" id="networks-head">Networks</h4>
+<p class="my-3">Human kinome regulatory networks were produced by applying 
+    <a href="https://horvath.genetics.ucla.edu/html/CoexpressionNetwork/Rpackages/WGCNA/">Weighted 
+    Gene Co-expression Network Analysis (WGCNA)</a> to the 
+    <a href="https://maayanlab.cloud/archs4/">ARCHS4</a>, 
+    <a href="https://gtexportal.org/home/">GTEx</a>, and 
+    <a href="https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga">TCGA</a> 
+    datasets. Edges are hidden to avoid clutter. All data was quantile-normalized and filtered to include 
+    only protein kinases prior to WGCNA. Clustering was performed in Cytoscape with the Allegro 
+    Fruchterman-Reingold Force Directed Layout plugin. Kinases are colored by tissue type based on 
+    the highest correlation between the kinase and the parent WGCNA module.</p>
 <h4 class="my-3" id="archs4">ARCHS4</h4>
 <p>Data consisted of 100 random RNA-seq samples for each of 18 tissue types pulled from the ARCHS4 database. WGCNA
     module eigengenes were correlated to ARCHS4 sample labels, which can be viewed by selecting the "Tissue" tab.</p>

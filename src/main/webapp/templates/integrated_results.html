@@ -1,5 +1,12 @@
+<h4 class="my-3" id="int-res-head">Integrated Results</h4>
+<p>The integrated results provide visualizations and tables for results from the two integrated methods, 
+    MeanRank and TopRank. It is recommended to consider the results from this tab first before exploring 
+    individual library results. </p>
 <h4 class="my-3" id="bar-item-1">Bar charts</h4>
-<p>Integrated rankings of kinases across libraries based on two different metrics.</p>
+<p>Integrated rankings of kinases across libraries based on two different metrics. The MeanRank bar chart is 
+    color-coded by library; hover over a colored bar segment to view individual library rankings for a given 
+    kinase. The TopRank bar chart displays the TopRank score for each of the top-ranking kinases. 
+</p>
 <div class="row justify-content-center">
     <div class="col-lg-6 col-md-8 col-sm-10 mt-1" style="display: block;">
         <div class="card">
@@ -75,7 +82,8 @@
 <p>Integrated rankings of kinases across libraries based on two different metrics. Clicking on a name in the "Protein"
     column will open a Harmonizome page for the relevant protein-coding gene. Select a column heading to order the
     results by the values in that column; select an already active column heading to toggle between ascending and
-    descending order.</p>
+    descending order. Click on the scores or overlapping protein counts to see more detailed information 
+    for each row.</p>
 <div class="d-flex mb-2" id="slider-tables">
     <span>Genes in the top <span id="slider-tables-val">10</span> results</span> <input type="range" min="1" max="50"
                                                                                         step="1" value="10"
@@ -133,7 +141,8 @@
 </div>
 <hr>
 <h4 class="my-3" id="net-item-1">Subnetworks</h4>
-<p>Kinase co-regulatory networks constructed from kinase-kinase interactions between top-ranked kinase results. Directed
+<p>Kinase co-regulatory networks constructed from kinase-kinase interactions between top-ranked kinase results 
+    for the integrated rankings. Directed 
     edges indicate interactions supported by kinase-substrate evidence; undirected edges indicate protein-protein
     interaction or unspecified interaction evidence only. Hover over an edge to view libraries in which evidence for an
     interaction was found.</p>
@@ -208,9 +217,9 @@
 </div>
 <hr>
 <h4 class="my-3" id="clust-item-1">Clustergrammer</h4>
-<p>The clustergrammer visualization provides means to see the relationship between the most common kinase-substrate
-    associations detected to overlap with the input list. Each column represents a set from a KEA3 library while the rows
-    are putative substrates from the input list that overlap with proteins within MeanRank and TopRank KEA3 libraries.</p>
+<p>The clustergrammer visualization provides a means to see the relationship between the most common kinase-substrate
+    associations detected to overlap with the input list. Each column represents a set from a KEA3 library, while the rows
+    are putative substrates from the input list that overlap with proteins within the MeanRank and TopRank KEA3 libraries.</p>
 <div class="row justify-content-center">
     <div class="col-12 mt-1" style="display: block;">
         <iframe class="w-100" height="1000" id="clustergram-int-iframe" style="border: none"></iframe>
