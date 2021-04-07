@@ -13,7 +13,7 @@ function checkGeneList(data) {
     let submit_button = $('#submit-genelist')
     if (genes.length > 0) {
         submit_button.prop('disabled', false);
-        submit_button.css('background-color', '#007bff73');
+        submit_button.css('background-color', '#d6a2fb');
     }
     else {
         submit_button.prop("disabled", true);
@@ -114,7 +114,6 @@ function convertRanks(res) {
 function submitList() {
     $('#placeholder').show();
     const geneset = [...new Set($('#genelist').val().toUpperCase().split(/\n/))].filter(value => hgnc.includes(value));
-    console.log(JSON.stringify({"query_name": "gene_set_query", "gene_set": geneset}));
     if (validateGeneSet(geneset)) {
         $.post(`${location.protocol}//${location.hostname}:${location.port}/kea3/api/enrich/`,
             JSON.stringify({"query_name": "gene_set_query", "gene_set": geneset}),

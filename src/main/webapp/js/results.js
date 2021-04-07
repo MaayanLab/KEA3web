@@ -29,7 +29,6 @@ function drawTable(data, wrapper, name) {
     }
 
     if ($.fn.dataTable.isDataTable(wrapper)) {
-        console.log('Non empty')
         $(wrapper).DataTable().clear().destroy()
     }
 
@@ -130,7 +129,6 @@ function drawIntegratedTable(data, wrapper, score, num = 10) {
     let overlap = mr.filter(value => tr.includes(value));
 
     if ($.fn.dataTable.isDataTable(wrapper)) {
-        console.log('Non empty')
         $(wrapper).DataTable().clear().destroy()
     }
 

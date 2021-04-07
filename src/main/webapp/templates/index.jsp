@@ -37,7 +37,7 @@
         <div class="row justify-content-center">
             <div class="col-10">
                 <div id="placeholder" style="display: none">
-                    <%@ include file="placeholder.html" %>
+                    <%@ include file="placeholder_ext.html" %>
                 </div>
             </div>
         </div>

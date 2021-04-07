@@ -1,0 +1,329 @@
+<div class="d-flex justify-content-center">
+    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div class="row" style="opacity: 0.6">
+    <div class="col-12">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab-ph" role="tablist">
+                <a class="nav-item nav-link active" id="nav-intres-tab-ph" data-toggle="tab" href="#nav-intres"
+                   role="tab"
+                   aria-controls="nav-intres" aria-selected="true">Integrated results</a>
+                <a class="nav-item nav-link" id="nav-tables-tab-ph" data-toggle="tab" href="#nav-tables" role="tab"
+                   aria-controls="nav-tables" aria-selected="false" disabled>&#9617;&#9617;&#9617;&#9617;&#9617;</a>
+                <a class="nav-item nav-link" id="nav-networks-tab-ph" data-toggle="tab" href="#nav-networks" role="tab"
+                   aria-controls="nav-networks" aria-selected="false" disabled>&#9617;&#9617;&#9617;&#9617;&#9617;</a>
+                <a class="nav-item nav-link" id="nav-graph-tab-ph" data-toggle="tab" href="#nav-graph" role="tab"
+                   aria-controls="nav-graph" aria-selected="false" disabled>&#9617;&#9617;&#9617;&#9617;&#9617;</a>
+                <a class="nav-item nav-link" id="nav-barcharts-tab-ph" data-toggle="tab" href="#nav-barcharts"
+                   role="tab"
+                   aria-controls="nav-barcharts" aria-selected="false" disabled>&#9617;&#9617;&#9617; &#9617;&#9617;&#9617;&#9617;&#9617;</a>
+                <a class="nav-item nav-link" id="nav-cluster-tab-ph" data-toggle="tab" href="#nav-cluster" role="tab"
+                   aria-controls="nav-cluster" aria-selected="false" disabled>&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane px-2 fade show active" id="nav-intres-ph" role="tabpanel"
+                 aria-labelledby="nav-intres-tab-ph">
+                <h4 class="my-3" id="int-res-head">Integrated Results</h4>
+                <p>The integrated results provide visualizations and tables for results from the two integrated methods,
+                    MeanRank and TopRank. It is recommended to consider the results from this tab first before exploring
+                    individual library results. </p>
+                <h4 class="my-3" id="bar-item-1">Bar charts</h4>
+                <p>Integrated rankings of kinases across libraries based on two different metrics. The MeanRank bar
+                    chart is
+                    color-coded by library; hover over a colored bar segment to view individual library rankings for a
+                    given
+                    kinase. The TopRank bar chart displays the TopRank score for each of the top-ranking kinases.
+                </p>
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8 col-sm-10 mt-1" style="display: block;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">MeanRank Score
+                                    <span data-container="body" data-toggle="popover"
+                                          data-placement="right" data-trigger="hover"
+                                          data-content='The contribution of library-specific rankings to the overall MeanRank calculated for each of the top-ranked kinases. Different colors represent different libraries; hover over any colored section of the bar representing a kinase to see the rank of that kinase in the specified library.'
+                                          data-template='<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>'
+                                          data-html="true">
+                        <i class="fas fa-info-circle" style="color: darkgrey; font-size: 0.9rem;"></i>
+                    </span></h5>
+                                <div class="d-flex mb-2">
+                                    <p>Showing top <span>10</span> results</p>
+                                    <input type="range" min="1" max="50" step="1" value="10" class="ml-3">
+                                </div>
+                                <svg viewBox="0,0,500,330">
+                                    <g>
+                                        <g>
+                                            <rect x="60" y="0" width="10" height="10" style="fill: #9e0142;"></rect>
+                                            <text x="75" y="10" style="font: 10px sans-serif;">
+                                                BioGRID
+                                            </text>
+                                        </g>
+                                        <g>
+                                            <rect x="60" y="15" width="10" height="10" style="fill: #d53e4f;"></rect>
+                                            <text x="75" y="25" style="font: 10px sans-serif;">
+                                                ChengKSIN
+                                            </text>
+                                        </g>
+                                        <g>
+                                            <rect x="60" y="30" width="10" height="10" style="fill: #f46d43;"></rect>
+                                            <text x="75" y="40" style="font: 10px sans-serif;">
+                                                ChengPPI
+                                            </text>
+                                        </g>
+                                        <g>
+                                            <rect x="60" y="45" width="10" height="10" style="fill: #fdae61;"></rect>
+                                            <text x="75" y="55" style="font: 10px sans-serif;">
+                                                HIPPIE
+                                            </text>
+                                        </g>
+                                        <g>
+                                            <rect x="130" y="0" width="10" height="10" style="fill: #fee08b;"></rect>
+                                            <text x="145" y="10" style="font: 10px sans-serif;">
+                                                mentha
+                                            </text>
+                                        </g>
+                                        <g>
+                                            <rect x="130" y="15" width="10" height="10" style="fill: #ffffbf;"></rect>
+                                            <text x="145" y="25" style="font: 10px sans-serif;">
+                                                MINT
+                                            </text>
+                                        </g>
+                                        <g>
+                                            <rect x="130" y="30" width="10" height="10" style="fill: #e6f598;"></rect>
+                                            <text x="145" y="40" style="font: 10px sans-serif;">
+                                                PhosDAll
+                                            </text>
+                                        </g>
+                                        <g>
+                                            <rect x="130" y="45" width="10" height="10" style="fill: #abdda4;"></rect>
+                                            <text x="145" y="55" style="font: 10px sans-serif;">
+                                                prePPI
+                                            </text>
+                                        </g>
+                                        <g>
+                                            <rect x="200" y="0" width="10" height="10" style="fill: #66c2a5;"></rect>
+                                            <text x="215" y="10" style="font: 10px sans-serif;">
+                                                PTMsigDB
+                                            </text>
+                                        </g>
+                                        <g>
+                                            <rect x="200" y="15" width="10" height="10" style="fill: #3288bd;"></rect>
+                                            <text x="215" y="25" style="font: 10px sans-serif;">
+                                                STRING
+                                            </text>
+                                        </g>
+                                        <g>
+                                            <rect x="200" y="30" width="10" height="10" style="fill: #5e4fa2;"></rect>
+                                            <text x="215" y="40" style="font: 10px sans-serif;">
+                                                STRING.bind
+                                            </text>
+                                        </g>
+
+                                    </g>
+                                    <text class="title" fill="black" opacity="0.8" style="font: 12px sans-serif;"
+                                          x="250"
+                                          y="325">Sum of Ranks
+                                    </text>
+                                    <g>
+                                        <g fill="#9e0142">
+                                            <rect x="60" y="81.82539682539684" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="60" y="104.64285714285715" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="60" y="127.46031746031747" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="60" y="150.27777777777777" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="60" y="173.0952380952381" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="60" y="195.91269841269843" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="60" y="218.73015873015873" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="60" y="241.54761904761907" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="60" y="264.3650793650794" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="60" y="287.18253968253964" height="20.99206349206349"
+                                                  width="40"></rect>
+                                        </g>
+                                        <g fill="#d53e4f">
+                                            <rect x="100" y="104.64285714285715" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="100" y="127.46031746031747" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="100" y="150.27777777777777" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="100" y="173.0952380952381" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="100" y="195.91269841269843" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="100" y="218.73015873015873" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="100" y="241.54761904761907" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="100" y="264.3650793650794" height="20.99206349206349"
+                                                  width="40"></rect>
+                                            <rect x="100" y="287.18253968253964" height="20.99206349206349"
+                                                  width="40"></rect>
+                                        </g>
+                                        <g fill="#f46d43">
+                                            <rect x="140" y="127.46031746031747" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="140" y="150.27777777777777" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="140" y="173.0952380952381" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="140" y="195.91269841269843" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="140" y="218.73015873015873" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="140" y="241.54761904761907" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="140" y="264.3650793650794" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="140" y="287.18253968253964" width="40"
+                                                  height="20.99206349206349"></rect>
+                                        </g>
+                                        <g fill="#fdae61">
+                                            <rect x="180" y="150.27777777777777" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="180" y="173.0952380952381" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="180" y="195.91269841269843" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="180" y="218.73015873015873" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="180" y="241.54761904761907" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="180" y="264.3650793650794" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="180" y="287.18253968253964" width="40"
+                                                  height="20.99206349206349"></rect>
+                                        </g>
+                                        <g fill="#fee08b">
+                                            <rect x="220" y="173.0952380952381" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="220" y="195.91269841269843" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="220" y="218.73015873015873" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="220" y="241.54761904761907" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="220" y="264.3650793650794" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="220" y="287.18253968253964" width="40"
+                                                  height="20.99206349206349"></rect>
+                                        </g>
+                                        <g fill="#ffffbf">
+                                            <rect x="260" y="195.91269841269843" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="260" y="218.73015873015873" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="260" y="241.54761904761907" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="260" y="264.3650793650794" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="260" y="287.18253968253964" width="40"
+                                                  height="20.99206349206349"></rect>
+                                        </g>
+                                        <g fill="#e6f598">
+                                            <rect x="300" y="218.73015873015873" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="300" y="241.54761904761907" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="300" y="264.3650793650794" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="300" y="287.18253968253964" width="40"
+                                                  height="20.99206349206349"></rect>
+                                        </g>
+                                        <g fill="#abdda4">
+                                            <rect x="340" y="241.54761904761907" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="340" y="264.3650793650794" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="340" y="287.18253968253964" width="40"
+                                                  height="20.99206349206349"></rect>
+                                        </g>
+                                        <g fill="#66c2a5">
+                                            <rect x="380" y="264.3650793650794" width="40"
+                                                  height="20.99206349206349"></rect>
+                                            <rect x="380" y="287.18253968253964" width="40"
+                                                  height="20.99206349206349"></rect>
+                                        </g>
+                                        <g fill="#3288bd">
+                                            <rect x="420" y="287.18253968253964" width="40"
+                                                  height="20.99206349206349"></rect>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-8 col-sm-10 mt-1" style="display: block;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">TopRank score
+                                    <span data-container="body" data-toggle="popover"
+                                          data-placement="right" data-trigger="hover"
+                                          data-content='The TopRank scores for each of the top-ranked kinases based on user query.'
+                                          data-template='<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>'
+                                          data-html="true">
+                        <i class="fas fa-info-circle" style="color: darkgrey; font-size: 0.9rem;"></i>
+                    </span></h5>
+                                <div class="d-flex mb-2">
+                                    <p>Showing top <span>10</span> results</p>
+                                    <input type="range" min="1" max="50" step="1" value="10" class="ml-3 mb-2">
+                                </div>
+                                <svg viewBox="0,0,500,330">
+                                    <text class="title" fill="black" opacity="0.8" style="font: 12px sans-serif;"
+                                          x="250"
+                                          y="320">TopRank Score
+                                    </text>
+                                    <g fill="gray">
+                                        <rect x="60" y="32.47524752475246" height="22.277227722772277"
+                                              width="90"></rect>
+                                        <rect x="60" y="57.22772277227722" height="22.277227722772277"
+                                              width="120"></rect>
+                                        <rect x="60" y="81.98019801980197" height="22.277227722772277"
+                                              width="150"></rect>
+                                        <rect x="60" y="106.73267326732672" height="22.277227722772277"
+                                              width="180"></rect>
+                                        <rect x="60" y="131.48514851485146" height="22.277227722772277"
+                                              width="210"></rect>
+                                        <rect x="60" y="156.23762376237624" height="22.277227722772277"
+                                              width="240"></rect>
+                                        <rect x="60" y="180.99009900990097" height="22.277227722772277"
+                                              width="270"></rect>
+                                        <rect x="60" y="205.74257425742573" height="22.277227722772277"
+                                              width="300"></rect>
+                                        <rect x="60" y="230.4950495049505" height="22.277227722772277"
+                                              width="330"></rect>
+                                        <rect x="60" y="255.24752475247524" height="22.277227722772277"
+                                              width="360"></rect>
+                                    </g>
+                                    <g fill="black" opacity="0.8" text-anchor="start"
+                                       style="font-size: 10px; font-family:Lucida Console, Monaco, monospace;">
+                                        <text x="70" y="43.6138613861386" dy="0.35em"></text>
+                                        <text x="70" y="68.36633663366335" dy="0.35em"></text>
+                                        <text x="70" y="93.11881188118811" dy="0.35em"></text>
+                                        <text x="70" y="117.87128712871285" dy="0.35em"></text>
+                                        <text x="70" y="142.6237623762376" dy="0.35em"></text>
+                                        <text x="70" y="167.3762376237624" dy="0.35em"></text>
+                                        <text x="70" y="192.12871287128712" dy="0.35em"></text>
+                                        <text x="70" y="216.88118811881188" dy="0.35em"></text>
+                                        <text x="70" y="241.63366336633663" dy="0.35em"></text>
+                                        <text x="70" y="266.38613861386136" dy="0.35em"></text>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
