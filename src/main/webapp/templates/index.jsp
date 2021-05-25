@@ -64,17 +64,12 @@
 <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-6277639-43"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P74CNQT8DY"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'UA-6277639-43');
-    $('[data-toggle="popover"]').popover();
+    gtag('config', 'G-P74CNQT8DY');
 </script>
 <script type="text/javascript" src="static/hgnc_symbols.js"></script>
 <script type="text/javascript" src="static/tissue_legends.js"></script>
