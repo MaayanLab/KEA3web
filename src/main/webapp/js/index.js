@@ -24,15 +24,22 @@ function checkGeneList(data) {
 }
 
 function validateGeneSet(geneset) {
-    let x = false;
+    let url = new URL(window.location.href);
+    let gene = url.searchParams.get("gene");
     if (geneset.length > 1 && $('#num-valid-genes').html() === "0") {
         alert("No valid gene symbols have were recognized. Please note that CHEA3 currently only supports HGNC gene symbols (https://www.genenames.org/). If the submitted genes are identified using other systems, such as Ensembl IDs or Entrez IDs, please converting them to HGNC to proceed.");
     } else if (geneset.length >= 20 && geneset.length <= 3000) {
-        x = true;
+        return true
     } else {
-        alert("Gene set containing fewer than 20 gene or more than 3,000 genes can produce inaccurate results.");
+        if (gene) {
+            return true
+        }
+        else {
+            alert("Gene set containing fewer than 20 gene or more than 3,000 genes can produce inaccurate results.");
+            // return false
+            return true
+        }
     }
-    return x;
 }
 
 function insertExample() {
@@ -200,5 +207,12 @@ function submitList() {
 }
 
 $(document).ready(function () {
+    // This is a hack for CFDE Gene Pages, but who will judge me? Reptilians?
+    let url = new URL(window.location.href);
+    let gene = url.searchParams.get("gene");
+    if (gene) {
+        $('#genelist').val(gene.toUpperCase());
+        submitList();
+    }
     uploadFileListener();
 })
