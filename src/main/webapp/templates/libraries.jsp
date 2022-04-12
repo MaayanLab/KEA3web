@@ -354,7 +354,7 @@
         crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://kit.fontawesome.com/1295b553b3.js"></script>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-6277639-43"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P74CNQT8DY"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -363,6 +363,6 @@
     }
 
     gtag('js', new Date());
-    gtag('config', 'UA-6277639-43');
+    gtag('config', 'G-P74CNQT8DY');
     $('[data-toggle="popover"]').popover();
 </script>

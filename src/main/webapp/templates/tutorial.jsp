@@ -156,7 +156,7 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-6277639-43"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P74CNQT8DY"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -165,6 +165,6 @@
     }
 
     gtag('js', new Date());
-    gtag('config', 'UA-6277639-43');
+    gtag('config', 'G-P74CNQT8DY');
     $('[data-toggle="popover"]').popover();
 </script>
