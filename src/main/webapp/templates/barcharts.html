@@ -102,6 +102,40 @@
             </div>
         </div>
     </div>
+
+
+    <div class="col-lg-6 col-md-8 col-sm-10 mt-1 align-self-start" style="display: block;">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" id="item-2-3">The Kinase Libary
+                    <span data-container="body" data-toggle="popover"
+                          data-placement="right" data-trigger="hover"
+                          data-content='Kinase libraries created from the Kinase Library'
+                          data-template='<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>'
+                          data-html="true">
+                        <i class="fas fa-info-circle" style="color: darkgrey; font-size: 0.9rem;"></i>
+                    </span></h5>
+                <div class="d-flex mb-2">
+                    <p>Showing top <span id="slider-bar-2-4">10</span> results</p>
+                    <input type="range" min="1" max="50" step="1" value="10" class="ml-3 mb-2"
+                           oninput="chart(results['The_Kinase_Library'], '#bar-2-4', parseInt(this.value)); $('#slider-bar-2-4').text(this.value)"
+                           onchange="chart(results['The_Kinase_Library'], '#bar-2-4', parseInt(this.value)); $('#slider-bar-2-4').text(this.value)">
+                </div>
+                <svg id="bar-2-4">
+                </svg>
+                <div class="row ml-1">
+                    <button class="btn btn-primary-outline btn-sm" onclick="save_svg($('#bar-2-4')[0], 'PhosD_All')">
+                        <i class="fas fa-download" title="Download SVG"></i>
+                        SVG
+                    </button>
+                    <button class="btn btn-primary-outline btn-sm" onclick="save_png($('#bar-2-4')[0], 'PhosD_All')">
+                        <i class="fas fa-download" title="Download PNG"></i>
+                        PNG
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <hr>
 <h4 class="my-3" id="item-3">Protein-protein interaction</h4>

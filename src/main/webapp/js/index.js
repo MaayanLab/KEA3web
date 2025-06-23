@@ -149,6 +149,7 @@ function submitList() {
                 results['STRING.bind'].forEach(res => convertRanks(res));
                 results['ChengPPI'].forEach(res => convertRanks(res));
                 results['STRING'].forEach(res => convertRanks(res));
+                results['The_Kinase_Library'].forEach(res => convertRanks(res));
 
                 drawIntegratedTable(results['Integrated--meanRank'], '#table-1-1', 'Mean rank');
                 drawIntegratedTable(results['Integrated--topRank'], '#table-1-2', 'Integrated scaled rank');
@@ -156,6 +157,7 @@ function submitList() {
                 drawTable(results['ChengKSIN'], '#table-2-1', 'ChengKSIN');
                 drawTable(results['PTMsigDB'], '#table-2-2', 'PTMsigDB');
                 drawTable(results['PhosDAll'], '#table-2-3', 'PhosDAll');
+                drawTable(results['The_Kinase_Library'], '#table-2-4', 'The_Kinase_Library');
                 drawTable(results['prePPI'], '#table-3-1', 'prePPI');
                 drawTable(results['BioGRID'], '#table-3-2', 'BioGRID');
                 drawTable(results['mentha'], '#table-3-3', 'mentha');
@@ -173,6 +175,7 @@ function submitList() {
                 chart(results['ChengKSIN'], '#bar-2-1');
                 chart(results['PTMsigDB'], '#bar-2-2');
                 chart(results['PhosDAll'], '#bar-2-3');
+                chart(results['The_Kinase_Library'], '#bar-2-4');
                 chart(results['prePPI'], '#bar-3-1');
                 chart(results['BioGRID'], '#bar-3-2');
                 chart(results['mentha'], '#bar-3-3');
@@ -189,6 +192,7 @@ function submitList() {
                 graph('ChengKSIN', '#graph-2-1');
                 graph('PTMsigDB', '#graph-2-2');
                 graph('PhosDAll', '#graph-2-3');
+                graph('The_Kinase_Library', '#graph-2-4');
                 graph('prePPI', '#graph-3-1');
                 graph('BioGRID', '#graph-3-2');
                 graph('mentha', '#graph-3-3');

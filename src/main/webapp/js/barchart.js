@@ -5,7 +5,7 @@ $.get('static/meanrank_legend.html', function (response) {
 });
 
 function split_libs(result, threshold, num) {
-    let vals = 'name,BioGRID,ChengKSIN,ChengPPI,HIPPIE,mentha,MINT,PhosDAll,prePPI,PTMsigDB,STRING,STRING.bind';
+    let vals = 'name,BioGRID,ChengKSIN,ChengPPI,HIPPIE,mentha,MINT,PhosDAll,prePPI,PTMsigDB,STRING,STRING.bind,The_Kinase_Library';
     let counter = 0;
     for (let kin of result) {
         let lib_vals = {
@@ -19,7 +19,8 @@ function split_libs(result, threshold, num) {
             "prePPI": 0,
             "PTMsigDB": 0,
             "STRING": 0,
-            "STRING.bind": 0
+            "STRING.bind": 0,
+            "The_Kinase_Library": 0,
         };
         let kinase = kin['TF']; // lol
         let libstring = kin['Library']
@@ -33,7 +34,7 @@ function split_libs(result, threshold, num) {
             }
         }
         if ((non_z_counter >= threshold)&&(counter < num)) {
-            vals = `${vals}\n${kinase},${lib_vals["BioGRID"]},${lib_vals["ChengKSIN"]},${lib_vals["ChengPPI"]},${lib_vals["HIPPIE"]},${lib_vals["mentha"]},${lib_vals["MINT"]},${lib_vals["PhosDAll"]},${lib_vals["prePPI"]},${lib_vals["PTMsigDB"]},${lib_vals["STRING"]},${lib_vals["STRING.bind"]}`;
+            vals = `${vals}\n${kinase},${lib_vals["BioGRID"]},${lib_vals["ChengKSIN"]},${lib_vals["ChengPPI"]},${lib_vals["HIPPIE"]},${lib_vals["mentha"]},${lib_vals["MINT"]},${lib_vals["PhosDAll"]},${lib_vals["prePPI"]},${lib_vals["PTMsigDB"]},${lib_vals["STRING"]},${lib_vals["STRING.bind"]},${lib_vals["The_Kinase_Library"]}`;
             counter++;
         }
     }
