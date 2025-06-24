@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  kea3:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.next
+    platform: linux/amd64
+    image: maayanlab/kea3:1.0.3
+    x-kubernetes:
+      strategy:
+        type: Recreate
+      imagePullPolicy: IfNotPresent
+      annotations:
+        maayanlab.cloud/ingress: https://staging.maayanlab.cloud/kea3
+    ports:
+      - 8080:8080
+x-kubernetes:
+  name: kea3
+  namespace: kea3
