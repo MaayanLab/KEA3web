@@ -6,7 +6,7 @@ buildscript {
 
     dependencies {
         classpath 'com.bmuschko:gradle-tomcat-plugin:2.5'
-        classpath "com.github.node-gradle:gradle-node-plugin:2.2.4"
+        classpath "com.github.node-gradle:gradle-node-plugin:3.4.0"
     }
 }
 
@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    def tomcatVersion = '8.0.42'
+    def tomcatVersion = '8.5.41'
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:8.5.2",
             "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
