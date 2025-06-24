@@ -66,14 +66,10 @@ function stacked_chart(json, wrapper, num = 10, threshold = 3) {
         .attr("y", height - margin.bottom + 15)
         .text("Mean Rank")
 
-    console.log(data)
-    console.log("data")
-    console.log(data.columns.slice(1))
     
     const series = d3.stack()
         .keys(data.columns.filter(i=>i.endsWith("_norm")))(data)
         .map(d => (d.forEach(v => v.key = d.key), d));
-    console.log(series)
     const x = d3.scaleLinear()
         .domain([0, d3.max(series, d => d3.max(d, d => d[1]))])
         .range([margin.left, width - margin.right]);
@@ -105,7 +101,6 @@ function stacked_chart(json, wrapper, num = 10, threshold = 3) {
 
     svg.attr("viewBox", [0, 0, width, height])
         .attr("class", "barchart");
-    console.log(series)
     svg.append("g")
         .selectAll("g")
         .data(series)

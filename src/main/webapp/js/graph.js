@@ -45,12 +45,6 @@ graph = (library, wrapper, num= 10) => {
                 return k.includes(node.id);
             })
         });
-        if (library.startsWith("Integrated--")) {
-            console.log(k)
-            console.log(library)
-            console.log(kinase_graph)
-            console.log(data)
-        }
         const font_size = d3
             .scaleLinear()
             .domain([
