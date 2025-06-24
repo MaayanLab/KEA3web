@@ -64,7 +64,7 @@ function stacked_chart(json, wrapper, num = 10, threshold = 3) {
         .style("font", "12px sans-serif")
         .attr("x", width/2)
         .attr("y", height - margin.bottom + 15)
-        .text("Sum of Ranks")
+        .text("Mean Rank")
 
     console.log(data)
     console.log("data")
