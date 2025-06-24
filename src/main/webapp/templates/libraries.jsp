@@ -15,6 +15,8 @@
 
     <meta property="og:type" content="website"/>
     <meta property="og:image" content="//kea3kea3/static/thumbnail.png"/>
+    <script src="//code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -42,7 +44,7 @@
                         <th scope="col" style="vertical-align: top">Unique Kinases</th>
                         <th scope="col" style="vertical-align: top">Unique Substrates</th>
                         <th scope="col" style="vertical-align: top">Mean Set Size</th>
-                        <th scope="col" style="vertical-align: top">Download</th>
+                        <th scope="col" style="vertical-align: top; text-align: center;">Download</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -61,7 +63,11 @@
                         <td>2,251</td>
                         <td>24</td>
                         <td><a download="" href="/kea3/static/libraries/BioGRID.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -71,7 +77,11 @@
                         <td>2,154</td>
                         <td>31</td>
                         <td><a download="" href="/kea3/static/libraries/Cheng.KSIN.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -81,7 +91,11 @@
                         <td>8,798</td>
                         <td>97</td>
                         <td><a download="" href="/kea3/static/libraries/HIPPIE.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -90,7 +104,11 @@
                         <td>8,639</td>
                         <td>72</td>
                         <td><a download="" href="/kea3/static/libraries/mentha.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -99,7 +117,11 @@
                         <td>1,383</td>
                         <td>72</td>
                         <td><a download="" href="/kea3/static/libraries/MINT.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -109,7 +131,11 @@
                         <td>4,678</td>
                         <td>40</td>
                         <td><a download="" href="/kea3/static/libraries/Cheng.PPI.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -119,7 +145,11 @@
                         <td>2,262</td>
                         <td>32</td>
                         <td><a download="" href="/kea3/static/libraries/PTMsigDB.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -130,7 +160,11 @@
                         <td>18,213</td>
                         <td>1,235</td>
                         <td><a download="" href="/kea3/static/libraries/STRING.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -141,7 +175,11 @@
                         <td>5,254</td>
                         <td>72</td>
                         <td><a download="" href="/kea3/static/libraries/STRING.bind.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -150,7 +188,11 @@
                         <td>6,544</td>
                         <td>368</td>
                         <td><a download="" href="/kea3/static/libraries/PhosD.All.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -159,7 +201,24 @@
                         <td>14,382</td>
                         <td>658</td>
                         <td><a download="" href="/kea3/static/libraries/prePPI.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
+                        </a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://kinase-library.mit.edu/home" target="_blank">The Kinase Library</a></td>
+                        <td>392</td>
+                        <td>9,122</td>
+                        <td>627</td>
+                        <td><a download="" href="/kea3/static/libraries/The_Kinase_Library.gmt">
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
 
@@ -179,7 +238,11 @@
                         <td>-</td>
                         <td>-</td>
                         <td><a download="" href="/kea3/static/libraries/PTMsigDB_drugtarget_signatures.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -189,7 +252,11 @@
                         <td>-</td>
                         <td>-</td>
                         <td><a download="" href="/kea3/static/libraries/single_kinase_perts_from_GEO_updn.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -199,7 +266,11 @@
                         <td>-</td>
                         <td>-</td>
                         <td><a download="" href="/kea3/static/libraries/L1000FWD_kin_targets_updn.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <!-- Additional Libraries -->
@@ -218,7 +289,11 @@
                         <td>493</td>
                         <td>14</td>
                         <td><a download="" href="/kea3/static/libraries/PSOPIA.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -228,7 +303,11 @@
                         <td>2,269</td>
                         <td>32</td>
                         <td><a download="" href="/kea3/static/libraries/PhosphoSitePlus.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -238,7 +317,11 @@
                         <td>1,914</td>
                         <td>83</td>
                         <td><a download="" href="/kea3/static/libraries/PhosphoNetworks.rawKSI.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -248,7 +331,11 @@
                         <td>1,115</td>
                         <td>23</td>
                         <td><a download="" href="/kea3/static/libraries/PhosphoNetworks.comKSI.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -258,7 +345,11 @@
                         <td>717</td>
                         <td>21</td>
                         <td><a download="" href="/kea3/static/libraries/PhosphoNetworks.refKSI.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -267,7 +358,11 @@
                         <td>3,799</td>
                         <td>127</td>
                         <td><a download="" href="/kea3/static/libraries/PhosD.ELM.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -276,7 +371,11 @@
                         <td>5,565</td>
                         <td>246</td>
                         <td><a download="" href="/kea3/static/libraries/PhosD.ELM.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -286,7 +385,11 @@
                         <td>16,711</td>
                         <td>300</td>
                         <td><a download="" href="/kea3/static/libraries/ARCHS4.coexp.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -295,7 +398,11 @@
                         <td>17,769</td>
                         <td>300</td>
                         <td><a download="" href="/kea3/static/libraries/GTEx.coexp.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -305,7 +412,11 @@
                         <td>2,068</td>
                         <td>50</td>
                         <td><a download="" href="/kea3/static/libraries/PIPs.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -314,7 +425,11 @@
                         <td>1,209</td>
                         <td>22</td>
                         <td><a download="" href="/kea3/static/libraries/REACTOME.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -324,7 +439,11 @@
                         <td>418</td>
                         <td>16</td>
                         <td><a download="" href="/kea3/static/libraries/Phospho.ELM.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     <tr>
@@ -334,7 +453,11 @@
                         <td>294</td>
                         <td>12</td>
                         <td><a download="" href="/kea3/static/libraries/hu.MAP.gmt">
-                            <i class="fas fa-file-download" aria-hidden="true"></i>
+                            <div class="flex justify-center">
+                                <div>
+                                    <span class="iconify" data-icon="mdi-download"></span>
+                                </div>
+                            </div>
                         </a></td>
                     </tr>
                     </tbody>
