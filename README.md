@@ -6,7 +6,7 @@ Note: This website is built using Gradle 6.9.2.
 ```
 gradle build -t & gradle tomcatRun
 ```
-Go to `http://localhost:8080/kea3`
+Go to `http://localhost:8080/kea3`. If you encounter some issues re-running it, run `gradle --stop` before building.
 
 ## Deployment
 Update the version on the compose file and run the following
