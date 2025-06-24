@@ -64,10 +64,12 @@ function uploadFileListener() {
     })
 }
 
-function kinases(results, num = results.length) {
+function kinases(results, num = results.length, filter_length=false) {
     let kinases = [];
-    for (let res of results.slice(0, num)) {
-        kinases.push(res.TF);
+    for (let res of results) {
+        const libraries = res["Library"].split(";")
+        if (libraries.length >= 3 || !filter_length) kinases.push(res.TF);
+        if (kinases.length === num) break
     }
     return kinases;
 }
