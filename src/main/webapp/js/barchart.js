@@ -5,7 +5,7 @@ $.get('static/meanrank_legend.html', function (response) {
 });
 
 function split_libs(result, threshold, num) {
-    let vals = 'name,BioGRID,ChengKSIN,ChengPPI,HIPPIE,mentha,MINT,PhosDAll,prePPI,PTMsigDB,STRING,STRING.bind';
+    let vals = 'name,BioGRID,ChengKSIN,ChengPPI,HIPPIE,mentha,MINT,PhosDAll,prePPI,PTMsigDB,STRING,STRING.bind,The_Kinase_Library,BioGRID_norm,ChengKSIN_norm,ChengPPI_norm,HIPPIE_norm,mentha_norm,MINT_norm,PhosDAll_norm,prePPI_norm,PTMsigDB_norm,STRING_norm,STRING.bind_norm,The_Kinase_Library_norm,mean_rank,total';
     let counter = 0;
     for (let kin of result) {
         let lib_vals = {
@@ -19,21 +19,25 @@ function split_libs(result, threshold, num) {
             "prePPI": 0,
             "PTMsigDB": 0,
             "STRING": 0,
-            "STRING.bind": 0
+            "STRING.bind": 0,
+            "The_Kinase_Library": 0,
         };
         let kinase = kin['TF']; // lol
         let libstring = kin['Library']
+        const mean_rank = kin['Score']
         let libs = libstring.split(';');
         let non_z_counter = 0;
+        let total = 0;
         for (let l of libs) {
             const nv = l.split(',');
             lib_vals[nv[0]] = parseInt(nv[1]);
             if (parseInt(nv[1])) {
                 non_z_counter++;
+                total = total + parseInt(nv[1])
             }
         }
         if ((non_z_counter >= threshold)&&(counter < num)) {
-            vals = `${vals}\n${kinase},${lib_vals["BioGRID"]},${lib_vals["ChengKSIN"]},${lib_vals["ChengPPI"]},${lib_vals["HIPPIE"]},${lib_vals["mentha"]},${lib_vals["MINT"]},${lib_vals["PhosDAll"]},${lib_vals["prePPI"]},${lib_vals["PTMsigDB"]},${lib_vals["STRING"]},${lib_vals["STRING.bind"]}`;
+            vals = `${vals}\n${kinase},${lib_vals["BioGRID"]},${lib_vals["ChengKSIN"]},${lib_vals["ChengPPI"]},${lib_vals["HIPPIE"]},${lib_vals["mentha"]},${lib_vals["MINT"]},${lib_vals["PhosDAll"]},${lib_vals["prePPI"]},${lib_vals["PTMsigDB"]},${lib_vals["STRING"]},${lib_vals["STRING.bind"]},${lib_vals["The_Kinase_Library"]},${lib_vals["BioGRID"]/total*mean_rank},${lib_vals["ChengKSIN"]/total*mean_rank},${lib_vals["ChengPPI"]/total*mean_rank},${lib_vals["HIPPIE"]/total*mean_rank},${lib_vals["mentha"]/total*mean_rank},${lib_vals["MINT"]/total*mean_rank},${lib_vals["PhosDAll"]/total*mean_rank},${lib_vals["prePPI"]/total*mean_rank},${lib_vals["PTMsigDB"]/total*mean_rank},${lib_vals["STRING"]/total*mean_rank},${lib_vals["STRING.bind"]/total*mean_rank},${lib_vals["The_Kinase_Library"]/total*mean_rank},${mean_rank},${total}`;
             counter++;
         }
     }
@@ -43,10 +47,7 @@ function split_libs(result, threshold, num) {
 function stacked_chart(json, wrapper, num = 10, threshold = 3) {
     let data = d3
         .csvParse(
-            split_libs(json, threshold, num),
-            (d, i, columns) => (
-                d3.autoType(d), (d.total = d3.sum(columns, c => d[c])), d
-            )
+            split_libs(json, threshold, num)
         );
         // .sort((a, b) => b.total - a.total);
     const margin = ({top: 80, right: 20, bottom: 20, left: 60});
@@ -63,12 +64,12 @@ function stacked_chart(json, wrapper, num = 10, threshold = 3) {
         .style("font", "12px sans-serif")
         .attr("x", width/2)
         .attr("y", height - margin.bottom + 15)
-        .text("Sum of Ranks")
+        .text("Mean Rank")
 
+    
     const series = d3.stack()
-        .keys(data.columns.slice(1))(data)
+        .keys(data.columns.filter(i=>i.endsWith("_norm")))(data)
         .map(d => (d.forEach(v => v.key = d.key), d));
-
     const x = d3.scaleLinear()
         .domain([0, d3.max(series, d => d3.max(d, d => d[1]))])
         .range([margin.left, width - margin.right]);
@@ -80,8 +81,9 @@ function stacked_chart(json, wrapper, num = 10, threshold = 3) {
 
     let color = d3.scaleOrdinal()
         .domain(series.map(d => d.key))
-        .range(d3.schemeSpectral[series.length])
+        .range(series.map((d,i) => d3.interpolateSpectral(i/series.length)))
         .unknown("#ccc");
+    
 
     let xAxis = g => g
         .attr("transform", `translate(0,${margin.top})`)
@@ -99,7 +101,6 @@ function stacked_chart(json, wrapper, num = 10, threshold = 3) {
 
     svg.attr("viewBox", [0, 0, width, height])
         .attr("class", "barchart");
-
     svg.append("g")
         .selectAll("g")
         .data(series)
@@ -113,7 +114,7 @@ function stacked_chart(json, wrapper, num = 10, threshold = 3) {
         .attr("width", d => x(d[1]) - x(d[0]))
         .attr("height", y.bandwidth())
         .append("title")
-        .text(d => `${d.key}: ${formatValue(d.data[d.key])}`);
+        .text(d => `${d.key.replace("_norm", "")}: ${formatValue(d.data[d.key.replace("_norm", "")])}`);
 
     svg.append("g").call(xAxis);
     svg.append("g").call(yAxis);

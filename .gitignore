@@ -21,3 +21,4 @@ out
 package-lock.json
 src/.metadata/
 target/
+settings.json

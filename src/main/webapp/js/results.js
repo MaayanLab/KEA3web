@@ -42,7 +42,7 @@ function drawTable(data, wrapper, name) {
         retrieve: true,
         buttons: [{
             extend: 'csvHtml5',
-            text: '<i class="fas fa-download" title="Download TSV"></i>.tsv',
+            text: '<span class="iconify" data-icon="mdi-download"></span> Download .tsv',
             filename: name,
             fieldSeparator: '\t',
             extension: '.tsv',
@@ -139,7 +139,7 @@ function drawIntegratedTable(data, wrapper, score, num = 10) {
         retrieve: true,
         buttons: [{
             extend: 'csvHtml5',
-            text: '<i class="fas fa-download" title="Download TSV"></i>.tsv',
+            text: '<span class="iconify" data-icon="mdi-download"></span> Download .tsv',
             filename: score,
             fieldSeparator: '\t',
             extension: '.tsv',
